@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "p1",
+      "name": "Linen Throw Blanket",
+      "price": 48,
+      "category": "Home",
+      "stock": 12,
+      "desc": "Stonewashed 100% linen, 130 × 170 cm.",
+      "image": "/images/uploads/blanket.jpg"
+    },
+    {
+      "id": "p2",
+      "name": "Ceramic Mug Set",
+      "price": 26,
+      "category": "Home",
+      "stock": 8,
+      "desc": "Set of 4 hand-glazed stoneware mugs.",
+      "image": "/images/uploads/mug-set.jpg"
+    }
+  ]
+}
