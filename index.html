@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Store — Shop</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#" onclick="return false">
+      <span class="brand-mark" id="brandMark">S</span>
+      <span class="brand-name" id="brandName">My Store</span>
+    </a>
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="Search products…" autocomplete="off">
+    </div>
+    <button class="cart-btn" id="cartBtn">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+      </svg>
+      <span>Cart</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="wrap hero">
+  <h1 id="heroTitle">My Store</h1>
+  <p id="heroTagline">Browse the stock and order in seconds.</p>
+</section>
+
+<!-- ================= FILTERS ================= -->
+<div class="wrap">
+  <div class="filters" id="filters"></div>
+</div>
+
+<!-- ================= GRID ================= -->
+<main class="wrap">
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p id="footerNote" style="margin:0 0 10px"></p>
+    <button id="adminOpenBtn">Admin panel</button>
+  </div>
+</footer>
+
+<!-- ================= CART DRAWER ================= -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h2>Your cart</h2>
+    <button class="icon-btn" id="closeCart" aria-label="Close">✕</button>
+  </div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-foot">
+    <div class="totals">
+      <span>Total</span>
+      <strong id="cartTotal">$0.00</strong>
+    </div>
+    <div class="field">
+      <input id="custName" type="text" placeholder="Your name (optional)">
+    </div>
+    <div class="field">
+      <textarea id="custNote" rows="2" placeholder="Note — address, delivery, questions… (optional)"></textarea>
+    </div>
+    <button class="btn-wa" id="orderBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+      </svg>
+      Order on WhatsApp
+    </button>
+    <p class="hint">No payment here — we confirm everything on WhatsApp.</p>
+  </div>
+</aside>
+
+<!-- ================= ADMIN MODAL ================= -->
+<div class="modal" id="adminModal">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2>Admin panel</h2>
+      <button class="icon-btn" id="closeAdmin" aria-label="Close">✕</button>
+    </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="products">Products</button>
+      <button class="tab" data-tab="settings">Store settings</button>
+    </div>
+
+    <!-- Products tab -->
+    <div class="modal-body" id="tab-products">
+      <form id="productForm" class="form-grid" autocomplete="off">
+        <input type="hidden" id="pId">
+        <label>Product name
+          <input id="pName" required placeholder="e.g. Linen Throw Blanket">
+        </label>
+        <label>Price
+          <input id="pPrice" type="number" step="0.01" min="0" required placeholder="0.00">
+        </label>
+        <label>Category
+          <input id="pCategory" list="catList" placeholder="e.g. Home">
+          <datalist id="catList"></datalist>
+        </label>
+        <label>Stock (blank = unlimited)
+          <input id="pStock" type="number" min="0" step="1" placeholder="e.g. 10">
+        </label>
+        <label class="full">Description
+          <textarea id="pDesc" rows="2" placeholder="Short description…"></textarea>
+        </label>
+        <label class="full">Upload image
+          <input id="pImageFile" type="file" accept="image/*">
+        </label>
+        <label class="full">…or paste an image URL
+          <input id="pImageUrl" type="url" placeholder="https://…">
+        </label>
+        <div class="img-preview full" id="pPreview"></div>
+        <div class="form-actions full">
+          <button type="submit" class="btn primary" id="pSaveBtn">Add product</button>
+          <button type="button" class="btn ghost" id="pClearBtn">Clear form</button>
+        </div>
+      </form>
+
+      <h3 class="section-title">Your stock (<span id="adminCount">0</span>)</h3>
+      <div class="admin-list" id="adminList"></div>
+    </div>
+
+    <!-- Settings tab -->
+    <div class="modal-body hidden" id="tab-settings">
+      <form id="settingsForm" class="form-grid" autocomplete="off">
+        <label>Store name
+          <input id="sStoreName" required>
+        </label>
+        <label>Currency symbol
+          <input id="sCurrency" placeholder="$" maxlength="4">
+        </label>
+        <label class="full">WhatsApp number (country code, digits only)
+          <input id="sWhatsapp" placeholder="15551234567" required>
+        </label>
+        <label class="full">Tagline
+          <input id="sTagline">
+        </label>
+        <label class="full">Footer note
+          <input id="sFooterNote">
+        </label>
+        <label>Admin password
+          <input id="sAdminPass" placeholder="admin123">
+        </label>
+        <div class="form-actions full" style="margin-top:6px">
+          <button type="submit" class="btn primary">Save settings</button>
+          <button type="button" class="btn danger" id="resetDemoBtn">Reset everything to demo data</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
