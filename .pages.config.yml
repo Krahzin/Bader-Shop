@@ -1,0 +1,40 @@
+media:
+  input: images/uploads
+  output: /images/uploads
+
+content:
+  - name: products
+    label: Products
+    type: file
+    path: products.json
+    fields:
+      - name: products
+        label: Products
+        type: object
+        list: true
+        fields:
+          - name: id
+            label: ID
+            type: string
+            required: true
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: price
+            label: Price
+            type: number
+            required: true
+          - name: category
+            label: Category
+            type: string
+          - name: stock
+            label: Stock
+            type: number
+            description: Leave empty for unlimited
+          - name: desc
+            label: Description
+            type: text
+          - name: image
+            label: Image
+            type: image
