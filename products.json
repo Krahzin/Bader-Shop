@@ -17,6 +17,15 @@
       "stock": 8,
       "desc": "Set of 4 hand-glazed stoneware mugs.",
       "image": "/images/uploads/mug-set.jpg"
+    },
+    {
+      "id": "p3",
+      "name": "Butt plug",
+      "price": 23.99,
+      "category": "toys",
+      "stock": 2,
+      "desc": "really smooth butt plug",
+      "image": "/images/uploads/images.jpg"
     }
   ]
 }
