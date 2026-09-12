@@ -1,16 +1,23 @@
 /* =========================================================
-   STORAGE
+   STORAGE KEYS
+   ---------------------------------------------------------
+   Live data (products + settings) comes from products.json.
+   Only the cart and the admin's local draft live in localStorage.
    ========================================================= */
 const LS = {
-  products: 'shop.products.v1',
-  cart:     'shop.cart.v1',
-  settings: 'shop.settings.v1'
+  cart:  'shop.cart.v1',
+  draft: 'shop.admin.draft.v1'   // admin's unpublished edits (this browser only)
 };
 
+/* =========================================================
+   FALLBACK DATA
+   ---------------------------------------------------------
+   Used only if products.json is missing or fails to load.
+   ========================================================= */
 const DEFAULT_SETTINGS = {
   storeName: 'My Store',
   tagline: 'Browse the stock and order in seconds.',
-  whatsapp: '+961 76 199 961',
+  whatsapp: '15551234567',
   currency: '$',
   adminPass: 'admin123',
   footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
@@ -31,6 +38,19 @@ const SEED_PRODUCTS = [
     desc:'160 gsm dotted paper, 192 pages.', image:'' }
 ];
 
+/* =========================================================
+   STATE
+   ========================================================= */
+let settings     = Object.assign({}, DEFAULT_SETTINGS);
+let products     = [];
+let cart         = load(LS.cart, {});
+let activeCategory = 'all';
+let currentImage = '';
+let draftActive  = false;   // true when admin's local draft overrides products.json
+
+/* =========================================================
+   STORAGE HELPERS
+   ========================================================= */
 function load(key, fallback){
   try{
     const raw = localStorage.getItem(key);
@@ -43,16 +63,40 @@ function save(key, value){
   catch(e){ toast('Storage is full — try smaller images.'); return false; }
 }
 
-let settings = Object.assign({}, DEFAULT_SETTINGS, load(LS.settings, {}));
-let products = load(LS.products, SEED_PRODUCTS);
-let cart     = load(LS.cart, {});
-let activeCategory = 'all';
-let currentImage = '';
+/* =========================================================
+   DATA LOADING  (products.json → state)
+   ========================================================= */
+async function loadStoreData(){
+  let remote = null;
+  try{
+    const res = await fetch('products.json', { cache: 'no-store' });
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    remote = await res.json();
+  }catch(err){
+    console.warn('Could not load products.json — using fallback data.', err);
+  }
+
+  if(remote){
+    settings = Object.assign({}, DEFAULT_SETTINGS, remote.settings || {});
+    products = Array.isArray(remote.products) ? remote.products : [];
+  }else{
+    settings = Object.assign({}, DEFAULT_SETTINGS, load('shop.settings.v1', {}));
+    products = load('shop.products.v1', SEED_PRODUCTS);
+  }
+
+  // If the admin has unpublished edits, use those for this browser.
+  const draft = load(LS.draft, null);
+  if(draft && Array.isArray(draft.products)){
+    products = draft.products;
+    if(draft.settings) settings = Object.assign({}, DEFAULT_SETTINGS, draft.settings);
+    draftActive = true;
+  }
+}
 
 /* =========================================================
    HELPERS
    ========================================================= */
-const $ = s => document.querySelector(s);
+const $  = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
 const uid = () => 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
 
@@ -71,7 +115,7 @@ function placeholderStyle(name){
   for(let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) % 360;
   return `background:linear-gradient(135deg,hsl(${h} 45% 90%),hsl(${(h+45)%360} 45% 80%));`;
 }
-function mediaHtml(p, small){
+function mediaHtml(p){
   if(p.image){
     return `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">`;
   }
@@ -91,12 +135,29 @@ function toast(msg){
    RENDER — HEADER / HERO / FOOTER
    ========================================================= */
 function renderChrome(){
-  $('#brandName').textContent = settings.storeName;
-  $('#brandMark').textContent = (settings.storeName.trim()[0] || 'S').toUpperCase();
-  $('#heroTitle').textContent = settings.storeName;
+  $('#brandName').textContent  = settings.storeName;
+  $('#brandMark').textContent  = (settings.storeName.trim()[0] || 'S').toUpperCase();
+  $('#heroTitle').textContent  = settings.storeName;
   $('#heroTagline').textContent = settings.tagline || '';
   $('#footerNote').textContent = settings.footerNote || '';
   document.title = settings.storeName + ' — Shop';
+
+  // Draft banner
+  let banner = $('#draftBanner');
+  if(draftActive){
+    if(!banner){
+      banner = document.createElement('div');
+      banner.id = 'draftBanner';
+      banner.style.cssText =
+        'background:#fff7e0;border-bottom:1px solid #f0e0a8;color:#7a5c00;' +
+        'font-size:13px;padding:8px 16px;text-align:center;font-weight:600;';
+      document.body.insertBefore(banner, document.body.firstChild);
+    }
+    banner.textContent = 'You are viewing an unpublished local draft. ' +
+                         'Publish via Admin → Export products.json.';
+  }else if(banner){
+    banner.remove();
+  }
 }
 
 /* =========================================================
@@ -108,9 +169,9 @@ function renderFilters(){
   if(!cats.length){ el.innerHTML = ''; return; }
   el.innerHTML =
     `<button class="chip ${activeCategory==='all'?'active':''}" data-cat="all">All</button>` +
-    cats.map(c => `<button class="chip ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`).join('');
-
-  // datalist for admin
+    cats.map(c =>
+      `<button class="chip ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`
+    ).join('');
   $('#catList').innerHTML = cats.map(c => `<option value="${escapeHtml(c)}">`).join('');
 }
 
@@ -130,7 +191,7 @@ function renderProducts(){
   if(!list.length){
     grid.innerHTML = `<div class="empty-state">
       <strong>Nothing here yet</strong>
-      ${products.length ? 'Try a different search or category.' : 'Open the Admin panel to upload your stock.'}
+      ${products.length ? 'Try a different search or category.' : 'Add products in the Admin panel and export products.json.'}
     </div>`;
     return;
   }
@@ -176,7 +237,8 @@ function addToCart(id){
   const p = products.find(x => x.id === id);
   if(!p) return;
   const inCart = cart[id] || 0;
-  const max = (p.stock === '' || p.stock === null || p.stock === undefined) ? Infinity : Number(p.stock);
+  const max = (p.stock === '' || p.stock === null || p.stock === undefined)
+    ? Infinity : Number(p.stock);
   if(inCart + 1 > max){ toast('No more stock available'); return; }
   cart[id] = inCart + 1;
   save(LS.cart, cart);
@@ -186,7 +248,8 @@ function addToCart(id){
 function setQty(id, qty){
   const p = products.find(x => x.id === id);
   if(!p) return;
-  const max = (p.stock === '' || p.stock === null || p.stock === undefined) ? Infinity : Number(p.stock);
+  const max = (p.stock === '' || p.stock === null || p.stock === undefined)
+    ? Infinity : Number(p.stock);
   qty = Math.max(0, Math.min(qty, max));
   if(qty === 0) delete cart[id];
   else cart[id] = qty;
@@ -194,8 +257,9 @@ function setQty(id, qty){
   renderCart();
 }
 function renderCart(){
-  // prune items whose product no longer exists
-  Object.keys(cart).forEach(id => { if(!products.find(p => p.id === id)) delete cart[id]; });
+  Object.keys(cart).forEach(id => {
+    if(!products.find(p => p.id === id)) delete cart[id];
+  });
   save(LS.cart, cart);
 
   const entries = cartEntries();
@@ -203,10 +267,10 @@ function renderCart(){
 
   if(!entries.length){
     body.innerHTML = `<div class="cart-empty"><div class="big">🛒</div>Your cart is empty.<br>Add something you like!</div>`;
-  } else {
+  }else{
     body.innerHTML = entries.map(({product:p, qty}) => `
       <div class="cart-item">
-        <div class="ci-media">${mediaHtml(p, true)}</div>
+        <div class="ci-media">${mediaHtml(p)}</div>
         <div class="ci-info">
           <div class="ci-name">${escapeHtml(p.name)}</div>
           <div class="ci-price">${money(p.price)} each</div>
@@ -252,18 +316,16 @@ function buildOrderMessage(){
   if(note){ lines.push(`Note: ${note}`); }
   return lines.join('\n');
 }
-
 function orderOnWhatsApp(){
   const entries = cartEntries();
   if(!entries.length){ toast('Your cart is empty'); return; }
 
   const digits = String(settings.whatsapp || '').replace(/[^\d]/g, '');
   if(!digits){
-    toast('Set your WhatsApp number in the Admin panel first');
+    toast('Set your WhatsApp number in products.json (or Admin → Store settings)');
     openAdmin();
     return;
   }
-
   const url = `https://wa.me/${digits}?text=${encodeURIComponent(buildOrderMessage())}`;
   window.open(url, '_blank');
 }
@@ -283,7 +345,10 @@ function closeCart(){
 }
 
 /* =========================================================
-   ADMIN
+   ADMIN PANEL  (local draft editor)
+   ---------------------------------------------------------
+   Edits are saved to localStorage as a draft. They show up
+   here only for you. Click Export products.json to publish.
    ========================================================= */
 function openAdmin(){
   const pass = prompt('Enter admin password:');
@@ -299,6 +364,20 @@ function closeAdmin(){
   document.body.classList.remove('locked');
 }
 
+function saveDraft(){
+  const ok = save(LS.draft, { settings, products });
+  if(ok){
+    draftActive = true;
+    renderChrome();
+  }
+}
+function discardDraft(){
+  localStorage.removeItem(LS.draft);
+  draftActive = false;
+  toast('Draft discarded — reloading…');
+  setTimeout(() => location.reload(), 400);
+}
+
 function renderAdminList(){
   $('#adminCount').textContent = products.length;
   const list = $('#adminList');
@@ -308,11 +387,13 @@ function renderAdminList(){
   }
   list.innerHTML = products.map(p => `
     <div class="admin-row">
-      <div class="thumb">${mediaHtml(p, true)}</div>
+      <div class="thumb">${mediaHtml(p)}</div>
       <div class="meta">
         <b>${escapeHtml(p.name)}</b>
         <small>${money(p.price)}${p.category ? ' · ' + escapeHtml(p.category) : ''}${
-          (p.stock === '' || p.stock === null || p.stock === undefined) ? ' · unlimited' : ' · ' + p.stock + ' in stock'
+          (p.stock === '' || p.stock === null || p.stock === undefined)
+            ? ' · unlimited'
+            : ' · ' + p.stock + ' in stock'
         }</small>
       </div>
       <div class="acts">
@@ -342,15 +423,15 @@ function renderPreview(){
 }
 
 function fillSettingsForm(){
-  $('#sStoreName').value = settings.storeName || '';
-  $('#sCurrency').value = settings.currency || '$';
-  $('#sWhatsapp').value = settings.whatsapp || '';
-  $('#sTagline').value = settings.tagline || '';
+  $('#sStoreName').value  = settings.storeName || '';
+  $('#sCurrency').value   = settings.currency || '$';
+  $('#sWhatsapp').value   = settings.whatsapp || '';
+  $('#sTagline').value    = settings.tagline || '';
   $('#sFooterNote').value = settings.footerNote || '';
-  $('#sAdminPass').value = settings.adminPass || '';
+  $('#sAdminPass').value  = settings.adminPass || '';
 }
 
-/* Resize + compress an uploaded image into a data URL */
+/* Image file → resized/compressed data URL */
 function fileToDataUrl(file, maxSize = 900, quality = 0.82){
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -359,7 +440,7 @@ function fileToDataUrl(file, maxSize = 900, quality = 0.82){
       img.onload = () => {
         let { width, height } = img;
         const ratio = Math.min(1, maxSize / Math.max(width, height));
-        width = Math.round(width * ratio);
+        width  = Math.round(width  * ratio);
         height = Math.round(height * ratio);
         const canvas = document.createElement('canvas');
         canvas.width = width;
@@ -378,12 +459,57 @@ function fileToDataUrl(file, maxSize = 900, quality = 0.82){
   });
 }
 
+/* Export / Import products.json */
+function exportProductsJson(){
+  const payload = {
+    settings: {
+      storeName:  settings.storeName,
+      tagline:    settings.tagline,
+      whatsapp:   settings.whatsapp,
+      currency:   settings.currency,
+      footerNote: settings.footerNote,
+      adminPass:  settings.adminPass
+    },
+    products: products
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'products.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1500);
+  toast('products.json downloaded — commit it to your repo');
+}
+function importProductsJson(file){
+  const reader = new FileReader();
+  reader.onload = e => {
+    try{
+      const data = JSON.parse(e.target.result);
+      if(data.settings) settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
+      products = Array.isArray(data.products) ? data.products : [];
+      saveDraft();
+      renderChrome();
+      renderFilters();
+      renderProducts();
+      renderAdminList();
+      fillSettingsForm();
+      toast('Imported into local draft');
+    }catch(err){
+      toast('That file could not be parsed');
+    }
+  };
+  reader.readAsText(file);
+}
+
 /* =========================================================
    EVENT WIRING
    ========================================================= */
 function bindEvents(){
 
-  /* --- search + filters --- */
+  /* search + filters */
   $('#searchInput').addEventListener('input', renderProducts);
   $('#filters').addEventListener('click', e => {
     const btn = e.target.closest('[data-cat]');
@@ -393,18 +519,18 @@ function bindEvents(){
     renderProducts();
   });
 
-  /* --- add to cart from grid --- */
+  /* add to cart */
   $('#grid').addEventListener('click', e => {
     const btn = e.target.closest('[data-add]');
     if(btn) addToCart(btn.dataset.add);
   });
 
-  /* --- cart drawer open/close --- */
+  /* cart drawer */
   $('#cartBtn').addEventListener('click', openCart);
   $('#closeCart').addEventListener('click', closeCart);
   $('#overlay').addEventListener('click', closeCart);
 
-  /* --- cart item controls --- */
+  /* cart item controls */
   $('#cartItems').addEventListener('click', e => {
     const inc = e.target.closest('[data-inc]');
     const dec = e.target.closest('[data-dec]');
@@ -414,10 +540,10 @@ function bindEvents(){
     if(del) setQty(del.dataset.del, 0);
   });
 
-  /* --- order --- */
+  /* order */
   $('#orderBtn').addEventListener('click', orderOnWhatsApp);
 
-  /* --- admin open/close --- */
+  /* admin open/close */
   $('#adminOpenBtn').addEventListener('click', openAdmin);
   $('#closeAdmin').addEventListener('click', closeAdmin);
   $('#adminModal').addEventListener('click', e => {
@@ -429,7 +555,7 @@ function bindEvents(){
     if($('#adminModal').classList.contains('show')) closeAdmin();
   });
 
-  /* --- admin tabs --- */
+  /* admin tabs */
   $$('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
       $$('.tab').forEach(t => t.classList.toggle('active', t === tab));
@@ -439,7 +565,7 @@ function bindEvents(){
     });
   });
 
-  /* --- product image input --- */
+  /* product image input */
   $('#pImageFile').addEventListener('change', async e => {
     const file = e.target.files[0];
     if(!file) return;
@@ -456,19 +582,19 @@ function bindEvents(){
     if(v){ currentImage = v; $('#pImageFile').value = ''; renderPreview(); }
   });
 
-  /* --- product form submit --- */
+  /* product form submit */
   $('#productForm').addEventListener('submit', e => {
     e.preventDefault();
     const id = $('#pId').value;
     const stockRaw = $('#pStock').value.trim();
 
     const data = {
-      name: $('#pName').value.trim(),
-      price: parseFloat($('#pPrice').value) || 0,
+      name:     $('#pName').value.trim(),
+      price:    parseFloat($('#pPrice').value) || 0,
       category: $('#pCategory').value.trim(),
-      stock: stockRaw === '' ? '' : Math.max(0, parseInt(stockRaw, 10) || 0),
-      desc: $('#pDesc').value.trim(),
-      image: currentImage
+      stock:    stockRaw === '' ? '' : Math.max(0, parseInt(stockRaw, 10) || 0),
+      desc:     $('#pDesc').value.trim(),
+      image:    currentImage
     };
     if(!data.name){ toast('Please enter a product name'); return; }
 
@@ -476,35 +602,35 @@ function bindEvents(){
       const idx = products.findIndex(p => p.id === id);
       if(idx > -1) products[idx] = Object.assign({}, products[idx], data);
       toast('Product updated');
-    } else {
+    }else{
       products.unshift(Object.assign({ id: uid() }, data));
       toast('Product added');
     }
 
-    if(save(LS.products, products)){
-      clearProductForm();
-      renderFilters();
-      renderProducts();
-      renderAdminList();
-    }
+    saveDraft();
+    clearProductForm();
+    renderFilters();
+    renderProducts();
+    renderAdminList();
   });
 
   $('#pClearBtn').addEventListener('click', clearProductForm);
 
-  /* --- admin list actions --- */
+  /* admin list actions */
   $('#adminList').addEventListener('click', e => {
     const editBtn = e.target.closest('[data-edit]');
-    const delBtn = e.target.closest('[data-remove]');
+    const delBtn  = e.target.closest('[data-remove]');
 
     if(editBtn){
       const p = products.find(x => x.id === editBtn.dataset.edit);
       if(!p) return;
-      $('#pId').value = p.id;
-      $('#pName').value = p.name;
-      $('#pPrice').value = p.price;
+      $('#pId').value       = p.id;
+      $('#pName').value     = p.name;
+      $('#pPrice').value    = p.price;
       $('#pCategory').value = p.category || '';
-      $('#pStock').value = (p.stock === '' || p.stock === null || p.stock === undefined) ? '' : p.stock;
-      $('#pDesc').value = p.desc || '';
+      $('#pStock').value    = (p.stock === '' || p.stock === null || p.stock === undefined)
+        ? '' : p.stock;
+      $('#pDesc').value     = p.desc || '';
       $('#pImageUrl').value = (p.image && !p.image.startsWith('data:')) ? p.image : '';
       currentImage = p.image || '';
       renderPreview();
@@ -519,8 +645,8 @@ function bindEvents(){
       if(!confirm(`Delete "${p.name}"?`)) return;
       products = products.filter(x => x.id !== p.id);
       delete cart[p.id];
-      save(LS.products, products);
       save(LS.cart, cart);
+      saveDraft();
       renderFilters();
       renderProducts();
       renderAdminList();
@@ -529,7 +655,7 @@ function bindEvents(){
     }
   });
 
-  /* --- settings form --- */
+  /* settings form submit → saved to local draft */
   $('#settingsForm').addEventListener('submit', e => {
     e.preventDefault();
     settings.storeName  = $('#sStoreName').value.trim() || 'My Store';
@@ -539,38 +665,58 @@ function bindEvents(){
     settings.footerNote = $('#sFooterNote').value.trim();
     settings.adminPass  = $('#sAdminPass').value || 'admin123';
 
-    if(save(LS.settings, settings)){
-      renderChrome();
-      renderProducts();
-      renderCart();
-      toast('Settings saved');
-    }
-  });
-
-  /* --- reset demo --- */
-  $('#resetDemoBtn').addEventListener('click', () => {
-    if(!confirm('This deletes all your products and settings, and restores the demo content. Continue?')) return;
-    localStorage.removeItem(LS.products);
-    localStorage.removeItem(LS.cart);
-    localStorage.removeItem(LS.settings);
-    settings = JSON.parse(JSON.stringify(DEFAULT_SETTINGS));
-    products = JSON.parse(JSON.stringify(SEED_PRODUCTS));
-    cart = {};
-    activeCategory = 'all';
+    saveDraft();
     renderChrome();
-    renderFilters();
     renderProducts();
     renderCart();
-    renderAdminList();
-    fillSettingsForm();
-    toast('Reset to demo data');
+    toast('Settings saved to draft');
   });
+
+  /* export / import / discard buttons (injected into the settings tab) */
+  const actionsRow = document.querySelector('#tab-settings .form-actions');
+  if(actionsRow){
+    const exportBtn = document.createElement('button');
+    exportBtn.type = 'button';
+    exportBtn.className = 'btn ghost';
+    exportBtn.textContent = 'Export products.json';
+    exportBtn.addEventListener('click', exportProductsJson);
+
+    const importBtn = document.createElement('button');
+    importBtn.type = 'button';
+    importBtn.className = 'btn ghost';
+    importBtn.textContent = 'Import products.json';
+    importBtn.addEventListener('click', () => importInput.click());
+
+    const importInput = document.createElement('input');
+    importInput.type = 'file';
+    importInput.accept = 'application/json,.json';
+    importInput.style.display = 'none';
+    importInput.addEventListener('change', e => {
+      const f = e.target.files[0];
+      if(f) importProductsJson(f);
+      importInput.value = '';
+    });
+
+    const discardBtn = document.createElement('button');
+    discardBtn.type = 'button';
+    discardBtn.className = 'btn danger';
+    discardBtn.textContent = 'Discard local draft';
+    discardBtn.addEventListener('click', () => {
+      if(confirm('Discard all unpublished edits on this browser?')) discardDraft();
+    });
+
+    actionsRow.appendChild(exportBtn);
+    actionsRow.appendChild(importBtn);
+    actionsRow.appendChild(discardBtn);
+    actionsRow.appendChild(importInput);
+  }
 }
 
 /* =========================================================
    INIT
    ========================================================= */
-function init(){
+async function init(){
+  await loadStoreData();
   renderChrome();
   renderFilters();
   renderProducts();
