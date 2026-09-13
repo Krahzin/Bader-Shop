@@ -1,1 +1,17 @@
-
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "DJI mini 4 pro fly combo",
+      "price": 1250,
+      "category": "Drone",
+      "stock": 1,
+      "desc": "DJI mini 4 pro drone combo with a two way charging hub, shoulder bag, intelligent fly batteries and more...",
+      "image": "/images/uploads/IMG-20260913-WA0241.jpg",
+      "images": [
+        "/images/uploads/IMG-20260913-WA0240-1.jpg",
+        "/images/uploads/IMG-20260913-WA0242.jpg"
+      ]
+    }
+  ]
+}
