@@ -79,10 +79,21 @@ async function loadStoreData(){
   if(remote){
     settings = Object.assign({}, DEFAULT_SETTINGS, remote.settings || {});
     products = Array.isArray(remote.products) ? remote.products : [];
-  }else{
+
+    // GitHub Pages project sites live at /<repo-name>/, but Pages CMS writes
+    // image paths as /images/... (domain root). Prepend the correct base path.
+    const basePath = window.location.pathname.replace(/\/[^/]*$/, ''); // "/Bader-Shop"
+    products = products.map(p => ({
+      ...p,
+      image: (p.image && p.image.startsWith('/'))
+        ? basePath + p.image
+        : p.image
+    }));
+  } else {
     settings = Object.assign({}, DEFAULT_SETTINGS, load('shop.settings.v1', {}));
     products = load('shop.products.v1', SEED_PRODUCTS);
   }
+}
 
   // If the admin has unpublished edits, use those for this browser.
   const draft = load(LS.draft, null);
