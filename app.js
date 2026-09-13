@@ -11,7 +11,7 @@ const LS = {
    FALLBACK DATA
    ========================================================= */
 const DEFAULT_SETTINGS = {
-  storeName: 'Bader Store',
+  storeName: 'Drone Zone',
   tagline: 'Browse our stock and order in seconds.',
   whatsapp: '+96176199961',
   currency: '$',
