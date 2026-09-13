@@ -13,13 +13,25 @@ const LS = {
 const DEFAULT_SETTINGS = {
   storeName: 'Drone Zone',
   tagline: 'Browse our stock and order in seconds.',
-  whatsapp: '+96176199961',
+  whatsapp: '96176199961',
   currency: '$',
   adminPass: 'admin123',
   footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
 };
 
 const SEED_PRODUCTS = [];
+
+/* Common colour names → actual hex values */
+const NAMED_COLORS = {
+  black:'#1a1a1a', white:'#f5f5f5', red:'#d64545', blue:'#3a6fb0',
+  green:'#3a9d6a', yellow:'#e0b429', orange:'#e08a3a', purple:'#8b5cf6',
+  pink:'#e879a8', brown:'#8b5a3c', grey:'#8b8b9e', gray:'#8b8b9e',
+  silver:'#c0c0c0', gold:'#d4af37', navy:'#1f3a68', teal:'#128c7e',
+  cyan:'#29b6d8', magenta:'#d638a8', beige:'#e8ddc4', cream:'#f5efdc',
+  maroon:'#7a1e1e', olive:'#6b7a1e', lime:'#a4d63a', coral:'#e87a5a',
+  mint:'#8ee6b8', lavender:'#b0a4e8', turquoise:'#3ac8c4', violet:'#7a3ad6',
+  indigo:'#4b3aa8', peach:'#f0b088', tan:'#c8a878', rose:'#e87a9a'
+};
 
 /* =========================================================
    STATE
@@ -125,12 +137,23 @@ function parseColorsText(text){
 function colorsForExport(colors){
   const list = normalizeColorList(colors);
   if(!list.length) return [];
-  // If none have hex, keep it as a simple string array for cleaner JSON
   if(list.every(c => !c.hex)) return list.map(c => c.name);
   return list;
 }
 function colorSwatchStyle(c){
   if(c.hex) return `background:${c.hex}`;
+
+  const name = String(c.name || '').toLowerCase().trim();
+
+  // Exact match — "black", "red", etc.
+  if(NAMED_COLORS[name]) return `background:${NAMED_COLORS[name]}`;
+
+  // Match by any word — "Ocean Blue" → blue, "Dark Grey" → grey
+  for(const word of name.split(/\s+/)){
+    if(NAMED_COLORS[word]) return `background:${NAMED_COLORS[word]}`;
+  }
+
+  // Unknown name — fall back to a hashed hue
   let h = 0;
   const s = c.name || '?';
   for(let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) % 360;
@@ -142,9 +165,6 @@ function findColor(p, name){
 
 /* =========================================================
    CART KEY HELPERS
-   ---------------------------------------------------------
-   Cart stores entries under a composite key: id::colour
-   (or just id when the product has no colours)
    ========================================================= */
 function cartKey(id, color){ return color ? id + '::' + color : id; }
 function parseCartKey(key){
@@ -405,12 +425,6 @@ function cartTotal(){
 function stockLimit(p){
   return (p.stock === '' || p.stock === null || p.stock === undefined) ? Infinity : Number(p.stock);
 }
-function totalQtyForProduct(id){
-  return Object.entries(cart).reduce((n, [k, q]) => {
-    const parsed = parseCartKey(k);
-    return parsed.id === id ? n + q : n;
-  }, 0);
-}
 function addToCart(id){
   const p = products.find(x => x.id === id);
   if(!p) return;
@@ -438,7 +452,6 @@ function setQty(key, qty){
   renderCart();
 }
 function renderCart(){
-  // prune entries whose product no longer exists
   Object.keys(cart).forEach(key => {
     const { id } = parseCartKey(key);
     if(!products.find(p => p.id === id)) delete cart[key];
@@ -738,7 +751,6 @@ function bindEvents(){
 
   /* grid clicks: colour pick, add to cart, lightbox */
   $('#grid').addEventListener('click', e => {
-    // colour dot
     const dot = e.target.closest('.color-dot');
     if(dot){
       const pid = dot.closest('[data-product]').dataset.product;
@@ -942,7 +954,6 @@ function bindEvents(){
       if(!p) return;
       if(!confirm(`Delete "${p.name}"?`)) return;
       products = products.filter(x => x.id !== p.id);
-      // remove any cart lines for this product (all colours)
       Object.keys(cart).forEach(k => { if(parseCartKey(k).id === p.id) delete cart[k]; });
       save(LS.cart, cart);
       saveDraft();
