@@ -121,6 +121,34 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "12",
+      "name": "Dji neo 1 full protection",
+      "price": 20,
+      "category": "Dji neo 1 Accessories",
+      "desc": "full camera and sides protection",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 00.50.40.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange",
+        "red"
+      ]
+    },
+    {},
+    {
+      "id": "14",
+      "name": "Dji neo side protection",
+      "price": 15,
+      "category": "Dji neo 1 Accessories",
+      "desc": "custom protection made to protect the sides",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 00.52.20.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
