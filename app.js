@@ -19,20 +19,7 @@ const DEFAULT_SETTINGS = {
   footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
 };
 
-const SEED_PRODUCTS = [
-  { id:'p1', name:'Linen Throw Blanket', price:48, category:'Home', stock:12,
-    desc:'Stonewashed 100% linen, 130 × 170 cm.', image:'' },
-  { id:'p2', name:'Ceramic Mug Set', price:26, category:'Home', stock:8,
-    desc:'Set of 4 hand-glazed stoneware mugs.', image:'' },
-  { id:'p3', name:'Leather Card Holder', price:34, category:'Accessories', stock:20,
-    desc:'Full-grain leather, 4 card slots.', image:'' },
-  { id:'p4', name:'Canvas Tote Bag', price:22, category:'Accessories', stock:0,
-    desc:'Heavyweight cotton canvas with inner pocket.', image:'' },
-  { id:'p5', name:'Soy Candle — Cedar', price:18, category:'Home', stock:35,
-    desc:'40-hour burn, natural soy wax.', image:'' },
-  { id:'p6', name:'Notebook A5 Hardcover', price:15, category:'Stationery', stock:50,
-    desc:'160 gsm dotted paper, 192 pages.', image:'' }
-];
+const SEED_PRODUCTS = [];
 
 /* =========================================================
    STATE
@@ -42,7 +29,7 @@ let products       = [];
 let cart           = load(LS.cart, {});
 let activeCategory = 'all';
 let currentImage   = '';
-let currentImages  = [];   // gallery of extras being edited in admin
+let currentImages  = [];
 let draftActive    = false;
 
 /* Lightbox state */
@@ -108,7 +95,6 @@ function portableImages(p, basePath){
     : [];
   return Object.assign({}, p, { image: cover || '', images: extras });
 }
-/* All images for a product, cover first, deduped. */
 function allImages(p){
   const list = [];
   if(p.image && !list.includes(p.image)) list.push(p.image);
@@ -294,6 +280,18 @@ function renderProducts(){
     const soldOut = p.stock !== '' && p.stock !== null && p.stock !== undefined && Number(p.stock) <= 0;
     const imgs = allImages(p);
     const multi = imgs.length > 1;
+
+    const actionBtn = soldOut
+      ? `<button class="btn small sold-out" disabled>Sold out</button>`
+      : `<button class="btn primary small add-btn" data-add="${p.id}" aria-label="Add to cart" title="Add to cart">
+           <svg class="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+             <circle cx="9" cy="21" r="1"></circle>
+             <circle cx="20" cy="21" r="1"></circle>
+             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+           </svg>
+           <span class="add-text">Add to cart</span>
+         </button>`;
+
     return `
       <article class="card">
         <div class="card-media" ${imgs.length ? `data-open="${p.id}"` : ''}>
@@ -307,9 +305,7 @@ function renderProducts(){
           ${p.desc ? `<p class="desc">${escapeHtml(p.desc)}</p>` : '<p class="desc"></p>'}
           <div class="card-foot">
             <span class="price">${money(p.price)}</span>
-            <button class="btn primary small" data-add="${p.id}" ${soldOut ? 'disabled' : ''}>
-              ${soldOut ? 'Sold out' : 'Add to cart'}
-            </button>
+            ${actionBtn}
           </div>
         </div>
       </article>`;
@@ -858,7 +854,7 @@ function bindEvents(){
   /* settings form submit */
   $('#settingsForm').addEventListener('submit', e => {
     e.preventDefault();
-    settings.storeName  = $('#sStoreName').value.trim() || 'My Store';
+    settings.storeName  = $('#sStoreName').value.trim() || 'Drone Zone';
     settings.currency   = $('#sCurrency').value.trim() || '$';
     settings.whatsapp   = $('#sWhatsapp').value.replace(/[^\d]/g, '');
     settings.tagline    = $('#sTagline').value.trim();
