@@ -104,6 +104,22 @@ input,textarea,select{font:inherit;color:inherit}
 .chip-cat{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 .card-body h3{margin:0;font-size:15.5px;font-weight:650;letter-spacing:-.01em}
 .card-body .desc{margin:0;font-size:13px;color:var(--muted);flex:1}
+
+/* ---------- Colour picker ---------- */
+.color-picker{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:6px;padding:4px 0}
+.color-picker .cp-label{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.02em;margin-right:2px}
+.color-dot{
+  width:20px;height:20px;border-radius:50%;border:0;padding:0;cursor:pointer;
+  box-shadow:0 0 0 1px rgba(0,0,0,.12) inset;
+  transition:transform .12s ease, box-shadow .15s ease;
+  flex-shrink:0;
+}
+.color-dot:hover{transform:scale(1.12)}
+.color-dot.active{
+  box-shadow:0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+}
+.color-dot[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+
 .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
 .price{font-weight:750;font-size:16px}
 
@@ -122,7 +138,6 @@ input,textarea,select{font:inherit;color:inherit}
 .btn.danger:hover{background:#fdf3f3}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 
-/* Compact cart icon (mobile) */
 .add-btn .icon-cart{display:none;width:17px;height:17px}
 .add-btn .add-text{display:inline}
 .sold-out{
@@ -179,6 +194,11 @@ input,textarea,select{font:inherit;color:inherit}
 .ci-media .ph{font-size:24px}
 .ci-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
 .ci-name{font-size:14px;font-weight:650;line-height:1.3}
+.ci-color{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
+.ci-color .swatch{
+  display:inline-block;width:10px;height:10px;border-radius:50%;
+  box-shadow:0 0 0 1px rgba(0,0,0,.12) inset;
+}
 .ci-price{font-size:12.5px;color:var(--muted)}
 .ci-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:8px}
 .ci-right strong{font-size:14px}
@@ -308,7 +328,6 @@ input,textarea,select{font:inherit;color:inherit}
   .form-grid{grid-template-columns:1fr}
   .hero{padding:30px 0 4px}
 
-  /* Compact add-to-cart icon button */
   .card-foot{gap:8px}
   .card-foot .price{font-size:15px}
   .add-btn{
@@ -329,7 +348,7 @@ input,textarea,select{font:inherit;color:inherit}
 }
 
 /* =========================================================
-   DARK THEME  (Zorin-inspired: deep slate bg, blue accents)
+   DARK THEME
    ========================================================= */
 [data-theme="dark"]{
   --bg:#18181f;
@@ -379,6 +398,10 @@ input,textarea,select{font:inherit;color:inherit}
 
 [data-theme="dark"] .card:hover{border-color:#3a3a48}
 [data-theme="dark"] .card-media{background:#1a1a22}
+
+[data-theme="dark"] .color-dot{box-shadow:0 0 0 1px rgba(255,255,255,.14) inset}
+[data-theme="dark"] .color-dot.active{box-shadow:0 0 0 2px var(--surface), 0 0 0 4px var(--accent)}
+[data-theme="dark"] .ci-color .swatch{box-shadow:0 0 0 1px rgba(255,255,255,.14) inset}
 
 [data-theme="dark"] .cart-btn{background:var(--accent);color:#0a1626}
 [data-theme="dark"] .cart-btn:hover{background:var(--accent-dark);opacity:1}
