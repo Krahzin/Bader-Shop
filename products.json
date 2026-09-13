@@ -42,6 +42,24 @@
       "stock": 1,
       "desc": "Dji neo fly more combo used\ncycles 15/17/18\nwarranty and testing available",
       "image": "/images/uploads/IMG_7681.jpg"
+    },
+    {
+      "id": "5",
+      "name": "Dji goggles N3 + motion 3 used",
+      "price": 480,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "Dji goggles n3 and motion \nbarely used\ntesting and warranty available",
+      "image": "/images/uploads/IMG_8082.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Dji neo fly more combo used",
+      "price": 415,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "Dji neo fly more combo barely used\ncycles 10/10/6\ntesting and warranty available",
+      "image": "/images/uploads/4e67458b-f443-411d-914c-5d0c9840332b.jpg"
     }
   ]
 }
