@@ -36,5 +36,10 @@ content:
             label: Description
             type: text
           - name: image
-            label: Image
+            label: Primary image (cover)
             type: image
+          - name: images
+            label: Additional images
+            type: image
+            list: true
+            required: false
