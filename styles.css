@@ -79,7 +79,7 @@ input,textarea,select{font:inherit;color:inherit}
 
 /* ---------- Grid ---------- */
 .grid{
-  display:grid;gap:20px;padding:24px 0 70px;
+  display:grid;gap:20px;padding:24px 0 32px;
   grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
 }
 .card{
@@ -286,7 +286,7 @@ input,textarea,select{font:inherit;color:inherit}
 .admin-row .acts{display:flex;gap:6px;flex-shrink:0}
 
 /* ---------- Footer ---------- */
-.site-footer{border-top:1px solid var(--line);padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
+.site-footer{border-top:1px solid var(--line);padding:14px 0 16px;text-align:center;color:var(--muted);font-size:12.5px}
 
 /* ---------- Toast ---------- */
 .toast{
