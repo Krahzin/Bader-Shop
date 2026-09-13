@@ -35,6 +35,15 @@
       "stock": 1,
       "desc": "Power hungry piece of shit",
       "image": "/images/uploads/product_162251766271378e8100c134325de1db0492f9f722.webp"
+    },
+    {
+      "id": "11",
+      "name": "Black Boy",
+      "price": 2,
+      "category": "Slave",
+      "stock": 11,
+      "desc": "Obedient black boy for sale",
+      "image": "/images/uploads/Screenshot 2026-09-13 035303.png"
     }
   ]
 }
