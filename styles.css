@@ -33,6 +33,8 @@ input,textarea,select{font:inherit;color:inherit}
   background:var(--accent);color:#fff;font-weight:700;font-size:17px;
   transition:background-color .2s ease;
 }
+.brand-mark img{width:100%;height:100%;object-fit:contain;border-radius:10px}
+.brand-mark{background:transparent}
 .brand-name{font-weight:700;font-size:17px;letter-spacing:-.01em}
 .search{flex:1;min-width:0}
 .search input{
