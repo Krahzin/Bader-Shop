@@ -41,5 +41,7 @@ content:
           - name: images
             label: Additional images
             type: image
-            list: true
             required: false
+            options:
+              multiple: true
+              unique: true
