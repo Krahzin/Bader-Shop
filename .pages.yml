@@ -45,3 +45,8 @@ content:
             options:
               multiple: true
               unique: true
+          - name: colors
+            label: Colours (optional)
+            type: string
+            list: true
+            required: false
