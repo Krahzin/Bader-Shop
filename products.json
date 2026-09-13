@@ -26,6 +26,24 @@
         "White",
         "Red"
       ]
+    },
+    {
+      "id": "44",
+      "name": "teste",
+      "price": 3,
+      "category": "Test"
+    },
+    {
+      "id": "54",
+      "name": "tes2",
+      "price": 5,
+      "category": "Test"
+    },
+    {
+      "id": "65",
+      "name": "tesy",
+      "price": 3,
+      "category": "Test"
     }
   ]
 }
