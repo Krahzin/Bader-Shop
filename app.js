@@ -158,7 +158,6 @@ function toast(msg){
    ========================================================= */
 function renderChrome(){
   $('#brandName').textContent   = settings.storeName;
-  $('#brandMark').textContent   = (settings.storeName.trim()[0] || 'S').toUpperCase();
   $('#heroTitle').textContent   = settings.storeName;
   $('#heroTagline').textContent = settings.tagline || '';
   $('#footerNote').textContent  = settings.footerNote || '';
