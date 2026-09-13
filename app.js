@@ -41,12 +41,12 @@ const SEED_PRODUCTS = [
 /* =========================================================
    STATE
    ========================================================= */
-let settings     = Object.assign({}, DEFAULT_SETTINGS);
-let products     = [];
-let cart         = load(LS.cart, {});
+let settings       = Object.assign({}, DEFAULT_SETTINGS);
+let products       = [];
+let cart           = load(LS.cart, {});
 let activeCategory = 'all';
-let currentImage = '';
-let draftActive  = false;   // true when admin's local draft overrides products.json
+let currentImage   = '';
+let draftActive    = false;   // true when admin's local draft overrides products.json
 
 /* =========================================================
    STORAGE HELPERS
@@ -83,22 +83,24 @@ async function loadStoreData(){
     // GitHub Pages project sites live at /<repo-name>/, but Pages CMS writes
     // image paths as /images/... (domain root). Prepend the correct base path.
     const basePath = window.location.pathname.replace(/\/[^/]*$/, ''); // "/Bader-Shop"
-    products = products.map(p => ({
-      ...p,
+    products = products.map(p => Object.assign({}, p, {
       image: (p.image && p.image.startsWith('/'))
         ? basePath + p.image
         : p.image
     }));
-  } else {
+  }else{
     settings = Object.assign({}, DEFAULT_SETTINGS, load('shop.settings.v1', {}));
     products = load('shop.products.v1', SEED_PRODUCTS);
   }
-}
 
   // If the admin has unpublished edits, use those for this browser.
   const draft = load(LS.draft, null);
   if(draft && Array.isArray(draft.products)){
-    products = draft.products;
+    products = draft.products.map(p => Object.assign({}, p, {
+      image: (p.image && p.image.startsWith('/'))
+        ? window.location.pathname.replace(/\/[^/]*$/, '') + p.image
+        : p.image
+    }));
     if(draft.settings) settings = Object.assign({}, DEFAULT_SETTINGS, draft.settings);
     draftActive = true;
   }
@@ -136,6 +138,7 @@ function mediaHtml(p){
 let toastTimer;
 function toast(msg){
   const el = $('#toast');
+  if(!el) return;
   el.textContent = msg;
   el.classList.add('show');
   clearTimeout(toastTimer);
@@ -146,11 +149,11 @@ function toast(msg){
    RENDER — HEADER / HERO / FOOTER
    ========================================================= */
 function renderChrome(){
-  $('#brandName').textContent  = settings.storeName;
-  $('#brandMark').textContent  = (settings.storeName.trim()[0] || 'S').toUpperCase();
-  $('#heroTitle').textContent  = settings.storeName;
+  $('#brandName').textContent   = settings.storeName;
+  $('#brandMark').textContent   = (settings.storeName.trim()[0] || 'S').toUpperCase();
+  $('#heroTitle').textContent   = settings.storeName;
   $('#heroTagline').textContent = settings.tagline || '';
-  $('#footerNote').textContent = settings.footerNote || '';
+  $('#footerNote').textContent  = settings.footerNote || '';
   document.title = settings.storeName + ' — Shop';
 
   // Draft banner
@@ -183,7 +186,8 @@ function renderFilters(){
     cats.map(c =>
       `<button class="chip ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`
     ).join('');
-  $('#catList').innerHTML = cats.map(c => `<option value="${escapeHtml(c)}">`).join('');
+  const catList = $('#catList');
+  if(catList) catList.innerHTML = cats.map(c => `<option value="${escapeHtml(c)}">`).join('');
 }
 
 /* =========================================================
@@ -376,7 +380,14 @@ function closeAdmin(){
 }
 
 function saveDraft(){
-  const ok = save(LS.draft, { settings, products });
+  // Store the un-rewritten image path so export stays portable.
+  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+  const portable = products.map(p => Object.assign({}, p, {
+    image: (p.image && basePath && p.image.startsWith(basePath))
+      ? p.image.slice(basePath.length)
+      : p.image
+  }));
+  const ok = save(LS.draft, { settings, products: portable });
   if(ok){
     draftActive = true;
     renderChrome();
@@ -472,6 +483,14 @@ function fileToDataUrl(file, maxSize = 900, quality = 0.82){
 
 /* Export / Import products.json */
 function exportProductsJson(){
+  // Strip the runtime base path so the exported file stays portable.
+  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+  const portable = products.map(p => Object.assign({}, p, {
+    image: (p.image && basePath && p.image.startsWith(basePath))
+      ? p.image.slice(basePath.length)
+      : p.image
+  }));
+
   const payload = {
     settings: {
       storeName:  settings.storeName,
@@ -481,7 +500,7 @@ function exportProductsJson(){
       footerNote: settings.footerNote,
       adminPass:  settings.adminPass
     },
-    products: products
+    products: portable
   };
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
   const url  = URL.createObjectURL(blob);
@@ -500,7 +519,14 @@ function importProductsJson(file){
     try{
       const data = JSON.parse(e.target.result);
       if(data.settings) settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
-      products = Array.isArray(data.products) ? data.products : [];
+      const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+      products = (Array.isArray(data.products) ? data.products : []).map(p =>
+        Object.assign({}, p, {
+          image: (p.image && p.image.startsWith('/'))
+            ? basePath + p.image
+            : p.image
+        })
+      );
       saveDraft();
       renderChrome();
       renderFilters();
@@ -692,12 +718,6 @@ function bindEvents(){
     exportBtn.textContent = 'Export products.json';
     exportBtn.addEventListener('click', exportProductsJson);
 
-    const importBtn = document.createElement('button');
-    importBtn.type = 'button';
-    importBtn.className = 'btn ghost';
-    importBtn.textContent = 'Import products.json';
-    importBtn.addEventListener('click', () => importInput.click());
-
     const importInput = document.createElement('input');
     importInput.type = 'file';
     importInput.accept = 'application/json,.json';
@@ -707,6 +727,12 @@ function bindEvents(){
       if(f) importProductsJson(f);
       importInput.value = '';
     });
+
+    const importBtn = document.createElement('button');
+    importBtn.type = 'button';
+    importBtn.className = 'btn ghost';
+    importBtn.textContent = 'Import products.json';
+    importBtn.addEventListener('click', () => importInput.click());
 
     const discardBtn = document.createElement('button');
     discardBtn.type = 'button';
