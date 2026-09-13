@@ -12,6 +12,18 @@
         "/images/uploads/IMG-20260913-WA0240-1.jpg",
         "/images/uploads/IMG-20260913-WA0242.jpg"
       ]
+    },
+    {
+      "id": "2",
+      "name": "Dji lito X1 fly more combo New sealed",
+      "price": 1070,
+      "category": "drone",
+      "stock": 1,
+      "desc": "Dji lito fly more combo new sealed \n",
+      "image": "/images/uploads/IMG_8079.jpg",
+      "images": [
+        "/images/uploads/IMG_8080.jpg"
+      ]
     }
   ]
 }
