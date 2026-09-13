@@ -69,6 +69,17 @@
       "stock": 1,
       "desc": "dji motion 3 used",
       "image": "/images/uploads/images-2.jpeg"
+    },
+    {
+      "id": "8",
+      "name": "dji neo 1 camera gimball model 1",
+      "price": 5,
+      "category": "Dji neo 1 Accesories",
+      "desc": "dji neo 1 camera protection",
+      "image": "/images/uploads/Screenshot 2026-09-13 at 22.01.02.png",
+      "colors": [
+        "black,orange"
+      ]
     }
   ]
 }
