@@ -1,18 +1,14 @@
 /* =========================================================
    STORAGE KEYS
-   ---------------------------------------------------------
-   Live data (products + settings) comes from products.json.
-   Only the cart and the admin's local draft live in localStorage.
    ========================================================= */
 const LS = {
   cart:  'shop.cart.v1',
-  draft: 'shop.admin.draft.v1'   // admin's unpublished edits (this browser only)
+  draft: 'shop.admin.draft.v1',
+  theme: 'shop.theme'
 };
 
 /* =========================================================
    FALLBACK DATA
-   ---------------------------------------------------------
-   Used only if products.json is missing or fails to load.
    ========================================================= */
 const DEFAULT_SETTINGS = {
   storeName: 'My Store',
@@ -46,7 +42,7 @@ let products       = [];
 let cart           = load(LS.cart, {});
 let activeCategory = 'all';
 let currentImage   = '';
-let draftActive    = false;   // true when admin's local draft overrides products.json
+let draftActive    = false;
 
 /* =========================================================
    STORAGE HELPERS
@@ -64,7 +60,26 @@ function save(key, value){
 }
 
 /* =========================================================
-   DATA LOADING  (products.json → state)
+   THEME
+   ========================================================= */
+function initTheme(){
+  // The inline script in <head> already set data-theme to avoid flash.
+  // Make sure it's set even if that script failed.
+  if(!document.documentElement.getAttribute('data-theme')){
+    const saved = localStorage.getItem(LS.theme);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+  }
+}
+function toggleTheme(){
+  const current = document.documentElement.getAttribute('data-theme') || 'light';
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try{ localStorage.setItem(LS.theme, next); }catch(e){}
+}
+
+/* =========================================================
+   DATA LOADING
    ========================================================= */
 async function loadStoreData(){
   let remote = null;
@@ -76,30 +91,23 @@ async function loadStoreData(){
     console.warn('Could not load products.json — using fallback data.', err);
   }
 
+  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+
   if(remote){
     settings = Object.assign({}, DEFAULT_SETTINGS, remote.settings || {});
     products = Array.isArray(remote.products) ? remote.products : [];
-
-    // GitHub Pages project sites live at /<repo-name>/, but Pages CMS writes
-    // image paths as /images/... (domain root). Prepend the correct base path.
-    const basePath = window.location.pathname.replace(/\/[^/]*$/, ''); // "/Bader-Shop"
     products = products.map(p => Object.assign({}, p, {
-      image: (p.image && p.image.startsWith('/'))
-        ? basePath + p.image
-        : p.image
+      image: (p.image && p.image.startsWith('/')) ? basePath + p.image : p.image
     }));
   }else{
     settings = Object.assign({}, DEFAULT_SETTINGS, load('shop.settings.v1', {}));
     products = load('shop.products.v1', SEED_PRODUCTS);
   }
 
-  // If the admin has unpublished edits, use those for this browser.
   const draft = load(LS.draft, null);
   if(draft && Array.isArray(draft.products)){
     products = draft.products.map(p => Object.assign({}, p, {
-      image: (p.image && p.image.startsWith('/'))
-        ? window.location.pathname.replace(/\/[^/]*$/, '') + p.image
-        : p.image
+      image: (p.image && p.image.startsWith('/')) ? basePath + p.image : p.image
     }));
     if(draft.settings) settings = Object.assign({}, DEFAULT_SETTINGS, draft.settings);
     draftActive = true;
@@ -146,7 +154,7 @@ function toast(msg){
 }
 
 /* =========================================================
-   RENDER — HEADER / HERO / FOOTER
+   RENDER — CHROME
    ========================================================= */
 function renderChrome(){
   $('#brandName').textContent   = settings.storeName;
@@ -156,7 +164,6 @@ function renderChrome(){
   $('#footerNote').textContent  = settings.footerNote || '';
   document.title = settings.storeName + ' — Shop';
 
-  // Draft banner
   let banner = $('#draftBanner');
   if(draftActive){
     if(!banner){
@@ -175,7 +182,7 @@ function renderChrome(){
 }
 
 /* =========================================================
-   RENDER — CATEGORY FILTERS
+   RENDER — FILTERS
    ========================================================= */
 function renderFilters(){
   const cats = [...new Set(products.map(p => p.category).filter(Boolean))].sort();
@@ -337,8 +344,7 @@ function orderOnWhatsApp(){
 
   const digits = String(settings.whatsapp || '').replace(/[^\d]/g, '');
   if(!digits){
-    toast('Set your WhatsApp number in products.json (or Admin → Store settings)');
-    openAdmin();
+    toast('Set your WhatsApp number in products.json');
     return;
   }
   const url = `https://wa.me/${digits}?text=${encodeURIComponent(buildOrderMessage())}`;
@@ -360,10 +366,7 @@ function closeCart(){
 }
 
 /* =========================================================
-   ADMIN PANEL  (local draft editor)
-   ---------------------------------------------------------
-   Edits are saved to localStorage as a draft. They show up
-   here only for you. Click Export products.json to publish.
+   ADMIN PANEL  (hidden — open with ?admin=1)
    ========================================================= */
 function openAdmin(){
   const pass = prompt('Enter admin password:');
@@ -380,7 +383,6 @@ function closeAdmin(){
 }
 
 function saveDraft(){
-  // Store the un-rewritten image path so export stays portable.
   const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
   const portable = products.map(p => Object.assign({}, p, {
     image: (p.image && basePath && p.image.startsWith(basePath))
@@ -453,7 +455,6 @@ function fillSettingsForm(){
   $('#sAdminPass').value  = settings.adminPass || '';
 }
 
-/* Image file → resized/compressed data URL */
 function fileToDataUrl(file, maxSize = 900, quality = 0.82){
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -481,9 +482,7 @@ function fileToDataUrl(file, maxSize = 900, quality = 0.82){
   });
 }
 
-/* Export / Import products.json */
 function exportProductsJson(){
-  // Strip the runtime base path so the exported file stays portable.
   const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
   const portable = products.map(p => Object.assign({}, p, {
     image: (p.image && basePath && p.image.startsWith(basePath))
@@ -522,9 +521,7 @@ function importProductsJson(file){
       const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
       products = (Array.isArray(data.products) ? data.products : []).map(p =>
         Object.assign({}, p, {
-          image: (p.image && p.image.startsWith('/'))
-            ? basePath + p.image
-            : p.image
+          image: (p.image && p.image.startsWith('/')) ? basePath + p.image : p.image
         })
       );
       saveDraft();
@@ -545,6 +542,10 @@ function importProductsJson(file){
    EVENT WIRING
    ========================================================= */
 function bindEvents(){
+
+  /* theme */
+  const themeToggle = $('#themeToggle');
+  if(themeToggle) themeToggle.addEventListener('click', toggleTheme);
 
   /* search + filters */
   $('#searchInput').addEventListener('input', renderProducts);
@@ -580,16 +581,25 @@ function bindEvents(){
   /* order */
   $('#orderBtn').addEventListener('click', orderOnWhatsApp);
 
-  /* admin open/close */
-  $('#adminOpenBtn').addEventListener('click', openAdmin);
-  $('#closeAdmin').addEventListener('click', closeAdmin);
-  $('#adminModal').addEventListener('click', e => {
-    if(e.target === $('#adminModal')) closeAdmin();
-  });
+  /* admin open/close — the footer button is gone,
+     but the modal still exists in case it's ever triggered. */
+  const adminBtn = $('#adminOpenBtn');
+  if(adminBtn) adminBtn.addEventListener('click', openAdmin);
+
+  const closeAdminBtn = $('#closeAdmin');
+  if(closeAdminBtn) closeAdminBtn.addEventListener('click', closeAdmin);
+
+  const adminModal = $('#adminModal');
+  if(adminModal){
+    adminModal.addEventListener('click', e => {
+      if(e.target === adminModal) closeAdmin();
+    });
+  }
+
   document.addEventListener('keydown', e => {
     if(e.key !== 'Escape') return;
     closeCart();
-    if($('#adminModal').classList.contains('show')) closeAdmin();
+    if(adminModal && adminModal.classList.contains('show')) closeAdmin();
   });
 
   /* admin tabs */
@@ -692,7 +702,7 @@ function bindEvents(){
     }
   });
 
-  /* settings form submit → saved to local draft */
+  /* settings form submit */
   $('#settingsForm').addEventListener('submit', e => {
     e.preventDefault();
     settings.storeName  = $('#sStoreName').value.trim() || 'My Store';
@@ -709,7 +719,7 @@ function bindEvents(){
     toast('Settings saved to draft');
   });
 
-  /* export / import / discard buttons (injected into the settings tab) */
+  /* export / import / discard buttons */
   const actionsRow = document.querySelector('#tab-settings .form-actions');
   if(actionsRow){
     const exportBtn = document.createElement('button');
@@ -753,6 +763,7 @@ function bindEvents(){
    INIT
    ========================================================= */
 async function init(){
+  initTheme();
   await loadStoreData();
   renderChrome();
   renderFilters();
@@ -760,5 +771,10 @@ async function init(){
   renderCart();
   renderPreview();
   bindEvents();
+
+  // Hidden admin access: add ?admin=1 to the URL to open the panel.
+  if(new URLSearchParams(location.search).has('admin')){
+    openAdmin();
+  }
 }
 init();
