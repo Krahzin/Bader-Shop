@@ -11,9 +11,9 @@ const LS = {
    FALLBACK DATA
    ========================================================= */
 const DEFAULT_SETTINGS = {
-  storeName: 'My Store',
-  tagline: 'Browse the stock and order in seconds.',
-  whatsapp: '15551234567',
+  storeName: 'Drone Zone',
+  tagline: 'Browse our stock and order in seconds.',
+  whatsapp: '+96176199961',
   currency: '$',
   adminPass: 'admin123',
   footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
