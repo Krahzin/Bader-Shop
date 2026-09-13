@@ -72,11 +72,49 @@
     },
     {
       "id": "8",
-      "name": "dji neo 1 camera gimball model 1",
+      "name": "dji neo 1 camera gimbal model 1",
       "price": 5,
-      "category": "Dji neo 1 Accesories",
+      "category": "Dji neo 1 Accessories",
       "desc": "dji neo 1 camera protection",
       "image": "/images/uploads/Screenshot 2026-09-13 at 22.01.02.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Dji neo 1 gimball model 2",
+      "price": 5,
+      "category": "Dji neo 1 Accessories",
+      "desc": "dji neo 1 camera protection",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 00.30.58.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Dji neo 1 gimball model 3",
+      "price": 5,
+      "category": "Dji neo 1 Accessories",
+      "desc": "dji neo 1 camera protection",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 00.46.02.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Dji neo 1 roll cage",
+      "price": 10,
+      "category": "Dji neo 1 Accessories",
+      "desc": "Dji neo 1 roll cage",
       "colors": [
         "black",
         "grey",
