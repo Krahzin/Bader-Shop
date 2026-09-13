@@ -3,26 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drone Zone</title>
-<!-- Open Graph (Facebook, Discord, WhatsApp, iMessage, Slack, LinkedIn) -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Drone Zone">
-<meta property="og:description" content="Browse our stock and order in seconds.">
-<meta property="og:image" content="https://dronezonelb.com/og-image.jpg">
-<meta property="og:image:width" content="920">
-<meta property="og:image:height" content="890">
-<meta property="og:url" content="https://dronezonelb.com/">
-
-<!-- Twitter/X card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Drone Zone">
-<meta name="twitter:description" content="Browse our stock and order in seconds.">
-<meta name="twitter:image" content="https://dronezonelb.com/og-image.jpg">
-
-<!-- Browser UI color on mobile -->
-<meta name="theme-color" content="#128c7e">
-<link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.css">
+<title>Drone Zone — Shop</title>
 <script>
   /* Apply saved theme before paint to avoid a flash */
   (function(){
@@ -34,6 +15,30 @@
     }catch(e){}
   })();
 </script>
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Open Graph (Facebook, Discord, WhatsApp, iMessage, Slack, LinkedIn) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Drone Zone">
+<meta property="og:description" content="Browse our stock and order in seconds.">
+<meta property="og:image" content="https://dronezonelb.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://dronezonelb.com/">
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Drone Zone">
+<meta name="twitter:description" content="Browse our stock and order in seconds.">
+<meta name="twitter:image" content="https://dronezonelb.com/og-image.jpg">
+
+<meta name="theme-color" content="#128c7e">
+
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -42,8 +47,9 @@
   <div class="header-inner">
     <a class="brand" href="#" onclick="return false">
       <span class="brand-mark" id="brandMark">
-  <img src="logo.png" alt="Drone Zone logo">
-</span>
+        <!-- CHANGE logo.png to your actual logo filename if different -->
+        <img src="logo.png" alt="Drone Zone logo">
+      </span>
       <span class="brand-name" id="brandName">Drone Zone</span>
     </a>
     <div class="search">
@@ -78,7 +84,7 @@
 
 <!-- ================= HERO ================= -->
 <section class="wrap hero">
-  <h1 id="heroTitle"> Store</h1>
+  <h1 id="heroTitle">Drone Zone</h1>
   <p id="heroTagline">Browse our stock and order in seconds.</p>
 </section>
 
@@ -128,6 +134,15 @@
   </div>
 </aside>
 
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">›</button>
+  <div class="lb-stage" id="lbStage"></div>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
 <!-- ================= ADMIN MODAL ================= -->
 <div class="modal" id="adminModal">
   <div class="modal-card">
@@ -144,13 +159,13 @@
       <form id="productForm" class="form-grid" autocomplete="off">
         <input type="hidden" id="pId">
         <label>Product name
-          <input id="pName" required placeholder="e.g. Linen Throw Blanket">
+          <input id="pName" required placeholder="e.g. DJI Mini 4 Pro">
         </label>
         <label>Price
           <input id="pPrice" type="number" step="0.01" min="0" required placeholder="0.00">
         </label>
         <label>Category
-          <input id="pCategory" list="catList" placeholder="e.g. Home">
+          <input id="pCategory" list="catList" placeholder="e.g. Drone">
           <datalist id="catList"></datalist>
         </label>
         <label>Stock (blank = unlimited)
@@ -159,13 +174,22 @@
         <label class="full">Description
           <textarea id="pDesc" rows="2" placeholder="Short description…"></textarea>
         </label>
-        <label class="full">Upload image
+        <label class="full">Upload cover image
           <input id="pImageFile" type="file" accept="image/*">
         </label>
-        <label class="full">…or paste an image URL
+        <label class="full">…or paste a cover image URL
           <input id="pImageUrl" type="url" placeholder="https://…">
         </label>
         <div class="img-preview full" id="pPreview"></div>
+
+        <label class="full">Additional images (gallery)
+          <input id="pExtraFiles" type="file" accept="image/*" multiple>
+        </label>
+        <label class="full">…or paste an image URL and press Enter
+          <input id="pExtraUrl" type="url" placeholder="https://…">
+        </label>
+        <div class="extra-preview full" id="pExtraPreview"></div>
+
         <div class="form-actions full">
           <button type="submit" class="btn primary" id="pSaveBtn">Add product</button>
           <button type="button" class="btn ghost" id="pClearBtn">Clear form</button>
@@ -203,15 +227,6 @@
       </form>
     </div>
   </div>
-</div>
-
-<!-- ================= LIGHTBOX ================= -->
-<div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer">
-  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
-  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
-  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">›</button>
-  <div class="lb-stage" id="lbStage"></div>
-  <div class="lb-counter" id="lbCounter"></div>
 </div>
 
 <div class="toast" id="toast"></div>
