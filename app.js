@@ -24,15 +24,15 @@ const SEED_PRODUCTS = [];
 /* =========================================================
    STATE
    ========================================================= */
-let settings       = Object.assign({}, DEFAULT_SETTINGS);
-let products       = [];
-let cart           = load(LS.cart, {});
-let activeCategory = 'all';
-let currentImage   = '';
-let currentImages  = [];
-let draftActive    = false;
+let settings        = Object.assign({}, DEFAULT_SETTINGS);
+let products        = [];
+let cart            = load(LS.cart, {});
+let activeCategory  = 'all';
+let currentImage    = '';
+let currentImages   = [];
+let selectedColors  = {};   // { productId: colourName }
+let draftActive     = false;
 
-/* Lightbox state */
 let lbImages = [];
 let lbIndex  = 0;
 let lbName   = '';
@@ -72,15 +72,9 @@ function toggleTheme(){
 /* =========================================================
    IMAGE PATH HELPERS
    ========================================================= */
-function basePathNow(){
-  return window.location.pathname.replace(/\/[^/]*$/, '');
-}
-function addBase(path, basePath){
-  return (path && path.startsWith('/')) ? basePath + path : path;
-}
-function stripBase(path, basePath){
-  return (path && basePath && path.startsWith(basePath)) ? path.slice(basePath.length) : path;
-}
+function basePathNow(){ return window.location.pathname.replace(/\/[^/]*$/, ''); }
+function addBase(path, basePath){ return (path && path.startsWith('/')) ? basePath + path : path; }
+function stripBase(path, basePath){ return (path && basePath && path.startsWith(basePath)) ? path.slice(basePath.length) : path; }
 function normalizeImages(p, basePath){
   const cover = addBase(p.image, basePath);
   const extras = Array.isArray(p.images)
@@ -98,10 +92,64 @@ function portableImages(p, basePath){
 function allImages(p){
   const list = [];
   if(p.image && !list.includes(p.image)) list.push(p.image);
-  if(Array.isArray(p.images)){
-    p.images.forEach(i => { if(i && !list.includes(i)) list.push(i); });
-  }
+  if(Array.isArray(p.images)) p.images.forEach(i => { if(i && !list.includes(i)) list.push(i); });
   return list;
+}
+
+/* =========================================================
+   COLOUR HELPERS
+   ========================================================= */
+function normalizeColorList(colors){
+  if(!Array.isArray(colors)) return [];
+  return colors.map(c => {
+    if(typeof c === 'string') return { name: c, hex: '' };
+    if(c && typeof c === 'object' && c.name) return { name: String(c.name), hex: c.hex || '' };
+    return null;
+  }).filter(Boolean);
+}
+function colorsToText(colors){
+  return normalizeColorList(colors).map(c => c.hex ? `${c.name} ${c.hex}` : c.name).join('\n');
+}
+function parseColorsText(text){
+  return String(text || '')
+    .split(/[\n,]+/)
+    .map(s => s.trim())
+    .filter(Boolean)
+    .map(s => {
+      const m = s.match(/^(.*?)\s+(#[0-9a-fA-F]{3,8})$/);
+      if(m) return { name: m[1].trim(), hex: m[2] };
+      return { name: s, hex: '' };
+    })
+    .filter(c => c.name);
+}
+function colorsForExport(colors){
+  const list = normalizeColorList(colors);
+  if(!list.length) return [];
+  // If none have hex, keep it as a simple string array for cleaner JSON
+  if(list.every(c => !c.hex)) return list.map(c => c.name);
+  return list;
+}
+function colorSwatchStyle(c){
+  if(c.hex) return `background:${c.hex}`;
+  let h = 0;
+  const s = c.name || '?';
+  for(let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) % 360;
+  return `background:hsl(${h} 55% 55%)`;
+}
+function findColor(p, name){
+  return normalizeColorList(p.colors).find(c => c.name === name) || null;
+}
+
+/* =========================================================
+   CART KEY HELPERS
+   ---------------------------------------------------------
+   Cart stores entries under a composite key: id::colour
+   (or just id when the product has no colours)
+   ========================================================= */
+function cartKey(id, color){ return color ? id + '::' + color : id; }
+function parseCartKey(key){
+  const i = key.indexOf('::');
+  return i === -1 ? { id: key, color: '' } : { id: key.slice(0, i), color: key.slice(i + 2) };
 }
 
 /* =========================================================
@@ -118,20 +166,23 @@ async function loadStoreData(){
   }
 
   const basePath = basePathNow();
+  const hydrate = (p) => {
+    const n = normalizeImages(p, basePath);
+    n.colors = normalizeColorList(p.colors);
+    return n;
+  };
 
   if(remote){
     settings = Object.assign({}, DEFAULT_SETTINGS, remote.settings || {});
-    products = Array.isArray(remote.products) ? remote.products : [];
-    products = products.map(p => normalizeImages(p, basePath));
+    products = Array.isArray(remote.products) ? remote.products.map(hydrate) : [];
   }else{
     settings = Object.assign({}, DEFAULT_SETTINGS, load('shop.settings.v1', {}));
-    products = load('shop.products.v1', SEED_PRODUCTS);
-    products = products.map(p => normalizeImages(p, basePath));
+    products = load('shop.products.v1', SEED_PRODUCTS).map(hydrate);
   }
 
   const draft = load(LS.draft, null);
   if(draft && Array.isArray(draft.products)){
-    products = draft.products.map(p => normalizeImages(p, basePath));
+    products = draft.products.map(hydrate);
     if(draft.settings) settings = Object.assign({}, DEFAULT_SETTINGS, draft.settings);
     draftActive = true;
   }
@@ -192,9 +243,7 @@ function openLightbox(product){
 }
 function closeLightbox(){
   $('#lightbox').classList.remove('show');
-  if(!$('#drawer').classList.contains('open')){
-    document.body.classList.remove('locked');
-  }
+  if(!$('#drawer').classList.contains('open')) document.body.classList.remove('locked');
 }
 function renderLightbox(){
   const stage = $('#lbStage');
@@ -280,6 +329,27 @@ function renderProducts(){
     const soldOut = p.stock !== '' && p.stock !== null && p.stock !== undefined && Number(p.stock) <= 0;
     const imgs = allImages(p);
     const multi = imgs.length > 1;
+    const colors = p.colors || [];
+
+    // Colour picker
+    let picker = '';
+    if(colors.length > 1){
+      const selected = selectedColors[p.id] || colors[0].name;
+      selectedColors[p.id] = selected;
+      picker = `
+        <div class="color-picker" data-product="${p.id}">
+          <span class="cp-label">Colour:</span>
+          ${colors.map(c => {
+            const active = c.name === selected;
+            return `<button type="button" class="color-dot ${active?'active':''}"
+                       data-color="${escapeHtml(c.name)}"
+                       style="${colorSwatchStyle(c)}"
+                       title="${escapeHtml(c.name)}"
+                       aria-label="${escapeHtml(c.name)}"
+                       aria-pressed="${active}"></button>`;
+          }).join('')}
+        </div>`;
+    }
 
     const actionBtn = soldOut
       ? `<button class="btn small sold-out" disabled>Sold out</button>`
@@ -303,6 +373,7 @@ function renderProducts(){
           ${p.category ? `<span class="chip-cat">${escapeHtml(p.category)}</span>` : ''}
           <h3>${escapeHtml(p.name)}</h3>
           ${p.desc ? `<p class="desc">${escapeHtml(p.desc)}</p>` : '<p class="desc"></p>'}
+          ${picker}
           <div class="card-foot">
             <span class="price">${money(p.price)}</span>
             ${actionBtn}
@@ -317,8 +388,13 @@ function renderProducts(){
    ========================================================= */
 function cartEntries(){
   return Object.entries(cart)
-    .map(([id, qty]) => ({ product: products.find(p => p.id === id), qty }))
-    .filter(x => x.product);
+    .map(([key, qty]) => {
+      const { id, color } = parseCartKey(key);
+      const product = products.find(p => p.id === id);
+      if(!product) return null;
+      return { key, product, color, qty };
+    })
+    .filter(Boolean);
 }
 function cartCount(){
   return cartEntries().reduce((n, x) => n + x.qty, 0);
@@ -326,32 +402,46 @@ function cartCount(){
 function cartTotal(){
   return cartEntries().reduce((n, x) => n + x.product.price * x.qty, 0);
 }
+function stockLimit(p){
+  return (p.stock === '' || p.stock === null || p.stock === undefined) ? Infinity : Number(p.stock);
+}
+function totalQtyForProduct(id){
+  return Object.entries(cart).reduce((n, [k, q]) => {
+    const parsed = parseCartKey(k);
+    return parsed.id === id ? n + q : n;
+  }, 0);
+}
 function addToCart(id){
   const p = products.find(x => x.id === id);
   if(!p) return;
-  const inCart = cart[id] || 0;
-  const max = (p.stock === '' || p.stock === null || p.stock === undefined)
-    ? Infinity : Number(p.stock);
-  if(inCart + 1 > max){ toast('No more stock available'); return; }
-  cart[id] = inCart + 1;
+
+  const colors = p.colors || [];
+  const color = colors.length ? (selectedColors[id] || colors[0].name) : '';
+  const key = cartKey(id, color);
+
+  const inCart = cart[key] || 0;
+  if(inCart + 1 > stockLimit(p)){ toast('No more stock available'); return; }
+
+  cart[key] = inCart + 1;
   save(LS.cart, cart);
   renderCart();
-  toast(p.name + ' added to cart');
+  toast(color ? `${p.name} (${color}) added` : `${p.name} added to cart`);
 }
-function setQty(id, qty){
-  const p = products.find(x => x.id === id);
+function setQty(key, qty){
+  const parsed = parseCartKey(key);
+  const p = products.find(x => x.id === parsed.id);
   if(!p) return;
-  const max = (p.stock === '' || p.stock === null || p.stock === undefined)
-    ? Infinity : Number(p.stock);
-  qty = Math.max(0, Math.min(qty, max));
-  if(qty === 0) delete cart[id];
-  else cart[id] = qty;
+  qty = Math.max(0, Math.min(qty, stockLimit(p)));
+  if(qty === 0) delete cart[key];
+  else cart[key] = qty;
   save(LS.cart, cart);
   renderCart();
 }
 function renderCart(){
-  Object.keys(cart).forEach(id => {
-    if(!products.find(p => p.id === id)) delete cart[id];
+  // prune entries whose product no longer exists
+  Object.keys(cart).forEach(key => {
+    const { id } = parseCartKey(key);
+    if(!products.find(p => p.id === id)) delete cart[key];
   });
   save(LS.cart, cart);
 
@@ -361,23 +451,28 @@ function renderCart(){
   if(!entries.length){
     body.innerHTML = `<div class="cart-empty"><div class="big">🛒</div>Your cart is empty.<br>Add something you like!</div>`;
   }else{
-    body.innerHTML = entries.map(({product:p, qty}) => `
-      <div class="cart-item">
-        <div class="ci-media">${mediaHtml(p)}</div>
-        <div class="ci-info">
-          <div class="ci-name">${escapeHtml(p.name)}</div>
-          <div class="ci-price">${money(p.price)} each</div>
-          <div class="qty">
-            <button data-dec="${p.id}" aria-label="Decrease">−</button>
-            <span>${qty}</span>
-            <button data-inc="${p.id}" aria-label="Increase">+</button>
+    body.innerHTML = entries.map(({key, product:p, color, qty}) => {
+      const colorMeta = color ? findColor(p, color) : null;
+      const swatchStyle = colorMeta ? colorSwatchStyle(colorMeta) : '';
+      return `
+        <div class="cart-item">
+          <div class="ci-media">${mediaHtml(p)}</div>
+          <div class="ci-info">
+            <div class="ci-name">${escapeHtml(p.name)}</div>
+            ${color ? `<div class="ci-color"><span class="swatch" style="${swatchStyle}"></span>${escapeHtml(color)}</div>` : ''}
+            <div class="ci-price">${money(p.price)} each</div>
+            <div class="qty">
+              <button data-dec="${escapeHtml(key)}" aria-label="Decrease">−</button>
+              <span>${qty}</span>
+              <button data-inc="${escapeHtml(key)}" aria-label="Increase">+</button>
+            </div>
           </div>
-        </div>
-        <div class="ci-right">
-          <strong>${money(p.price * qty)}</strong>
-          <button class="ci-remove" data-del="${p.id}">Remove</button>
-        </div>
-      </div>`).join('');
+          <div class="ci-right">
+            <strong>${money(p.price * qty)}</strong>
+            <button class="ci-remove" data-del="${escapeHtml(key)}">Remove</button>
+          </div>
+        </div>`;
+    }).join('');
   }
 
   $('#cartTotal').textContent = money(cartTotal());
@@ -394,10 +489,11 @@ function buildOrderMessage(){
   lines.push(`*New order — ${settings.storeName}*`);
   lines.push('');
   let total = 0;
-  entries.forEach(({product:p, qty}, i) => {
+  entries.forEach(({product:p, color, qty}, i) => {
     const sub = p.price * qty;
     total += sub;
     lines.push(`${i+1}. ${p.name}`);
+    if(color) lines.push(`    Colour: ${color}`);
     lines.push(`    ${qty} × ${money(p.price)} = ${money(sub)}`);
   });
   lines.push('');
@@ -414,10 +510,8 @@ function orderOnWhatsApp(){
   if(!entries.length){ toast('Your cart is empty'); return; }
 
   const digits = String(settings.whatsapp || '').replace(/[^\d]/g, '');
-  if(!digits){
-    toast('Set your WhatsApp number in products.json');
-    return;
-  }
+  if(!digits){ toast('Set your WhatsApp number in products.json'); return; }
+
   const url = `https://wa.me/${digits}?text=${encodeURIComponent(buildOrderMessage())}`;
   window.open(url, '_blank');
 }
@@ -433,9 +527,7 @@ function openCart(){
 function closeCart(){
   $('#drawer').classList.remove('open');
   $('#overlay').classList.remove('show');
-  if(!$('#lightbox').classList.contains('show')){
-    document.body.classList.remove('locked');
-  }
+  if(!$('#lightbox').classList.contains('show')) document.body.classList.remove('locked');
 }
 
 /* =========================================================
@@ -457,12 +549,13 @@ function closeAdmin(){
 
 function saveDraft(){
   const basePath = basePathNow();
-  const portable = products.map(p => portableImages(p, basePath));
+  const portable = products.map(p => {
+    const copy = portableImages(p, basePath);
+    copy.colors = colorsForExport(p.colors);
+    return copy;
+  });
   const ok = save(LS.draft, { settings, products: portable });
-  if(ok){
-    draftActive = true;
-    renderChrome();
-  }
+  if(ok){ draftActive = true; renderChrome(); }
 }
 function discardDraft(){
   localStorage.removeItem(LS.draft);
@@ -480,6 +573,7 @@ function renderAdminList(){
   }
   list.innerHTML = products.map(p => {
     const count = allImages(p).length;
+    const cCount = (p.colors || []).length;
     return `
     <div class="admin-row">
       <div class="thumb">${mediaHtml(p)}</div>
@@ -489,7 +583,7 @@ function renderAdminList(){
           (p.stock === '' || p.stock === null || p.stock === undefined)
             ? ' · unlimited'
             : ' · ' + p.stock + ' in stock'
-        }${count > 1 ? ' · ' + count + ' photos' : ''}</small>
+        }${cCount ? ' · ' + cCount + ' colours' : ''}${count > 1 ? ' · ' + count + ' photos' : ''}</small>
       </div>
       <div class="acts">
         <button class="btn ghost small" data-edit="${p.id}">Edit</button>
@@ -506,6 +600,7 @@ function clearProductForm(){
   $('#pCategory').value = '';
   $('#pStock').value = '';
   $('#pDesc').value = '';
+  $('#pColors').value = '';
   $('#pImageFile').value = '';
   $('#pImageUrl').value = '';
   currentImage = '';
@@ -572,7 +667,11 @@ function fileToDataUrl(file, maxSize = 900, quality = 0.82){
 
 function exportProductsJson(){
   const basePath = basePathNow();
-  const portable = products.map(p => portableImages(p, basePath));
+  const portable = products.map(p => {
+    const copy = portableImages(p, basePath);
+    copy.colors = colorsForExport(p.colors);
+    return copy;
+  });
 
   const payload = {
     settings: {
@@ -603,9 +702,11 @@ function importProductsJson(file){
       const data = JSON.parse(e.target.result);
       if(data.settings) settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
       const basePath = basePathNow();
-      products = (Array.isArray(data.products) ? data.products : []).map(p =>
-        normalizeImages(p, basePath)
-      );
+      products = (Array.isArray(data.products) ? data.products : []).map(p => {
+        const n = normalizeImages(p, basePath);
+        n.colors = normalizeColorList(p.colors);
+        return n;
+      });
       saveDraft();
       renderChrome();
       renderFilters();
@@ -613,9 +714,7 @@ function importProductsJson(file){
       renderAdminList();
       fillSettingsForm();
       toast('Imported into local draft');
-    }catch(err){
-      toast('That file could not be parsed');
-    }
+    }catch(err){ toast('That file could not be parsed'); }
   };
   reader.readAsText(file);
 }
@@ -625,11 +724,9 @@ function importProductsJson(file){
    ========================================================= */
 function bindEvents(){
 
-  /* theme */
   const themeToggle = $('#themeToggle');
   if(themeToggle) themeToggle.addEventListener('click', toggleTheme);
 
-  /* search + filters */
   $('#searchInput').addEventListener('input', renderProducts);
   $('#filters').addEventListener('click', e => {
     const btn = e.target.closest('[data-cat]');
@@ -639,8 +736,22 @@ function bindEvents(){
     renderProducts();
   });
 
-  /* add to cart + open lightbox from grid */
+  /* grid clicks: colour pick, add to cart, lightbox */
   $('#grid').addEventListener('click', e => {
+    // colour dot
+    const dot = e.target.closest('.color-dot');
+    if(dot){
+      const pid = dot.closest('[data-product]').dataset.product;
+      selectedColors[pid] = dot.dataset.color;
+      const picker = dot.closest('.color-picker');
+      picker.querySelectorAll('.color-dot').forEach(d => {
+        const on = d === dot;
+        d.classList.toggle('active', on);
+        d.setAttribute('aria-pressed', on);
+      });
+      return;
+    }
+
     const addBtn = e.target.closest('[data-add]');
     if(addBtn){ addToCart(addBtn.dataset.add); return; }
 
@@ -651,7 +762,6 @@ function bindEvents(){
     }
   });
 
-  /* lightbox controls */
   const lbClose = $('#lbClose');
   if(lbClose) lbClose.addEventListener('click', closeLightbox);
   const lbPrev = $('#lbPrev');
@@ -665,31 +775,32 @@ function bindEvents(){
     });
   }
 
-  /* cart drawer */
   $('#cartBtn').addEventListener('click', openCart);
   $('#closeCart').addEventListener('click', closeCart);
   $('#overlay').addEventListener('click', closeCart);
 
-  /* cart item controls */
+  /* cart item controls — keys are composite id::colour strings */
   $('#cartItems').addEventListener('click', e => {
     const inc = e.target.closest('[data-inc]');
     const dec = e.target.closest('[data-dec]');
     const del = e.target.closest('[data-del]');
-    if(inc) setQty(inc.dataset.inc, (cart[inc.dataset.inc] || 0) + 1);
-    if(dec) setQty(dec.dataset.dec, (cart[dec.dataset.dec] || 0) - 1);
+    if(inc){
+      const k = inc.dataset.inc;
+      setQty(k, (cart[k] || 0) + 1);
+    }
+    if(dec){
+      const k = dec.dataset.dec;
+      setQty(k, (cart[k] || 0) - 1);
+    }
     if(del) setQty(del.dataset.del, 0);
   });
 
-  /* order */
   $('#orderBtn').addEventListener('click', orderOnWhatsApp);
 
-  /* admin open/close */
   const adminBtn = $('#adminOpenBtn');
   if(adminBtn) adminBtn.addEventListener('click', openAdmin);
-
   const closeAdminBtn = $('#closeAdmin');
   if(closeAdminBtn) closeAdminBtn.addEventListener('click', closeAdmin);
-
   const adminModal = $('#adminModal');
   if(adminModal){
     adminModal.addEventListener('click', e => {
@@ -697,7 +808,6 @@ function bindEvents(){
     });
   }
 
-  /* global keyboard */
   document.addEventListener('keydown', e => {
     if(e.key === 'Escape'){
       if($('#lightbox').classList.contains('show')){ closeLightbox(); return; }
@@ -710,7 +820,6 @@ function bindEvents(){
     }
   });
 
-  /* admin tabs */
   $$('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
       $$('.tab').forEach(t => t.classList.toggle('active', t === tab));
@@ -720,7 +829,6 @@ function bindEvents(){
     });
   });
 
-  /* product image inputs */
   $('#pImageFile').addEventListener('change', async e => {
     const file = e.target.files[0];
     if(!file) return;
@@ -728,26 +836,20 @@ function bindEvents(){
       currentImage = await fileToDataUrl(file);
       $('#pImageUrl').value = '';
       renderPreview();
-    }catch(err){
-      toast('Could not read that image');
-    }
+    }catch(err){ toast('Could not read that image'); }
   });
   $('#pImageUrl').addEventListener('input', e => {
     const v = e.target.value.trim();
     if(v){ currentImage = v; $('#pImageFile').value = ''; renderPreview(); }
   });
 
-  /* extra image file input */
   const extraFileInput = $('#pExtraFiles');
   if(extraFileInput){
     extraFileInput.addEventListener('change', async e => {
       const files = Array.from(e.target.files || []);
       if(!files.length) return;
       for(const f of files){
-        try{
-          const url = await fileToDataUrl(f);
-          currentImages.push(url);
-        }catch(err){ /* skip bad file */ }
+        try{ currentImages.push(await fileToDataUrl(f)); }catch(err){}
       }
       e.target.value = '';
       renderExtraPreview();
@@ -775,7 +877,6 @@ function bindEvents(){
     });
   }
 
-  /* product form submit */
   $('#productForm').addEventListener('submit', e => {
     e.preventDefault();
     const id = $('#pId').value;
@@ -787,6 +888,7 @@ function bindEvents(){
       category: $('#pCategory').value.trim(),
       stock:    stockRaw === '' ? '' : Math.max(0, parseInt(stockRaw, 10) || 0),
       desc:     $('#pDesc').value.trim(),
+      colors:   parseColorsText($('#pColors').value),
       image:    currentImage,
       images:   currentImages.slice()
     };
@@ -810,7 +912,6 @@ function bindEvents(){
 
   $('#pClearBtn').addEventListener('click', clearProductForm);
 
-  /* admin list actions */
   $('#adminList').addEventListener('click', e => {
     const editBtn = e.target.closest('[data-edit]');
     const delBtn  = e.target.closest('[data-remove]');
@@ -825,6 +926,7 @@ function bindEvents(){
       $('#pStock').value    = (p.stock === '' || p.stock === null || p.stock === undefined)
         ? '' : p.stock;
       $('#pDesc').value     = p.desc || '';
+      $('#pColors').value   = colorsToText(p.colors);
       $('#pImageUrl').value = (p.image && !p.image.startsWith('data:')) ? p.image : '';
       currentImage = p.image || '';
       currentImages = Array.isArray(p.images) ? p.images.slice() : [];
@@ -840,7 +942,8 @@ function bindEvents(){
       if(!p) return;
       if(!confirm(`Delete "${p.name}"?`)) return;
       products = products.filter(x => x.id !== p.id);
-      delete cart[p.id];
+      // remove any cart lines for this product (all colours)
+      Object.keys(cart).forEach(k => { if(parseCartKey(k).id === p.id) delete cart[k]; });
       save(LS.cart, cart);
       saveDraft();
       renderFilters();
@@ -851,7 +954,6 @@ function bindEvents(){
     }
   });
 
-  /* settings form submit */
   $('#settingsForm').addEventListener('submit', e => {
     e.preventDefault();
     settings.storeName  = $('#sStoreName').value.trim() || 'Drone Zone';
@@ -868,7 +970,6 @@ function bindEvents(){
     toast('Settings saved to draft');
   });
 
-  /* export / import / discard buttons */
   const actionsRow = document.querySelector('#tab-settings .form-actions');
   if(actionsRow){
     const exportBtn = document.createElement('button');
