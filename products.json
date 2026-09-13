@@ -27,7 +27,7 @@
     },
     {
       "id": "3",
-      "name": "Dji neo  Fpv combo used",
+      "name": "Dji neo 1 Fpv combo used",
       "price": 825,
       "category": "Drones",
       "stock": 1,
@@ -58,8 +58,17 @@
       "price": 415,
       "category": "Drones",
       "stock": 1,
-      "desc": "Dji neo fly more combo barely used\ncycles 10/10/6\ntesting and warranty available",
+      "desc": "Dji neo 1 fly more combo barely used\ncycles 10/10/6\ntesting and warranty available",
       "image": "/images/uploads/4e67458b-f443-411d-914c-5d0c9840332b.jpg"
+    },
+    {
+      "id": "7",
+      "name": "Dji motion 3 used",
+      "price": 90,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "dji motion 3 used",
+      "image": "/images/uploads/images-2.jpeg"
     }
   ]
 }
