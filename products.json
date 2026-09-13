@@ -33,6 +33,15 @@
       "stock": 1,
       "desc": "dji neo fpv combo used \ncycles 10/10/6\nWarranty and testing available",
       "image": "/images/uploads/IMG_8081-1.jpg"
+    },
+    {
+      "id": "4",
+      "name": "Dji neo fly more combo used",
+      "price": 720,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "Dji neo fly more combo used\ncycles 15/17/18\nwarranty and testing available",
+      "image": "/images/uploads/IMG_7681.jpg"
     }
   ]
 }
