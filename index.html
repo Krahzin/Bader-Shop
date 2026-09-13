@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Drone Zone — Shop</title>
 <script>
-  /* Apply saved theme before paint to avoid a flash */
   (function(){
     try{
       var saved = localStorage.getItem('shop.theme');
@@ -16,12 +15,10 @@
   })();
 </script>
 
-<!-- Favicon -->
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<!-- Open Graph (Facebook, Discord, WhatsApp, iMessage, Slack, LinkedIn) -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Drone Zone">
 <meta property="og:description" content="Browse our stock and order in seconds.">
@@ -30,7 +27,6 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://dronezonelb.com/">
 
-<!-- Twitter/X card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Drone Zone">
 <meta name="twitter:description" content="Browse our stock and order in seconds.">
@@ -42,12 +38,10 @@
 </head>
 <body>
 
-<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="#" onclick="return false">
       <span class="brand-mark" id="brandMark">
-        <!-- CHANGE logo.png to your actual logo filename if different -->
         <img src="logo.png" alt="Drone Zone logo">
       </span>
       <span class="brand-name" id="brandName">Drone Zone</span>
@@ -82,30 +76,25 @@
   </div>
 </header>
 
-<!-- ================= HERO ================= -->
 <section class="wrap hero">
   <h1 id="heroTitle">Drone Zone</h1>
   <p id="heroTagline">Browse our stock and order in seconds.</p>
 </section>
 
-<!-- ================= FILTERS ================= -->
 <div class="wrap">
   <div class="filters" id="filters"></div>
 </div>
 
-<!-- ================= GRID ================= -->
 <main class="wrap">
   <div class="grid" id="grid"></div>
 </main>
 
-<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="wrap">
     <p id="footerNote" style="margin:0"></p>
   </div>
 </footer>
 
-<!-- ================= CART DRAWER ================= -->
 <div class="overlay" id="overlay"></div>
 <aside class="drawer" id="drawer" aria-label="Shopping cart">
   <div class="drawer-head">
@@ -134,7 +123,6 @@
   </div>
 </aside>
 
-<!-- ================= LIGHTBOX ================= -->
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer">
   <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
   <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
@@ -143,7 +131,6 @@
   <div class="lb-counter" id="lbCounter"></div>
 </div>
 
-<!-- ================= ADMIN MODAL ================= -->
 <div class="modal" id="adminModal">
   <div class="modal-card">
     <div class="modal-head">
@@ -173,6 +160,9 @@
         </label>
         <label class="full">Description
           <textarea id="pDesc" rows="2" placeholder="Short description…"></textarea>
+        </label>
+        <label class="full">Colours (optional — one per line, add hex after a space for a custom swatch)
+          <textarea id="pColors" rows="2" placeholder="Black #1a1a1a&#10;White #f0f0f0&#10;Ocean Blue"></textarea>
         </label>
         <label class="full">Upload cover image
           <input id="pImageFile" type="file" accept="image/*">
