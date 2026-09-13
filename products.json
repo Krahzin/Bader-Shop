@@ -1,4 +1,18 @@
 {
+  "settings": {
+    "storeName": "Bader Store",
+    "tagline": "Browse our stock and order in seconds.",
+    "whatsapp": "+96176199961",
+    "currency": "$",
+    "footerNote": "Orders are confirmed on WhatsApp. No payment is taken on this website.",
+    "adminPass": "admin123"
+  },
+  "products": [
+    { ... your existing products ... }
+  ]
+}
+
+{
   "products": [
     {
       "id": "p1",
