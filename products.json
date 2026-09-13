@@ -12,6 +12,20 @@
         "/images/uploads/IMG-20260913-WA0240-1.jpg",
         "/images/uploads/IMG-20260913-WA0242.jpg"
       ]
+    },
+    {
+      "id": "2",
+      "name": "Test Item",
+      "price": 1.99,
+      "category": "Test",
+      "stock": 0,
+      "desc": "Test Item",
+      "image": "/images/uploads/test.png",
+      "colors": [
+        "Black",
+        "White",
+        "Red"
+      ]
     }
   ]
 }
