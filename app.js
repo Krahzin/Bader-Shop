@@ -11,9 +11,9 @@ const LS = {
    FALLBACK DATA
    ========================================================= */
 const DEFAULT_SETTINGS = {
-  storeName: 'Drone Zone',
-  tagline: 'Browse our stock and order in seconds.',
-  whatsapp: '+96176199961',
+  storeName: 'My Store',
+  tagline: 'Browse the stock and order in seconds.',
+  whatsapp: '15551234567',
   currency: '$',
   adminPass: 'admin123',
   footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
@@ -42,7 +42,13 @@ let products       = [];
 let cart           = load(LS.cart, {});
 let activeCategory = 'all';
 let currentImage   = '';
+let currentImages  = [];   // gallery of extras being edited in admin
 let draftActive    = false;
+
+/* Lightbox state */
+let lbImages = [];
+let lbIndex  = 0;
+let lbName   = '';
 
 /* =========================================================
    STORAGE HELPERS
@@ -63,8 +69,6 @@ function save(key, value){
    THEME
    ========================================================= */
 function initTheme(){
-  // The inline script in <head> already set data-theme to avoid flash.
-  // Make sure it's set even if that script failed.
   if(!document.documentElement.getAttribute('data-theme')){
     const saved = localStorage.getItem(LS.theme);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -76,6 +80,42 @@ function toggleTheme(){
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   try{ localStorage.setItem(LS.theme, next); }catch(e){}
+}
+
+/* =========================================================
+   IMAGE PATH HELPERS
+   ========================================================= */
+function basePathNow(){
+  return window.location.pathname.replace(/\/[^/]*$/, '');
+}
+function addBase(path, basePath){
+  return (path && path.startsWith('/')) ? basePath + path : path;
+}
+function stripBase(path, basePath){
+  return (path && basePath && path.startsWith(basePath)) ? path.slice(basePath.length) : path;
+}
+function normalizeImages(p, basePath){
+  const cover = addBase(p.image, basePath);
+  const extras = Array.isArray(p.images)
+    ? p.images.map(i => addBase(i, basePath)).filter(Boolean)
+    : [];
+  return Object.assign({}, p, { image: cover || '', images: extras });
+}
+function portableImages(p, basePath){
+  const cover = stripBase(p.image, basePath);
+  const extras = Array.isArray(p.images)
+    ? p.images.map(i => stripBase(i, basePath)).filter(Boolean)
+    : [];
+  return Object.assign({}, p, { image: cover || '', images: extras });
+}
+/* All images for a product, cover first, deduped. */
+function allImages(p){
+  const list = [];
+  if(p.image && !list.includes(p.image)) list.push(p.image);
+  if(Array.isArray(p.images)){
+    p.images.forEach(i => { if(i && !list.includes(i)) list.push(i); });
+  }
+  return list;
 }
 
 /* =========================================================
@@ -91,24 +131,21 @@ async function loadStoreData(){
     console.warn('Could not load products.json — using fallback data.', err);
   }
 
-  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+  const basePath = basePathNow();
 
   if(remote){
     settings = Object.assign({}, DEFAULT_SETTINGS, remote.settings || {});
     products = Array.isArray(remote.products) ? remote.products : [];
-    products = products.map(p => Object.assign({}, p, {
-      image: (p.image && p.image.startsWith('/')) ? basePath + p.image : p.image
-    }));
+    products = products.map(p => normalizeImages(p, basePath));
   }else{
     settings = Object.assign({}, DEFAULT_SETTINGS, load('shop.settings.v1', {}));
     products = load('shop.products.v1', SEED_PRODUCTS);
+    products = products.map(p => normalizeImages(p, basePath));
   }
 
   const draft = load(LS.draft, null);
   if(draft && Array.isArray(draft.products)){
-    products = draft.products.map(p => Object.assign({}, p, {
-      image: (p.image && p.image.startsWith('/')) ? basePath + p.image : p.image
-    }));
+    products = draft.products.map(p => normalizeImages(p, basePath));
     if(draft.settings) settings = Object.assign({}, DEFAULT_SETTINGS, draft.settings);
     draftActive = true;
   }
@@ -137,8 +174,9 @@ function placeholderStyle(name){
   return `background:linear-gradient(135deg,hsl(${h} 45% 90%),hsl(${(h+45)%360} 45% 80%));`;
 }
 function mediaHtml(p){
-  if(p.image){
-    return `<img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy">`;
+  const imgs = allImages(p);
+  if(imgs.length){
+    return `<img src="${escapeHtml(imgs[0])}" alt="${escapeHtml(p.name)}" loading="lazy">`;
   }
   const initial = (String(p.name||'?').trim()[0] || '?').toUpperCase();
   return `<div class="ph" style="${placeholderStyle(p.name)}">${escapeHtml(initial)}</div>`;
@@ -151,6 +189,41 @@ function toast(msg){
   el.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(()=> el.classList.remove('show'), 2400);
+}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+function openLightbox(product){
+  const imgs = allImages(product);
+  if(!imgs.length) return;
+  lbImages = imgs;
+  lbIndex  = 0;
+  lbName   = product.name;
+  renderLightbox();
+  $('#lightbox').classList.add('show');
+  document.body.classList.add('locked');
+}
+function closeLightbox(){
+  $('#lightbox').classList.remove('show');
+  if(!$('#drawer').classList.contains('open')){
+    document.body.classList.remove('locked');
+  }
+}
+function renderLightbox(){
+  const stage = $('#lbStage');
+  if(!stage) return;
+  const img = lbImages[lbIndex];
+  stage.innerHTML = `<img src="${escapeHtml(img)}" alt="${escapeHtml(lbName)}">`;
+  const multi = lbImages.length > 1;
+  $('#lbCounter').textContent = multi ? `${lbIndex + 1} / ${lbImages.length}` : '';
+  $('#lbPrev').style.display = multi ? '' : 'none';
+  $('#lbNext').style.display = multi ? '' : 'none';
+}
+function lbStep(delta){
+  if(!lbImages.length) return;
+  lbIndex = (lbIndex + delta + lbImages.length) % lbImages.length;
+  renderLightbox();
 }
 
 /* =========================================================
@@ -219,11 +292,14 @@ function renderProducts(){
 
   grid.innerHTML = list.map(p => {
     const soldOut = p.stock !== '' && p.stock !== null && p.stock !== undefined && Number(p.stock) <= 0;
+    const imgs = allImages(p);
+    const multi = imgs.length > 1;
     return `
       <article class="card">
-        <div class="card-media">
+        <div class="card-media" ${imgs.length ? `data-open="${p.id}"` : ''}>
           ${mediaHtml(p)}
           ${soldOut ? '<span class="badge-out">Sold out</span>' : ''}
+          ${multi ? `<span class="badge-count">${imgs.length} photos</span>` : ''}
         </div>
         <div class="card-body">
           ${p.category ? `<span class="chip-cat">${escapeHtml(p.category)}</span>` : ''}
@@ -361,11 +437,13 @@ function openCart(){
 function closeCart(){
   $('#drawer').classList.remove('open');
   $('#overlay').classList.remove('show');
-  document.body.classList.remove('locked');
+  if(!$('#lightbox').classList.contains('show')){
+    document.body.classList.remove('locked');
+  }
 }
 
 /* =========================================================
-   ADMIN PANEL  (hidden — open with ?admin=1)
+   ADMIN PANEL
    ========================================================= */
 function openAdmin(){
   const pass = prompt('Enter admin password:');
@@ -382,12 +460,8 @@ function closeAdmin(){
 }
 
 function saveDraft(){
-  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
-  const portable = products.map(p => Object.assign({}, p, {
-    image: (p.image && basePath && p.image.startsWith(basePath))
-      ? p.image.slice(basePath.length)
-      : p.image
-  }));
+  const basePath = basePathNow();
+  const portable = products.map(p => portableImages(p, basePath));
   const ok = save(LS.draft, { settings, products: portable });
   if(ok){
     draftActive = true;
@@ -408,7 +482,9 @@ function renderAdminList(){
     list.innerHTML = `<div class="empty-state"><strong>No products yet</strong>Use the form above to add your first item.</div>`;
     return;
   }
-  list.innerHTML = products.map(p => `
+  list.innerHTML = products.map(p => {
+    const count = allImages(p).length;
+    return `
     <div class="admin-row">
       <div class="thumb">${mediaHtml(p)}</div>
       <div class="meta">
@@ -417,13 +493,14 @@ function renderAdminList(){
           (p.stock === '' || p.stock === null || p.stock === undefined)
             ? ' · unlimited'
             : ' · ' + p.stock + ' in stock'
-        }</small>
+        }${count > 1 ? ' · ' + count + ' photos' : ''}</small>
       </div>
       <div class="acts">
         <button class="btn ghost small" data-edit="${p.id}">Edit</button>
         <button class="btn danger small" data-remove="${p.id}">Delete</button>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
 function clearProductForm(){
@@ -436,13 +513,29 @@ function clearProductForm(){
   $('#pImageFile').value = '';
   $('#pImageUrl').value = '';
   currentImage = '';
+  currentImages = [];
   renderPreview();
+  renderExtraPreview();
   $('#pSaveBtn').textContent = 'Add product';
 }
 function renderPreview(){
   $('#pPreview').innerHTML = currentImage
-    ? `<img src="${escapeHtml(currentImage)}" alt="preview"><span style="font-size:13px;color:var(--muted)">Image ready</span>`
-    : `<span style="font-size:13px;color:var(--muted)">No image selected — a coloured placeholder will be used.</span>`;
+    ? `<img src="${escapeHtml(currentImage)}" alt="preview"><span style="font-size:13px;color:var(--muted)">Cover ready</span>`
+    : `<span style="font-size:13px;color:var(--muted)">No cover image selected — a coloured placeholder will be used.</span>`;
+}
+function renderExtraPreview(){
+  const el = $('#pExtraPreview');
+  if(!el) return;
+  if(!currentImages.length){
+    el.innerHTML = `<span style="font-size:13px;color:var(--muted)">No extra images yet.</span>`;
+    return;
+  }
+  el.innerHTML = currentImages.map((src, i) =>
+    `<div class="extra-thumb">
+      <img src="${escapeHtml(src)}" alt="extra ${i+1}">
+      <button type="button" class="extra-remove" data-remove-extra="${i}" aria-label="Remove">✕</button>
+    </div>`
+  ).join('');
 }
 
 function fillSettingsForm(){
@@ -482,12 +575,8 @@ function fileToDataUrl(file, maxSize = 900, quality = 0.82){
 }
 
 function exportProductsJson(){
-  const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
-  const portable = products.map(p => Object.assign({}, p, {
-    image: (p.image && basePath && p.image.startsWith(basePath))
-      ? p.image.slice(basePath.length)
-      : p.image
-  }));
+  const basePath = basePathNow();
+  const portable = products.map(p => portableImages(p, basePath));
 
   const payload = {
     settings: {
@@ -517,11 +606,9 @@ function importProductsJson(file){
     try{
       const data = JSON.parse(e.target.result);
       if(data.settings) settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
-      const basePath = window.location.pathname.replace(/\/[^/]*$/, '');
+      const basePath = basePathNow();
       products = (Array.isArray(data.products) ? data.products : []).map(p =>
-        Object.assign({}, p, {
-          image: (p.image && p.image.startsWith('/')) ? basePath + p.image : p.image
-        })
+        normalizeImages(p, basePath)
       );
       saveDraft();
       renderChrome();
@@ -556,11 +643,31 @@ function bindEvents(){
     renderProducts();
   });
 
-  /* add to cart */
+  /* add to cart + open lightbox from grid */
   $('#grid').addEventListener('click', e => {
-    const btn = e.target.closest('[data-add]');
-    if(btn) addToCart(btn.dataset.add);
+    const addBtn = e.target.closest('[data-add]');
+    if(addBtn){ addToCart(addBtn.dataset.add); return; }
+
+    const openBtn = e.target.closest('[data-open]');
+    if(openBtn){
+      const p = products.find(x => x.id === openBtn.dataset.open);
+      if(p) openLightbox(p);
+    }
   });
+
+  /* lightbox controls */
+  const lbClose = $('#lbClose');
+  if(lbClose) lbClose.addEventListener('click', closeLightbox);
+  const lbPrev = $('#lbPrev');
+  if(lbPrev) lbPrev.addEventListener('click', () => lbStep(-1));
+  const lbNext = $('#lbNext');
+  if(lbNext) lbNext.addEventListener('click', () => lbStep(1));
+  const lightbox = $('#lightbox');
+  if(lightbox){
+    lightbox.addEventListener('click', e => {
+      if(e.target === lightbox) closeLightbox();
+    });
+  }
 
   /* cart drawer */
   $('#cartBtn').addEventListener('click', openCart);
@@ -580,8 +687,7 @@ function bindEvents(){
   /* order */
   $('#orderBtn').addEventListener('click', orderOnWhatsApp);
 
-  /* admin open/close — the footer button is gone,
-     but the modal still exists in case it's ever triggered. */
+  /* admin open/close */
   const adminBtn = $('#adminOpenBtn');
   if(adminBtn) adminBtn.addEventListener('click', openAdmin);
 
@@ -595,10 +701,17 @@ function bindEvents(){
     });
   }
 
+  /* global keyboard */
   document.addEventListener('keydown', e => {
-    if(e.key !== 'Escape') return;
-    closeCart();
-    if(adminModal && adminModal.classList.contains('show')) closeAdmin();
+    if(e.key === 'Escape'){
+      if($('#lightbox').classList.contains('show')){ closeLightbox(); return; }
+      closeCart();
+      if($('#adminModal').classList.contains('show')) closeAdmin();
+    }
+    if($('#lightbox').classList.contains('show')){
+      if(e.key === 'ArrowLeft')  lbStep(-1);
+      if(e.key === 'ArrowRight') lbStep(1);
+    }
   });
 
   /* admin tabs */
@@ -611,7 +724,7 @@ function bindEvents(){
     });
   });
 
-  /* product image input */
+  /* product image inputs */
   $('#pImageFile').addEventListener('change', async e => {
     const file = e.target.files[0];
     if(!file) return;
@@ -628,6 +741,44 @@ function bindEvents(){
     if(v){ currentImage = v; $('#pImageFile').value = ''; renderPreview(); }
   });
 
+  /* extra image file input */
+  const extraFileInput = $('#pExtraFiles');
+  if(extraFileInput){
+    extraFileInput.addEventListener('change', async e => {
+      const files = Array.from(e.target.files || []);
+      if(!files.length) return;
+      for(const f of files){
+        try{
+          const url = await fileToDataUrl(f);
+          currentImages.push(url);
+        }catch(err){ /* skip bad file */ }
+      }
+      e.target.value = '';
+      renderExtraPreview();
+    });
+  }
+  const extraUrlInput = $('#pExtraUrl');
+  if(extraUrlInput){
+    extraUrlInput.addEventListener('keydown', e => {
+      if(e.key !== 'Enter') return;
+      e.preventDefault();
+      const v = e.target.value.trim();
+      if(!v) return;
+      currentImages.push(v);
+      e.target.value = '';
+      renderExtraPreview();
+    });
+  }
+  const extraPreview = $('#pExtraPreview');
+  if(extraPreview){
+    extraPreview.addEventListener('click', e => {
+      const btn = e.target.closest('[data-remove-extra]');
+      if(!btn) return;
+      currentImages.splice(Number(btn.dataset.removeExtra), 1);
+      renderExtraPreview();
+    });
+  }
+
   /* product form submit */
   $('#productForm').addEventListener('submit', e => {
     e.preventDefault();
@@ -640,7 +791,8 @@ function bindEvents(){
       category: $('#pCategory').value.trim(),
       stock:    stockRaw === '' ? '' : Math.max(0, parseInt(stockRaw, 10) || 0),
       desc:     $('#pDesc').value.trim(),
-      image:    currentImage
+      image:    currentImage,
+      images:   currentImages.slice()
     };
     if(!data.name){ toast('Please enter a product name'); return; }
 
@@ -679,7 +831,9 @@ function bindEvents(){
       $('#pDesc').value     = p.desc || '';
       $('#pImageUrl').value = (p.image && !p.image.startsWith('data:')) ? p.image : '';
       currentImage = p.image || '';
+      currentImages = Array.isArray(p.images) ? p.images.slice() : [];
       renderPreview();
+      renderExtraPreview();
       $('#pSaveBtn').textContent = 'Save changes';
       $('#tab-products').scrollIntoView({ behavior:'smooth', block:'start' });
       $('#pName').focus();
@@ -769,9 +923,9 @@ async function init(){
   renderProducts();
   renderCart();
   renderPreview();
+  renderExtraPreview();
   bindEvents();
 
-  // Hidden admin access: add ?admin=1 to the URL to open the panel.
   if(new URLSearchParams(location.search).has('admin')){
     openAdmin();
   }
