@@ -26,6 +26,15 @@
       "stock": 2,
       "desc": "really smooth butt plug",
       "image": "/images/uploads/images.jpg"
+    },
+    {
+      "id": "22",
+      "name": "RTX 3080TI SUPRIM X",
+      "price": 410,
+      "category": "Graphics Card",
+      "stock": 1,
+      "desc": "Power hungry piece of shit",
+      "image": "/images/uploads/product_162251766271378e8100c134325de1db0492f9f722.webp"
     }
   ]
 }
