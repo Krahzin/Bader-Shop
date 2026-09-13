@@ -11,6 +11,7 @@ body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;
   background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased;
   line-height:1.5;
+  transition:background-color .2s ease, color .2s ease;
 }
 body.locked{overflow:hidden}
 img{max-width:100%;display:block}
@@ -23,12 +24,14 @@ input,textarea,select{font:inherit;color:inherit}
   position:sticky;top:0;z-index:40;
   background:rgba(246,246,244,.85);backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
+  transition:background-color .2s ease, border-color .2s ease;
 }
-.header-inner{display:flex;align-items:center;gap:16px;padding:12px 20px;max-width:1180px;margin:0 auto}
+.header-inner{display:flex;align-items:center;gap:12px;padding:12px 20px;max-width:1180px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
 .brand-mark{
   width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
   background:var(--accent);color:#fff;font-weight:700;font-size:17px;
+  transition:background-color .2s ease;
 }
 .brand-name{font-weight:700;font-size:17px;letter-spacing:-.01em}
 .search{flex:1;min-width:0}
@@ -37,6 +40,19 @@ input,textarea,select{font:inherit;color:inherit}
   background:var(--surface);outline:none;transition:.15s;
 }
 .search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(18,140,126,.12)}
+
+/* ---------- Theme toggle ---------- */
+.theme-toggle{
+  width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
+  border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  transition:.15s;flex-shrink:0;
+}
+.theme-toggle:hover{color:var(--text);border-color:var(--muted)}
+.theme-toggle svg{width:17px;height:17px}
+.theme-toggle .icon-sun{display:none}
+[data-theme="dark"] .theme-toggle .icon-sun{display:block}
+[data-theme="dark"] .theme-toggle .icon-moon{display:none}
+
 .cart-btn{
   display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;
   background:var(--text);color:#fff;font-weight:600;font-size:14px;transition:.15s;flex-shrink:0;
@@ -187,7 +203,7 @@ input,textarea,select{font:inherit;color:inherit}
 .tab.active{color:var(--text);border-bottom-color:var(--accent)}
 .modal-body{padding:22px}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-grid label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:#3d4148}
+.form-grid label{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
 .form-grid .full{grid-column:1/-1}
 .form-grid input,.form-grid textarea,.form-grid select{
   padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:#fbfbf9;outline:none;
@@ -211,8 +227,6 @@ input,textarea,select{font:inherit;color:inherit}
 
 /* ---------- Footer ---------- */
 .site-footer{border-top:1px solid var(--line);padding:28px 0 40px;text-align:center;color:var(--muted);font-size:13px}
-.site-footer button{color:var(--muted);text-decoration:underline;font-size:13px}
-.site-footer button:hover{color:var(--text)}
 
 /* ---------- Toast ---------- */
 .toast{
@@ -231,3 +245,74 @@ input,textarea,select{font:inherit;color:inherit}
   .form-grid{grid-template-columns:1fr}
   .hero{padding:30px 0 4px}
 }
+
+/* =========================================================
+   DARK THEME  (Zorin-inspired: deep slate bg, blue accents)
+   ========================================================= */
+[data-theme="dark"]{
+  --bg:#18181f;
+  --surface:#22222b;
+  --text:#e8e8f0;
+  --muted:#8b8b9e;
+  --line:#2f2f3a;
+  --accent:#5b9dff;
+  --accent-dark:#7bb0ff;
+  --wa:#25d366;
+  --wa-dark:#1eb455;
+  --danger:#ff6b6b;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 28px -14px rgba(0,0,0,.6);
+}
+[data-theme="dark"] body{background:var(--bg);color:var(--text)}
+[data-theme="dark"] .site-header{background:rgba(24,24,31,.85)}
+[data-theme="dark"] .brand-mark{color:#0a1626}
+[data-theme="dark"] .brand-name{color:var(--text)}
+
+[data-theme="dark"] .search input,
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field textarea,
+[data-theme="dark"] .form-grid input,
+[data-theme="dark"] .form-grid textarea{
+  background:#1a1a22;
+  color:var(--text);
+}
+[data-theme="dark"] .search input::placeholder,
+[data-theme="dark"] .field input::placeholder,
+[data-theme="dark"] .field textarea::placeholder,
+[data-theme="dark"] .form-grid input::placeholder,
+[data-theme="dark"] .form-grid textarea::placeholder{
+  color:#5f5f72;
+}
+[data-theme="dark"] .search input:focus,
+[data-theme="dark"] .field input:focus,
+[data-theme="dark"] .field textarea:focus,
+[data-theme="dark"] .form-grid input:focus,
+[data-theme="dark"] .form-grid textarea:focus{
+  background:#1f1f28;
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(91,157,255,.18);
+}
+
+[data-theme="dark"] .chip{background:var(--surface);color:var(--muted)}
+[data-theme="dark"] .chip:hover{border-color:#3a3a48;color:var(--text)}
+[data-theme="dark"] .chip.active{background:var(--accent);border-color:var(--accent);color:#0a1626}
+
+[data-theme="dark"] .card:hover{border-color:#3a3a48}
+[data-theme="dark"] .card-media{background:#1a1a22}
+
+[data-theme="dark"] .cart-btn{background:var(--accent);color:#0a1626}
+[data-theme="dark"] .cart-btn:hover{background:var(--accent-dark);opacity:1}
+[data-theme="dark"] .cart-count{background:#0a1626;color:var(--accent)}
+
+[data-theme="dark"] .icon-btn:hover{background:#2f2f3a;color:var(--text)}
+[data-theme="dark"] .qty button:hover{background:#2f2f3a;color:var(--text)}
+
+[data-theme="dark"] .btn.ghost{background:var(--surface);color:var(--text)}
+[data-theme="dark"] .btn.ghost:hover{background:#2f2f3a}
+[data-theme="dark"] .btn.danger{border-color:#5a2a2a;background:transparent;color:var(--danger)}
+[data-theme="dark"] .btn.danger:hover{background:#3a1c1c}
+
+[data-theme="dark"] .overlay{background:rgba(0,0,0,.65)}
+[data-theme="dark"] .drawer{box-shadow:-20px 0 50px -20px rgba(0,0,0,.6)}
+
+[data-theme="dark"] .toast{background:#e8e8f0;color:#18181f}
+[data-theme="dark"] .btn-wa{color:#06301c}
