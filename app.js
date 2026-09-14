@@ -12,11 +12,11 @@ const LS = {
    ========================================================= */
 const DEFAULT_SETTINGS = {
   storeName: 'Drone Zone',
-  tagline: 'Browse our stock and order in seconds.',
+  tagline: 'Browse our stock and order in seconds. \n All 3D printed parts/accessories need a Whish deposit beforehand.',
   whatsapp: '96176199961',
   currency: '$',
   adminPass: 'admin123',
-  footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
+  footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website: 76 199 961'
 };
 
 const SEED_PRODUCTS = [];
