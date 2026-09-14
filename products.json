@@ -251,10 +251,52 @@
     },
     {
       "id": "24",
-      "name": "Dji neo 2 gimbal protector",
+      "name": "Dji neo 2 gimbal protector model 1",
       "price": 5,
       "category": "Dji neo 2 Accessories",
-      "image": "/images/uploads/Screenshot 2026-09-14 at 13.31.48.png"
+      "image": "/images/uploads/Screenshot 2026-09-14 at 13.31.48.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Dji neo 2 gimbal protector model 2",
+      "price": 5,
+      "category": "Dji neo 2 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 13.36.04.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "26",
+      "name": "Dji neo 2 gimbal protector model 3",
+      "price": 3,
+      "category": "Dji neo 2 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 13.38.07.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Dji neo 2 protection",
+      "price": 14,
+      "category": "Dji neo 2 Accessories",
+      "desc": "side protection for neo 2\nNote: top propellers cover must be removed",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 13.40.09.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
