@@ -435,6 +435,23 @@
         "black",
         "grey"
       ]
+    },
+    {
+      "id": "40",
+      "name": "Dji neo 1 smart tag mount",
+      "price": 9,
+      "category": "Dji neo 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 16.18.05.png",
+      "colors": [
+        "black",
+        "grey"
+      ]
+    },
+    {
+      "id": "41",
+      "name": "Dji mini 2/mini 2se/ mini 4k propellers guard",
+      "price": 25,
+      "category": "Dji mini 2/mini 2se/ mini 4k"
     }
   ]
 }
