@@ -514,6 +514,17 @@
       "price": 6,
       "category": "Dji mini 3/ 3 pro",
       "image": "/images/uploads/Screenshot 2026-09-14 at 18.58.39.png"
+    },
+    {
+      "id": "48",
+      "name": "Dji mini 4 pro clips",
+      "price": 6,
+      "image": "/images/uploads/Screenshot 2026-09-14 at 19.01.15.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
