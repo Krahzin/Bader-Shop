@@ -502,10 +502,18 @@
       "id": "46",
       "name": "Dji mini 3/ 3 pro case",
       "price": 22,
+      "image": "/images/uploads/Screenshot 2026-09-14 at 18.34.53-1.png",
       "colors": [
         "black",
         "grey"
       ]
+    },
+    {
+      "id": "47",
+      "name": "Dji mini 3/ 3 pro propellers clip",
+      "price": 6,
+      "category": "Dji mini 3/ 3 pro",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 18.58.39.png"
     }
   ]
 }
