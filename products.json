@@ -532,6 +532,17 @@
       "price": 20,
       "category": "Dji mini 4 pro",
       "image": "/images/uploads/Screenshot 2026-09-14 at 19.05.35.png"
+    },
+    {
+      "id": "50",
+      "name": "Dji mini 3/ 3 pro guards",
+      "price": 18,
+      "category": "Dji mini 3/ 3 pro",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
