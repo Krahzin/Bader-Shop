@@ -5,6 +5,9 @@
   --wa:#25d366; --wa-dark:#1eb455; --danger:#d64545;
   --radius:14px;
   --shadow:0 1px 2px rgba(16,24,40,.06), 0 12px 28px -14px rgba(16,24,40,.22);
+  --notice-bg:rgba(224,180,41,.14);
+  --notice-border:rgba(224,180,41,.42);
+  --notice-text:#7a5c00;
 }
 html,body{margin:0;padding:0}
 body{
@@ -60,6 +63,26 @@ input,textarea,select{font:inherit;color:inherit}
   background:var(--wa);color:#08301f;border-radius:999px;font-size:12px;font-weight:800;
   min-width:20px;height:20px;display:grid;place-items:center;padding:0 5px;
 }
+
+/* ---------- Site notice (top banner) ---------- */
+.site-notice{
+  background:var(--notice-bg);
+  border-bottom:1px solid var(--notice-border);
+  color:var(--notice-text);
+  font-size:13px;
+  line-height:1.5;
+  padding:9px 0;
+  text-align:center;
+  transition:background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.site-notice .wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  flex-wrap:wrap;
+}
+.site-notice strong{font-weight:700}
 
 .hero{padding:44px 0 8px;text-align:center}
 .hero h1{margin:0 0 8px;font-size:clamp(26px,4.5vw,40px);letter-spacing:-.02em;line-height:1.15}
@@ -304,20 +327,7 @@ input,textarea,select{font:inherit;color:inherit}
   color:var(--muted);
   font-size:12.5px;
 }
-.footer-note{margin:0 0 12px;font-size:12.5px;color:var(--muted)}
-.footer-disclaimer{
-  max-width:640px;
-  margin:0 auto 12px;
-  padding:10px 14px;
-  background:rgba(224,180,41,.10);
-  border:1px solid rgba(224,180,41,.40);
-  border-radius:10px;
-  color:var(--text);
-  font-size:12.5px;
-  line-height:1.55;
-  text-align:left;
-}
-.footer-disclaimer strong{color:var(--text);font-weight:700}
+.footer-note{margin:0 0 10px;font-size:12.5px;color:var(--muted)}
 .footer-contact{
   margin:0;
   font-size:13px;
@@ -346,6 +356,9 @@ input,textarea,select{font:inherit;color:inherit}
   .card-body h3{font-size:14.5px}
   .form-grid{grid-template-columns:1fr}
   .hero{padding:30px 0 4px}
+
+  .site-notice{font-size:12px;padding:8px 0}
+  .site-notice .wrap{padding:0 14px;text-align:left;justify-content:flex-start}
 
   .card-foot{gap:8px}
   .card-foot .price{font-size:15px}
@@ -378,6 +391,9 @@ input,textarea,select{font:inherit;color:inherit}
   --wa-dark:#1eb455;
   --danger:#ff6b6b;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 28px -14px rgba(0,0,0,.6);
+  --notice-bg:rgba(224,180,41,.10);
+  --notice-border:rgba(224,180,41,.32);
+  --notice-text:#e8c766;
 }
 [data-theme="dark"] body{background:var(--bg);color:var(--text)}
 [data-theme="dark"] .site-header{background:rgba(24,24,31,.85)}
@@ -438,8 +454,3 @@ input,textarea,select{font:inherit;color:inherit}
 
 [data-theme="dark"] .toast{background:#e8e8f0;color:#18181f}
 [data-theme="dark"] .btn-wa{color:#06301c}
-
-[data-theme="dark"] .footer-disclaimer{
-  background:rgba(224,180,41,.08);
-  border-color:rgba(224,180,41,.30);
-}
