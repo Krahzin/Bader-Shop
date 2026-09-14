@@ -410,6 +410,17 @@
       "price": 25,
       "category": "Dji neo 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-14 at 15.14.52.png"
+    },
+    {
+      "id": "38",
+      "name": "Dji neo 2 mod",
+      "price": 15,
+      "category": "Dji neo 2 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 15.56.46.png",
+      "colors": [
+        "black",
+        "grey"
+      ]
     }
   ]
 }
