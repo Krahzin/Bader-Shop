@@ -337,6 +337,43 @@
       "images": [
         "/images/uploads/Screenshot 2026-09-14 at 14.32.07.png"
       ]
+    },
+    {
+      "id": "31",
+      "name": "Dji neo 1 spirit bomber mod",
+      "price": 9,
+      "category": "Dji neo 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 14.35.44.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "32",
+      "name": "Dji neo 2 antenna protection",
+      "price": 4,
+      "category": "Dji neo 2 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 14.37.21.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "33",
+      "name": "Dji neo 2 antenna protection",
+      "price": 5,
+      "category": "Dji neo 2 Accessories",
+      "desc": "antenna travel protection",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 14.40.26.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
