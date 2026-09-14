@@ -421,6 +421,20 @@
         "black",
         "grey"
       ]
+    },
+    {
+      "id": "39",
+      "name": "Dji mini 2/mini 2se/ mini 4k case",
+      "price": 27,
+      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 16.09.30.png",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-14 at 16.09.41.png"
+      ],
+      "colors": [
+        "black",
+        "grey"
+      ]
     }
   ]
 }
