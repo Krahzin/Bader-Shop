@@ -19,7 +19,6 @@ button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
 input,textarea,select{font:inherit;color:inherit}
 .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px}
 
-/* ---------- Header ---------- */
 .site-header{
   position:sticky;top:0;z-index:40;
   background:rgba(246,246,244,.85);backdrop-filter:blur(12px);
@@ -41,7 +40,6 @@ input,textarea,select{font:inherit;color:inherit}
 }
 .search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(18,140,126,.12)}
 
-/* ---------- Theme toggle ---------- */
 .theme-toggle{
   width:38px;height:38px;border-radius:10px;display:grid;place-items:center;
   border:1px solid var(--line);background:var(--surface);color:var(--muted);
@@ -63,12 +61,10 @@ input,textarea,select{font:inherit;color:inherit}
   min-width:20px;height:20px;display:grid;place-items:center;padding:0 5px;
 }
 
-/* ---------- Hero ---------- */
 .hero{padding:44px 0 8px;text-align:center}
 .hero h1{margin:0 0 8px;font-size:clamp(26px,4.5vw,40px);letter-spacing:-.02em;line-height:1.15}
 .hero p{margin:0;color:var(--muted);font-size:15px}
 
-/* ---------- Filters ---------- */
 .filters{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:26px 0 6px}
 .chip{
   padding:7px 15px;border-radius:999px;border:1px solid var(--line);background:var(--surface);
@@ -77,7 +73,6 @@ input,textarea,select{font:inherit;color:inherit}
 .chip:hover{border-color:#cfcfc9}
 .chip.active{background:var(--text);border-color:var(--text);color:#fff}
 
-/* ---------- Grid ---------- */
 .grid{
   display:grid;gap:20px;padding:24px 0 32px;
   grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
@@ -105,7 +100,6 @@ input,textarea,select{font:inherit;color:inherit}
 .card-body h3{margin:0;font-size:15.5px;font-weight:650;letter-spacing:-.01em}
 .card-body .desc{margin:0;font-size:13px;color:var(--muted);flex:1}
 
-/* ---------- Colour picker ---------- */
 .color-picker{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:6px;padding:4px 0}
 .color-picker .cp-label{font-size:11.5px;color:var(--muted);font-weight:600;letter-spacing:.02em;margin-right:2px}
 .color-dot{
@@ -123,7 +117,6 @@ input,textarea,select{font:inherit;color:inherit}
 .card-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
 .price{font-weight:750;font-size:16px}
 
-/* ---------- Buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   padding:10px 16px;border-radius:10px;font-weight:650;font-size:14px;transition:.15s;
@@ -155,14 +148,12 @@ input,textarea,select{font:inherit;color:inherit}
 .btn-wa:hover:not(:disabled){background:var(--wa-dark)}
 .btn-wa:disabled{opacity:.45;cursor:not-allowed}
 
-/* ---------- Empty state ---------- */
 .empty-state{
   grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--muted);
   border:1px dashed var(--line);border-radius:var(--radius);background:var(--surface);
 }
 .empty-state strong{display:block;color:var(--text);font-size:17px;margin-bottom:6px}
 
-/* ---------- Drawer ---------- */
 .overlay{
   position:fixed;inset:0;background:rgba(15,18,22,.45);opacity:0;pointer-events:none;
   transition:.25s;z-index:50;backdrop-filter:blur(2px);
@@ -221,9 +212,10 @@ input,textarea,select{font:inherit;color:inherit}
   background:#fbfbf9;outline:none;transition:.15s;resize:vertical;
 }
 .field input:focus,.field textarea:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 3px rgba(18,140,126,.12)}
-.hint{font-size:12px;color:var(--muted);text-align:center;margin:10px 0 0}
+.hint{font-size:12px;color:var(--muted);text-align:center;margin:10px 0 0;line-height:1.6}
+.hint a{color:var(--wa);font-weight:650;text-decoration:none}
+.hint a:hover{text-decoration:underline}
 
-/* ---------- Lightbox ---------- */
 .lightbox{
   position:fixed;inset:0;z-index:90;display:none;background:rgba(0,0,0,.92);
   align-items:center;justify-content:center;padding:40px;
@@ -256,7 +248,6 @@ input,textarea,select{font:inherit;color:inherit}
   backdrop-filter:blur(8px);
 }
 
-/* ---------- Modal (admin) ---------- */
 .modal{
   position:fixed;inset:0;z-index:70;display:none;padding:20px;
   background:rgba(15,18,22,.5);backdrop-filter:blur(3px);
@@ -306,9 +297,40 @@ input,textarea,select{font:inherit;color:inherit}
 .admin-row .acts{display:flex;gap:6px;flex-shrink:0}
 
 /* ---------- Footer ---------- */
-.site-footer{border-top:1px solid var(--line);padding:14px 0 16px;text-align:center;color:var(--muted);font-size:12.5px}
+.site-footer{
+  border-top:1px solid var(--line);
+  padding:20px 0 22px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12.5px;
+}
+.footer-note{margin:0 0 12px;font-size:12.5px;color:var(--muted)}
+.footer-disclaimer{
+  max-width:640px;
+  margin:0 auto 12px;
+  padding:10px 14px;
+  background:rgba(224,180,41,.10);
+  border:1px solid rgba(224,180,41,.40);
+  border-radius:10px;
+  color:var(--text);
+  font-size:12.5px;
+  line-height:1.55;
+  text-align:left;
+}
+.footer-disclaimer strong{color:var(--text);font-weight:700}
+.footer-contact{
+  margin:0;
+  font-size:13px;
+  color:var(--muted);
+}
+.footer-contact a{
+  color:var(--wa);
+  font-weight:650;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.footer-contact a:hover{text-decoration:underline}
 
-/* ---------- Toast ---------- */
 .toast{
   position:fixed;left:50%;bottom:26px;transform:translate(-50%,20px);
   background:var(--text);color:#fff;padding:12px 20px;border-radius:11px;font-size:14px;font-weight:600;
@@ -316,9 +338,6 @@ input,textarea,select{font:inherit;color:inherit}
 }
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
-/* =========================================================
-   MOBILE
-   ========================================================= */
 @media(max-width:720px){
   .header-inner{flex-wrap:wrap}
   .search{order:3;flex-basis:100%}
@@ -347,9 +366,6 @@ input,textarea,select{font:inherit;color:inherit}
   .lb-close{top:12px;right:12px}
 }
 
-/* =========================================================
-   DARK THEME
-   ========================================================= */
 [data-theme="dark"]{
   --bg:#18181f;
   --surface:#22222b;
@@ -422,3 +438,8 @@ input,textarea,select{font:inherit;color:inherit}
 
 [data-theme="dark"] .toast{background:#e8e8f0;color:#18181f}
 [data-theme="dark"] .btn-wa{color:#06301c}
+
+[data-theme="dark"] .footer-disclaimer{
+  background:rgba(224,180,41,.08);
+  border-color:rgba(224,180,41,.30);
+}
