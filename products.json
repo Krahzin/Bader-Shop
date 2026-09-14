@@ -381,7 +381,12 @@
       "price": 9,
       "category": "Dji neo 2 Accessories",
       "desc": "airtag mount for neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-14 at 14.44.03.png"
+      "image": "/images/uploads/Screenshot 2026-09-14 at 14.44.03.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     },
     {
       "id": "35",
@@ -390,6 +395,21 @@
       "category": "Dji neo 2 Accessories",
       "desc": "custom case for neo 2",
       "image": "/images/uploads/Screenshot 2026-09-14 at 14.48.10.png"
+    },
+    {
+      "id": "36",
+      "name": "Dji neo 2 case",
+      "price": 30,
+      "category": "Dji neo 2 Accessories",
+      "desc": "custom case with batt holder for neo 2",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 15.12.53.png"
+    },
+    {
+      "id": "37",
+      "name": "Dji neo 2 stand",
+      "price": 25,
+      "category": "Dji neo 2 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 15.14.52.png"
     }
   ]
 }
