@@ -474,6 +474,18 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "44",
+      "name": "Dji mini 2/mini 2se/ mini 4k landing gear",
+      "price": 9,
+      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 18.20.16.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
