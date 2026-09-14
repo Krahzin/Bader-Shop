@@ -287,11 +287,24 @@
     },
     {
       "id": "27",
-      "name": "Dji neo 2 protection",
+      "name": "Dji neo 2 protection model 1",
       "price": 14,
       "category": "Dji neo 2 Accessories",
       "desc": "side protection for neo 2\nNote: top propellers cover must be removed",
       "image": "/images/uploads/Screenshot 2026-09-14 at 13.40.09.png",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "28",
+      "name": "Dji neo 2 protection model 2",
+      "price": 13,
+      "category": "Dji neo 2 Accessories",
+      "desc": "side protection for neo 2\nNote: top propellers cover must be removed",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 13.41.55.png",
       "colors": [
         "black",
         "grey",
