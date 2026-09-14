@@ -310,6 +310,33 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "29",
+      "name": "Dji neo 2 landing gear",
+      "price": 10,
+      "category": "Dji neo 2 Accessories",
+      "desc": "landing gear for neo 2",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 14.28.09.png",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-14 at 14.26.54.png"
+      ],
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "30",
+      "name": "Dji neo 2 travel protection",
+      "price": 12,
+      "category": "Dji neo 2 Accessories",
+      "desc": "protects both the camera and the gimballwhile travelling",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 14.31.57.png",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-14 at 14.32.07.png"
+      ]
     }
   ]
 }
