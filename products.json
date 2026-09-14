@@ -450,7 +450,8 @@
       "id": "41",
       "name": "Dji mini 2/mini 2se/ mini 4k propellers guard",
       "price": 25,
-      "category": "Dji mini 2/mini 2se/ mini 4k"
+      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "image": "/images/uploads/Screenshot 2026-09-15 at 01.29.25-1.webp"
     },
     {
       "id": "42",
@@ -552,7 +553,8 @@
       "price": 520,
       "category": "Drones",
       "stock": 1,
-      "desc": "Dji neo 2\n3 batt low cycles\nbag\nno remote"
+      "desc": "Dji neo 2\n3 batt low cycles\nbag\nno remote",
+      "image": "/images/uploads/dbf5a1d1-b000-4118-8d55-e085d227c093.jpg"
     }
   ]
 }
