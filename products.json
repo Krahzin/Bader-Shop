@@ -192,7 +192,7 @@
     },
     {
       "id": "17",
-      "name": "Dji neo landing gear",
+      "name": "Dji neo  1landing gear",
       "price": 8,
       "category": "Dji neo 1 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-14 at 11.28.47.png",
@@ -201,6 +201,27 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "18",
+      "name": "dji neo 1 stand",
+      "price": 25,
+      "category": "Dji neo 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 11.34.42.png"
+    },
+    {
+      "id": "19",
+      "name": "Dji neo 1 camera cover",
+      "price": 3,
+      "category": "Dji neo 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 12.18.03.png"
+    },
+    {
+      "id": "20",
+      "name": "Dji neo 1 airtag mount",
+      "price": 8,
+      "category": "Dji neo 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 12.15.43.png"
     }
   ]
 }
