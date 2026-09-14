@@ -76,11 +76,7 @@ input,textarea,select{font:inherit;color:inherit}
   transition:background-color .2s ease, border-color .2s ease, color .2s ease;
 }
 .site-notice .wrap{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  flex-wrap:wrap;
+  text-align:center;
 }
 .site-notice strong{font-weight:700}
 
@@ -358,7 +354,7 @@ input,textarea,select{font:inherit;color:inherit}
   .hero{padding:30px 0 4px}
 
   .site-notice{font-size:12px;padding:8px 0}
-  .site-notice .wrap{padding:0 14px;text-align:left;justify-content:flex-start}
+  .site-notice .wrap{padding:0 14px;text-align:left}
 
   .card-foot{gap:8px}
   .card-foot .price{font-size:15px}
