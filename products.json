@@ -240,6 +240,21 @@
       "stock": 1,
       "desc": "led light for neo 2\nusb c",
       "image": "/images/uploads/1DC92B41-C561-4278-A84A-C30B616DFEA6.jpg"
+    },
+    {
+      "id": "23",
+      "name": "Dji neo 2 camera lens protection",
+      "price": 15,
+      "category": "Dji neo 2 Accessories",
+      "stock": 1,
+      "image": "/images/uploads/Screenshot 2026-09-14 at 13.25.27.png"
+    },
+    {
+      "id": "24",
+      "name": "Dji neo 2 gimbal protector",
+      "price": 5,
+      "category": "Dji neo 2 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 13.31.48.png"
     }
   ]
 }
