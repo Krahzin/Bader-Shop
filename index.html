@@ -78,7 +78,7 @@
 
 <section class="wrap hero">
   <h1 id="heroTitle">Drone Zone</h1>
-  <p id="heroTagline">Browse our stock and order in seconds.<br> 3D Printed Parts/Accessories need a deposit made on Whish beforehand.</p>
+  <p id="heroTagline">Browse our stock and order in seconds.</p>
 </section>
 
 <div class="wrap">
@@ -91,7 +91,11 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <p id="footerNote" style="margin:0"></p>
+    <p id="footerNote" class="footer-note" style="margin:0"></p>
+    <div class="footer-disclaimer">
+      <strong>Please note:</strong> Any 3D-printable accessory or part requires a <strong>Whish deposit</strong> before we begin production.
+    </div>
+    <p class="footer-contact" id="footerContact"></p>
   </div>
 </footer>
 
@@ -119,7 +123,7 @@
       </svg>
       Order on WhatsApp
     </button>
-    <p class="hint">No payment here — we confirm everything on WhatsApp: 76 199 961</p>
+    <p class="hint" id="drawerHint">No payment here — we confirm everything on WhatsApp.</p>
   </div>
 </aside>
 
@@ -199,7 +203,7 @@
           <input id="sCurrency" placeholder="$" maxlength="4">
         </label>
         <label class="full">WhatsApp number (country code, digits only)
-          <input id="sWhatsapp" placeholder="15551234567" required>
+          <input id="sWhatsapp" placeholder="96176199961" required>
         </label>
         <label class="full">Tagline
           <input id="sTagline">
