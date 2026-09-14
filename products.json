@@ -452,6 +452,17 @@
       "name": "Dji mini 2/mini 2se/ mini 4k propellers guard",
       "price": 25,
       "category": "Dji mini 2/mini 2se/ mini 4k"
+    },
+    {
+      "id": "42",
+      "name": "Dji mini 2/mini 2se/ mini 4k protection",
+      "price": 17,
+      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
