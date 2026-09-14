@@ -222,6 +222,15 @@
       "price": 8,
       "category": "Dji neo 1 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-14 at 12.15.43.png"
+    },
+    {
+      "id": "20",
+      "name": "Dji neo 2 transmitter",
+      "price": 50,
+      "category": "Dji neo 2 Accessories",
+      "stock": 1,
+      "desc": "transmitter for neo 2",
+      "image": "/images/uploads/Sef416a1829a24d16a4cab93e4d09c724k.jpg.avif"
     }
   ]
 }
