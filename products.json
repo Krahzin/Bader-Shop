@@ -545,6 +545,14 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "51",
+      "name": "Dji neo 2",
+      "price": 520,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "Dji neo 2\n3 batt low cycles\nbag\nno remote"
     }
   ]
 }
