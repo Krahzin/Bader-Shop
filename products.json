@@ -231,6 +231,15 @@
       "stock": 1,
       "desc": "transmitter for neo 2",
       "image": "/images/uploads/Sef416a1829a24d16a4cab93e4d09c724k.jpg.avif"
+    },
+    {
+      "id": "22",
+      "name": "Dji neo 2 led light",
+      "price": 15,
+      "category": "Dji neo 2 Accessories",
+      "stock": 1,
+      "desc": "led light for neo 2\nusb c",
+      "image": "/images/uploads/1DC92B41-C561-4278-A84A-C30B616DFEA6.jpg"
     }
   ]
 }
