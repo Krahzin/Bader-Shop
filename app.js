@@ -12,11 +12,11 @@ const LS = {
    ========================================================= */
 const DEFAULT_SETTINGS = {
   storeName: 'Drone Zone',
-  tagline: 'Browse our stock and order in seconds. \n All 3D printed parts/accessories need a Whish deposit beforehand.',
+  tagline: 'Browse our stock and order in seconds.',
   whatsapp: '96176199961',
   currency: '$',
   adminPass: 'admin123',
-  footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website: 76 199 961'
+  footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
 };
 
 const SEED_PRODUCTS = [];
@@ -42,7 +42,7 @@ let cart            = load(LS.cart, {});
 let activeCategory  = 'all';
 let currentImage    = '';
 let currentImages   = [];
-let selectedColors  = {};   // { productId: colourName }
+let selectedColors  = {};
 let draftActive     = false;
 
 let lbImages = [];
@@ -144,16 +144,12 @@ function colorSwatchStyle(c){
   if(c.hex) return `background:${c.hex}`;
 
   const name = String(c.name || '').toLowerCase().trim();
-
-  // Exact match — "black", "red", etc.
   if(NAMED_COLORS[name]) return `background:${NAMED_COLORS[name]}`;
 
-  // Match by any word — "Ocean Blue" → blue, "Dark Grey" → grey
   for(const word of name.split(/\s+/)){
     if(NAMED_COLORS[word]) return `background:${NAMED_COLORS[word]}`;
   }
 
-  // Unknown name — fall back to a hashed hue
   let h = 0;
   const s = c.name || '?';
   for(let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) % 360;
@@ -170,6 +166,27 @@ function cartKey(id, color){ return color ? id + '::' + color : id; }
 function parseCartKey(key){
   const i = key.indexOf('::');
   return i === -1 ? { id: key, color: '' } : { id: key.slice(0, i), color: key.slice(i + 2) };
+}
+
+/* =========================================================
+   PHONE / WHATSAPP HELPERS
+   ========================================================= */
+function whatsappDigits(){
+  return String(settings.whatsapp || '').replace(/[^\d]/g, '');
+}
+function formatPhoneDisplay(digits){
+  if(!digits) return '';
+  // Lebanese format: +961 XX XXX XXX
+  if(digits.startsWith('961') && digits.length === 11){
+    return `+961 ${digits.slice(3,5)} ${digits.slice(5,8)} ${digits.slice(8)}`;
+  }
+  return '+' + digits;
+}
+function whatsappUrl(message){
+  const digits = whatsappDigits();
+  if(!digits) return '';
+  const base = `https://wa.me/${digits}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
 /* =========================================================
@@ -282,6 +299,32 @@ function lbStep(delta){
 }
 
 /* =========================================================
+   RENDER — FOOTER CONTACT + DRAWER HINT
+   ========================================================= */
+function renderContact(){
+  const digits = whatsappDigits();
+  const el = $('#footerContact');
+  if(el){
+    if(digits){
+      const display = formatPhoneDisplay(digits);
+      const url = whatsappUrl('Hi! I have a question about your stock.');
+      el.innerHTML = `Questions? Message us on WhatsApp: <a href="${url}" target="_blank" rel="noopener">${display}</a>`;
+    }else{
+      el.textContent = '';
+    }
+  }
+  const hint = $('#drawerHint');
+  if(hint){
+    if(digits){
+      const url = whatsappUrl('Hi! I have a question about your stock.');
+      hint.innerHTML = `No payment here — we confirm everything on WhatsApp.<br>Questions? <a href="${url}" target="_blank" rel="noopener">Message us</a>`;
+    }else{
+      hint.textContent = 'No payment here — we confirm everything on WhatsApp.';
+    }
+  }
+}
+
+/* =========================================================
    RENDER — CHROME
    ========================================================= */
 function renderChrome(){
@@ -290,6 +333,8 @@ function renderChrome(){
   $('#heroTagline').textContent = settings.tagline || '';
   $('#footerNote').textContent  = settings.footerNote || '';
   document.title = settings.storeName + ' — Shop';
+
+  renderContact();
 
   let banner = $('#draftBanner');
   if(draftActive){
@@ -351,7 +396,6 @@ function renderProducts(){
     const multi = imgs.length > 1;
     const colors = p.colors || [];
 
-    // Colour picker
     let picker = '';
     if(colors.length > 1){
       const selected = selectedColors[p.id] || colors[0].name;
@@ -522,10 +566,8 @@ function orderOnWhatsApp(){
   const entries = cartEntries();
   if(!entries.length){ toast('Your cart is empty'); return; }
 
-  const digits = String(settings.whatsapp || '').replace(/[^\d]/g, '');
-  if(!digits){ toast('Set your WhatsApp number in products.json'); return; }
-
-  const url = `https://wa.me/${digits}?text=${encodeURIComponent(buildOrderMessage())}`;
+  const url = whatsappUrl(buildOrderMessage());
+  if(!url){ toast('Set your WhatsApp number in products.json'); return; }
   window.open(url, '_blank');
 }
 
@@ -749,7 +791,6 @@ function bindEvents(){
     renderProducts();
   });
 
-  /* grid clicks: colour pick, add to cart, lightbox */
   $('#grid').addEventListener('click', e => {
     const dot = e.target.closest('.color-dot');
     if(dot){
@@ -791,7 +832,6 @@ function bindEvents(){
   $('#closeCart').addEventListener('click', closeCart);
   $('#overlay').addEventListener('click', closeCart);
 
-  /* cart item controls — keys are composite id::colour strings */
   $('#cartItems').addEventListener('click', e => {
     const inc = e.target.closest('[data-inc]');
     const dec = e.target.closest('[data-dec]');
