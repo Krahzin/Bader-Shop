@@ -486,6 +486,26 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "45",
+      "name": "Dji mini 3/ 3 pro landing gear",
+      "price": 5,
+      "category": "Dji mini 3/ 3 pro",
+      "image": "/images/uploads/Screenshot 2026-09-14 at 18.21.59.png",
+      "colors": [
+        "black",
+        "grey"
+      ]
+    },
+    {
+      "id": "46",
+      "name": "Dji mini 3/ 3 pro case",
+      "price": 22,
+      "colors": [
+        "black",
+        "grey"
+      ]
     }
   ]
 }
