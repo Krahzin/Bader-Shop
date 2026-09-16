@@ -429,7 +429,7 @@
       "id": "39",
       "name": "Dji mini 2/mini 2se/ mini 4k case",
       "price": 27,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.42.webp",
       "colors": [
         "black",
@@ -451,14 +451,14 @@
       "id": "41",
       "name": "Dji mini 2/mini 2se/ mini 4k propellers guard",
       "price": 25,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.29.25-1.webp"
     },
     {
       "id": "42",
       "name": "Dji mini 2/mini 2se/ mini 4k protection",
       "price": 17,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.37.21.webp",
       "colors": [
         "black",
@@ -470,7 +470,7 @@
       "id": "43",
       "name": "Dji mini 2/mini 2se/ mini 4k proppelers clip",
       "price": 4,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.40.11.webp",
       "colors": [
         "black",
@@ -482,7 +482,7 @@
       "id": "44",
       "name": "Dji mini 2/mini 2se/ mini 4k landing gear",
       "price": 9,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.17.58.webp",
       "colors": [
         "black",
@@ -494,7 +494,7 @@
       "id": "45",
       "name": "Dji mini 3/ 3 pro landing gear",
       "price": 5,
-      "category": "Dji mini 3/ 3 pro",
+      "category": "Dji mini 3/ 3 pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.04.webp",
       "colors": [
         "black",
@@ -505,7 +505,7 @@
       "id": "46",
       "name": "Dji mini 3/ 3 pro case",
       "price": 22,
-      "category": "Dji mini 3/ 3 pro",
+      "category": "Dji mini 3/ 3 pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.09.webp",
       "colors": [
         "black",
@@ -516,13 +516,14 @@
       "id": "47",
       "name": "Dji mini 3/ 3 pro propellers clip",
       "price": 6,
-      "category": "Dji mini 3/ 3 pro",
+      "category": "Dji mini 3/ 3 pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.14.webp"
     },
     {
       "id": "48",
       "name": "Dji mini 4 pro clips",
       "price": 6,
+      "category": "Dji Mini 4 Pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.19.webp",
       "colors": [
         "black",
@@ -534,14 +535,14 @@
       "id": "49",
       "name": "Dji mini 4 pro propellers guard",
       "price": 20,
-      "category": "Dji mini 4 pro",
+      "category": "Dji mini 4 pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.27.webp"
     },
     {
       "id": "50",
       "name": "Dji mini 3/ 3 pro guards",
       "price": 18,
-      "category": "Dji mini 3/ 3 pro",
+      "category": "Dji mini 3/ 3 pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.42.29.webp",
       "colors": [
         "black",
@@ -551,7 +552,7 @@
     },
     {
       "id": "51",
-      "name": "Dji neo 2",
+      "name": "Dji neo 2 ",
       "price": 520,
       "category": "Drones",
       "stock": 1,
@@ -574,7 +575,7 @@
       "id": "52",
       "name": "Dji mini 2/mini 2se/ mini 4k camera protection",
       "price": 10,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-16 at 11.49.25.webp",
       "colors": [
         "black",
@@ -586,7 +587,7 @@
       "id": "53",
       "name": "Dji mini 2/mini 2se/ mini 4k battery removal tool",
       "price": 4,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-16 at 11.52.07.webp",
       "colors": [
         "black",
@@ -598,21 +599,21 @@
       "id": "54",
       "name": "Dji mini 2/mini 2se/ mini 4k case",
       "price": 24,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.11.51.webp"
     },
     {
       "id": "55",
       "name": "Dji mini 2/mini 2se/ mini 4k case",
       "price": 33,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.14.57.webp"
     },
     {
       "id": "56",
       "name": "Dji mini 2/mini 2se/ mini 4k stand",
       "price": 15,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.19.43.webp"
     }
   ]
