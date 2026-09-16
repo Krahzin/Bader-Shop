@@ -3,7 +3,6 @@
    ========================================================= */
 const LS = {
   cart:  'shop.cart.v1',
-  draft: 'shop.admin.draft.v1',
   theme: 'shop.theme'
 };
 
@@ -15,8 +14,8 @@ const DEFAULT_SETTINGS = {
   tagline: 'Browse our stock and order in seconds.',
   whatsapp: '96176199961',
   currency: '$',
-  adminPass: 'admin123',
-  footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.'
+  footerNote: 'Orders are confirmed on WhatsApp. No payment is taken on this website.',
+  categoryOrder: []
 };
 
 const SEED_PRODUCTS = [];
@@ -36,14 +35,11 @@ const NAMED_COLORS = {
 /* =========================================================
    STATE
    ========================================================= */
-let settings        = Object.assign({}, DEFAULT_SETTINGS);
-let products        = [];
-let cart            = load(LS.cart, {});
-let activeCategory  = 'all';
-let currentImage    = '';
-let currentImages   = [];
-let selectedColors  = {};
-let draftActive     = false;
+let settings       = Object.assign({}, DEFAULT_SETTINGS);
+let products       = [];
+let cart           = load(LS.cart, {});
+let activeCategory = 'all';
+let selectedColors = {};
 
 let lbImages = [];
 let lbIndex  = 0;
@@ -61,7 +57,7 @@ function load(key, fallback){
 }
 function save(key, value){
   try{ localStorage.setItem(key, JSON.stringify(value)); return true; }
-  catch(e){ toast('Storage is full — try smaller images.'); return false; }
+  catch(e){ toast('Storage is full.'); return false; }
 }
 
 /* =========================================================
@@ -86,18 +82,10 @@ function toggleTheme(){
    ========================================================= */
 function basePathNow(){ return window.location.pathname.replace(/\/[^/]*$/, ''); }
 function addBase(path, basePath){ return (path && path.startsWith('/')) ? basePath + path : path; }
-function stripBase(path, basePath){ return (path && basePath && path.startsWith(basePath)) ? path.slice(basePath.length) : path; }
 function normalizeImages(p, basePath){
   const cover = addBase(p.image, basePath);
   const extras = Array.isArray(p.images)
     ? p.images.map(i => addBase(i, basePath)).filter(Boolean)
-    : [];
-  return Object.assign({}, p, { image: cover || '', images: extras });
-}
-function portableImages(p, basePath){
-  const cover = stripBase(p.image, basePath);
-  const extras = Array.isArray(p.images)
-    ? p.images.map(i => stripBase(i, basePath)).filter(Boolean)
     : [];
   return Object.assign({}, p, { image: cover || '', images: extras });
 }
@@ -119,37 +107,13 @@ function normalizeColorList(colors){
     return null;
   }).filter(Boolean);
 }
-function colorsToText(colors){
-  return normalizeColorList(colors).map(c => c.hex ? `${c.name} ${c.hex}` : c.name).join('\n');
-}
-function parseColorsText(text){
-  return String(text || '')
-    .split(/[\n,]+/)
-    .map(s => s.trim())
-    .filter(Boolean)
-    .map(s => {
-      const m = s.match(/^(.*?)\s+(#[0-9a-fA-F]{3,8})$/);
-      if(m) return { name: m[1].trim(), hex: m[2] };
-      return { name: s, hex: '' };
-    })
-    .filter(c => c.name);
-}
-function colorsForExport(colors){
-  const list = normalizeColorList(colors);
-  if(!list.length) return [];
-  if(list.every(c => !c.hex)) return list.map(c => c.name);
-  return list;
-}
 function colorSwatchStyle(c){
   if(c.hex) return `background:${c.hex}`;
-
   const name = String(c.name || '').toLowerCase().trim();
   if(NAMED_COLORS[name]) return `background:${NAMED_COLORS[name]}`;
-
   for(const word of name.split(/\s+/)){
     if(NAMED_COLORS[word]) return `background:${NAMED_COLORS[word]}`;
   }
-
   let h = 0;
   const s = c.name || '?';
   for(let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) % 360;
@@ -176,7 +140,6 @@ function whatsappDigits(){
 }
 function formatPhoneDisplay(digits){
   if(!digits) return '';
-  // Lebanese format: +961 XX XXX XXX
   if(digits.startsWith('961') && digits.length === 11){
     return `+961 ${digits.slice(3,5)} ${digits.slice(5,8)} ${digits.slice(8)}`;
   }
@@ -211,17 +174,11 @@ async function loadStoreData(){
 
   if(remote){
     settings = Object.assign({}, DEFAULT_SETTINGS, remote.settings || {});
+    if(!Array.isArray(settings.categoryOrder)) settings.categoryOrder = [];
     products = Array.isArray(remote.products) ? remote.products.map(hydrate) : [];
   }else{
-    settings = Object.assign({}, DEFAULT_SETTINGS, load('shop.settings.v1', {}));
-    products = load('shop.products.v1', SEED_PRODUCTS).map(hydrate);
-  }
-
-  const draft = load(LS.draft, null);
-  if(draft && Array.isArray(draft.products)){
-    products = draft.products.map(hydrate);
-    if(draft.settings) settings = Object.assign({}, DEFAULT_SETTINGS, draft.settings);
-    draftActive = true;
+    settings = Object.assign({}, DEFAULT_SETTINGS);
+    products = SEED_PRODUCTS.map(hydrate);
   }
 }
 
@@ -230,7 +187,6 @@ async function loadStoreData(){
    ========================================================= */
 const $  = s => document.querySelector(s);
 const $$ = s => Array.from(document.querySelectorAll(s));
-const uid = () => 'p' + Date.now().toString(36) + Math.random().toString(36).slice(2,7);
 
 function money(n){
   const v = Number(n) || 0;
@@ -263,6 +219,23 @@ function toast(msg){
   el.classList.add('show');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(()=> el.classList.remove('show'), 2400);
+}
+
+/* =========================================================
+   CATEGORY ORDER
+   ========================================================= */
+function orderedCategories(){
+  const allCats = [...new Set(products.map(p => p.category).filter(Boolean))];
+  const preferred = (Array.isArray(settings.categoryOrder) ? settings.categoryOrder : [])
+    .map(c => String(c).trim())
+    .filter(c => c && allCats.includes(c));
+  const rest = allCats.filter(c => !preferred.includes(c)).sort();
+  return [...preferred, ...rest];
+}
+function categoryRank(cat){
+  const order = Array.isArray(settings.categoryOrder) ? settings.categoryOrder : [];
+  const i = order.indexOf(cat);
+  return i === -1 ? order.length : i;
 }
 
 /* =========================================================
@@ -333,31 +306,14 @@ function renderChrome(){
   $('#heroTagline').textContent = settings.tagline || '';
   $('#footerNote').textContent  = settings.footerNote || '';
   document.title = settings.storeName + ' — Shop';
-
   renderContact();
-
-  let banner = $('#draftBanner');
-  if(draftActive){
-    if(!banner){
-      banner = document.createElement('div');
-      banner.id = 'draftBanner';
-      banner.style.cssText =
-        'background:#fff7e0;border-bottom:1px solid #f0e0a8;color:#7a5c00;' +
-        'font-size:13px;padding:8px 16px;text-align:center;font-weight:600;';
-      document.body.insertBefore(banner, document.body.firstChild);
-    }
-    banner.textContent = 'You are viewing an unpublished local draft. ' +
-                         'Publish via Admin → Export products.json.';
-  }else if(banner){
-    banner.remove();
-  }
 }
 
 /* =========================================================
    RENDER — FILTERS
    ========================================================= */
 function renderFilters(){
-  const cats = [...new Set(products.map(p => p.category).filter(Boolean))].sort();
+  const cats = orderedCategories();
   const el = $('#filters');
   if(!cats.length){ el.innerHTML = ''; return; }
   el.innerHTML =
@@ -365,8 +321,6 @@ function renderFilters(){
     cats.map(c =>
       `<button class="chip ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`
     ).join('');
-  const catList = $('#catList');
-  if(catList) catList.innerHTML = cats.map(c => `<option value="${escapeHtml(c)}">`).join('');
 }
 
 /* =========================================================
@@ -374,18 +328,20 @@ function renderFilters(){
    ========================================================= */
 function renderProducts(){
   const q = $('#searchInput').value.trim().toLowerCase();
-  const list = products.filter(p => {
-    const hay = (p.name + ' ' + (p.desc||'') + ' ' + (p.category||'')).toLowerCase();
-    const matchQ = !q || hay.includes(q);
-    const matchC = activeCategory === 'all' || p.category === activeCategory;
-    return matchQ && matchC;
-  });
+  const list = products
+    .filter(p => {
+      const hay = (p.name + ' ' + (p.desc||'') + ' ' + (p.category||'')).toLowerCase();
+      const matchQ = !q || hay.includes(q);
+      const matchC = activeCategory === 'all' || p.category === activeCategory;
+      return matchQ && matchC;
+    })
+    .sort((a, b) => categoryRank(a.category) - categoryRank(b.category));
 
   const grid = $('#grid');
   if(!list.length){
     grid.innerHTML = `<div class="empty-state">
       <strong>Nothing here yet</strong>
-      ${products.length ? 'Try a different search or category.' : 'Add products in the Admin panel and export products.json.'}
+      ${products.length ? 'Try a different search or category.' : 'Add products through the CMS to see them here.'}
     </div>`;
     return;
   }
@@ -567,7 +523,7 @@ function orderOnWhatsApp(){
   if(!entries.length){ toast('Your cart is empty'); return; }
 
   const url = whatsappUrl(buildOrderMessage());
-  if(!url){ toast('Set your WhatsApp number in products.json'); return; }
+  if(!url){ toast('WhatsApp number is not configured'); return; }
   window.open(url, '_blank');
 }
 
@@ -583,195 +539,6 @@ function closeCart(){
   $('#drawer').classList.remove('open');
   $('#overlay').classList.remove('show');
   if(!$('#lightbox').classList.contains('show')) document.body.classList.remove('locked');
-}
-
-/* =========================================================
-   ADMIN PANEL
-   ========================================================= */
-function openAdmin(){
-  const pass = prompt('Enter admin password:');
-  if(pass === null) return;
-  if(pass !== settings.adminPass){ toast('Wrong password'); return; }
-  $('#adminModal').classList.add('show');
-  document.body.classList.add('locked');
-  renderAdminList();
-  fillSettingsForm();
-}
-function closeAdmin(){
-  $('#adminModal').classList.remove('show');
-  document.body.classList.remove('locked');
-}
-
-function saveDraft(){
-  const basePath = basePathNow();
-  const portable = products.map(p => {
-    const copy = portableImages(p, basePath);
-    copy.colors = colorsForExport(p.colors);
-    return copy;
-  });
-  const ok = save(LS.draft, { settings, products: portable });
-  if(ok){ draftActive = true; renderChrome(); }
-}
-function discardDraft(){
-  localStorage.removeItem(LS.draft);
-  draftActive = false;
-  toast('Draft discarded — reloading…');
-  setTimeout(() => location.reload(), 400);
-}
-
-function renderAdminList(){
-  $('#adminCount').textContent = products.length;
-  const list = $('#adminList');
-  if(!products.length){
-    list.innerHTML = `<div class="empty-state"><strong>No products yet</strong>Use the form above to add your first item.</div>`;
-    return;
-  }
-  list.innerHTML = products.map(p => {
-    const count = allImages(p).length;
-    const cCount = (p.colors || []).length;
-    return `
-    <div class="admin-row">
-      <div class="thumb">${mediaHtml(p)}</div>
-      <div class="meta">
-        <b>${escapeHtml(p.name)}</b>
-        <small>${money(p.price)}${p.category ? ' · ' + escapeHtml(p.category) : ''}${
-          (p.stock === '' || p.stock === null || p.stock === undefined)
-            ? ' · unlimited'
-            : ' · ' + p.stock + ' in stock'
-        }${cCount ? ' · ' + cCount + ' colours' : ''}${count > 1 ? ' · ' + count + ' photos' : ''}</small>
-      </div>
-      <div class="acts">
-        <button class="btn ghost small" data-edit="${p.id}">Edit</button>
-        <button class="btn danger small" data-remove="${p.id}">Delete</button>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function clearProductForm(){
-  $('#pId').value = '';
-  $('#pName').value = '';
-  $('#pPrice').value = '';
-  $('#pCategory').value = '';
-  $('#pStock').value = '';
-  $('#pDesc').value = '';
-  $('#pColors').value = '';
-  $('#pImageFile').value = '';
-  $('#pImageUrl').value = '';
-  currentImage = '';
-  currentImages = [];
-  renderPreview();
-  renderExtraPreview();
-  $('#pSaveBtn').textContent = 'Add product';
-}
-function renderPreview(){
-  $('#pPreview').innerHTML = currentImage
-    ? `<img src="${escapeHtml(currentImage)}" alt="preview"><span style="font-size:13px;color:var(--muted)">Cover ready</span>`
-    : `<span style="font-size:13px;color:var(--muted)">No cover image selected — a coloured placeholder will be used.</span>`;
-}
-function renderExtraPreview(){
-  const el = $('#pExtraPreview');
-  if(!el) return;
-  if(!currentImages.length){
-    el.innerHTML = `<span style="font-size:13px;color:var(--muted)">No extra images yet.</span>`;
-    return;
-  }
-  el.innerHTML = currentImages.map((src, i) =>
-    `<div class="extra-thumb">
-      <img src="${escapeHtml(src)}" alt="extra ${i+1}">
-      <button type="button" class="extra-remove" data-remove-extra="${i}" aria-label="Remove">✕</button>
-    </div>`
-  ).join('');
-}
-
-function fillSettingsForm(){
-  $('#sStoreName').value  = settings.storeName || '';
-  $('#sCurrency').value   = settings.currency || '$';
-  $('#sWhatsapp').value   = settings.whatsapp || '';
-  $('#sTagline').value    = settings.tagline || '';
-  $('#sFooterNote').value = settings.footerNote || '';
-  $('#sAdminPass').value  = settings.adminPass || '';
-}
-
-function fileToDataUrl(file, maxSize = 900, quality = 0.82){
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = new Image();
-      img.onload = () => {
-        let { width, height } = img;
-        const ratio = Math.min(1, maxSize / Math.max(width, height));
-        width  = Math.round(width  * ratio);
-        height = Math.round(height * ratio);
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, width, height);
-        ctx.drawImage(img, 0, 0, width, height);
-        resolve(canvas.toDataURL('image/jpeg', quality));
-      };
-      img.onerror = () => reject(new Error('bad image'));
-      img.src = e.target.result;
-    };
-    reader.onerror = () => reject(new Error('read error'));
-    reader.readAsDataURL(file);
-  });
-}
-
-function exportProductsJson(){
-  const basePath = basePathNow();
-  const portable = products.map(p => {
-    const copy = portableImages(p, basePath);
-    copy.colors = colorsForExport(p.colors);
-    return copy;
-  });
-
-  const payload = {
-    settings: {
-      storeName:  settings.storeName,
-      tagline:    settings.tagline,
-      whatsapp:   settings.whatsapp,
-      currency:   settings.currency,
-      footerNote: settings.footerNote,
-      adminPass:  settings.adminPass
-    },
-    products: portable
-  };
-  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
-  const url  = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'products.json';
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1500);
-  toast('products.json downloaded — commit it to your repo');
-}
-function importProductsJson(file){
-  const reader = new FileReader();
-  reader.onload = e => {
-    try{
-      const data = JSON.parse(e.target.result);
-      if(data.settings) settings = Object.assign({}, DEFAULT_SETTINGS, data.settings);
-      const basePath = basePathNow();
-      products = (Array.isArray(data.products) ? data.products : []).map(p => {
-        const n = normalizeImages(p, basePath);
-        n.colors = normalizeColorList(p.colors);
-        return n;
-      });
-      saveDraft();
-      renderChrome();
-      renderFilters();
-      renderProducts();
-      renderAdminList();
-      fillSettingsForm();
-      toast('Imported into local draft');
-    }catch(err){ toast('That file could not be parsed'); }
-  };
-  reader.readAsText(file);
 }
 
 /* =========================================================
@@ -849,215 +616,16 @@ function bindEvents(){
 
   $('#orderBtn').addEventListener('click', orderOnWhatsApp);
 
-  const adminBtn = $('#adminOpenBtn');
-  if(adminBtn) adminBtn.addEventListener('click', openAdmin);
-  const closeAdminBtn = $('#closeAdmin');
-  if(closeAdminBtn) closeAdminBtn.addEventListener('click', closeAdmin);
-  const adminModal = $('#adminModal');
-  if(adminModal){
-    adminModal.addEventListener('click', e => {
-      if(e.target === adminModal) closeAdmin();
-    });
-  }
-
   document.addEventListener('keydown', e => {
     if(e.key === 'Escape'){
       if($('#lightbox').classList.contains('show')){ closeLightbox(); return; }
       closeCart();
-      if($('#adminModal').classList.contains('show')) closeAdmin();
     }
     if($('#lightbox').classList.contains('show')){
       if(e.key === 'ArrowLeft')  lbStep(-1);
       if(e.key === 'ArrowRight') lbStep(1);
     }
   });
-
-  $$('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      $$('.tab').forEach(t => t.classList.toggle('active', t === tab));
-      const isProducts = tab.dataset.tab === 'products';
-      $('#tab-products').classList.toggle('hidden', !isProducts);
-      $('#tab-settings').classList.toggle('hidden', isProducts);
-    });
-  });
-
-  $('#pImageFile').addEventListener('change', async e => {
-    const file = e.target.files[0];
-    if(!file) return;
-    try{
-      currentImage = await fileToDataUrl(file);
-      $('#pImageUrl').value = '';
-      renderPreview();
-    }catch(err){ toast('Could not read that image'); }
-  });
-  $('#pImageUrl').addEventListener('input', e => {
-    const v = e.target.value.trim();
-    if(v){ currentImage = v; $('#pImageFile').value = ''; renderPreview(); }
-  });
-
-  const extraFileInput = $('#pExtraFiles');
-  if(extraFileInput){
-    extraFileInput.addEventListener('change', async e => {
-      const files = Array.from(e.target.files || []);
-      if(!files.length) return;
-      for(const f of files){
-        try{ currentImages.push(await fileToDataUrl(f)); }catch(err){}
-      }
-      e.target.value = '';
-      renderExtraPreview();
-    });
-  }
-  const extraUrlInput = $('#pExtraUrl');
-  if(extraUrlInput){
-    extraUrlInput.addEventListener('keydown', e => {
-      if(e.key !== 'Enter') return;
-      e.preventDefault();
-      const v = e.target.value.trim();
-      if(!v) return;
-      currentImages.push(v);
-      e.target.value = '';
-      renderExtraPreview();
-    });
-  }
-  const extraPreview = $('#pExtraPreview');
-  if(extraPreview){
-    extraPreview.addEventListener('click', e => {
-      const btn = e.target.closest('[data-remove-extra]');
-      if(!btn) return;
-      currentImages.splice(Number(btn.dataset.removeExtra), 1);
-      renderExtraPreview();
-    });
-  }
-
-  $('#productForm').addEventListener('submit', e => {
-    e.preventDefault();
-    const id = $('#pId').value;
-    const stockRaw = $('#pStock').value.trim();
-
-    const data = {
-      name:     $('#pName').value.trim(),
-      price:    parseFloat($('#pPrice').value) || 0,
-      category: $('#pCategory').value.trim(),
-      stock:    stockRaw === '' ? '' : Math.max(0, parseInt(stockRaw, 10) || 0),
-      desc:     $('#pDesc').value.trim(),
-      colors:   parseColorsText($('#pColors').value),
-      image:    currentImage,
-      images:   currentImages.slice()
-    };
-    if(!data.name){ toast('Please enter a product name'); return; }
-
-    if(id){
-      const idx = products.findIndex(p => p.id === id);
-      if(idx > -1) products[idx] = Object.assign({}, products[idx], data);
-      toast('Product updated');
-    }else{
-      products.unshift(Object.assign({ id: uid() }, data));
-      toast('Product added');
-    }
-
-    saveDraft();
-    clearProductForm();
-    renderFilters();
-    renderProducts();
-    renderAdminList();
-  });
-
-  $('#pClearBtn').addEventListener('click', clearProductForm);
-
-  $('#adminList').addEventListener('click', e => {
-    const editBtn = e.target.closest('[data-edit]');
-    const delBtn  = e.target.closest('[data-remove]');
-
-    if(editBtn){
-      const p = products.find(x => x.id === editBtn.dataset.edit);
-      if(!p) return;
-      $('#pId').value       = p.id;
-      $('#pName').value     = p.name;
-      $('#pPrice').value    = p.price;
-      $('#pCategory').value = p.category || '';
-      $('#pStock').value    = (p.stock === '' || p.stock === null || p.stock === undefined)
-        ? '' : p.stock;
-      $('#pDesc').value     = p.desc || '';
-      $('#pColors').value   = colorsToText(p.colors);
-      $('#pImageUrl').value = (p.image && !p.image.startsWith('data:')) ? p.image : '';
-      currentImage = p.image || '';
-      currentImages = Array.isArray(p.images) ? p.images.slice() : [];
-      renderPreview();
-      renderExtraPreview();
-      $('#pSaveBtn').textContent = 'Save changes';
-      $('#tab-products').scrollIntoView({ behavior:'smooth', block:'start' });
-      $('#pName').focus();
-    }
-
-    if(delBtn){
-      const p = products.find(x => x.id === delBtn.dataset.remove);
-      if(!p) return;
-      if(!confirm(`Delete "${p.name}"?`)) return;
-      products = products.filter(x => x.id !== p.id);
-      Object.keys(cart).forEach(k => { if(parseCartKey(k).id === p.id) delete cart[k]; });
-      save(LS.cart, cart);
-      saveDraft();
-      renderFilters();
-      renderProducts();
-      renderAdminList();
-      renderCart();
-      toast('Product deleted');
-    }
-  });
-
-  $('#settingsForm').addEventListener('submit', e => {
-    e.preventDefault();
-    settings.storeName  = $('#sStoreName').value.trim() || 'Drone Zone';
-    settings.currency   = $('#sCurrency').value.trim() || '$';
-    settings.whatsapp   = $('#sWhatsapp').value.replace(/[^\d]/g, '');
-    settings.tagline    = $('#sTagline').value.trim();
-    settings.footerNote = $('#sFooterNote').value.trim();
-    settings.adminPass  = $('#sAdminPass').value || 'admin123';
-
-    saveDraft();
-    renderChrome();
-    renderProducts();
-    renderCart();
-    toast('Settings saved to draft');
-  });
-
-  const actionsRow = document.querySelector('#tab-settings .form-actions');
-  if(actionsRow){
-    const exportBtn = document.createElement('button');
-    exportBtn.type = 'button';
-    exportBtn.className = 'btn ghost';
-    exportBtn.textContent = 'Export products.json';
-    exportBtn.addEventListener('click', exportProductsJson);
-
-    const importInput = document.createElement('input');
-    importInput.type = 'file';
-    importInput.accept = 'application/json,.json';
-    importInput.style.display = 'none';
-    importInput.addEventListener('change', e => {
-      const f = e.target.files[0];
-      if(f) importProductsJson(f);
-      importInput.value = '';
-    });
-
-    const importBtn = document.createElement('button');
-    importBtn.type = 'button';
-    importBtn.className = 'btn ghost';
-    importBtn.textContent = 'Import products.json';
-    importBtn.addEventListener('click', () => importInput.click());
-
-    const discardBtn = document.createElement('button');
-    discardBtn.type = 'button';
-    discardBtn.className = 'btn danger';
-    discardBtn.textContent = 'Discard local draft';
-    discardBtn.addEventListener('click', () => {
-      if(confirm('Discard all unpublished edits on this browser?')) discardDraft();
-    });
-
-    actionsRow.appendChild(exportBtn);
-    actionsRow.appendChild(importBtn);
-    actionsRow.appendChild(discardBtn);
-    actionsRow.appendChild(importInput);
-  }
 }
 
 /* =========================================================
@@ -1070,12 +638,6 @@ async function init(){
   renderFilters();
   renderProducts();
   renderCart();
-  renderPreview();
-  renderExtraPreview();
   bindEvents();
-
-  if(new URLSearchParams(location.search).has('admin')){
-    openAdmin();
-  }
 }
 init();
