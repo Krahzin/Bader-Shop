@@ -1,4 +1,14 @@
 {
+  "settings": {
+    "storeName": "Testing",
+    "tagline": "Test",
+    "whatsapp": "96176199961",
+    "currency": "$",
+    "footerNote": "Testing",
+    "categoryOrder": [
+      "Drones"
+    ]
+  },
   "products": [
     {
       "id": "1",
