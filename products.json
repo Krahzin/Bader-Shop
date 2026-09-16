@@ -1,10 +1,10 @@
 {
   "settings": {
-    "storeName": "Testing",
-    "tagline": "Test",
+    "storeName": "DroneZone",
+    "tagline": "Tagline",
     "whatsapp": "96176199961",
     "currency": "$",
-    "footerNote": "Testing",
+    "footerNote": "Orders are confirmed on WhatsApp - No payments are done on this site.",
     "categoryOrder": [
       "Drones"
     ]
