@@ -547,6 +547,18 @@
       "stock": 1,
       "desc": "Dji neo 2\n3 batt low cycles\nbag\nno remote",
       "image": "/images/uploads/dbf5a1d1-b000-4118-8d55-e085d227c093.jpg"
+    },
+    {
+      "id": "51",
+      "name": "Dji mini 2/mini 2se/ mini 4k case",
+      "price": 23,
+      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "image": "/images/uploads/Screenshot 2026-09-16 at 11.48.04.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
