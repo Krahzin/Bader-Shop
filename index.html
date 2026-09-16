@@ -79,7 +79,7 @@
 <!-- ================= SITE NOTICE ================= -->
 <div class="site-notice" role="note">
   <div class="wrap">
-    <strong>Please note:</strong> Drone accessories require a small <strong>Whish deposit</strong> before we begin production.
+    <strong>Please note:</strong> Drone accessories require a  small<strong>Whish deposit</strong> before we begin production.
   </div>
 </div>
 
@@ -137,94 +137,6 @@
   <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">›</button>
   <div class="lb-stage" id="lbStage"></div>
   <div class="lb-counter" id="lbCounter"></div>
-</div>
-
-<div class="modal" id="adminModal">
-  <div class="modal-card">
-    <div class="modal-head">
-      <h2>Admin panel</h2>
-      <button class="icon-btn" id="closeAdmin" aria-label="Close">✕</button>
-    </div>
-    <div class="tabs">
-      <button class="tab active" data-tab="products">Products</button>
-      <button class="tab" data-tab="settings">Store settings</button>
-    </div>
-
-    <div class="modal-body" id="tab-products">
-      <form id="productForm" class="form-grid" autocomplete="off">
-        <input type="hidden" id="pId">
-        <label>Product name
-          <input id="pName" required placeholder="e.g. DJI Mini 4 Pro">
-        </label>
-        <label>Price
-          <input id="pPrice" type="number" step="0.01" min="0" required placeholder="0.00">
-        </label>
-        <label>Category
-          <input id="pCategory" list="catList" placeholder="e.g. Drone">
-          <datalist id="catList"></datalist>
-        </label>
-        <label>Stock (blank = unlimited)
-          <input id="pStock" type="number" min="0" step="1" placeholder="e.g. 10">
-        </label>
-        <label class="full">Description
-          <textarea id="pDesc" rows="2" placeholder="Short description…"></textarea>
-        </label>
-        <label class="full">Colours (optional — one per line, add hex after a space for a custom swatch)
-          <textarea id="pColors" rows="2" placeholder="Black #1a1a1a&#10;White #f0f0f0&#10;Ocean Blue"></textarea>
-        </label>
-        <label class="full">Upload cover image
-          <input id="pImageFile" type="file" accept="image/*">
-        </label>
-        <label class="full">…or paste a cover image URL
-          <input id="pImageUrl" type="url" placeholder="https://…">
-        </label>
-        <div class="img-preview full" id="pPreview"></div>
-
-        <label class="full">Additional images (gallery)
-          <input id="pExtraFiles" type="file" accept="image/*" multiple>
-        </label>
-        <label class="full">…or paste an image URL and press Enter
-          <input id="pExtraUrl" type="url" placeholder="https://…">
-        </label>
-        <div class="extra-preview full" id="pExtraPreview"></div>
-
-        <div class="form-actions full">
-          <button type="submit" class="btn primary" id="pSaveBtn">Add product</button>
-          <button type="button" class="btn ghost" id="pClearBtn">Clear form</button>
-        </div>
-      </form>
-
-      <h3 class="section-title">Your stock (<span id="adminCount">0</span>)</h3>
-      <div class="admin-list" id="adminList"></div>
-    </div>
-
-    <div class="modal-body hidden" id="tab-settings">
-      <form id="settingsForm" class="form-grid" autocomplete="off">
-        <label>Store name
-          <input id="sStoreName" required>
-        </label>
-        <label>Currency symbol
-          <input id="sCurrency" placeholder="$" maxlength="4">
-        </label>
-        <label class="full">WhatsApp number (country code, digits only)
-          <input id="sWhatsapp" placeholder="96176199961" required>
-        </label>
-        <label class="full">Tagline
-          <input id="sTagline">
-        </label>
-        <label class="full">Footer note
-          <input id="sFooterNote">
-        </label>
-        <label>Admin password
-          <input id="sAdminPass" placeholder="admin123">
-        </label>
-        <div class="form-actions full" style="margin-top:6px">
-          <button type="submit" class="btn primary">Save settings</button>
-          <button type="button" class="btn danger" id="resetDemoBtn">Reset everything to demo data</button>
-        </div>
-      </form>
-    </div>
-  </div>
 </div>
 
 <div class="toast" id="toast"></div>
