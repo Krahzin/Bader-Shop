@@ -3,11 +3,40 @@ media:
   output: /images/uploads
 
 content:
-  - name: products
-    label: Products
+  - name: store
+    label: Store
     type: file
     path: products.json
     fields:
+      - name: settings
+        label: Store settings
+        type: object
+        fields:
+          - name: storeName
+            label: Store name
+            type: string
+            required: true
+          - name: tagline
+            label: Tagline
+            type: string
+          - name: whatsapp
+            label: WhatsApp number
+            type: string
+            required: true
+            description: Country code + digits only, no spaces or plus (e.g. 96176199961)
+          - name: currency
+            label: Currency symbol
+            type: string
+          - name: footerNote
+            label: Footer note
+            type: string
+          - name: categoryOrder
+            label: Category order
+            type: string
+            list: true
+            required: false
+            description: Categories in the order you want them to appear. Unlisted categories fall in alphabetical order after these.
+
       - name: products
         label: Products
         type: object
@@ -51,37 +80,3 @@ content:
             list: true
             required: false
             description: One per line. Add a hex code after a space for an exact swatch (e.g. "Ocean Blue #3a6fb0").
-
-  - name: settings
-    label: Store settings
-    type: file
-    path: products.json
-    fields:
-      - name: settings
-        label: Settings
-        type: object
-        fields:
-          - name: storeName
-            label: Store name
-            type: string
-            required: true
-          - name: tagline
-            label: Tagline
-            type: string
-          - name: whatsapp
-            label: WhatsApp number
-            type: string
-            required: true
-            description: Country code + digits only, no spaces or plus (e.g. 96176199961)
-          - name: currency
-            label: Currency symbol
-            type: string
-          - name: footerNote
-            label: Footer note
-            type: string
-          - name: categoryOrder
-            label: Category order
-            type: string
-            list: true
-            required: false
-            description: Categories in the order you want them to appear. Unlisted categories fall in alphabetical order after these.
