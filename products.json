@@ -644,6 +644,17 @@
       "stock": 1,
       "desc": "neo 2\nrc2\n3 batt low cycles\ngoggles n3\nmotion 3\n",
       "image": "/images/uploads/Screenshot 2026-09-17 at 01.56.21 copy.jpg"
+    },
+    {
+      "id": "60",
+      "name": "Glow in the dark Accesories",
+      "price": 1,
+      "category": "Dji neo 2 Accessories",
+      "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
+      "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53-1.webp",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-16 at 23.33.03-1.webp"
+      ]
     }
   ]
 }
