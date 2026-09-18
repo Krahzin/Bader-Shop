@@ -696,6 +696,12 @@
       "price": 28,
       "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
       "image": "/images/uploads/Screenshot 2026-09-18 at 20.48.04-1.webp"
+    },
+    {
+      "id": "delete",
+      "name": "Hey ani Wie geht's?",
+      "price": 0,
+      "category": "Dji neo 2 Accessories"
     }
   ]
 }
