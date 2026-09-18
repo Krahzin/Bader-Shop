@@ -717,6 +717,20 @@
       "price": 21,
       "category": "Dji Mini 4 Pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.02.58-1.webp"
+    },
+    {
+      "id": "70",
+      "name": "Dji Mini 4 Pro and rc2 case",
+      "price": 33,
+      "category": "Dji Mini 4 Pro Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-18 at 21.03.29.webp"
+    },
+    {
+      "id": "71",
+      "name": "Rc 2 Case",
+      "price": 15,
+      "category": "Dji Mini 4 Pro Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-18 at 21.03.23.webp"
     }
   ]
 }
