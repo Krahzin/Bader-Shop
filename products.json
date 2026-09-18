@@ -558,7 +558,7 @@
       "price": 520,
       "category": "Drones",
       "stock": 1,
-      "desc": "Dji neo 2\n3 batt low cycles\nbag\nno remote",
+      "desc": "Dji neo 2\n3 batt low cycles\n+bag at an additional cost\nno remote",
       "image": "/images/uploads/dbf5a1d1-b000-4118-8d55-e085d227c093.jpg"
     },
     {
@@ -676,6 +676,11 @@
       "price": 19,
       "category": "Dji mini 3/ 3 pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-17 at 15.52.57.webp"
+    },
+    {
+      "id": "63",
+      "name": "Dji mini 3/ 3 pro Accessories",
+      "price": 0
     }
   ]
 }
