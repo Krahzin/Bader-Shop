@@ -944,6 +944,26 @@
       "price": 27,
       "category": "Dji Avata 1 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.37.01.webp"
+    },
+    {
+      "id": "93",
+      "name": "Dji Mini 5 Pro Landing gear",
+      "price": 8,
+      "category": "Dji Mini 5 Pro Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 19.38.42.webp"
+    },
+    {
+      "id": "94",
+      "name": "Dji Mini 5 Pro Stand",
+      "price": 21,
+      "image": "/images/uploads/Screenshot 2026-09-19 at 19.38.55.webp"
+    },
+    {
+      "id": "95",
+      "name": "Dji Mini 5 Pro Case",
+      "price": 22,
+      "category": "Dji Mini 5 Pro Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 19.39.23.webp"
     }
   ]
 }
