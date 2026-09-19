@@ -957,6 +957,7 @@
       "id": "94",
       "name": "Dji Mini 5 Pro Stand",
       "price": 21,
+      "category": "Dji Mini 5 Pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.38.55.webp"
     },
     {
@@ -965,6 +966,32 @@
       "price": 22,
       "category": "Dji Mini 5 Pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.39.23.webp"
+    },
+    {
+      "id": "96",
+      "name": "Dji Lito 1/x1 Protection guard",
+      "price": 19,
+      "category": "Dji Lito 1/x1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 22.38.05.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "97",
+      "name": "Dji Lito 1/x1 Case",
+      "price": 22,
+      "category": "Dji Lito 1/x1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 22.37.22.webp"
+    },
+    {
+      "id": "98",
+      "name": "Dji Lito 1/x1 case 2",
+      "price": 22,
+      "category": "Dji Lito 1/x1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 22.37.03.webp"
     }
   ]
 }
