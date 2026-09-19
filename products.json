@@ -865,6 +865,25 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "86",
+      "name": "Dji Avata 360 landing gear",
+      "price": 9,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.55.webp",
+      "colors": [
+        "Black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "87",
+      "name": "Dji Avata 360 Stand",
+      "price": 18,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 16.01.45.webp"
     }
   ]
 }
