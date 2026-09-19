@@ -823,6 +823,7 @@
       "id": "82",
       "name": "Dji Avata 2 Full Protection",
       "price": 25,
+      "category": "Dji Avata 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.45.01.webp",
       "colors": [
         "black",
@@ -832,9 +833,9 @@
     },
     {
       "id": "83",
-      "name": "Dji Avata 360 Protection 1",
+      "name": "Dji Avata 2 Protection 1",
       "price": 20,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.36.webp",
       "colors": [
         "black",
@@ -844,9 +845,9 @@
     },
     {
       "id": "84",
-      "name": "Dji Avata 360 Protection 2",
+      "name": "Dji Avata 2 Protection 2",
       "price": 20,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.58.13.webp",
       "colors": [
         "Black",
@@ -856,9 +857,9 @@
     },
     {
       "id": "85",
-      "name": "Dji Avata 360 Gimball Protection",
+      "name": "Dji Avata 2 Gimball Protection",
       "price": 7,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360 2",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.48.54-1.webp",
       "colors": [
         "Black",
@@ -868,9 +869,9 @@
     },
     {
       "id": "86",
-      "name": "Dji Avata 360 landing gear",
+      "name": "Dji Avata 2 landing gear",
       "price": 9,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.55.webp",
       "colors": [
         "Black",
@@ -880,17 +881,40 @@
     },
     {
       "id": "87",
-      "name": "Dji Avata 360 Stand",
+      "name": "Dji Avata 2 Stand",
       "price": 18,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 16.01.45.webp"
     },
     {
       "id": "88",
       "name": "Dji Avata 360 Glow in the dark",
       "price": 25,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24-1.webp"
+    },
+    {
+      "id": "89",
+      "name": "Dji Avata 1 Protection",
+      "price": 0,
+      "category": "Dji Avata 1 Accessories",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "90",
+      "name": "Dji Avata 1 Upper Frame",
+      "price": 13,
+      "category": "Dji Avata 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 16.06.25.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
