@@ -804,12 +804,20 @@
       "id": "80",
       "name": "Dji Avata 360 side protection 2",
       "price": 21,
+      "category": "Dji Avata 360 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 14.18.29-1.webp",
       "colors": [
         "black",
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "81",
+      "name": "Dji Avata 360 glow in the dark",
+      "price": 27,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 15.38.01.webp"
     }
   ]
 }
