@@ -818,6 +818,41 @@
       "price": 27,
       "category": "Dji Avata 360 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.38.01.webp"
+    },
+    {
+      "id": "82",
+      "name": "Dji Avata 2 Full Protection",
+      "price": 25,
+      "image": "/images/uploads/Screenshot 2026-09-19 at 15.45.01.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "83",
+      "name": "Dji Avata 360 Protection 1",
+      "price": 20,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.36.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "84",
+      "name": "Dji Avata 360 Protection 2",
+      "price": 20,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 15.58.13.webp",
+      "colors": [
+        "Black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
