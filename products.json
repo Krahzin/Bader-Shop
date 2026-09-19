@@ -768,7 +768,37 @@
       "id": "76",
       "name": "Dji Avata 360 case",
       "price": 45,
-      "category": "Dji Avata 360  Accessories"
+      "category": "Dji Avata 360  Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.09.webp",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-19 at 14.17.00.webp"
+      ]
+    },
+    {
+      "id": "77",
+      "name": "Dji Avata 360 stand",
+      "price": 19,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.22.webp"
+    },
+    {
+      "id": "78",
+      "name": "Dji Avata 360 Landing feet",
+      "price": 8,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.42.webp"
+    },
+    {
+      "id": "79",
+      "name": "Dji Avata 360 Side protection",
+      "price": 19,
+      "category": "Dji Avata 360 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 14.18.12.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
