@@ -888,7 +888,7 @@
     },
     {
       "id": "88",
-      "name": "Dji Avata 360 Glow in the dark",
+      "name": "Dji Avata 2 Glow in the dark",
       "price": 25,
       "category": "Dji Avata 2 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24-1.webp"
@@ -898,6 +898,7 @@
       "name": "Dji Avata 1 Protection",
       "price": 0,
       "category": "Dji Avata 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 16.05.12.webp",
       "colors": [
         "black",
         "grey",
@@ -910,6 +911,21 @@
       "price": 13,
       "category": "Dji Avata 1 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 16.06.25.webp",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-19 at 16.06.41.webp"
+      ],
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "91",
+      "name": "Dji Avata 1 Landing Gear",
+      "price": 8,
+      "category": "Dji Avata 1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 16.08.40.webp",
       "colors": [
         "black",
         "grey",
