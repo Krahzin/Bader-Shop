@@ -992,6 +992,37 @@
       "price": 22,
       "category": "Dji Lito 1/x1 Accessories",
       "image": "/images/uploads/Screenshot 2026-09-19 at 22.37.03.webp"
+    },
+    {
+      "id": "99",
+      "name": "Dji Lito 1/x1 Clips",
+      "price": 7,
+      "category": "Dji Lito 1/x1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 22.36.13-1.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "100",
+      "name": "Dji Lito 1/x1 Landing gear",
+      "price": 12,
+      "category": "Dji Lito 1/x1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 22.35.55.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "101",
+      "name": "Dji Lito 1/x1 Stand",
+      "price": 19,
+      "category": "Dji Lito 1/x1 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 22.36.32.webp"
     }
   ]
 }
