@@ -752,6 +752,17 @@
       "price": 12,
       "category": "Dji Mini 4 Pro Accessories",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.17.33-1.webp"
+    },
+    {
+      "id": "75",
+      "name": "Dji Mini 4 Pro Battery holder",
+      "price": 13,
+      "category": "Dji Mini 4 Pro Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-18 at 21.19.44.webp",
+      "colors": [
+        "black",
+        "grey"
+      ]
     }
   ]
 }
