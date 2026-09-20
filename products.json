@@ -1036,6 +1036,18 @@
       "name": "Dji Rc 2 Accessories",
       "price": 20,
       "image": "/images/uploads/Screenshot 2026-09-20 at 11.39.17.webp"
+    },
+    {
+      "id": "104",
+      "name": "Dji Avata 2 Full protection",
+      "price": 25,
+      "category": "Dji Avata 2 Accessories",
+      "image": "/images/uploads/Screenshot 2026-09-20 at 12.00.49.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
