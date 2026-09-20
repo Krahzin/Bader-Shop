@@ -1048,6 +1048,26 @@
         "grey",
         "orange"
       ]
+    },
+    {
+      "id": "105",
+      "name": "Dji Avata 2 Accessories",
+      "price": 0,
+      "image": "/images/uploads/Screenshot 2026-09-20 at 12.03.22.webp"
+    },
+    {
+      "id": "106",
+      "name": "Dji Avata 1 Gimbal protection",
+      "price": 14,
+      "category": "Dji Avata 1 Accessories",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-20 at 12.01.48.webp"
+      ],
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
     }
   ]
 }
