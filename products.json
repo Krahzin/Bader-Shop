@@ -1090,6 +1090,15 @@
       "price": 1000,
       "category": "Drones",
       "image": "/images/uploads/IMG_8547.webp"
+    },
+    {
+      "id": "987667890",
+      "name": "Dji mini 2 / mini 2se / mini 4k MRC-UV filter ",
+      "price": 10,
+      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "stock": 1,
+      "desc": "Dji mini 2 / mini 2se / mini 4k /mavic mini /mini se MRC-UV PGYTECH filter *used*\n",
+      "image": "/images/uploads/D_NQ_NP_700383-MLA82275664343_022025-O (1) (1).jpg"
     }
   ]
 }
