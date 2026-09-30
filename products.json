@@ -1155,6 +1155,64 @@
       "price": 12,
       "category": "Dji air 3/3s ",
       "image": "/images/uploads/Screenshot 2026-09-30 at 17.02.18.webp"
+    },
+    {
+      "id": "34897478958973",
+      "name": "Dji Rc 2 Sunhood",
+      "price": 12,
+      "category": "Dji remotes / goggles",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 17.26.39.webp"
+    },
+    {
+      "id": "92457985",
+      "name": "Dji rcn1 sunhood",
+      "price": 14,
+      "category": "Dji remotes / goggles",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 17.28.13.webp"
+    },
+    {
+      "id": "9876392863",
+      "name": "Dji flip case",
+      "price": 45,
+      "category": "Dji flip",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 18.59.39.webp"
+    },
+    {
+      "id": "98762394",
+      "name": "Dji flip payload",
+      "price": 14,
+      "category": "Dji flip",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 19.04.56.webp"
+    },
+    {
+      "id": "9869234",
+      "name": "Dji flip case",
+      "price": 19,
+      "category": "Dji flip",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 19.00.06.webp"
+    },
+    {
+      "id": "9876324",
+      "name": "Dji flip GImball protection",
+      "price": 7,
+      "category": "Dji flip",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 19.00.17.webp"
+    },
+    {
+      "id": "98234",
+      "name": "Dji flip landing gear",
+      "price": 9,
+      "category": "Dji flip",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 19.00.38.webp"
+    },
+    {
+      "id": "389u4234",
+      "name": "Dji keychain",
+      "price": 6,
+      "image": "/images/uploads/Screenshot 2026-09-30 at 18.54.59.webp",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-30 at 18.55.22.webp"
+      ]
     }
   ]
 }
