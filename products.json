@@ -1118,6 +1118,44 @@
       "price": 43,
       "category": "Dji air 3/3s  case",
       "image": "/images/uploads/Screenshot 2026-09-30 at 16.51.04.webp"
-    }
+    },
+    {
+      "id": "9487789234987234",
+      "name": "Dji air 3/3s Payload",
+      "price": 21,
+      "category": "Dji air 3/3s ",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 16.56.37-1.webp"
+    },
+    {
+      "id": "9824789789234789023",
+      "name": "Dji air 3/3s Payload",
+      "price": 18,
+      "category": "Dji air 3/3s ",
+      "images": [
+        "/images/uploads/Screenshot 2026-09-30 at 16.57.34.webp"
+      ]
+    },
+    {
+      "id": "9867324",
+      "name": "Dji air 3/3s landing gear",
+      "price": 12,
+      "category": "Dji air 3/3s ",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 16.57.49.webp"
+    },
+    {
+      "id": "875765234",
+      "name": "Dji air 3/3s  stand",
+      "price": 19,
+      "category": "Dji air 3/3s ",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 17.00.16.webp"
+    },
+    {
+      "id": "98623478234",
+      "name": "Dji air 3/3s  Gimbal protection",
+      "price": 12,
+      "category": "Dji air 3/3s ",
+      "image": "/images/uploads/Screenshot 2026-09-30 at 17.02.18.webp"
+    },
+    {}
   ]
 }
