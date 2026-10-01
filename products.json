@@ -84,7 +84,7 @@
       "id": "8",
       "name": "dji neo 1 camera gimbal model 1",
       "price": 5,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "dji neo 1 camera protection",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.16.30-1.webp",
       "colors": [
@@ -97,7 +97,7 @@
       "id": "9",
       "name": "Dji neo 1 gimball model 2",
       "price": 5,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "dji neo 1 camera protection",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.20.55.webp",
       "colors": [
@@ -110,7 +110,7 @@
       "id": "10",
       "name": "Dji neo 1 gimball model 3",
       "price": 5,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "dji neo 1 camera protection",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.02.webp",
       "colors": [
@@ -123,7 +123,7 @@
       "id": "11",
       "name": "Dji neo 1 roll cage",
       "price": 8,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "Dji neo 1 roll cage",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.09.webp",
       "colors": [
@@ -136,7 +136,7 @@
       "id": "12",
       "name": "Dji neo 1 protection model 1",
       "price": 18,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "full camera and sides protection",
       "images": [
         "/images/uploads/Screenshot 2026-09-15 at 00.21.19.webp"
@@ -152,7 +152,7 @@
       "id": "13",
       "name": "Dji neo protection model 2",
       "price": 15,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "Dji neo side and front protection",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.27.webp",
       "colors": [
@@ -165,7 +165,7 @@
       "id": "14",
       "name": "Dji neo 1 protection model 3",
       "price": 13,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "custom protection made to protect the sides",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.33.webp",
       "colors": [
@@ -178,7 +178,7 @@
       "id": "15",
       "name": "Dji neo 1 protection model 4",
       "price": 13,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "side protection for neo 1",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.39.webp",
       "colors": [
@@ -191,7 +191,7 @@
       "id": "16",
       "name": "Dji neo 1 case",
       "price": 27,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "custom made case for dji neo 1 drone",
       "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.47.webp",
       "images": [
@@ -206,7 +206,7 @@
       "id": "17",
       "name": "Dji neo  1landing gear",
       "price": 8,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.00-1.webp",
       "colors": [
         "black",
@@ -218,28 +218,28 @@
       "id": "18",
       "name": "dji neo 1 stand",
       "price": 25,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.07.webp"
     },
     {
       "id": "19",
       "name": "Dji neo 1 camera cover",
       "price": 3,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.15-1.webp"
     },
     {
       "id": "20",
       "name": "Dji neo 1 airtag mount",
       "price": 8,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.21.webp"
     },
     {
       "id": "21",
       "name": "Dji neo 2 transmitter",
       "price": 50,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "stock": 1,
       "desc": "transmitter for neo 2",
       "image": "/images/uploads/dji_neo_2_digital_transceiver_1764378245_8108b170_progressive-2.jpg"
@@ -248,7 +248,7 @@
       "id": "22",
       "name": "Dji neo 2 led light",
       "price": 15,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "stock": 1,
       "desc": "led light for neo 2\nusb c",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.36.webp"
@@ -257,7 +257,7 @@
       "id": "23",
       "name": "Dji neo 2 camera lens protection",
       "price": 15,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "stock": 1,
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.44.webp"
     },
@@ -265,7 +265,7 @@
       "id": "24",
       "name": "Dji neo 2 gimbal protector model 1",
       "price": 5,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.50.webp",
       "colors": [
         "black",
@@ -277,7 +277,7 @@
       "id": "25",
       "name": "Dji neo 2 gimbal protector model 2",
       "price": 5,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.57.webp",
       "colors": [
         "black",
@@ -289,7 +289,7 @@
       "id": "26",
       "name": "Dji neo 2 gimbal protector model 3",
       "price": 3,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.02.webp",
       "colors": [
         "black",
@@ -301,7 +301,7 @@
       "id": "27",
       "name": "Dji neo 2 protection model 1",
       "price": 14,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "side protection for neo 2\nNote: top propellers cover must be removed",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.08.webp",
       "colors": [
@@ -314,7 +314,7 @@
       "id": "28",
       "name": "Dji neo 2 protection model 2",
       "price": 13,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "side protection for neo 2\nNote: top propellers cover must be removed",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.14.webp",
       "colors": [
@@ -327,7 +327,7 @@
       "id": "29",
       "name": "Dji neo 2 landing gear",
       "price": 10,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "landing gear for neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.23.webp",
       "images": [
@@ -343,18 +343,15 @@
       "id": "30",
       "name": "Dji neo 2 travel protection",
       "price": 12,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "protects both the camera and the gimballwhile travelling",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.43.webp",
-      "images": [
-        "/images/uploads/Screenshot 2026-09-15 at 01.15.43-1.webp"
-      ]
+      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.43.webp"
     },
     {
       "id": "31",
       "name": "Dji neo 1 spirit bomber mod",
       "price": 9,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.51.webp",
       "colors": [
         "black",
@@ -366,7 +363,7 @@
       "id": "32",
       "name": "Dji neo 2 antenna protection",
       "price": 4,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.58.webp",
       "colors": [
         "black",
@@ -378,7 +375,7 @@
       "id": "33",
       "name": "Dji neo 2 antenna protection",
       "price": 5,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "antenna travel protection",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.03.webp",
       "colors": [
@@ -391,7 +388,7 @@
       "id": "34",
       "name": "Dji neo 2 airtag mount",
       "price": 9,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "airtag mount for neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.10.webp",
       "colors": [
@@ -404,7 +401,7 @@
       "id": "35",
       "name": "Dji neo 2 case",
       "price": 45,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "custom case for neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.16.webp"
     },
@@ -412,7 +409,7 @@
       "id": "36",
       "name": "Dji neo 2 case",
       "price": 30,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "custom case with batt holder for neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.22.webp"
     },
@@ -420,14 +417,14 @@
       "id": "37",
       "name": "Dji neo 2 stand",
       "price": 25,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.29.webp"
     },
     {
       "id": "38",
       "name": "Dji neo 2 mod",
       "price": 13,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.35.webp",
       "colors": [
         "black",
@@ -438,7 +435,7 @@
       "id": "39",
       "name": "Dji mini 2/mini 2se/ mini 4k case",
       "price": 27,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.42.webp",
       "colors": [
         "black",
@@ -449,7 +446,7 @@
       "id": "40",
       "name": "Dji neo 1 smart tag mount",
       "price": 9,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.48.webp",
       "colors": [
         "black",
@@ -460,14 +457,14 @@
       "id": "41",
       "name": "Dji mini 2/mini 2se/ mini 4k propellers guard",
       "price": 25,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.29.25-1.webp"
     },
     {
       "id": "42",
       "name": "Dji mini 2/mini 2se/ mini 4k protection",
       "price": 17,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.37.21.webp",
       "colors": [
         "black",
@@ -479,7 +476,7 @@
       "id": "43",
       "name": "Dji mini 2/mini 2se/ mini 4k proppelers clip",
       "price": 4,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.40.11.webp",
       "colors": [
         "black",
@@ -491,7 +488,7 @@
       "id": "44",
       "name": "Dji mini 2/mini 2se/ mini 4k landing gear",
       "price": 9,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.17.58.webp",
       "colors": [
         "black",
@@ -503,7 +500,7 @@
       "id": "45",
       "name": "Dji mini 3/ 3 pro landing gear",
       "price": 5,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.04.webp",
       "colors": [
         "black",
@@ -514,7 +511,7 @@
       "id": "46",
       "name": "Dji mini 3/ 3 pro case",
       "price": 22,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.09.webp",
       "colors": [
         "black",
@@ -525,14 +522,14 @@
       "id": "47",
       "name": "Dji mini 3/ 3 pro propellers clip",
       "price": 6,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.14.webp"
     },
     {
       "id": "48",
       "name": "Dji mini 4 pro clips",
       "price": 6,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.19.webp",
       "colors": [
         "black",
@@ -544,14 +541,14 @@
       "id": "49",
       "name": "Dji mini 4 pro propellers guard",
       "price": 20,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.27.webp"
     },
     {
       "id": "50",
       "name": "Dji mini 3/ 3 pro guards",
       "price": 18,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.42.29.webp",
       "colors": [
         "black",
@@ -563,7 +560,7 @@
       "id": "51",
       "name": "Dji mini 2/mini 2se/ mini 4k case",
       "price": 23,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-16 at 11.48.04.webp",
       "colors": [
         "black",
@@ -575,7 +572,7 @@
       "id": "52",
       "name": "Dji mini 2/mini 2se/ mini 4k camera protection",
       "price": 10,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-16 at 11.49.25.webp",
       "colors": [
         "black",
@@ -587,7 +584,7 @@
       "id": "53",
       "name": "Dji mini 2/mini 2se/ mini 4k battery removal tool",
       "price": 4,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-16 at 11.52.07.webp",
       "colors": [
         "black",
@@ -599,26 +596,26 @@
       "id": "54",
       "name": "Dji mini 2/mini 2se/ mini 4k case",
       "price": 24,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.11.51.webp"
     },
     {
       "id": "55",
       "name": "Dji mini 2/mini 2se/ mini 4k case",
       "price": 33,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.14.57.webp"
     },
     {
       "id": "56",
       "name": "Dji mini 2/mini 2se/ mini 4k stand",
       "price": 15,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.19.43.webp"
     },
     {
       "id": "57",
-      "name": "Glow in the dark Accesories",
+      "name": "Glow in the dark",
       "price": 21,
       "category": "Dji neo 1 Accessories",
       "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
@@ -652,7 +649,7 @@
       "name": "Glow in the dark Accesories",
       "price": 1,
       "category": "Drones",
-      "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
+      "desc": "Any drone accessory can be order with glow in the dark material at an additional cost.\nContact us for pricing!",
       "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24.webp",
       "images": [
         "/images/uploads/Screenshot 2026-09-17 at 01.50.19.webp",
@@ -670,7 +667,7 @@
       "id": "63",
       "name": "Dji mini 3/ 3 pro propeller guards",
       "price": 21,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "stock": 28,
       "image": "/images/uploads/Screenshot 2026-09-18 at 13.08.03.webp",
       "images": [
@@ -686,7 +683,7 @@
       "id": "64",
       "name": "Dji mini 3/ 3 pro glow in the dark",
       "price": 28,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
       "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
     },
@@ -694,7 +691,7 @@
       "id": "65",
       "name": "dji mini 3/3 pro rugged case",
       "price": 109,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 18.18.29.webp"
     },
     {
