@@ -701,35 +701,35 @@
       "id": "66",
       "name": "Dji mini 2/mini 2se/ mini 4k glow in the dark accesories",
       "price": 28,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "image": "/images/uploads/Screenshot 2026-09-18 at 20.48.04-1.webp"
     },
     {
       "id": "67",
       "name": "Dji Mini 4 Pro Case",
       "price": 23,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.28.00.webp"
     },
     {
       "id": "68",
       "name": "Dji Mini 4 Pro Basket",
       "price": 19,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.26.57.webp"
     },
     {
       "id": "69",
       "name": "Dji Mini 4 Pro Stand",
       "price": 21,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.02.58-1.webp"
     },
     {
       "id": "70",
       "name": "Dji Mini 4 Pro and rc2 case",
       "price": 45,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.03.29.webp"
     },
     {
@@ -750,21 +750,21 @@
       "id": "73",
       "name": "Dji Mini 4 Pro arm protection",
       "price": 25,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.08.59-1.webp"
     },
     {
       "id": "546564",
       "name": "Dji Mini 4 Pro airtag mount",
       "price": 12,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.17.33-1.webp"
     },
     {
       "id": "75",
       "name": "Dji Mini 4 Pro Battery holder",
       "price": 13,
-      "category": "Dji Mini 4 Pro Accessories",
+      "category": "Dji Mini 4 Pro",
       "image": "/images/uploads/Screenshot 2026-09-18 at 21.19.44.webp",
       "colors": [
         "black",
@@ -775,7 +775,7 @@
       "id": "76",
       "name": "Dji Avata 360 case",
       "price": 45,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360",
       "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.09.webp",
       "images": [
         "/images/uploads/Screenshot 2026-09-19 at 14.17.00.webp"
@@ -785,21 +785,21 @@
       "id": "77",
       "name": "Dji Avata 360 stand",
       "price": 19,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360",
       "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.22.webp"
     },
     {
       "id": "78",
       "name": "Dji Avata 360 Landing feet",
       "price": 8,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360",
       "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.42.webp"
     },
     {
       "id": "79",
       "name": "Dji Avata 360 Side protection 1",
       "price": 19,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360",
       "image": "/images/uploads/Screenshot 2026-09-19 at 14.18.12.webp",
       "colors": [
         "black",
@@ -811,7 +811,7 @@
       "id": "80",
       "name": "Dji Avata 360 side protection 2",
       "price": 21,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360",
       "image": "/images/uploads/Screenshot 2026-09-19 at 14.18.29-1.webp",
       "colors": [
         "black",
@@ -823,14 +823,14 @@
       "id": "81",
       "name": "Dji Avata 360 glow in the dark",
       "price": 27,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.38.01.webp"
     },
     {
       "id": "82",
       "name": "Dji Avata 2 Full Protection",
       "price": 25,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.45.01.webp",
       "colors": [
         "black",
@@ -842,7 +842,7 @@
       "id": "83",
       "name": "Dji Avata 2 Protection 1",
       "price": 20,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.36.webp",
       "colors": [
         "black",
@@ -854,7 +854,7 @@
       "id": "84",
       "name": "Dji Avata 2 Protection 2",
       "price": 20,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.58.13.webp",
       "colors": [
         "Black",
@@ -866,7 +866,7 @@
       "id": "85",
       "name": "Dji Avata 2 Gimball Protection",
       "price": 7,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.48.54-1.webp",
       "colors": [
         "Black",
@@ -878,7 +878,7 @@
       "id": "86",
       "name": "Dji Avata 2 landing gear",
       "price": 9,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.55.webp",
       "colors": [
         "Black",
@@ -890,21 +890,21 @@
       "id": "87",
       "name": "Dji Avata 2 Stand",
       "price": 18,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-19 at 16.01.45.webp"
     },
     {
       "id": "88",
       "name": "Dji Avata 2 Glow in the dark",
       "price": 25,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24-1.webp"
     },
     {
       "id": "89",
       "name": "Dji Avata 1 Protection",
       "price": 22,
-      "category": "Dji Avata 1 Accessories",
+      "category": "Dji Avata 1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 16.05.12.webp",
       "colors": [
         "black",
@@ -916,7 +916,7 @@
       "id": "90",
       "name": "Dji Avata 1 Upper Frame",
       "price": 13,
-      "category": "Dji Avata 1 Accessories",
+      "category": "Dji Avata 1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 16.06.25.webp",
       "images": [
         "/images/uploads/Screenshot 2026-09-19 at 16.06.41.webp"
@@ -931,7 +931,7 @@
       "id": "91",
       "name": "Dji Avata 1 Landing Gear",
       "price": 8,
-      "category": "Dji Avata 1 Accessories",
+      "category": "Dji Avata 1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 16.08.40.webp",
       "colors": [
         "black",
@@ -950,28 +950,28 @@
       "id": "93",
       "name": "Dji Mini 5 Pro Landing gear",
       "price": 8,
-      "category": "Dji Mini 5 Pro Accessories",
+      "category": "Dji Mini 5 Pro",
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.38.42.webp"
     },
     {
       "id": "94",
       "name": "Dji Mini 5 Pro Stand",
       "price": 21,
-      "category": "Dji Mini 5 Pro Accessories",
+      "category": "Dji Mini 5 Pro",
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.38.55.webp"
     },
     {
       "id": "95",
       "name": "Dji Mini 5 Pro Case",
       "price": 22,
-      "category": "Dji Mini 5 Pro Accessories",
+      "category": "Dji Mini 5 Pro",
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.39.23.webp"
     },
     {
       "id": "96",
       "name": "Dji Lito 1/x1 Protection guard",
       "price": 19,
-      "category": "Dji Lito 1/x1 Accessories",
+      "category": "Dji Lito 1/x1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 22.38.05.webp",
       "colors": [
         "black",
@@ -990,14 +990,14 @@
       "id": "98",
       "name": "Dji Lito 1/x1 case 2",
       "price": 22,
-      "category": "Dji Lito 1/x1 Accessories",
+      "category": "Dji Lito 1/x1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 22.37.03.webp"
     },
     {
       "id": "99",
       "name": "Dji Lito 1/x1 Clips",
       "price": 7,
-      "category": "Dji Lito 1/x1 Accessories",
+      "category": "Dji Lito 1/x1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 22.36.13-1.webp",
       "colors": [
         "black",
@@ -1009,7 +1009,7 @@
       "id": "100",
       "name": "Dji Lito 1/x1 Landing gear",
       "price": 12,
-      "category": "Dji Lito 1/x1 Accessories",
+      "category": "Dji Lito 1/x1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 22.35.55.webp",
       "colors": [
         "black",
@@ -1021,19 +1021,19 @@
       "id": "101",
       "name": "Dji Lito 1/x1 Stand",
       "price": 19,
-      "category": "Dji Lito 1/x1 Accessories",
+      "category": "Dji Lito 1/x1",
       "image": "/images/uploads/Screenshot 2026-09-19 at 22.36.32.webp"
     },
     {
       "id": "102",
       "name": "Dji Avata 360 Battery case",
       "price": 15,
-      "category": "Dji Avata 360 Accessories",
+      "category": "Dji Avata 360",
       "image": "/images/uploads/Screenshot 2026-09-20 at 08.28.15.webp"
     },
     {
       "id": "103",
-      "name": "Dji Rc 2 Accessories",
+      "name": "Dji Rc 2",
       "price": 20,
       "image": "/images/uploads/Screenshot 2026-09-20 at 11.39.17.webp"
     },
@@ -1041,7 +1041,7 @@
       "id": "104",
       "name": "Dji Avata 2 Full protection",
       "price": 25,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-20 at 12.00.49.webp",
       "colors": [
         "black",
@@ -1053,14 +1053,14 @@
       "id": "105",
       "name": "Dji Avata 2 case",
       "price": 45,
-      "category": "Dji Avata 2 Accessories",
+      "category": "Dji Avata 2",
       "image": "/images/uploads/Screenshot 2026-09-20 at 12.03.22.webp"
     },
     {
       "id": "106",
       "name": "Dji Avata 1 Gimbal protection",
       "price": 14,
-      "category": "Dji Avata 1 Accessories",
+      "category": "Dji Avata 1",
       "images": [
         "/images/uploads/Screenshot 2026-09-20 at 12.01.48.webp"
       ],
@@ -1088,7 +1088,7 @@
       "id": "987667890",
       "name": "Dji mini 2 / mini 2se / mini 4k MRC-UV filter ",
       "price": 10,
-      "category": "Dji mini 2/mini 2se/ mini 4k Accessories",
+      "category": "Dji mini 2/mini 2se/ mini 4k",
       "stock": 1,
       "desc": "Dji mini 2 / mini 2se / mini 4k /mavic mini /mini se MRC-UV PGYTECH filter *used*\n",
       "image": "/images/uploads/D_NQ_NP_700383-MLA82275664343_022025-O (1) (1).jpg"
@@ -1186,7 +1186,7 @@
     },
     {
       "id": "9876324",
-      "name": "Dji flip GImball protection",
+      "name": "Dji flip Gimball protection",
       "price": 7,
       "category": "Dji flip",
       "image": "/images/uploads/Screenshot 2026-09-30 at 19.00.17.webp"
@@ -1206,6 +1206,13 @@
       "images": [
         "/images/uploads/Screenshot 2026-09-30 at 18.55.22.webp"
       ]
+    },
+    {
+      "id": "8943543",
+      "name": "Dji mini 5 pro case",
+      "price": 30,
+      "category": "Dji Mini 5 Pro",
+      "image": "/images/uploads/Screenshot 2026-10-02 at 00.11.00.webp"
     }
   ]
 }
