@@ -944,7 +944,7 @@
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.37.01.webp"
     },
     {
-      "id": "93",
+      "id": "9337883",
       "name": "Dji Mini 5 Pro Landing gear",
       "price": 8,
       "category": "Dji Mini 5 Pro",
@@ -1231,6 +1231,13 @@
       "price": 50,
       "category": "Dji Mini 5 Pro",
       "image": "/images/uploads/Screenshot 2026-10-02 at 00.35.28.webp"
+    },
+    {
+      "id": "34322452435",
+      "name": "Dji Goggles case",
+      "price": 55,
+      "category": "Dji remotes / goggles",
+      "image": "/images/uploads/Screenshot 2026-10-02 at 00.40.44.webp"
     }
   ]
 }
