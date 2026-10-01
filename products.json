@@ -1213,6 +1213,20 @@
       "price": 30,
       "category": "Dji Mini 5 Pro",
       "image": "/images/uploads/Screenshot 2026-10-02 at 00.11.00.webp"
+    },
+    {
+      "id": "9347593845",
+      "name": "Dji mini 5 pro Gimball cover",
+      "price": 12,
+      "category": "Dji Mini 5 Pro",
+      "image": "/images/uploads/Screenshot 2026-10-02 at 00.11.17.webp"
+    },
+    {
+      "id": "90843524",
+      "name": "Dji Mini 5 Pro Case",
+      "price": 24,
+      "category": "Dji Mini 5 Pro",
+      "image": "/images/uploads/Screenshot 2026-10-02 at 00.13.13.webp"
     }
   ]
 }
