@@ -7,15 +7,15 @@
     "footerNote": "Orders are confirmed on WhatsApp - No payments are done on this site.",
     "categoryOrder": [
       "Drones",
-      "Dji neo 1 Accessories",
-      "Dji neo 2 Accessories",
-      "Dji Avata 1 Accessories",
-      "Dji Avata 2 Accessories",
-      "Dji Avata 360 Accessories",
-      "Dji mini 2/mini 2se/ mini 4k Accessories",
-      "Dji mini 3/ 3 pro Accessories",
-      "Dji Mini 4 Pro Accessories",
-      "Dji Mini 5 Pro Accessories"
+      "Dji neo 1",
+      "Dji neo 2",
+      "Dji Avata 1",
+      "Dji Avata 2",
+      "Dji Avata 360",
+      "Dji mini 2/mini 2se/ mini 4k",
+      "Dji mini 3/ 3 pro",
+      "Dji Mini 4 Pro",
+      "Dji Mini 5 Pro"
     ]
   },
   "products": [
@@ -617,7 +617,7 @@
       "id": "57",
       "name": "Glow in the dark",
       "price": 21,
-      "category": "Dji neo 1 Accessories",
+      "category": "Dji neo 1",
       "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
       "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53.webp",
       "images": [
@@ -637,7 +637,7 @@
       "id": "60",
       "name": "Glow in the dark Accesories",
       "price": 23,
-      "category": "Dji neo 2 Accessories",
+      "category": "Dji neo 2",
       "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
       "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53-1.webp",
       "images": [
@@ -660,7 +660,7 @@
       "id": "62",
       "name": "Dji mini 3/ 3 pro basket",
       "price": 19,
-      "category": "Dji mini 3/ 3 pro Accessories",
+      "category": "Dji mini 3/ 3 pro",
       "image": "/images/uploads/Screenshot 2026-09-17 at 15.52.57.webp"
     },
     {
@@ -940,7 +940,7 @@
       "id": "93",
       "name": "Dji Avata 1 Glow in the dark",
       "price": 27,
-      "category": "Dji Avata 1 Accessories",
+      "category": "Dji Avata 1 ",
       "image": "/images/uploads/Screenshot 2026-09-19 at 19.37.01.webp"
     },
     {
@@ -980,7 +980,7 @@
       "id": "97",
       "name": "Dji Lito 1/x1 Case",
       "price": 22,
-      "category": "Dji Lito 1/x1 Accessories",
+      "category": "Dji Lito 1/x1 ",
       "image": "/images/uploads/Screenshot 2026-09-19 at 22.37.22.webp"
     },
     {
