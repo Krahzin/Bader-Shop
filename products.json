@@ -1252,6 +1252,32 @@
       "price": 300,
       "category": "Drones",
       "image": "/images/uploads/IMG_8986.webp"
+    },
+    {
+      "id": "5634734753473",
+      "name": "Dji goggles case",
+      "price": 34,
+      "category": "Dji remotes / goggles",
+      "image": "/images/uploads/Screenshot 2026-10-03 013311.webp",
+      "colors": [
+        "black",
+        "grey",
+        "orange"
+      ]
+    },
+    {
+      "id": "3465463725647",
+      "name": "Dji goggles lens cover",
+      "price": 9,
+      "category": "Dji remotes / goggles",
+      "image": "/images/uploads/Screenshot 2026-10-03 013332.webp"
+    },
+    {
+      "id": "5467567567",
+      "name": "Dji rc 2 sunhood",
+      "price": 10,
+      "category": "Dji remotes / goggles",
+      "image": "/images/uploads/Screenshot 2026-10-03 020715.webp"
     }
   ]
 }
