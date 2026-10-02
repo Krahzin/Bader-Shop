@@ -1231,6 +1231,27 @@
       "price": 55,
       "category": "Dji remotes / goggles",
       "image": "/images/uploads/Screenshot 2026-10-02 at 00.40.44.webp"
+    },
+    {
+      "id": "98452879424",
+      "name": "Dji Rc 2",
+      "price": 300,
+      "category": "Drones",
+      "image": "/images/uploads/IMG_8798.webp"
+    },
+    {
+      "id": "673242",
+      "name": "Dji neo 2 rc2 fly more combo",
+      "price": 900,
+      "category": "Drones",
+      "image": "/images/uploads/IMG_8978.webp"
+    },
+    {
+      "id": "986234",
+      "name": "Dji mini 3/ 4 pro battery plus",
+      "price": 300,
+      "category": "Drones",
+      "image": "/images/uploads/IMG_8986.webp"
     }
   ]
 }
