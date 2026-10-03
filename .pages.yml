@@ -80,3 +80,90 @@ content:
             list: true
             required: false
             description: One per line. Add a hex code after a space for an exact swatch (e.g. "Ocean Blue #3a6fb0").
+
+  - name: blog
+    label: Blog
+    type: file
+    path: blog.json
+    fields:
+      - name: posts
+        label: Posts
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: date
+            label: Date
+            type: date
+          - name: cover
+            label: Cover image
+            type: image
+            required: false
+          - name: summary
+            label: Short summary
+            type: text
+            description: One or two sentences shown on the blog page.
+          - name: body
+            label: Post
+            type: rich-text
+          - name: published
+            label: Published
+            type: boolean
+            default: true
+            description: Untick to hide the post without deleting it.
+
+  - name: faq
+    label: FAQ
+    type: file
+    path: faq.json
+    fields:
+      - name: questions
+        label: Questions
+        type: object
+        list: true
+        fields:
+          - name: topic
+            label: Topic
+            type: string
+            description: Questions with the same topic are grouped together (e.g. Ordering, Products, Delivery).
+          - name: question
+            label: Question
+            type: string
+            required: true
+          - name: answer
+            label: Answer
+            type: text
+            required: true
+
+  - name: tmpcode0
+    label: tmp index.html
+    type: file
+    path: index.html
+    format: raw
+
+  - name: tmpcode1
+    label: tmp styles.css
+    type: file
+    path: styles.css
+    format: raw
+
+  - name: tmpcode2
+    label: tmp blog.html
+    type: file
+    path: blog.html
+    format: raw
+
+  - name: tmpcode3
+    label: tmp faq.html
+    type: file
+    path: faq.html
+    format: raw
+
+  - name: tmpcode4
+    label: tmp pages.js
+    type: file
+    path: pages.js
+    format: raw
