@@ -137,33 +137,3 @@ content:
             label: Answer
             type: text
             required: true
-
-  - name: tmpcode0
-    label: tmp index.html
-    type: file
-    path: index.html
-    format: raw
-
-  - name: tmpcode1
-    label: tmp blog.html
-    type: file
-    path: blog.html
-    format: raw
-
-  - name: tmpcode2
-    label: tmp faq.html
-    type: file
-    path: faq.html
-    format: raw
-
-  - name: tmpcode3
-    label: tmp pages.js
-    type: file
-    path: pages.js
-    format: raw
-
-  - name: tmpcode4
-    label: tmp app.js
-    type: file
-    path: app.js
-    format: raw
