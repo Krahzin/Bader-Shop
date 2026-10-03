@@ -465,7 +465,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case with Lid",
       "price": 27,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-16-42.webp",
+      "image": "/images/uploads/dz-gs-39.webp",
       "colors": [
         "Black",
         "Grey"
@@ -487,17 +487,17 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Propellers Guard",
       "price": 25,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-29-25-1.webp"
+      "image": "/images/uploads/dz-gs-41.webp"
     },
     {
       "id": "42",
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Protection",
       "price": 17,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-n2-42-black.webp",
+      "image": "/images/uploads/dz-gs-42-black.webp",
       "images": [
-        "/images/uploads/dz-n2-42-grey.webp",
-        "/images/uploads/dz-n2-42-orange.webp"
+        "/images/uploads/dz-gs-42-grey.webp",
+        "/images/uploads/dz-gs-42-orange.webp"
       ],
       "colors": [
         "Black",
@@ -510,7 +510,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Propellers Clip",
       "price": 4,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-40-11.webp",
+      "image": "/images/uploads/dz-gs-43.webp",
       "colors": [
         "Black",
         "Grey",
@@ -522,7 +522,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Landing Gear",
       "price": 9,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-17-58.webp",
+      "image": "/images/uploads/dz-gs-44-grey.webp",
       "colors": [
         "Black",
         "Grey",
@@ -534,7 +534,7 @@
       "name": "DJI Mini 3/ 3 Pro Landing Gear",
       "price": 5,
       "category": "DJI Mini 3/ 3 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-18-04.webp",
+      "image": "/images/uploads/dz-m3-45.webp",
       "colors": [
         "Black",
         "Grey"
@@ -545,7 +545,7 @@
       "name": "DJI Mini 3/ 3 Pro Case",
       "price": 22,
       "category": "DJI Mini 3/ 3 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-18-09.webp",
+      "image": "/images/uploads/dz-m3-46.webp",
       "colors": [
         "Black",
         "Grey"
@@ -556,14 +556,14 @@
       "name": "DJI Mini 3/ 3 Pro Propellers Clip",
       "price": 6,
       "category": "DJI Mini 3/ 3 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-18-14.webp"
+      "image": "/images/uploads/dz-m3-47.webp"
     },
     {
       "id": "48",
       "name": "DJI Mini 4 Pro Clips",
       "price": 6,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-18-19.webp",
+      "image": "/images/uploads/dz-o9-48.webp",
       "colors": [
         "Black",
         "Grey",
@@ -575,14 +575,14 @@
       "name": "DJI Mini 4 Pro Propellers Guard",
       "price": 20,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-18-27.webp"
+      "image": "/images/uploads/dz-o9-49.webp"
     },
     {
       "id": "50",
       "name": "DJI Mini 3/ 3 Pro Guards",
       "price": 18,
       "category": "DJI Mini 3/ 3 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-42-29.webp",
+      "image": "/images/uploads/dz-m3-50.webp",
       "colors": [
         "Black",
         "Grey",
@@ -594,7 +594,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Vertical Case",
       "price": 23,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-16-at-11-48-04.webp",
+      "image": "/images/uploads/dz-gs-51.webp",
       "colors": [
         "Black",
         "Grey",
@@ -606,7 +606,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Camera Protection",
       "price": 10,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-n-screenshot-2026-09-16-at-11-49-25.webp",
+      "image": "/images/uploads/dz-gs-52.webp",
       "colors": [
         "Black",
         "Grey",
@@ -618,7 +618,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Battery Removal Tool",
       "price": 4,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-16-at-11-52-07.webp",
+      "image": "/images/uploads/dz-gs-53.webp",
       "colors": [
         "Black",
         "Grey",
@@ -630,21 +630,21 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Shaped Case",
       "price": 24,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-16-at-13-11-51.webp"
+      "image": "/images/uploads/dz-gs-54.webp"
     },
     {
       "id": "55",
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Drone + Controller Case",
       "price": 33,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-16-at-13-14-57.webp"
+      "image": "/images/uploads/dz-gs-55.webp"
     },
     {
       "id": "56",
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Stand",
       "price": 15,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-16-at-13-19-43.webp"
+      "image": "/images/uploads/dz-gs-56.webp"
     },
     {
       "id": "57",
@@ -694,7 +694,7 @@
       "name": "DJI Mini 3/ 3 Pro Basket",
       "price": 19,
       "category": "DJI Mini 3/ 3 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-17-at-15-52-57.webp"
+      "image": "/images/uploads/dz-m3-62.webp"
     },
     {
       "id": "63",
@@ -702,10 +702,7 @@
       "price": 21,
       "category": "DJI Mini 3/ 3 Pro",
       "stock": 28,
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-13-08-03.webp",
-      "images": [
-        "/images/uploads/dz-pro-screenshot-2026-09-18-at-16-55-44.webp"
-      ],
+      "image": "/images/uploads/dz-m3-63.webp",
       "colors": [
         "Black",
         "Grey",
@@ -725,7 +722,7 @@
       "name": "DJI Mini 3/3 Pro Rugged Case",
       "price": 109,
       "category": "DJI Mini 3/ 3 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-18-18-29.webp"
+      "image": "/images/uploads/dz-m3-65.webp"
     },
     {
       "id": "66",
@@ -739,42 +736,42 @@
       "name": "DJI Mini 4 Pro Case",
       "price": 23,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-28-00.webp"
+      "image": "/images/uploads/dz-o9-67.webp"
     },
     {
       "id": "68",
       "name": "DJI Mini 4 Pro Basket",
       "price": 19,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-26-57.webp"
+      "image": "/images/uploads/dz-o9-68.webp"
     },
     {
       "id": "69",
       "name": "DJI Mini 4 Pro Stand",
       "price": 21,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-02-58-1.webp"
+      "image": "/images/uploads/dz-o9-69.webp"
     },
     {
       "id": "70",
       "name": "DJI Mini 4 Pro and RC2 Case",
       "price": 55,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-03-29.webp"
+      "image": "/images/uploads/dz-o9-70.webp"
     },
     {
       "id": "71",
       "name": "DJI RC 2 Hard Case",
       "price": 28,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-03-23.webp"
+      "image": "/images/uploads/dz-o9-71.webp"
     },
     {
       "id": "72",
       "name": "DJI RC 2 Case with Stick Guard",
       "price": 22,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-20-at-11-32-51.webp"
+      "image": "/images/uploads/dz-o9-72.webp"
     },
     {
       "id": "73",
@@ -788,7 +785,7 @@
       "name": "DJI Mini 4 Pro AirTag Mount",
       "price": 12,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-17-33-1.webp",
+      "image": "/images/uploads/dz-o9-546564.webp",
       "colors": [
         "Black",
         "Grey",
@@ -800,9 +797,9 @@
       "name": "DJI Mini 4 Pro Battery Holder",
       "price": 13,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-color-75-black.webp",
+      "image": "/images/uploads/dz-o9-75-black.webp",
       "images": [
-        "/images/uploads/dz-color-75-grey.webp"
+        "/images/uploads/dz-o9-75-grey.webp"
       ],
       "colors": [
         "Black",
@@ -814,9 +811,9 @@
       "name": "DJI Avata 360 Case",
       "price": 45,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-14-17-09.webp",
+      "image": "/images/uploads/dz-o9-76.webp",
       "images": [
-        "/images/uploads/dz-pro-screenshot-2026-09-19-at-14-17-00.webp"
+        "/images/uploads/dz-o9-76-2.webp"
       ]
     },
     {
@@ -824,7 +821,7 @@
       "name": "DJI Avata 360 Stand",
       "price": 19,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-14-17-22.webp"
+      "image": "/images/uploads/dz-o9-77.webp"
     },
     {
       "id": "78",
@@ -997,14 +994,14 @@
       "name": "DJI Mini 5 Pro Landing Gear",
       "price": 8,
       "category": "DJI Mini 5 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-19-38-42.webp"
+      "image": "/images/uploads/dz-o9-9337883.webp"
     },
     {
       "id": "94",
       "name": "DJI Mini 5 Pro Stand",
       "price": 21,
       "category": "DJI Mini 5 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-19-38-55.webp"
+      "image": "/images/uploads/dz-o9-94.webp"
     },
     {
       "id": "96",
@@ -1023,24 +1020,24 @@
       "name": "DJI Lito 1/X1 Case",
       "price": 22,
       "category": "DJI Lito 1/X1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-22-37-22.webp"
+      "image": "/images/uploads/dz-o9-97.webp"
     },
     {
       "id": "98",
       "name": "DJI Lito 1/X1 Case 2",
       "price": 22,
       "category": "DJI Lito 1/X1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-22-37-03.webp"
+      "image": "/images/uploads/dz-o9-98.webp"
     },
     {
       "id": "99",
       "name": "DJI Lito 1/X1 Clips",
       "price": 7,
       "category": "DJI Lito 1/X1",
-      "image": "/images/uploads/dz-color-99-black.webp",
+      "image": "/images/uploads/dz-o9-99-black.webp",
       "images": [
-        "/images/uploads/dz-color-99-grey.webp",
-        "/images/uploads/dz-color-99-orange.webp"
+        "/images/uploads/dz-o9-99-grey.webp",
+        "/images/uploads/dz-o9-99-orange.webp"
       ],
       "colors": [
         "Black",
@@ -1053,7 +1050,7 @@
       "name": "DJI Lito 1/X1 Landing Gear",
       "price": 12,
       "category": "DJI Lito 1/X1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-22-35-55.webp",
+      "image": "/images/uploads/dz-o9-100.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1065,7 +1062,7 @@
       "name": "DJI Lito 1/X1 Stand",
       "price": 19,
       "category": "DJI Lito 1/X1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-22-36-32.webp"
+      "image": "/images/uploads/dz-o9-101.webp"
     },
     {
       "id": "102",
@@ -1079,7 +1076,7 @@
       "name": "DJI RC 2 Sleeve Case",
       "price": 20,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-20-at-11-39-17.webp"
+      "image": "/images/uploads/dz-o9-103.webp"
     },
     {
       "id": "104",
@@ -1152,37 +1149,35 @@
       "name": "DJI Air 3/3S Case",
       "price": 43,
       "category": "DJI Air 3/3S",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-16-51-04.webp"
+      "image": "/images/uploads/dz-o9-92384928374.webp"
     },
     {
       "id": "9487789234987234",
       "name": "DJI Air 3/3S Payload Basket",
       "price": 21,
       "category": "DJI Air 3/3S",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-16-56-37-1.webp"
+      "image": "/images/uploads/dz-o9-9487789234987234.webp"
     },
     {
       "id": "9824789789234789023",
       "name": "DJI Air 3/3S Payload Box",
       "price": 18,
       "category": "DJI Air 3/3S",
-      "images": [
-        "/images/uploads/dz-pro-screenshot-2026-09-30-at-16-57-34.webp"
-      ]
+      "image": "/images/uploads/dz-o9-9824789789234789023.webp"
     },
     {
       "id": "9867324",
       "name": "DJI Air 3/3S Landing Gear",
       "price": 12,
       "category": "DJI Air 3/3S",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-16-57-49.webp"
+      "image": "/images/uploads/dz-o9-9867324.webp"
     },
     {
       "id": "875765234",
       "name": "DJI Air 3/3S Stand",
       "price": 19,
       "category": "DJI Air 3/3S",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-17-00-16.webp"
+      "image": "/images/uploads/dz-o9-875765234.webp"
     },
     {
       "id": "98623478234",
@@ -1196,35 +1191,35 @@
       "name": "DJI RC 2 Fold-Up Sunhood",
       "price": 12,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-17-26-39.webp"
+      "image": "/images/uploads/dz-o9-34897478958973.webp"
     },
     {
       "id": "92457985",
       "name": "DJI RC-N1 Sunhood",
       "price": 14,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-17-28-13.webp"
+      "image": "/images/uploads/dz-o9-92457985.webp"
     },
     {
       "id": "9876392863",
       "name": "DJI Flip Large Case",
       "price": 45,
       "category": "DJI Flip",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-18-59-39.webp"
+      "image": "/images/uploads/dz-o9-9876392863.webp"
     },
     {
       "id": "98762394",
       "name": "DJI Flip Payload",
       "price": 14,
       "category": "DJI Flip",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-19-04-56.webp"
+      "image": "/images/uploads/dz-o9-98762394.webp"
     },
     {
       "id": "9869234",
       "name": "DJI Flip Compact Case",
       "price": 19,
       "category": "DJI Flip",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-19-00-06.webp"
+      "image": "/images/uploads/dz-o9-9869234.webp"
     },
     {
       "id": "9876324",
@@ -1238,16 +1233,16 @@
       "name": "DJI Flip Landing Gear",
       "price": 9,
       "category": "DJI Flip",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-19-00-38.webp"
+      "image": "/images/uploads/dz-o9-98234.webp"
     },
     {
       "id": "389u4234",
       "name": "DJI Keychain",
       "price": 6,
       "category": "Other",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-30-at-18-54-59.webp",
+      "image": "/images/uploads/dz-o9-389u4234.webp",
       "images": [
-        "/images/uploads/dz-pro-screenshot-2026-09-30-at-18-55-22.webp"
+        "/images/uploads/dz-o9-389u4234-2.webp"
       ]
     },
     {
@@ -1255,35 +1250,35 @@
       "name": "DJI Mini 5 Pro Capsule Case",
       "price": 33,
       "category": "DJI Mini 5 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-10-02-at-00-11-00.webp"
+      "image": "/images/uploads/dz-o9-8943543.webp"
     },
     {
       "id": "9347593845",
       "name": "DJI Mini 5 Pro Gimbal Cover",
       "price": 12,
       "category": "DJI Mini 5 Pro",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-11-17.webp"
+      "image": "/images/uploads/dz-o9-9347593845.webp"
     },
     {
       "id": "90843524",
       "name": "DJI Mini 5 Pro Shaped Case",
       "price": 24,
       "category": "DJI Mini 5 Pro",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-13-13.webp"
+      "image": "/images/uploads/dz-o9-90843524.webp"
     },
     {
       "id": "435635465",
       "name": "DJI Mini 5 Pro + RC 2 Case",
       "price": 50,
       "category": "DJI Mini 5 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-10-02-at-00-35-28.webp"
+      "image": "/images/uploads/dz-o9-435635465.webp"
     },
     {
       "id": "34322452435",
       "name": "DJI Goggles Box Case",
       "price": 55,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-10-02-at-00-40-44.webp"
+      "image": "/images/uploads/dz-o9-34322452435.webp"
     },
     {
       "id": "98452879424",
@@ -1311,7 +1306,7 @@
       "name": "DJI Goggles Clamshell Case",
       "price": 34,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-10-03-013311.webp",
+      "image": "/images/uploads/dz-o9-5634734753473.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1323,14 +1318,14 @@
       "name": "DJI Goggles Lens Cover",
       "price": 9,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-10-03-013332.webp"
+      "image": "/images/uploads/dz-o9-3465463725647.webp"
     },
     {
       "id": "5467567567",
       "name": "DJI RC 2 Solid Sunhood",
       "price": 10,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-pro-screenshot-2026-10-03-020715.webp"
+      "image": "/images/uploads/dz-o9-5467567567.webp"
     },
     {
       "id": "1003",
