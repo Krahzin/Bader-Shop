@@ -361,7 +361,7 @@
     },
     {
       "id": "32",
-      "name": "DJI Neo 2 Antenna Protection",
+      "name": "DJI Neo 2 Antenna Guard",
       "price": 4,
       "category": "DJI Neo 2",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-58.webp",
@@ -373,7 +373,7 @@
     },
     {
       "id": "33",
-      "name": "DJI Neo 2 Antenna Protection",
+      "name": "DJI Neo 2 Antenna Travel Protection",
       "price": 5,
       "category": "DJI Neo 2",
       "desc": "Antenna protection for travel.",
@@ -399,7 +399,7 @@
     },
     {
       "id": "35",
-      "name": "DJI Neo 2 Case",
+      "name": "DJI Neo 2 Carry Case",
       "price": 45,
       "category": "DJI Neo 2",
       "desc": "Custom case for the DJI Neo 2.",
@@ -407,7 +407,7 @@
     },
     {
       "id": "36",
-      "name": "DJI Neo 2 Case",
+      "name": "DJI Neo 2 Case with Battery Holder",
       "price": 30,
       "category": "DJI Neo 2",
       "desc": "Custom case with a battery holder for the DJI Neo 2.",
@@ -433,7 +433,7 @@
     },
     {
       "id": "39",
-      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case with Lid",
       "price": 27,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-42.webp",
@@ -558,7 +558,7 @@
     },
     {
       "id": "51",
-      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Vertical Case",
       "price": 23,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-11-48-04.webp",
@@ -594,14 +594,14 @@
     },
     {
       "id": "54",
-      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Shaped Case",
       "price": 24,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-13-11-51.webp"
     },
     {
       "id": "55",
-      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Drone + Controller Case",
       "price": 33,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.14.57.webp"
@@ -615,7 +615,7 @@
     },
     {
       "id": "57",
-      "name": "Glow in the Dark",
+      "name": "DJI Neo 1 Glow in the Dark Accessories",
       "price": 21,
       "category": "DJI Neo 1",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
@@ -635,7 +635,7 @@
     },
     {
       "id": "60",
-      "name": "Glow in the Dark Accessories",
+      "name": "DJI Neo 2 Glow in the Dark Accessories",
       "price": 23,
       "category": "DJI Neo 2",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
@@ -731,14 +731,14 @@
     },
     {
       "id": "71",
-      "name": "RC 2 Case",
+      "name": "DJI RC 2 Hard Case",
       "price": 28,
       "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-03-23.webp"
     },
     {
       "id": "72",
-      "name": "RC 2 Case",
+      "name": "DJI RC 2 Case with Stick Guard",
       "price": 22,
       "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-11-32-51.webp"
@@ -825,7 +825,7 @@
     },
     {
       "id": "82",
-      "name": "DJI Avata 2 Full Protection",
+      "name": "DJI Avata 2 Full Protection Model 1",
       "price": 25,
       "category": "DJI Avata 2",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-15-45-01.webp",
@@ -1023,13 +1023,14 @@
     },
     {
       "id": "103",
-      "name": "DJI RC 2",
+      "name": "DJI RC 2 Sleeve Case",
       "price": 20,
+      "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-11-39-17.webp"
     },
     {
       "id": "104",
-      "name": "DJI Avata 2 Full Protection",
+      "name": "DJI Avata 2 Full Protection Model 2",
       "price": 25,
       "category": "DJI Avata 2",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-12-00-49.webp",
@@ -1104,14 +1105,14 @@
     },
     {
       "id": "9487789234987234",
-      "name": "DJI Air 3/3S Payload",
+      "name": "DJI Air 3/3S Payload Basket",
       "price": 21,
       "category": "DJI Air 3/3S",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-16-56-37-1.webp"
     },
     {
       "id": "9824789789234789023",
-      "name": "DJI Air 3/3S Payload",
+      "name": "DJI Air 3/3S Payload Box",
       "price": 18,
       "category": "DJI Air 3/3S",
       "images": [
@@ -1141,7 +1142,7 @@
     },
     {
       "id": "34897478958973",
-      "name": "DJI RC 2 Sunhood",
+      "name": "DJI RC 2 Fold-Up Sunhood",
       "price": 12,
       "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-17-26-39.webp"
@@ -1155,7 +1156,7 @@
     },
     {
       "id": "9876392863",
-      "name": "DJI Flip Case",
+      "name": "DJI Flip Large Case",
       "price": 45,
       "category": "DJI Flip",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-18-59-39.webp"
@@ -1169,7 +1170,7 @@
     },
     {
       "id": "9869234",
-      "name": "DJI Flip Case",
+      "name": "DJI Flip Compact Case",
       "price": 19,
       "category": "DJI Flip",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-19-00-06.webp"
@@ -1192,6 +1193,7 @@
       "id": "389u4234",
       "name": "DJI Keychain",
       "price": 6,
+      "category": "Other",
       "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-18-54-59.webp",
       "images": [
         "/images/uploads/dz-fixed-screenshot-2026-09-30-at-18-55-22.webp"
@@ -1199,7 +1201,7 @@
     },
     {
       "id": "8943543",
-      "name": "DJI Mini 5 Pro Case",
+      "name": "DJI Mini 5 Pro Capsule Case",
       "price": 33,
       "category": "DJI Mini 5 Pro",
       "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-11-00.webp"
@@ -1213,7 +1215,7 @@
     },
     {
       "id": "90843524",
-      "name": "DJI Mini 5 Pro Case",
+      "name": "DJI Mini 5 Pro Shaped Case",
       "price": 24,
       "category": "DJI Mini 5 Pro",
       "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-13-13.webp"
@@ -1227,7 +1229,7 @@
     },
     {
       "id": "34322452435",
-      "name": "DJI Goggles Case",
+      "name": "DJI Goggles Box Case",
       "price": 55,
       "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-40-44.webp"
@@ -1255,7 +1257,7 @@
     },
     {
       "id": "5634734753473",
-      "name": "DJI Goggles Case",
+      "name": "DJI Goggles Clamshell Case",
       "price": 34,
       "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-10-03-013311.webp",
@@ -1274,7 +1276,7 @@
     },
     {
       "id": "5467567567",
-      "name": "DJI RC 2 Sunhood",
+      "name": "DJI RC 2 Solid Sunhood",
       "price": 10,
       "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-10-03-020715.webp"
