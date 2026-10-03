@@ -150,8 +150,7 @@
       "colors": [
         "Black",
         "Grey",
-        "Orange",
-        "Red"
+        "Orange"
       ]
     },
     {
@@ -243,7 +242,12 @@
       "name": "DJI Neo 1 AirTag Mount",
       "price": 8,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-14-21.webp"
+      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-14-21.webp",
+      "colors": [
+        "Black",
+        "Grey",
+        "Orange"
+      ]
     },
     {
       "id": "21",
@@ -648,9 +652,9 @@
       "price": 21,
       "category": "DJI Neo 1",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-32-53.webp",
+      "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53.webp",
       "images": [
-        "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-33-03.webp"
+        "/images/uploads/Screenshot 2026-09-16 at 23.33.03.webp"
       ]
     },
     {
@@ -668,9 +672,9 @@
       "price": 23,
       "category": "DJI Neo 2",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-32-53-1.webp",
+      "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53-1.webp",
       "images": [
-        "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-33-03-1.webp"
+        "/images/uploads/Screenshot 2026-09-16 at 23.33.03-1.webp"
       ]
     },
     {
@@ -679,10 +683,10 @@
       "price": 1,
       "category": "Drones",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-33-24.webp",
+      "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24.webp",
       "images": [
-        "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19.webp",
-        "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-32-53-2.webp"
+        "/images/uploads/Screenshot 2026-09-17 at 01.50.19.webp",
+        "/images/uploads/Screenshot 2026-09-16 at 23.32.53-2.webp"
       ]
     },
     {
@@ -714,7 +718,7 @@
       "price": 28,
       "category": "DJI Mini 3/ 3 Pro",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19-4.webp"
+      "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
     },
     {
       "id": "65",
@@ -728,7 +732,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Glow in the Dark Accessories",
       "price": 28,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-20-48-04-1.webp"
+      "image": "/images/uploads/Screenshot 2026-09-18 at 20.48.04-1.webp"
     },
     {
       "id": "67",
@@ -784,7 +788,12 @@
       "name": "DJI Mini 4 Pro AirTag Mount",
       "price": 12,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-17-33-1.webp"
+      "image": "/images/uploads/dz-pro-screenshot-2026-09-18-at-21-17-33-1.webp",
+      "colors": [
+        "Black",
+        "Grey",
+        "Orange"
+      ]
     },
     {
       "id": "75",
@@ -861,7 +870,7 @@
       "name": "DJI Avata 360 Glow in the Dark",
       "price": 27,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-15-38-01.webp"
+      "image": "/images/uploads/Screenshot 2026-09-19 at 15.38.01.webp"
     },
     {
       "id": "82",
@@ -935,18 +944,14 @@
       "name": "DJI Avata 2 Glow in the Dark",
       "price": 25,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-16-at-23-33-24-1.webp"
+      "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24-1.webp"
     },
     {
       "id": "89",
       "name": "DJI Avata 1 Protection",
       "price": 22,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/dz-color-89-black.webp",
-      "images": [
-        "/images/uploads/dz-color-89-grey.webp",
-        "/images/uploads/dz-color-89-orange.webp"
-      ],
+      "image": "/images/uploads/Screenshot 2026-09-19 at 16.05.12.webp",
       "colors": [
         "Black",
         "Grey",
@@ -958,9 +963,9 @@
       "name": "DJI Avata 1 Upper Frame",
       "price": 13,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-16-06-25.webp",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 16.06.25.webp",
       "images": [
-        "/images/uploads/dz-pro-screenshot-2026-09-19-at-16-06-41.webp"
+        "/images/uploads/Screenshot 2026-09-19 at 16.06.41.webp"
       ],
       "colors": [
         "Black",
@@ -973,7 +978,7 @@
       "name": "DJI Avata 1 Landing Gear",
       "price": 8,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-16-08-40.webp",
+      "image": "/images/uploads/Screenshot 2026-09-19 at 16.08.40.webp",
       "colors": [
         "Black",
         "Grey",
@@ -985,7 +990,7 @@
       "name": "DJI Avata 1 Glow in the Dark",
       "price": 27,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-19-37-01.webp"
+      "image": "/images/uploads/Screenshot 2026-09-19 at 19.37.01.webp"
     },
     {
       "id": "9337883",
@@ -1100,9 +1105,7 @@
       "name": "DJI Avata 1 Gimbal Protection",
       "price": 14,
       "category": "DJI Avata 1",
-      "images": [
-        "/images/uploads/dz-fixed-screenshot-2026-09-20-at-12-01-48.webp"
-      ],
+      "image": "/images/uploads/Screenshot 2026-09-20 at 12.01.48.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1335,7 +1338,7 @@
       "price": 25,
       "category": "DJI Lito 1/X1",
       "desc": "Glow-in-the-dark propeller guards for the DJI Lito 1/X1.",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19-4.webp"
+      "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
     },
     {
       "id": "1004",
@@ -1343,7 +1346,7 @@
       "price": 25,
       "category": "DJI Mini 4 Pro",
       "desc": "Glow-in-the-dark propeller guards for the DJI Mini 4 Pro.",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19-4.webp"
+      "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
     }
   ]
 }
