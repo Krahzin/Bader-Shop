@@ -1,0 +1,11 @@
+{
+  "posts": [
+    {
+      "title": "How ordering works at Drone Zone",
+      "date": "2026-10-03",
+      "summary": "From cart to WhatsApp in a few taps: here's what happens when you order.",
+      "body": "<p>Ordering from Drone Zone is quick, and you never pay on the website.</p><h2>1. Pick your accessories</h2><p>Choose your drone model at the top of the shop to see the accessories that fit it. If a product comes in several colours, tap the colour you want.</p><h2>2. Send your order on WhatsApp</h2><p>Open your cart and tap <strong>Order on WhatsApp</strong>. Your items, colours and total are sent to us as a message.</p><h2>3. Confirm and pay the deposit</h2><p>We reply on WhatsApp to confirm. Drone accessories need a small Whish deposit before we finalize the order.</p><p>Questions? Check the <a href=\"faq.html\">FAQ</a> or message us on WhatsApp.</p>",
+      "published": true
+    }
+  ]
+}
