@@ -1278,6 +1278,22 @@
       "price": 10,
       "category": "DJI Remotes / Goggles",
       "image": "/images/uploads/dz-fixed-screenshot-2026-10-03-020715.webp"
+    },
+    {
+      "id": "1003",
+      "name": "DJI Lito 1/X1 Glow in the Dark Propeller Guards",
+      "price": 25,
+      "category": "DJI Lito 1/X1",
+      "desc": "Glow-in-the-dark propeller guards for the DJI Lito 1/X1.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19-4.webp"
+    },
+    {
+      "id": "1004",
+      "name": "DJI Mini 4 Pro Glow in the Dark Propeller Guards",
+      "price": 25,
+      "category": "DJI Mini 4 Pro",
+      "desc": "Glow-in-the-dark propeller guards for the DJI Mini 4 Pro.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19-4.webp"
     }
   ]
 }
