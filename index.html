@@ -46,6 +46,11 @@
       </span>
       <span class="brand-name" id="brandName">Drone Zone</span>
     </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="./" aria-current="page">Shop</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
     <div class="search">
       <input id="searchInput" type="search" placeholder="Search products…" autocomplete="off">
     </div>
@@ -96,8 +101,28 @@
   <div class="grid" id="grid"></div>
 </main>
 
+<section class="wrap help-strip" aria-label="Help and guides">
+  <a class="help-card" href="faq.html">
+    <span class="help-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+    </span>
+    <span class="help-text"><strong>Questions before you order?</strong><span>Ordering, deposits and colours, answered in the FAQ.</span></span>
+    <span class="help-arrow" aria-hidden="true">→</span>
+  </a>
+  <a class="help-card" href="blog.html">
+    <span class="help-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+    </span>
+    <span class="help-text"><strong>Guides &amp; tips</strong><span>Setup help, flying tips and news on the blog.</span></span>
+    <span class="help-arrow" aria-hidden="true">→</span>
+  </a>
+</section>
+
 <footer class="site-footer">
   <div class="wrap">
+    <nav class="footer-links" aria-label="Footer">
+      <a href="blog.html">Blog</a><span aria-hidden="true">·</span><a href="faq.html">FAQ</a>
+    </nav>
     <p id="footerNote" class="footer-note" style="margin:0"></p>
     <p class="footer-contact" id="footerContact"></p>
   </div>
