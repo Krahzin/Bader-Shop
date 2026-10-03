@@ -125,10 +125,10 @@
       "price": 8,
       "category": "DJI Neo 1",
       "desc": "Roll cage for the DJI Neo 1.",
-      "image": "/images/uploads/dz-n-rollcage-black.webp",
+      "image": "/images/uploads/dz-f11-11-black.webp",
       "images": [
-        "/images/uploads/dz-n-rollcage-grey.webp",
-        "/images/uploads/dz-n-rollcage-orange.webp"
+        "/images/uploads/dz-f11-11-grey.webp",
+        "/images/uploads/dz-f11-11-orange.webp"
       ],
       "colors": [
         "Black",
@@ -142,10 +142,10 @@
       "price": 18,
       "category": "DJI Neo 1",
       "desc": "Full protection for the camera and sides.",
-      "image": "/images/uploads/dz-n2-12-black.webp",
+      "image": "/images/uploads/dz-f11-12-black.webp",
       "images": [
-        "/images/uploads/dz-n2-12-grey.webp",
-        "/images/uploads/dz-n2-12-orange.webp"
+        "/images/uploads/dz-f11-12-grey.webp",
+        "/images/uploads/dz-f11-12-orange.webp"
       ],
       "colors": [
         "Black",
@@ -159,7 +159,7 @@
       "price": 15,
       "category": "DJI Neo 1",
       "desc": "Side and front protection for the DJI Neo.",
-      "image": "/images/uploads/dz-n-screenshot-2026-09-15-at-00-21-27.webp",
+      "image": "/images/uploads/dz-f11-13.webp",
       "colors": [
         "Black",
         "Grey",
@@ -172,7 +172,7 @@
       "price": 13,
       "category": "DJI Neo 1",
       "desc": "Custom-made protection for the sides.",
-      "image": "/images/uploads/dz-n2-14-black.webp",
+      "image": "/images/uploads/dz-f11-14-black.webp",
       "colors": [
         "Black",
         "Grey",
@@ -185,10 +185,10 @@
       "price": 13,
       "category": "DJI Neo 1",
       "desc": "Side protection for the DJI Neo 1.",
-      "image": "/images/uploads/dz-n2-15-black.webp",
+      "image": "/images/uploads/dz-f11-15-black.webp",
       "images": [
-        "/images/uploads/dz-n2-15-grey.webp",
-        "/images/uploads/dz-n2-15-orange.webp"
+        "/images/uploads/dz-f11-15-grey.webp",
+        "/images/uploads/dz-f11-15-orange.webp"
       ],
       "colors": [
         "Black",
@@ -228,7 +228,7 @@
       "name": "DJI Neo 1 Stand",
       "price": 25,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-f10-18.webp"
+      "image": "/images/uploads/dz-f11-18.webp"
     },
     {
       "id": "19",
@@ -808,9 +808,9 @@
       "name": "DJI Avata 360 Case",
       "price": 45,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-o9-76.webp",
+      "image": "/images/uploads/dz-f11-76.webp",
       "images": [
-        "/images/uploads/dz-o9-76-2.webp"
+        "/images/uploads/dz-f11-76-2.webp"
       ]
     },
     {
@@ -818,24 +818,24 @@
       "name": "DJI Avata 360 Stand",
       "price": 19,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-o9-77.webp"
+      "image": "/images/uploads/dz-f11-77.webp"
     },
     {
       "id": "78",
       "name": "DJI Avata 360 Landing Feet",
       "price": 8,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-f10-78.webp"
+      "image": "/images/uploads/dz-f11-78.webp"
     },
     {
       "id": "79",
       "name": "DJI Avata 360 Side Protection 1",
       "price": 19,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-n2-79-black.webp",
+      "image": "/images/uploads/dz-f11-79-black.webp",
       "images": [
-        "/images/uploads/dz-n2-79-grey.webp",
-        "/images/uploads/dz-n2-79-orange.webp"
+        "/images/uploads/dz-f11-79-grey.webp",
+        "/images/uploads/dz-f11-79-orange.webp"
       ],
       "colors": [
         "Black",
@@ -848,10 +848,10 @@
       "name": "DJI Avata 360 Side Protection 2",
       "price": 21,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-n2-80-black.webp",
+      "image": "/images/uploads/dz-f11-80-black.webp",
       "images": [
-        "/images/uploads/dz-n2-80-grey.webp",
-        "/images/uploads/dz-n2-80-orange.webp"
+        "/images/uploads/dz-f11-80-grey.webp",
+        "/images/uploads/dz-f11-80-orange.webp"
       ],
       "colors": [
         "Black",
@@ -1073,7 +1073,7 @@
       "name": "DJI RC 2 Sleeve Case",
       "price": 20,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-o9-103.webp"
+      "image": "/images/uploads/dz-f11-103.webp"
     },
     {
       "id": "104",
@@ -1174,14 +1174,14 @@
       "name": "DJI Air 3/3S Stand",
       "price": 19,
       "category": "DJI Air 3/3S",
-      "image": "/images/uploads/dz-o9-875765234.webp"
+      "image": "/images/uploads/dz-f11-875765234.webp"
     },
     {
       "id": "98623478234",
       "name": "DJI Air 3/3S Gimbal Protection",
       "price": 12,
       "category": "DJI Air 3/3S",
-      "image": "/images/uploads/dz-n-screenshot-2026-09-30-at-17-02-18.webp"
+      "image": "/images/uploads/dz-f11-98623478234.webp"
     },
     {
       "id": "34897478958973",
@@ -1216,14 +1216,14 @@
       "name": "DJI Flip Compact Case",
       "price": 19,
       "category": "DJI Flip",
-      "image": "/images/uploads/dz-o9-9869234.webp"
+      "image": "/images/uploads/dz-f11-9869234.webp"
     },
     {
       "id": "9876324",
       "name": "DJI Flip Gimbal Protection",
       "price": 7,
       "category": "DJI Flip",
-      "image": "/images/uploads/dz-n-screenshot-2026-09-30-at-19-00-17.webp"
+      "image": "/images/uploads/dz-f11-9876324.webp"
     },
     {
       "id": "98234",
@@ -1275,14 +1275,14 @@
       "name": "DJI Goggles Box Case",
       "price": 55,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-o9-34322452435.webp"
+      "image": "/images/uploads/dz-f11-34322452435.webp"
     },
     {
       "id": "98452879424",
       "name": "DJI RC 2",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/dz-f10-98452879424.webp"
+      "image": "/images/uploads/dz-f11-98452879424-r.webp"
     },
     {
       "id": "673242",
@@ -1296,7 +1296,7 @@
       "name": "DJI Mini 3/ 4 Pro Battery Plus",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/dz-f10-986234.webp"
+      "image": "/images/uploads/dz-f11-986234.webp"
     },
     {
       "id": "5634734753473",
