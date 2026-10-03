@@ -96,6 +96,25 @@ function allImages(p){
   return list;
 }
 
+/* Photo that matches a colour, picked from the file name
+   (e.g. "...-grey.webp" for Grey). Falls back to the main photo. */
+const COLOR_ALIASES = { grey:['grey','gray'], gray:['grey','gray'] };
+function colorWords(name){ const n = String(name || '').toLowerCase().trim(); return COLOR_ALIASES[n] || [n]; }
+function fileHasColor(src, name){
+  const file = decodeURIComponent(String(src).split('/').pop()).toLowerCase();
+  return colorWords(name).some(w => file.split(/[-_ .]/).includes(w));
+}
+function colorImage(p, colorName){
+  const imgs = allImages(p);
+  if(!colorName || !imgs.length) return imgs[0] || '';
+  return imgs.find(src => fileHasColor(src, colorName)) || imgs[0];
+}
+function mainPhotoColor(p){
+  const imgs = allImages(p);
+  const c = (p.colors || []).find(c => imgs[0] && fileHasColor(imgs[0], c.name));
+  return c ? c.name : '';
+}
+
 /* =========================================================
    COLOUR HELPERS
    ========================================================= */
@@ -203,10 +222,10 @@ function placeholderStyle(name){
   for(let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) % 360;
   return `background:linear-gradient(135deg,hsl(${h} 45% 90%),hsl(${(h+45)%360} 45% 80%));`;
 }
-function mediaHtml(p){
+function mediaHtml(p, src){
   const imgs = allImages(p);
   if(imgs.length){
-    return `<img src="${escapeHtml(imgs[0])}" alt="${escapeHtml(p.name)}" loading="lazy">`;
+    return `<img src="${escapeHtml(src || imgs[0])}" alt="${escapeHtml(p.name)}" loading="lazy">`;
   }
   const initial = (String(p.name||'?').trim()[0] || '?').toUpperCase();
   return `<div class="ph" style="${placeholderStyle(p.name)}">${escapeHtml(initial)}</div>`;
@@ -241,11 +260,11 @@ function categoryRank(cat){
 /* =========================================================
    LIGHTBOX
    ========================================================= */
-function openLightbox(product){
+function openLightbox(product, startSrc){
   const imgs = allImages(product);
   if(!imgs.length) return;
   lbImages = imgs;
-  lbIndex  = 0;
+  lbIndex  = Math.max(0, imgs.indexOf(startSrc));
   lbName   = product.name;
   renderLightbox();
   $('#lightbox').classList.add('show');
@@ -354,7 +373,7 @@ function renderProducts(){
 
     let picker = '';
     if(colors.length > 1){
-      const selected = selectedColors[p.id] || colors[0].name;
+      const selected = selectedColors[p.id] || mainPhotoColor(p) || colors[0].name;
       selectedColors[p.id] = selected;
       picker = `
         <div class="color-picker" data-product="${p.id}">
@@ -385,7 +404,7 @@ function renderProducts(){
     return `
       <article class="card">
         <div class="card-media" ${imgs.length ? `data-open="${p.id}"` : ''}>
-          ${mediaHtml(p)}
+          ${mediaHtml(p, selectedColors[p.id] ? colorImage(p, selectedColors[p.id]) : '')}
           ${soldOut ? '<span class="badge-out">Sold out</span>' : ''}
           ${multi ? `<span class="badge-count">${imgs.length} photos</span>` : ''}
         </div>
@@ -469,7 +488,7 @@ function renderCart(){
       const swatchStyle = colorMeta ? colorSwatchStyle(colorMeta) : '';
       return `
         <div class="cart-item">
-          <div class="ci-media">${mediaHtml(p)}</div>
+          <div class="ci-media">${mediaHtml(p, color ? colorImage(p, color) : '')}</div>
           <div class="ci-info">
             <div class="ci-name">${escapeHtml(p.name)}</div>
             ${color ? `<div class="ci-color"><span class="swatch" style="${swatchStyle}"></span>${escapeHtml(color)}</div>` : ''}
@@ -563,6 +582,12 @@ function bindEvents(){
     if(dot){
       const pid = dot.closest('[data-product]').dataset.product;
       selectedColors[pid] = dot.dataset.color;
+      const prod = products.find(x => x.id === pid);
+      const cardImg = dot.closest('.card') && dot.closest('.card').querySelector('.card-media img');
+      if(prod && cardImg){
+        const src = colorImage(prod, dot.dataset.color);
+        if(src && cardImg.getAttribute('src') !== src) cardImg.setAttribute('src', src);
+      }
       const picker = dot.closest('.color-picker');
       picker.querySelectorAll('.color-dot').forEach(d => {
         const on = d === dot;
@@ -578,7 +603,8 @@ function bindEvents(){
     const openBtn = e.target.closest('[data-open]');
     if(openBtn){
       const p = products.find(x => x.id === openBtn.dataset.open);
-      if(p) openLightbox(p);
+      const shown = openBtn.querySelector('img');
+      if(p) openLightbox(p, shown ? shown.getAttribute('src') : '');
     }
   });
 
