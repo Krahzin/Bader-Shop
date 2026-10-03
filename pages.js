@@ -87,7 +87,7 @@
         <a class="post-card${i === 0 ? ' featured' : ''}" href="#${esc(p.slug)}">
           <div class="post-media">${p.cover
             ? `<img src="${esc(img(p.cover))}" alt="" loading="lazy">`
-            : `<span class="post-ph" aria-hidden="true"><img src="logo.png" alt=""></span>`}</div>
+            : `<span class="post-ph" aria-hidden="true"><img src="images/uploads/logo-144.webp" alt=""></span>`}</div>
           <div class="post-body">
             ${p.date ? `<time datetime="${esc(p.date)}">${fmtDate(p.date)}</time>` : ''}
             <h2>${esc(p.title)}</h2>
