@@ -28,8 +28,8 @@
       "desc": "DJI Mini 4 Pro drone combo with a two-way charging hub, shoulder bag, Intelligent Flight Batteries, and more.",
       "image": "/images/uploads/dz-fixed-img-20260913-wa0241.jpg",
       "images": [
-        "/images/uploads/dz-fixed-img-20260913-wa0240-1.jpg",
-        "/images/uploads/dz-fixed-img-20260913-wa0242.jpg"
+        "/images/uploads/dz-f10-1-2.webp",
+        "/images/uploads/dz-f10-1-3.webp"
       ]
     },
     {
@@ -202,9 +202,9 @@
       "price": 27,
       "category": "DJI Neo 1",
       "desc": "Custom-made case for the DJI Neo 1 drone.",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-00-21-47.webp",
+      "image": "/images/uploads/dz-f10-16.webp",
       "images": [
-        "/images/uploads/dz-pro-screenshot-2026-09-15-at-00-21-56.webp"
+        "/images/uploads/dz-f10-16-2.webp"
       ],
       "colors": [
         "Grey",
@@ -216,7 +216,7 @@
       "name": "DJI Neo 1 Landing Gear",
       "price": 8,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-14-00-1.webp",
+      "image": "/images/uploads/dz-f10-17.webp",
       "colors": [
         "Black",
         "Grey",
@@ -228,21 +228,21 @@
       "name": "DJI Neo 1 Stand",
       "price": 25,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-14-07.webp"
+      "image": "/images/uploads/dz-f10-18.webp"
     },
     {
       "id": "19",
       "name": "DJI Neo 1 Camera Cover",
       "price": 3,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-14-15-1.webp"
+      "image": "/images/uploads/dz-f10-19.webp"
     },
     {
       "id": "20",
       "name": "DJI Neo 1 AirTag Mount",
       "price": 8,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-14-21.webp",
+      "image": "/images/uploads/dz-f10-20.webp",
       "colors": [
         "Black",
         "Grey",
@@ -351,9 +351,9 @@
       "price": 10,
       "category": "DJI Neo 2",
       "desc": "Landing gear for the DJI Neo 2.",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-15-23.webp",
+      "image": "/images/uploads/dz-f10-29.webp",
       "images": [
-        "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-15-29.webp"
+        "/images/uploads/dz-f10-29-2.webp"
       ],
       "colors": [
         "Black",
@@ -374,7 +374,7 @@
       "name": "DJI Neo 1 Spirit Bomber Mod",
       "price": 9,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-15-51.webp",
+      "image": "/images/uploads/dz-f10-31.webp",
       "colors": [
         "Black",
         "Grey",
@@ -412,10 +412,10 @@
       "price": 9,
       "category": "DJI Neo 2",
       "desc": "AirTag mount for the DJI Neo 2.",
-      "image": "/images/uploads/dz-color-34-black.webp",
+      "image": "/images/uploads/dz-f10-34-black.webp",
       "images": [
-        "/images/uploads/dz-color-34-grey.webp",
-        "/images/uploads/dz-color-34-orange.webp"
+        "/images/uploads/dz-f10-34-grey.webp",
+        "/images/uploads/dz-f10-34-orange.webp"
       ],
       "colors": [
         "Black",
@@ -429,7 +429,7 @@
       "price": 45,
       "category": "DJI Neo 2",
       "desc": "Custom case for the DJI Neo 2.",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-16-16.webp"
+      "image": "/images/uploads/dz-f10-35.webp"
     },
     {
       "id": "36",
@@ -444,17 +444,14 @@
       "name": "DJI Neo 2 Stand",
       "price": 25,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-16-29.webp"
+      "image": "/images/uploads/dz-f10-37.webp"
     },
     {
       "id": "38",
       "name": "DJI Neo 2 Mod",
       "price": 13,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-color-38-black.webp",
-      "images": [
-        "/images/uploads/dz-color-38-grey.webp"
-      ],
+      "image": "/images/uploads/dz-f10-38-black.webp",
       "colors": [
         "Black",
         "Grey"
@@ -652,9 +649,9 @@
       "price": 21,
       "category": "DJI Neo 1",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53.webp",
+      "image": "/images/uploads/dz-f10-57.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-16 at 23.33.03.webp"
+        "/images/uploads/dz-f10-57-2.webp"
       ]
     },
     {
@@ -672,9 +669,9 @@
       "price": 23,
       "category": "DJI Neo 2",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53-1.webp",
+      "image": "/images/uploads/dz-f10-60.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-16 at 23.33.03-1.webp"
+        "/images/uploads/dz-f10-60-2.webp"
       ]
     },
     {
@@ -683,10 +680,10 @@
       "price": 1,
       "category": "Drones",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24.webp",
+      "image": "/images/uploads/dz-f10-61.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-17 at 01.50.19.webp",
-        "/images/uploads/Screenshot 2026-09-16 at 23.32.53-2.webp"
+        "/images/uploads/dz-f10-61-2.webp",
+        "/images/uploads/dz-f10-61-3.webp"
       ]
     },
     {
@@ -715,7 +712,7 @@
       "price": 28,
       "category": "DJI Mini 3/ 3 Pro",
       "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
+      "image": "/images/uploads/dz-f10-64.webp"
     },
     {
       "id": "65",
@@ -729,7 +726,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Glow in the Dark Accessories",
       "price": 28,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 20.48.04-1.webp"
+      "image": "/images/uploads/dz-f10-66.webp"
     },
     {
       "id": "67",
@@ -778,7 +775,7 @@
       "name": "DJI Mini 4 Pro Arm Protection",
       "price": 25,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-n-screenshot-2026-09-18-at-21-08-59-1.webp"
+      "image": "/images/uploads/dz-f10-73.webp"
     },
     {
       "id": "546564",
@@ -828,7 +825,7 @@
       "name": "DJI Avata 360 Landing Feet",
       "price": 8,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-14-17-42.webp"
+      "image": "/images/uploads/dz-f10-78.webp"
     },
     {
       "id": "79",
@@ -867,7 +864,7 @@
       "name": "DJI Avata 360 Glow in the Dark",
       "price": 27,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 15.38.01.webp"
+      "image": "/images/uploads/dz-f10-81.webp"
     },
     {
       "id": "82",
@@ -898,7 +895,7 @@
       "name": "DJI Avata 2 Protection 2",
       "price": 20,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-n2-84-orange.webp",
+      "image": "/images/uploads/dz-f10-84-orange.webp",
       "colors": [
         "Black",
         "Grey",
@@ -910,7 +907,7 @@
       "name": "DJI Avata 2 Gimbal Protection",
       "price": 7,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-48-54-1.webp",
+      "image": "/images/uploads/dz-f10-85.webp",
       "colors": [
         "Black",
         "Grey",
@@ -941,14 +938,14 @@
       "name": "DJI Avata 2 Glow in the Dark",
       "price": 25,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24-1.webp"
+      "image": "/images/uploads/dz-f10-88.webp"
     },
     {
       "id": "89",
       "name": "DJI Avata 1 Protection",
       "price": 22,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 16.05.12.webp",
+      "image": "/images/uploads/dz-f10-89.webp",
       "colors": [
         "Black",
         "Grey",
@@ -960,9 +957,9 @@
       "name": "DJI Avata 1 Upper Frame",
       "price": 13,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 16.06.25.webp",
+      "image": "/images/uploads/dz-f10-90.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-19 at 16.06.41.webp"
+        "/images/uploads/dz-f10-90-2.webp"
       ],
       "colors": [
         "Black",
@@ -975,7 +972,7 @@
       "name": "DJI Avata 1 Landing Gear",
       "price": 8,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 16.08.40.webp",
+      "image": "/images/uploads/dz-f10-91.webp",
       "colors": [
         "Black",
         "Grey",
@@ -987,7 +984,7 @@
       "name": "DJI Avata 1 Glow in the Dark",
       "price": 27,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 19.37.01.webp"
+      "image": "/images/uploads/dz-f10-93.webp"
     },
     {
       "id": "9337883",
@@ -1102,7 +1099,7 @@
       "name": "DJI Avata 1 Gimbal Protection",
       "price": 14,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-20 at 12.01.48.webp",
+      "image": "/images/uploads/dz-f10-106.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1114,14 +1111,14 @@
       "name": "DJI Lito X1 Fly More Combo RC2",
       "price": 1270,
       "category": "Drones",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-23-at-12-51-43.webp"
+      "image": "/images/uploads/dz-f10-1001.webp"
     },
     {
       "id": "1002",
       "name": "DJI Flip Fly More Combo",
       "price": 1000,
       "category": "Drones",
-      "image": "/images/uploads/dz-fixed-screenshot-2026-09-23-at-12-54-41.webp"
+      "image": "/images/uploads/dz-f10-1002.webp"
     },
     {
       "id": "987667890",
@@ -1285,7 +1282,7 @@
       "name": "DJI RC 2",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/dz-fixed-img-8798.webp"
+      "image": "/images/uploads/dz-f10-98452879424.webp"
     },
     {
       "id": "673242",
@@ -1299,7 +1296,7 @@
       "name": "DJI Mini 3/ 4 Pro Battery Plus",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/dz-fixed-img-8986.webp"
+      "image": "/images/uploads/dz-f10-986234.webp"
     },
     {
       "id": "5634734753473",
@@ -1333,7 +1330,7 @@
       "price": 25,
       "category": "DJI Lito 1/X1",
       "desc": "Glow-in-the-dark propeller guards for the DJI Lito 1/X1.",
-      "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
+      "image": "/images/uploads/dz-f10-1003.webp"
     },
     {
       "id": "1004",
@@ -1341,7 +1338,7 @@
       "price": 25,
       "category": "DJI Mini 4 Pro",
       "desc": "Glow-in-the-dark propeller guards for the DJI Mini 4 Pro.",
-      "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
+      "image": "/images/uploads/dz-f10-1004.webp"
     }
   ]
 }
