@@ -225,7 +225,7 @@ function placeholderStyle(name){
 function mediaHtml(p, src){
   const imgs = allImages(p);
   if(imgs.length){
-    return `<img src="${escapeHtml(src || imgs[0])}" alt="${escapeHtml(p.name)}" loading="lazy">`;
+    return `<img src="${escapeHtml(src || imgs[0])}" alt="${escapeHtml(p.name)}" loading="lazy" decoding="async">`;
   }
   const initial = (String(p.name||'?').trim()[0] || '?').toUpperCase();
   return `<div class="ph" style="${placeholderStyle(p.name)}">${escapeHtml(initial)}</div>`;
