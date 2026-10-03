@@ -172,7 +172,11 @@
       "price": 13,
       "category": "DJI Neo 1",
       "desc": "Custom-made protection for the sides.",
-      "image": "/images/uploads/dz-f11-14-black.webp",
+      "image": "/images/uploads/dz-f12-14-black.webp",
+      "images": [
+        "/images/uploads/dz-f12-14-grey.webp",
+        "/images/uploads/dz-f12-14-orange.webp"
+      ],
       "colors": [
         "Black",
         "Grey",
