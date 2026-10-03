@@ -137,9 +137,3 @@ content:
             label: Answer
             type: text
             required: true
-
-  - name: tmpappjs
-    label: tmp app.js
-    type: file
-    path: app.js
-    format: raw
