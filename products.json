@@ -125,10 +125,10 @@
       "price": 8,
       "category": "DJI Neo 1",
       "desc": "Roll cage for the DJI Neo 1.",
-      "image": "/images/uploads/dz-color-11-black.webp",
+      "image": "/images/uploads/dz-n-rollcage-black.webp",
       "images": [
-        "/images/uploads/dz-color-11-grey.webp",
-        "/images/uploads/dz-color-11-orange.webp"
+        "/images/uploads/dz-n-rollcage-grey.webp",
+        "/images/uploads/dz-n-rollcage-orange.webp"
       ],
       "colors": [
         "Black",
@@ -868,11 +868,7 @@
       "name": "DJI Avata 2 Full Protection Model 1",
       "price": 25,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-color-82-black.webp",
-      "images": [
-        "/images/uploads/dz-color-82-grey.webp",
-        "/images/uploads/dz-color-82-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-45-01.webp",
       "colors": [
         "Black",
         "Grey",
@@ -884,11 +880,7 @@
       "name": "DJI Avata 2 Protection 1",
       "price": 20,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-color-83-black.webp",
-      "images": [
-        "/images/uploads/dz-color-83-grey.webp",
-        "/images/uploads/dz-color-83-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-47-36.webp",
       "colors": [
         "Black",
         "Grey",
@@ -900,11 +892,7 @@
       "name": "DJI Avata 2 Protection 2",
       "price": 20,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-color-84-black.webp",
-      "images": [
-        "/images/uploads/dz-color-84-grey.webp",
-        "/images/uploads/dz-color-84-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-58-13.webp",
       "colors": [
         "Black",
         "Grey",
@@ -916,11 +904,7 @@
       "name": "DJI Avata 2 Gimbal Protection",
       "price": 7,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-color-85-black.webp",
-      "images": [
-        "/images/uploads/dz-color-85-grey.webp",
-        "/images/uploads/dz-color-85-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-48-54-1.webp",
       "colors": [
         "Black",
         "Grey",
@@ -932,11 +916,7 @@
       "name": "DJI Avata 2 Landing Gear",
       "price": 9,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-color-86-black.webp",
-      "images": [
-        "/images/uploads/dz-color-86-grey.webp",
-        "/images/uploads/dz-color-86-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-47-55.webp",
       "colors": [
         "Black",
         "Grey",
@@ -948,7 +928,7 @@
       "name": "DJI Avata 2 Stand",
       "price": 18,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-19-at-16-01-45.webp"
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-16-01-45.webp"
     },
     {
       "id": "88",
@@ -1101,11 +1081,7 @@
       "name": "DJI Avata 2 Full Protection Model 2",
       "price": 25,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-color-104-black.webp",
-      "images": [
-        "/images/uploads/dz-color-104-grey.webp",
-        "/images/uploads/dz-color-104-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-20-at-12-00-49.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1117,7 +1093,7 @@
       "name": "DJI Avata 2 Case",
       "price": 45,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-20-at-12-03-22.webp"
+      "image": "/images/uploads/dz-n-screenshot-2026-09-20-at-12-03-22.webp"
     },
     {
       "id": "106",
