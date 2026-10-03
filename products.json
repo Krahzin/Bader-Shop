@@ -28,7 +28,7 @@
       "desc": "DJI Mini 4 Pro drone combo with a two-way charging hub, shoulder bag, Intelligent Flight Batteries, and more.",
       "image": "/images/uploads/dz-fixed-img-20260913-wa0241.jpg",
       "images": [
-        "/images/uploads/dz-pro-img-20260913-wa0240-1.webp",
+        "/images/uploads/dz-fixed-img-20260913-wa0240-1.jpg",
         "/images/uploads/dz-fixed-img-20260913-wa0242.jpg"
       ]
     },
@@ -39,9 +39,9 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI Lito Fly More Combo. Brand new, sealed.",
-      "image": "/images/uploads/dz-pro-img-8079.webp",
+      "image": "/images/uploads/dz-fixed-img-8079.jpg",
       "images": [
-        "/images/uploads/dz-pro-img-8080.webp"
+        "/images/uploads/IMG_8080.jpg"
       ]
     },
     {
@@ -51,7 +51,7 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI Neo FPV Combo, used.\nBattery cycles: 10/10/6.\nTesting and warranty available.",
-      "image": "/images/uploads/dz-pro-img-8081-1.webp"
+      "image": "/images/uploads/dz-fixed-img-8081-1.jpg"
     },
     {
       "id": "5",
@@ -60,7 +60,7 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI Goggles N3 and Motion 3.\nBarely used.\nTesting and warranty available.",
-      "image": "/images/uploads/dz-pro-img-8082.webp"
+      "image": "/images/uploads/dz-fixed-img-8082.jpg"
     },
     {
       "id": "6",
@@ -69,7 +69,7 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI Neo 1 Fly More Combo, barely used.\nBattery cycles: 10/10/6.\nTesting and warranty available.",
-      "image": "/images/uploads/dz-pro-4e67458b-f443-411d-914c-5d0c9840332b.webp"
+      "image": "/images/uploads/dz-fixed-4e67458b-f443-411d-914c-5d0c9840332b.jpg"
     },
     {
       "id": "7",
@@ -78,7 +78,7 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI Motion 3, used.",
-      "image": "/images/uploads/dz-pro-images-2.webp"
+      "image": "/images/uploads/dz-fixed-images-2.jpeg"
     },
     {
       "id": "8",
@@ -1154,14 +1154,14 @@
       "name": "DJI Lito X1 Fly More Combo RC2",
       "price": 1270,
       "category": "Drones",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-23-at-12-51-43.webp"
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-23-at-12-51-43.webp"
     },
     {
       "id": "1002",
       "name": "DJI Flip Fly More Combo",
       "price": 1000,
       "category": "Drones",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-23-at-12-54-41.webp"
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-23-at-12-54-41.webp"
     },
     {
       "id": "987667890",
@@ -1179,9 +1179,9 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI Mini 2 Fly More Combo with the original bag and accessories.\nCustom skin.\nBarely used.",
-      "image": "/images/uploads/dz-pro-7721706c-dec4-4ccc-b968-0ccdf953c5e1-2-1.webp",
+      "image": "/images/uploads/dz-fixed-7721706c-dec4-4ccc-b968-0ccdf953c5e1-2-1.jpg",
       "images": [
-        "/images/uploads/dz-pro-9ad2bc54-516b-46de-9012-55923c84f6d0-1-1.webp"
+        "/images/uploads/9ad2bc54-516b-46de-9012-55923c84f6d0 (1)-1.jpg"
       ]
     },
     {
@@ -1327,7 +1327,7 @@
       "name": "DJI RC 2",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/dz-pro-img-8798.webp"
+      "image": "/images/uploads/dz-fixed-img-8798.webp"
     },
     {
       "id": "673242",
@@ -1341,7 +1341,7 @@
       "name": "DJI Mini 3/ 4 Pro Battery Plus",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/dz-pro-img-8986.webp"
+      "image": "/images/uploads/dz-fixed-img-8986.webp"
     },
     {
       "id": "5634734753473",
