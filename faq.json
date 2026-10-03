@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "topic": "Ordering",
+      "question": "How do I place an order?",
+      "answer": "Add the items you want to your cart, pick a colour where there's a choice, then tap \"Order on WhatsApp\". Your order is sent to us as a WhatsApp message and we confirm everything with you there."
+    },
+    {
+      "topic": "Ordering",
+      "question": "Do I pay on the website?",
+      "answer": "No. Nothing is paid on this site. We confirm your order on WhatsApp first."
+    },
+    {
+      "topic": "Ordering",
+      "question": "Is there a deposit?",
+      "answer": "Yes. Drone accessories need a small Whish deposit before we finalize the order. We'll send you the details on WhatsApp."
+    },
+    {
+      "topic": "Products",
+      "question": "Can I choose the colour?",
+      "answer": "Many accessories come in more than one colour. Tap a colour dot on the product to choose it. The colour you pick is included in your WhatsApp order."
+    },
+    {
+      "topic": "Products",
+      "question": "Is the drone included with an accessory?",
+      "answer": "No. Accessory listings are for the accessory only. Drones are listed separately in the Drones category."
+    },
+    {
+      "topic": "Products",
+      "question": "How do I find accessories for my drone?",
+      "answer": "Use the model buttons on the shop page (for example DJI Neo 2 or DJI Mini 4 Pro) to see only the accessories that fit your drone, or type the model in the search bar."
+    }
+  ]
+}
