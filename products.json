@@ -86,7 +86,7 @@
       "price": 5,
       "category": "DJI Neo 1",
       "desc": "Camera protection for the DJI Neo 1.",
-      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-00-16-30-1.webp",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-16-30-1.webp",
       "colors": [
         "Black",
         "Grey",
@@ -288,11 +288,7 @@
       "name": "DJI Neo 2 Gimbal Protector Model 2",
       "price": 5,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-color-25-black.webp",
-      "images": [
-        "/images/uploads/dz-color-25-grey.webp",
-        "/images/uploads/dz-color-25-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-57.webp",
       "colors": [
         "Black",
         "Grey",
@@ -304,11 +300,7 @@
       "name": "DJI Neo 2 Gimbal Protector Model 3",
       "price": 3,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-color-26-black.webp",
-      "images": [
-        "/images/uploads/dz-color-26-grey.webp",
-        "/images/uploads/dz-color-26-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-02.webp",
       "colors": [
         "Black",
         "Grey",
@@ -321,10 +313,10 @@
       "price": 14,
       "category": "DJI Neo 2",
       "desc": "Side protection for the DJI Neo 2.\nNote: the top propeller cover must be removed.",
-      "image": "/images/uploads/dz-color-27-black.webp",
+      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-15-08.webp",
       "images": [
-        "/images/uploads/dz-color-27-grey.webp",
-        "/images/uploads/dz-color-27-orange.webp"
+        "/images/uploads/dz-color-27-black.webp",
+        "/images/uploads/dz-color-27-grey.webp"
       ],
       "colors": [
         "Black",
@@ -338,10 +330,10 @@
       "price": 13,
       "category": "DJI Neo 2",
       "desc": "Side protection for the DJI Neo 2.\nNote: the top propeller cover must be removed.",
-      "image": "/images/uploads/dz-color-28-black.webp",
+      "image": "/images/uploads/dz-pro-screenshot-2026-09-15-at-01-15-14.webp",
       "images": [
-        "/images/uploads/dz-color-28-grey.webp",
-        "/images/uploads/dz-color-28-orange.webp"
+        "/images/uploads/dz-color-28-black.webp",
+        "/images/uploads/dz-color-28-grey.webp"
       ],
       "colors": [
         "Black",
@@ -390,11 +382,7 @@
       "name": "DJI Neo 2 Antenna Guard",
       "price": 4,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-color-32-black.webp",
-      "images": [
-        "/images/uploads/dz-color-32-grey.webp",
-        "/images/uploads/dz-color-32-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-58.webp",
       "colors": [
         "Black",
         "Grey",
@@ -407,11 +395,7 @@
       "price": 5,
       "category": "DJI Neo 2",
       "desc": "Antenna protection for travel.",
-      "image": "/images/uploads/dz-color-33-black.webp",
-      "images": [
-        "/images/uploads/dz-color-33-grey.webp",
-        "/images/uploads/dz-color-33-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-03.webp",
       "colors": [
         "Black",
         "Grey",
