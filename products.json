@@ -7,1277 +7,1277 @@
     "footerNote": "Orders are confirmed on WhatsApp - No payments are done on this site.",
     "categoryOrder": [
       "Drones",
-      "Dji neo 1",
-      "Dji neo 2",
-      "Dji Avata 1",
-      "Dji Avata 2",
-      "Dji Avata 360",
-      "Dji mini 2/mini 2se/ mini 4k",
-      "Dji mini 3/ 3 pro",
-      "Dji Mini 4 Pro",
-      "Dji Mini 5 Pro"
+      "DJI Neo 1",
+      "DJI Neo 2",
+      "DJI Avata 1",
+      "DJI Avata 2",
+      "DJI Avata 360",
+      "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "DJI Mini 3/ 3 Pro",
+      "DJI Mini 4 Pro",
+      "DJI Mini 5 Pro"
     ]
   },
   "products": [
     {
       "id": "1",
-      "name": "DJI mini 4 pro fly combo New sealed",
+      "name": "DJI Mini 4 Pro Fly Combo New Sealed",
       "price": 1250,
       "category": "Drones",
       "stock": 1,
-      "desc": "DJI mini 4 pro drone combo with a two way charging hub, shoulder bag, intelligent fly batteries and more...",
-      "image": "/images/uploads/IMG-20260913-WA0241.jpg",
+      "desc": "DJI Mini 4 Pro drone combo with a two-way charging hub, shoulder bag, Intelligent Flight Batteries, and more.",
+      "image": "/images/uploads/dz-fixed-img-20260913-wa0241.jpg",
       "images": [
-        "/images/uploads/IMG-20260913-WA0240-1.jpg",
-        "/images/uploads/IMG-20260913-WA0242.jpg"
+        "/images/uploads/dz-fixed-img-20260913-wa0240-1.jpg",
+        "/images/uploads/dz-fixed-img-20260913-wa0242.jpg"
       ]
     },
     {
       "id": "2",
-      "name": "Dji lito X1 fly more combo New sealed",
+      "name": "DJI Lito X1 Fly More Combo New Sealed",
       "price": 1070,
       "category": "Drones",
       "stock": 1,
-      "desc": "Dji lito fly more combo new sealed \n",
-      "image": "/images/uploads/IMG_8079.jpg",
+      "desc": "DJI Lito Fly More Combo. Brand new, sealed.",
+      "image": "/images/uploads/dz-fixed-img-8079.jpg",
       "images": [
         "/images/uploads/IMG_8080.jpg"
       ]
     },
     {
       "id": "3",
-      "name": "Dji neo 1 Fpv combo used",
+      "name": "DJI Neo 1 FPV Combo Used",
       "price": 825,
       "category": "Drones",
       "stock": 1,
-      "desc": "dji neo fpv combo used \ncycles 10/10/6\nWarranty and testing available",
-      "image": "/images/uploads/IMG_8081-1.jpg"
+      "desc": "DJI Neo FPV Combo, used.\nBattery cycles: 10/10/6.\nTesting and warranty available.",
+      "image": "/images/uploads/dz-fixed-img-8081-1.jpg"
     },
     {
       "id": "5",
-      "name": "Dji goggles N3 + motion 3 used",
+      "name": "DJI Goggles N3 + Motion 3 Used",
       "price": 480,
       "category": "Drones",
       "stock": 1,
-      "desc": "Dji goggles n3 and motion \nbarely used\ntesting and warranty available",
-      "image": "/images/uploads/IMG_8082.jpg"
+      "desc": "DJI Goggles N3 and Motion 3.\nBarely used.\nTesting and warranty available.",
+      "image": "/images/uploads/dz-fixed-img-8082.jpg"
     },
     {
       "id": "6",
-      "name": "Dji neo fly more combo used",
+      "name": "DJI Neo Fly More Combo Used",
       "price": 415,
       "category": "Drones",
       "stock": 1,
-      "desc": "Dji neo 1 fly more combo barely used\ncycles 10/10/6\ntesting and warranty available",
-      "image": "/images/uploads/4e67458b-f443-411d-914c-5d0c9840332b.jpg"
+      "desc": "DJI Neo 1 Fly More Combo, barely used.\nBattery cycles: 10/10/6.\nTesting and warranty available.",
+      "image": "/images/uploads/dz-fixed-4e67458b-f443-411d-914c-5d0c9840332b.jpg"
     },
     {
       "id": "7",
-      "name": "Dji motion 3 used",
+      "name": "DJI Motion 3 Used",
       "price": 90,
       "category": "Drones",
       "stock": 1,
-      "desc": "dji motion 3 used",
-      "image": "/images/uploads/images-2.jpeg"
+      "desc": "DJI Motion 3, used.",
+      "image": "/images/uploads/dz-fixed-images-2.jpeg"
     },
     {
       "id": "8",
-      "name": "dji neo 1 camera gimbal model 1",
+      "name": "DJI Neo 1 Camera Gimbal Model 1",
       "price": 5,
-      "category": "Dji neo 1",
-      "desc": "dji neo 1 camera protection",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.16.30-1.webp",
+      "category": "DJI Neo 1",
+      "desc": "Camera protection for the DJI Neo 1.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-16-30-1.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "9",
-      "name": "Dji neo 1 gimball model 2",
+      "name": "DJI Neo 1 Gimbal Model 2",
       "price": 5,
-      "category": "Dji neo 1",
-      "desc": "dji neo 1 camera protection",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.20.55.webp",
+      "category": "DJI Neo 1",
+      "desc": "Camera protection for the DJI Neo 1.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-20-55.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "10",
-      "name": "Dji neo 1 gimball model 3",
+      "name": "DJI Neo 1 Gimbal Model 3",
       "price": 5,
-      "category": "Dji neo 1",
-      "desc": "dji neo 1 camera protection",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.02.webp",
+      "category": "DJI Neo 1",
+      "desc": "Camera protection for the DJI Neo 1.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-02.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "11",
-      "name": "Dji neo 1 roll cage",
+      "name": "DJI Neo 1 Roll Cage",
       "price": 8,
-      "category": "Dji neo 1",
-      "desc": "Dji neo 1 roll cage",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.09.webp",
+      "category": "DJI Neo 1",
+      "desc": "Roll cage for the DJI Neo 1.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-09.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "12",
-      "name": "Dji neo 1 protection model 1",
+      "name": "DJI Neo 1 Protection Model 1",
       "price": 18,
-      "category": "Dji neo 1",
-      "desc": "full camera and sides protection",
+      "category": "DJI Neo 1",
+      "desc": "Full protection for the camera and sides.",
       "images": [
-        "/images/uploads/Screenshot 2026-09-15 at 00.21.19.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-19.webp"
       ],
       "colors": [
-        "black",
-        "grey",
-        "orange",
-        "red"
+        "Black",
+        "Grey",
+        "Orange",
+        "Red"
       ]
     },
     {
       "id": "13",
-      "name": "Dji neo protection model 2",
+      "name": "DJI Neo Protection Model 2",
       "price": 15,
-      "category": "Dji neo 1",
-      "desc": "Dji neo side and front protection",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.27.webp",
+      "category": "DJI Neo 1",
+      "desc": "Side and front protection for the DJI Neo.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-27.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "14",
-      "name": "Dji neo 1 protection model 3",
+      "name": "DJI Neo 1 Protection Model 3",
       "price": 13,
-      "category": "Dji neo 1",
-      "desc": "custom protection made to protect the sides",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.33.webp",
+      "category": "DJI Neo 1",
+      "desc": "Custom-made protection for the sides.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-33.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "15",
-      "name": "Dji neo 1 protection model 4",
+      "name": "DJI Neo 1 Protection Model 4",
       "price": 13,
-      "category": "Dji neo 1",
-      "desc": "side protection for neo 1",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.39.webp",
+      "category": "DJI Neo 1",
+      "desc": "Side protection for the DJI Neo 1.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-39.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "16",
-      "name": "Dji neo 1 case",
+      "name": "DJI Neo 1 Case",
       "price": 27,
-      "category": "Dji neo 1",
-      "desc": "custom made case for dji neo 1 drone",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 00.21.47.webp",
+      "category": "DJI Neo 1",
+      "desc": "Custom-made case for the DJI Neo 1 drone.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-47.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-15 at 00.21.56.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-56.webp"
       ],
       "colors": [
-        "grey",
-        "black"
+        "Grey",
+        "Black"
       ]
     },
     {
       "id": "17",
-      "name": "Dji neo  1landing gear",
+      "name": "DJI Neo 1 Landing Gear",
       "price": 8,
-      "category": "Dji neo 1",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.00-1.webp",
+      "category": "DJI Neo 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-00-1.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "18",
-      "name": "dji neo 1 stand",
+      "name": "DJI Neo 1 Stand",
       "price": 25,
-      "category": "Dji neo 1",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.07.webp"
+      "category": "DJI Neo 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-07.webp"
     },
     {
       "id": "19",
-      "name": "Dji neo 1 camera cover",
+      "name": "DJI Neo 1 Camera Cover",
       "price": 3,
-      "category": "Dji neo 1",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.15-1.webp"
+      "category": "DJI Neo 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-15-1.webp"
     },
     {
       "id": "20",
-      "name": "Dji neo 1 airtag mount",
+      "name": "DJI Neo 1 AirTag Mount",
       "price": 8,
-      "category": "Dji neo 1",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.21.webp"
+      "category": "DJI Neo 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-21.webp"
     },
     {
       "id": "21",
-      "name": "Dji neo 2 transmitter",
+      "name": "DJI Neo 2 Transmitter",
       "price": 50,
-      "category": "Dji neo 2",
+      "category": "DJI Neo 2",
       "stock": 1,
-      "desc": "transmitter for neo 2",
-      "image": "/images/uploads/dji_neo_2_digital_transceiver_1764378245_8108b170_progressive-2.jpg"
+      "desc": "Transmitter for the DJI Neo 2.",
+      "image": "/images/uploads/dz-fixed-dji-neo-2-digital-transceiver-1764378245-8108b170-progressive-2.jpg"
     },
     {
       "id": "22",
-      "name": "Dji neo 2 led light",
+      "name": "DJI Neo 2 LED Light",
       "price": 15,
-      "category": "Dji neo 2",
+      "category": "DJI Neo 2",
       "stock": 1,
-      "desc": "led light for neo 2\nusb c",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.36.webp"
+      "desc": "LED light for the DJI Neo 2.\nUSB-C powered.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-36.webp"
     },
     {
       "id": "23",
-      "name": "Dji neo 2 camera lens protection",
+      "name": "DJI Neo 2 Camera Lens Protection",
       "price": 15,
-      "category": "Dji neo 2",
+      "category": "DJI Neo 2",
       "stock": 1,
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.44.webp"
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-44.webp"
     },
     {
       "id": "24",
-      "name": "Dji neo 2 gimbal protector model 1",
+      "name": "DJI Neo 2 Gimbal Protector Model 1",
       "price": 5,
-      "category": "Dji neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.50.webp",
+      "category": "DJI Neo 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-50.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "25",
-      "name": "Dji neo 2 gimbal protector model 2",
+      "name": "DJI Neo 2 Gimbal Protector Model 2",
       "price": 5,
-      "category": "Dji neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.14.57.webp",
+      "category": "DJI Neo 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-57.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "26",
-      "name": "Dji neo 2 gimbal protector model 3",
+      "name": "DJI Neo 2 Gimbal Protector Model 3",
       "price": 3,
-      "category": "Dji neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.02.webp",
+      "category": "DJI Neo 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-02.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "27",
-      "name": "Dji neo 2 protection model 1",
+      "name": "DJI Neo 2 Protection Model 1",
       "price": 14,
-      "category": "Dji neo 2",
-      "desc": "side protection for neo 2\nNote: top propellers cover must be removed",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.08.webp",
+      "category": "DJI Neo 2",
+      "desc": "Side protection for the DJI Neo 2.\nNote: the top propeller cover must be removed.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-08.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "28",
-      "name": "Dji neo 2 protection model 2",
+      "name": "DJI Neo 2 Protection Model 2",
       "price": 13,
-      "category": "Dji neo 2",
-      "desc": "side protection for neo 2\nNote: top propellers cover must be removed",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.14.webp",
+      "category": "DJI Neo 2",
+      "desc": "Side protection for the DJI Neo 2.\nNote: the top propeller cover must be removed.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-14.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "29",
-      "name": "Dji neo 2 landing gear",
+      "name": "DJI Neo 2 Landing Gear",
       "price": 10,
-      "category": "Dji neo 2",
-      "desc": "landing gear for neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.23.webp",
+      "category": "DJI Neo 2",
+      "desc": "Landing gear for the DJI Neo 2.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-23.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-15 at 01.15.29.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-29.webp"
       ],
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "30",
-      "name": "Dji neo 2 travel protection",
+      "name": "DJI Neo 2 Travel Protection",
       "price": 12,
-      "category": "Dji neo 2",
-      "desc": "protects both the camera and the gimballwhile travelling",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.43.webp"
+      "category": "DJI Neo 2",
+      "desc": "Protects both the camera and the gimbal while travelling.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-43.webp"
     },
     {
       "id": "31",
-      "name": "Dji neo 1 spirit bomber mod",
+      "name": "DJI Neo 1 Spirit Bomber Mod",
       "price": 9,
-      "category": "Dji neo 1",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.51.webp",
+      "category": "DJI Neo 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-51.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "32",
-      "name": "Dji neo 2 antenna protection",
+      "name": "DJI Neo 2 Antenna Protection",
       "price": 4,
-      "category": "Dji neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.15.58.webp",
+      "category": "DJI Neo 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-58.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "33",
-      "name": "Dji neo 2 antenna protection",
+      "name": "DJI Neo 2 Antenna Protection",
       "price": 5,
-      "category": "Dji neo 2",
-      "desc": "antenna travel protection",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.03.webp",
+      "category": "DJI Neo 2",
+      "desc": "Antenna protection for travel.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-03.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "34",
-      "name": "Dji neo 2 airtag mount",
+      "name": "DJI Neo 2 AirTag Mount",
       "price": 9,
-      "category": "Dji neo 2",
-      "desc": "airtag mount for neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.10.webp",
+      "category": "DJI Neo 2",
+      "desc": "AirTag mount for the DJI Neo 2.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-10.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "35",
-      "name": "Dji neo 2 case",
+      "name": "DJI Neo 2 Case",
       "price": 45,
-      "category": "Dji neo 2",
-      "desc": "custom case for neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.16.webp"
+      "category": "DJI Neo 2",
+      "desc": "Custom case for the DJI Neo 2.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-16.webp"
     },
     {
       "id": "36",
-      "name": "Dji neo 2 case",
+      "name": "DJI Neo 2 Case",
       "price": 30,
-      "category": "Dji neo 2",
-      "desc": "custom case with batt holder for neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.22.webp"
+      "category": "DJI Neo 2",
+      "desc": "Custom case with a battery holder for the DJI Neo 2.",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-22.webp"
     },
     {
       "id": "37",
-      "name": "Dji neo 2 stand",
+      "name": "DJI Neo 2 Stand",
       "price": 25,
-      "category": "Dji neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.29.webp"
+      "category": "DJI Neo 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-29.webp"
     },
     {
       "id": "38",
-      "name": "Dji neo 2 mod",
+      "name": "DJI Neo 2 Mod",
       "price": 13,
-      "category": "Dji neo 2",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.35.webp",
+      "category": "DJI Neo 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-35.webp",
       "colors": [
-        "black",
-        "grey"
+        "Black",
+        "Grey"
       ]
     },
     {
       "id": "39",
-      "name": "Dji mini 2/mini 2se/ mini 4k case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
       "price": 27,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.42.webp",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-42.webp",
       "colors": [
-        "black",
-        "grey"
+        "Black",
+        "Grey"
       ]
     },
     {
       "id": "40",
-      "name": "Dji neo 1 smart tag mount",
+      "name": "DJI Neo 1 Smart Tag Mount",
       "price": 9,
-      "category": "Dji neo 1",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.16.48.webp",
+      "category": "DJI Neo 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-48.webp",
       "colors": [
-        "black",
-        "grey"
+        "Black",
+        "Grey"
       ]
     },
     {
       "id": "41",
-      "name": "Dji mini 2/mini 2se/ mini 4k propellers guard",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Propellers Guard",
       "price": 25,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
       "image": "/images/uploads/Screenshot 2026-09-15 at 01.29.25-1.webp"
     },
     {
       "id": "42",
-      "name": "Dji mini 2/mini 2se/ mini 4k protection",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Protection",
       "price": 17,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.37.21.webp",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-37-21.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "43",
-      "name": "Dji mini 2/mini 2se/ mini 4k proppelers clip",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Propellers Clip",
       "price": 4,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.40.11.webp",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-40-11.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "44",
-      "name": "Dji mini 2/mini 2se/ mini 4k landing gear",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Landing Gear",
       "price": 9,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.17.58.webp",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-17-58.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "45",
-      "name": "Dji mini 3/ 3 pro landing gear",
+      "name": "DJI Mini 3/ 3 Pro Landing Gear",
       "price": 5,
-      "category": "Dji mini 3/ 3 pro",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.04.webp",
+      "category": "DJI Mini 3/ 3 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-18-04.webp",
       "colors": [
-        "black",
-        "grey"
+        "Black",
+        "Grey"
       ]
     },
     {
       "id": "46",
-      "name": "Dji mini 3/ 3 pro case",
+      "name": "DJI Mini 3/ 3 Pro Case",
       "price": 22,
-      "category": "Dji mini 3/ 3 pro",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.09.webp",
+      "category": "DJI Mini 3/ 3 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-18-09.webp",
       "colors": [
-        "black",
-        "grey"
+        "Black",
+        "Grey"
       ]
     },
     {
       "id": "47",
-      "name": "Dji mini 3/ 3 pro propellers clip",
+      "name": "DJI Mini 3/ 3 Pro Propellers Clip",
       "price": 6,
-      "category": "Dji mini 3/ 3 pro",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.14.webp"
+      "category": "DJI Mini 3/ 3 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-18-14.webp"
     },
     {
       "id": "48",
-      "name": "Dji mini 4 pro clips",
+      "name": "DJI Mini 4 Pro Clips",
       "price": 6,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.19.webp",
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-18-19.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "49",
-      "name": "Dji mini 4 pro propellers guard",
+      "name": "DJI Mini 4 Pro Propellers Guard",
       "price": 20,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.18.27.webp"
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-18-27.webp"
     },
     {
       "id": "50",
-      "name": "Dji mini 3/ 3 pro guards",
+      "name": "DJI Mini 3/ 3 Pro Guards",
       "price": 18,
-      "category": "Dji mini 3/ 3 pro",
-      "image": "/images/uploads/Screenshot 2026-09-15 at 01.42.29.webp",
+      "category": "DJI Mini 3/ 3 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-42-29.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "51",
-      "name": "Dji mini 2/mini 2se/ mini 4k case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
       "price": 23,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 11.48.04.webp",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-11-48-04.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "52",
-      "name": "Dji mini 2/mini 2se/ mini 4k camera protection",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Camera Protection",
       "price": 10,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 11.49.25.webp",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-11-49-25.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "53",
-      "name": "Dji mini 2/mini 2se/ mini 4k battery removal tool",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Battery Removal Tool",
       "price": 4,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 11.52.07.webp",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-11-52-07.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "54",
-      "name": "Dji mini 2/mini 2se/ mini 4k case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
       "price": 24,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 13.11.51.webp"
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-13-11-51.webp"
     },
     {
       "id": "55",
-      "name": "Dji mini 2/mini 2se/ mini 4k case",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Case",
       "price": 33,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
       "image": "/images/uploads/Screenshot 2026-09-16 at 13.14.57.webp"
     },
     {
       "id": "56",
-      "name": "Dji mini 2/mini 2se/ mini 4k stand",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Stand",
       "price": 15,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 13.19.43.webp"
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-13-19-43.webp"
     },
     {
       "id": "57",
-      "name": "Glow in the dark",
+      "name": "Glow in the Dark",
       "price": 21,
-      "category": "Dji neo 1",
-      "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53.webp",
+      "category": "DJI Neo 1",
+      "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-32-53.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-16 at 23.33.03.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-33-03.webp"
       ]
     },
     {
       "id": "59",
-      "name": "Dji neo 2 FPV RC2 Fly more combo",
+      "name": "DJI Neo 2 FPV RC2 Fly More Combo",
       "price": 1270,
       "category": "Drones",
       "stock": 1,
-      "desc": "neo 2\nrc2\n3 batt low cycles\ngoggles n3\nmotion 3\n",
-      "image": "/images/uploads/Screenshot 2026-09-17 at 01.56.21 copy.jpg"
+      "desc": "DJI Neo 2\nRC2\n3 batteries, low cycles\nGoggles N3\nMotion 3",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-56-21-copy.jpg"
     },
     {
       "id": "60",
-      "name": "Glow in the dark Accesories",
+      "name": "Glow in the Dark Accessories",
       "price": 23,
-      "category": "Dji neo 2",
-      "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.32.53-1.webp",
+      "category": "DJI Neo 2",
+      "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-32-53-1.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-16 at 23.33.03-1.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-33-03-1.webp"
       ]
     },
     {
       "id": "61",
-      "name": "Glow in the dark Accesories",
+      "name": "Glow in the Dark Accessories",
       "price": 1,
       "category": "Drones",
-      "desc": "Any drone accessory can be order with glow in the dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24.webp",
+      "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-33-24.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-17 at 01.50.19.webp",
-        "/images/uploads/Screenshot 2026-09-16 at 23.32.53-2.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19.webp",
+        "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-32-53-2.webp"
       ]
     },
     {
       "id": "62",
-      "name": "Dji mini 3/ 3 pro basket",
+      "name": "DJI Mini 3/ 3 Pro Basket",
       "price": 19,
-      "category": "Dji mini 3/ 3 pro",
-      "image": "/images/uploads/Screenshot 2026-09-17 at 15.52.57.webp"
+      "category": "DJI Mini 3/ 3 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-15-52-57.webp"
     },
     {
       "id": "63",
-      "name": "Dji mini 3/ 3 pro propeller guards",
+      "name": "DJI Mini 3/ 3 Pro Propeller Guards",
       "price": 21,
-      "category": "Dji mini 3/ 3 pro",
+      "category": "DJI Mini 3/ 3 Pro",
       "stock": 28,
-      "image": "/images/uploads/Screenshot 2026-09-18 at 13.08.03.webp",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-13-08-03.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-18 at 16.55.44.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-18-at-16-55-44.webp"
       ],
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "64",
-      "name": "Dji mini 3/ 3 pro glow in the dark",
+      "name": "DJI Mini 3/ 3 Pro Glow in the Dark",
       "price": 28,
-      "category": "Dji mini 3/ 3 pro",
-      "desc": "Any drone accessory can be made with glow in the dark material at an additional cost.\nContact us for pricing!",
-      "image": "/images/uploads/Screenshot 2026-09-17 at 01.50.19-4.webp"
+      "category": "DJI Mini 3/ 3 Pro",
+      "desc": "Any drone accessory can be made in glow-in-the-dark material at an additional cost.\nContact us for pricing!",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-17-at-01-50-19-4.webp"
     },
     {
       "id": "65",
-      "name": "dji mini 3/3 pro rugged case",
+      "name": "DJI Mini 3/3 Pro Rugged Case",
       "price": 109,
-      "category": "Dji mini 3/ 3 pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 18.18.29.webp"
+      "category": "DJI Mini 3/ 3 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-18-18-29.webp"
     },
     {
       "id": "66",
-      "name": "Dji mini 2/mini 2se/ mini 4k glow in the dark accesories",
+      "name": "DJI Mini 2/Mini 2SE/ Mini 4K Glow in the Dark Accessories",
       "price": 28,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 20.48.04-1.webp"
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-20-48-04-1.webp"
     },
     {
       "id": "67",
-      "name": "Dji Mini 4 Pro Case",
+      "name": "DJI Mini 4 Pro Case",
       "price": 23,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.28.00.webp"
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-28-00.webp"
     },
     {
       "id": "68",
-      "name": "Dji Mini 4 Pro Basket",
+      "name": "DJI Mini 4 Pro Basket",
       "price": 19,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.26.57.webp"
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-26-57.webp"
     },
     {
       "id": "69",
-      "name": "Dji Mini 4 Pro Stand",
+      "name": "DJI Mini 4 Pro Stand",
       "price": 21,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.02.58-1.webp"
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-02-58-1.webp"
     },
     {
       "id": "70",
-      "name": "Dji Mini 4 Pro and rc2 case",
+      "name": "DJI Mini 4 Pro and RC2 Case",
       "price": 55,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.03.29.webp"
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-03-29.webp"
     },
     {
       "id": "71",
-      "name": "Rc 2 Case",
+      "name": "RC 2 Case",
       "price": 28,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.03.23.webp"
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-03-23.webp"
     },
     {
       "id": "72",
-      "name": "Rc 2 Case",
+      "name": "RC 2 Case",
       "price": 22,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-09-20 at 11.32.51.webp"
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-11-32-51.webp"
     },
     {
       "id": "73",
-      "name": "Dji Mini 4 Pro arm protection",
+      "name": "DJI Mini 4 Pro Arm Protection",
       "price": 25,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.08.59-1.webp"
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-08-59-1.webp"
     },
     {
       "id": "546564",
-      "name": "Dji Mini 4 Pro airtag mount",
+      "name": "DJI Mini 4 Pro AirTag Mount",
       "price": 12,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.17.33-1.webp"
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-17-33-1.webp"
     },
     {
       "id": "75",
-      "name": "Dji Mini 4 Pro Battery holder",
+      "name": "DJI Mini 4 Pro Battery Holder",
       "price": 13,
-      "category": "Dji Mini 4 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-18 at 21.19.44.webp",
+      "category": "DJI Mini 4 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-19-44.webp",
       "colors": [
-        "black",
-        "grey"
+        "Black",
+        "Grey"
       ]
     },
     {
       "id": "76",
-      "name": "Dji Avata 360 case",
+      "name": "DJI Avata 360 Case",
       "price": 45,
-      "category": "Dji Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.09.webp",
+      "category": "DJI Avata 360",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-17-09.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-19 at 14.17.00.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-17-00.webp"
       ]
     },
     {
       "id": "77",
-      "name": "Dji Avata 360 stand",
+      "name": "DJI Avata 360 Stand",
       "price": 19,
-      "category": "Dji Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.22.webp"
+      "category": "DJI Avata 360",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-17-22.webp"
     },
     {
       "id": "78",
-      "name": "Dji Avata 360 Landing feet",
+      "name": "DJI Avata 360 Landing Feet",
       "price": 8,
-      "category": "Dji Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 14.17.42.webp"
+      "category": "DJI Avata 360",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-17-42.webp"
     },
     {
       "id": "79",
-      "name": "Dji Avata 360 Side protection 1",
+      "name": "DJI Avata 360 Side Protection 1",
       "price": 19,
-      "category": "Dji Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 14.18.12.webp",
+      "category": "DJI Avata 360",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-18-12.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "80",
-      "name": "Dji Avata 360 side protection 2",
+      "name": "DJI Avata 360 Side Protection 2",
       "price": 21,
-      "category": "Dji Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 14.18.29-1.webp",
+      "category": "DJI Avata 360",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-18-29-1.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "81",
-      "name": "Dji Avata 360 glow in the dark",
+      "name": "DJI Avata 360 Glow in the Dark",
       "price": 27,
-      "category": "Dji Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 15.38.01.webp"
+      "category": "DJI Avata 360",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-15-38-01.webp"
     },
     {
       "id": "82",
-      "name": "Dji Avata 2 Full Protection",
+      "name": "DJI Avata 2 Full Protection",
       "price": 25,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 15.45.01.webp",
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-15-45-01.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "83",
-      "name": "Dji Avata 2 Protection 1",
+      "name": "DJI Avata 2 Protection 1",
       "price": 20,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.36.webp",
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-15-47-36.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "84",
-      "name": "Dji Avata 2 Protection 2",
+      "name": "DJI Avata 2 Protection 2",
       "price": 20,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 15.58.13.webp",
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-15-58-13.webp",
       "colors": [
         "Black",
-        "grey",
-        "orange"
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "85",
-      "name": "Dji Avata 2 Gimball Protection",
+      "name": "DJI Avata 2 Gimbal Protection",
       "price": 7,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 15.48.54-1.webp",
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-15-48-54-1.webp",
       "colors": [
         "Black",
-        "grey",
-        "orange"
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "86",
-      "name": "Dji Avata 2 landing gear",
+      "name": "DJI Avata 2 Landing Gear",
       "price": 9,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 15.47.55.webp",
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-15-47-55.webp",
       "colors": [
         "Black",
-        "grey",
-        "orange"
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "87",
-      "name": "Dji Avata 2 Stand",
+      "name": "DJI Avata 2 Stand",
       "price": 18,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 16.01.45.webp"
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-16-01-45.webp"
     },
     {
       "id": "88",
-      "name": "Dji Avata 2 Glow in the dark",
+      "name": "DJI Avata 2 Glow in the Dark",
       "price": 25,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-16 at 23.33.24-1.webp"
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-16-at-23-33-24-1.webp"
     },
     {
       "id": "89",
-      "name": "Dji Avata 1 Protection",
+      "name": "DJI Avata 1 Protection",
       "price": 22,
-      "category": "Dji Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 16.05.12.webp",
+      "category": "DJI Avata 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-16-05-12.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "90",
-      "name": "Dji Avata 1 Upper Frame",
+      "name": "DJI Avata 1 Upper Frame",
       "price": 13,
-      "category": "Dji Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 16.06.25.webp",
+      "category": "DJI Avata 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-16-06-25.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-19 at 16.06.41.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-19-at-16-06-41.webp"
       ],
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "91",
-      "name": "Dji Avata 1 Landing Gear",
+      "name": "DJI Avata 1 Landing Gear",
       "price": 8,
-      "category": "Dji Avata 1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 16.08.40.webp",
+      "category": "DJI Avata 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-16-08-40.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "93",
-      "name": "Dji Avata 1 Glow in the dark",
+      "name": "DJI Avata 1 Glow in the Dark",
       "price": 27,
-      "category": "Dji Avata 1 ",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 19.37.01.webp"
+      "category": "DJI Avata 1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-19-37-01.webp"
     },
     {
       "id": "9337883",
-      "name": "Dji Mini 5 Pro Landing gear",
+      "name": "DJI Mini 5 Pro Landing Gear",
       "price": 8,
-      "category": "Dji Mini 5 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 19.38.42.webp"
+      "category": "DJI Mini 5 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-19-38-42.webp"
     },
     {
       "id": "94",
-      "name": "Dji Mini 5 Pro Stand",
+      "name": "DJI Mini 5 Pro Stand",
       "price": 21,
-      "category": "Dji Mini 5 Pro",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 19.38.55.webp"
+      "category": "DJI Mini 5 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-19-38-55.webp"
     },
     {
       "id": "96",
-      "name": "Dji Lito 1/x1 Protection guard",
+      "name": "DJI Lito 1/X1 Protection Guard",
       "price": 19,
-      "category": "Dji Lito 1/x1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 22.38.05.webp",
+      "category": "DJI Lito 1/X1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-22-38-05.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "97",
-      "name": "Dji Lito 1/x1 Case",
+      "name": "DJI Lito 1/X1 Case",
       "price": 22,
-      "category": "Dji Lito 1/x1 ",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 22.37.22.webp"
+      "category": "DJI Lito 1/X1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-22-37-22.webp"
     },
     {
       "id": "98",
-      "name": "Dji Lito 1/x1 case 2",
+      "name": "DJI Lito 1/X1 Case 2",
       "price": 22,
-      "category": "Dji Lito 1/x1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 22.37.03.webp"
+      "category": "DJI Lito 1/X1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-22-37-03.webp"
     },
     {
       "id": "99",
-      "name": "Dji Lito 1/x1 Clips",
+      "name": "DJI Lito 1/X1 Clips",
       "price": 7,
-      "category": "Dji Lito 1/x1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 22.36.13-1.webp",
+      "category": "DJI Lito 1/X1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-22-36-13-1.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "100",
-      "name": "Dji Lito 1/x1 Landing gear",
+      "name": "DJI Lito 1/X1 Landing Gear",
       "price": 12,
-      "category": "Dji Lito 1/x1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 22.35.55.webp",
+      "category": "DJI Lito 1/X1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-22-35-55.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "101",
-      "name": "Dji Lito 1/x1 Stand",
+      "name": "DJI Lito 1/X1 Stand",
       "price": 19,
-      "category": "Dji Lito 1/x1",
-      "image": "/images/uploads/Screenshot 2026-09-19 at 22.36.32.webp"
+      "category": "DJI Lito 1/X1",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-22-36-32.webp"
     },
     {
       "id": "102",
-      "name": "Dji Avata 360 Battery case",
+      "name": "DJI Avata 360 Battery Case",
       "price": 15,
-      "category": "Dji Avata 360",
-      "image": "/images/uploads/Screenshot 2026-09-20 at 08.28.15.webp"
+      "category": "DJI Avata 360",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-08-28-15.webp"
     },
     {
       "id": "103",
-      "name": "Dji Rc 2",
+      "name": "DJI RC 2",
       "price": 20,
-      "image": "/images/uploads/Screenshot 2026-09-20 at 11.39.17.webp"
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-11-39-17.webp"
     },
     {
       "id": "104",
-      "name": "Dji Avata 2 Full protection",
+      "name": "DJI Avata 2 Full Protection",
       "price": 25,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-20 at 12.00.49.webp",
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-12-00-49.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "105",
-      "name": "Dji Avata 2 case",
+      "name": "DJI Avata 2 Case",
       "price": 45,
-      "category": "Dji Avata 2",
-      "image": "/images/uploads/Screenshot 2026-09-20 at 12.03.22.webp"
+      "category": "DJI Avata 2",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-20-at-12-03-22.webp"
     },
     {
       "id": "106",
-      "name": "Dji Avata 1 Gimbal protection",
+      "name": "DJI Avata 1 Gimbal Protection",
       "price": 14,
-      "category": "Dji Avata 1",
+      "category": "DJI Avata 1",
       "images": [
-        "/images/uploads/Screenshot 2026-09-20 at 12.01.48.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-20-at-12-01-48.webp"
       ],
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "1001",
-      "name": "Dji lito x1 Fly more combo rc2",
+      "name": "DJI Lito X1 Fly More Combo RC2",
       "price": 1270,
       "category": "Drones",
-      "image": "/images/uploads/Screenshot 2026-09-23 at 12.51.43.webp"
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-23-at-12-51-43.webp"
     },
     {
       "id": "1002",
-      "name": "Dji Flip Fly more combo",
+      "name": "DJI Flip Fly More Combo",
       "price": 1000,
       "category": "Drones",
-      "image": "/images/uploads/Screenshot 2026-09-23 at 12.54.41.webp"
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-23-at-12-54-41.webp"
     },
     {
       "id": "987667890",
-      "name": "Dji mini 2 / mini 2se / mini 4k MRC-UV filter ",
+      "name": "DJI Mini 2 / Mini 2SE / Mini 4K MRC-UV Filter",
       "price": 10,
-      "category": "Dji mini 2/mini 2se/ mini 4k",
+      "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
       "stock": 1,
-      "desc": "Dji mini 2 / mini 2se / mini 4k /mavic mini /mini se MRC-UV PGYTECH filter *used*\n",
-      "image": "/images/uploads/D_NQ_NP_700383-MLA82275664343_022025-O (1) (1).jpg"
+      "desc": "PGYTECH MRC-UV filter for the DJI Mini 2 / Mini 2 SE / Mini 4K / Mavic Mini / Mini SE. Used.",
+      "image": "/images/uploads/dz-fixed-d-nq-np-700383-mla82275664343-022025-o-1-1.jpg"
     },
     {
       "id": "123123432",
-      "name": "Dji mini 2 fly more  combo",
+      "name": "DJI Mini 2 Fly More Combo",
       "price": 465,
       "category": "Drones",
       "stock": 1,
-      "desc": "Dji mini 2 fly more combo + original bag and accessories \n/ Custom skin \n/ Barely used",
-      "image": "/images/uploads/7721706c-dec4-4ccc-b968-0ccdf953c5e1 (2)-1.jpg",
+      "desc": "DJI Mini 2 Fly More Combo with the original bag and accessories.\nCustom skin.\nBarely used.",
+      "image": "/images/uploads/dz-fixed-7721706c-dec4-4ccc-b968-0ccdf953c5e1-2-1.jpg",
       "images": [
         "/images/uploads/9ad2bc54-516b-46de-9012-55923c84f6d0 (1)-1.jpg"
       ]
     },
     {
       "id": "92384928374",
-      "name": "Dji air 3/3s case",
+      "name": "DJI Air 3/3S Case",
       "price": 43,
-      "category": "Dji air 3/3s ",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 16.51.04.webp"
+      "category": "DJI Air 3/3S",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-16-51-04.webp"
     },
     {
       "id": "9487789234987234",
-      "name": "Dji air 3/3s Payload",
+      "name": "DJI Air 3/3S Payload",
       "price": 21,
-      "category": "Dji air 3/3s ",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 16.56.37-1.webp"
+      "category": "DJI Air 3/3S",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-16-56-37-1.webp"
     },
     {
       "id": "9824789789234789023",
-      "name": "Dji air 3/3s Payload",
+      "name": "DJI Air 3/3S Payload",
       "price": 18,
-      "category": "Dji air 3/3s ",
+      "category": "DJI Air 3/3S",
       "images": [
-        "/images/uploads/Screenshot 2026-09-30 at 16.57.34.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-30-at-16-57-34.webp"
       ]
     },
     {
       "id": "9867324",
-      "name": "Dji air 3/3s landing gear",
+      "name": "DJI Air 3/3S Landing Gear",
       "price": 12,
-      "category": "Dji air 3/3s ",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 16.57.49.webp"
+      "category": "DJI Air 3/3S",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-16-57-49.webp"
     },
     {
       "id": "875765234",
-      "name": "Dji air 3/3s  stand",
+      "name": "DJI Air 3/3S Stand",
       "price": 19,
-      "category": "Dji air 3/3s ",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 17.00.16.webp"
+      "category": "DJI Air 3/3S",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-17-00-16.webp"
     },
     {
       "id": "98623478234",
-      "name": "Dji air 3/3s  Gimbal protection",
+      "name": "DJI Air 3/3S Gimbal Protection",
       "price": 12,
-      "category": "Dji air 3/3s ",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 17.02.18.webp"
+      "category": "DJI Air 3/3S",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-17-02-18.webp"
     },
     {
       "id": "34897478958973",
-      "name": "Dji Rc 2 Sunhood",
+      "name": "DJI RC 2 Sunhood",
       "price": 12,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 17.26.39.webp"
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-17-26-39.webp"
     },
     {
       "id": "92457985",
-      "name": "Dji rcn1 sunhood",
+      "name": "DJI RC-N1 Sunhood",
       "price": 14,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 17.28.13.webp"
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-17-28-13.webp"
     },
     {
       "id": "9876392863",
-      "name": "Dji flip case",
+      "name": "DJI Flip Case",
       "price": 45,
-      "category": "Dji flip",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 18.59.39.webp"
+      "category": "DJI Flip",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-18-59-39.webp"
     },
     {
       "id": "98762394",
-      "name": "Dji flip payload",
+      "name": "DJI Flip Payload",
       "price": 14,
-      "category": "Dji flip",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 19.04.56.webp"
+      "category": "DJI Flip",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-19-04-56.webp"
     },
     {
       "id": "9869234",
-      "name": "Dji flip case",
+      "name": "DJI Flip Case",
       "price": 19,
-      "category": "Dji flip",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 19.00.06.webp"
+      "category": "DJI Flip",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-19-00-06.webp"
     },
     {
       "id": "9876324",
-      "name": "Dji flip Gimball protection",
+      "name": "DJI Flip Gimbal Protection",
       "price": 7,
-      "category": "Dji flip",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 19.00.17.webp"
+      "category": "DJI Flip",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-19-00-17.webp"
     },
     {
       "id": "98234",
-      "name": "Dji flip landing gear",
+      "name": "DJI Flip Landing Gear",
       "price": 9,
-      "category": "Dji flip",
-      "image": "/images/uploads/Screenshot 2026-09-30 at 19.00.38.webp"
+      "category": "DJI Flip",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-19-00-38.webp"
     },
     {
       "id": "389u4234",
-      "name": "Dji keychain",
+      "name": "DJI Keychain",
       "price": 6,
-      "image": "/images/uploads/Screenshot 2026-09-30 at 18.54.59.webp",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-30-at-18-54-59.webp",
       "images": [
-        "/images/uploads/Screenshot 2026-09-30 at 18.55.22.webp"
+        "/images/uploads/dz-fixed-screenshot-2026-09-30-at-18-55-22.webp"
       ]
     },
     {
       "id": "8943543",
-      "name": "Dji mini 5 pro case",
+      "name": "DJI Mini 5 Pro Case",
       "price": 33,
-      "category": "Dji Mini 5 Pro",
-      "image": "/images/uploads/Screenshot 2026-10-02 at 00.11.00.webp"
+      "category": "DJI Mini 5 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-11-00.webp"
     },
     {
       "id": "9347593845",
-      "name": "Dji mini 5 pro Gimball cover",
+      "name": "DJI Mini 5 Pro Gimbal Cover",
       "price": 12,
-      "category": "Dji Mini 5 Pro",
-      "image": "/images/uploads/Screenshot 2026-10-02 at 00.11.17.webp"
+      "category": "DJI Mini 5 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-11-17.webp"
     },
     {
       "id": "90843524",
-      "name": "Dji Mini 5 Pro Case",
+      "name": "DJI Mini 5 Pro Case",
       "price": 24,
-      "category": "Dji Mini 5 Pro",
-      "image": "/images/uploads/Screenshot 2026-10-02 at 00.13.13.webp"
+      "category": "DJI Mini 5 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-13-13.webp"
     },
     {
       "id": "435635465",
-      "name": "Dji mini 5 pro + rc 2 case",
+      "name": "DJI Mini 5 Pro + RC 2 Case",
       "price": 50,
-      "category": "Dji Mini 5 Pro",
-      "image": "/images/uploads/Screenshot 2026-10-02 at 00.35.28.webp"
+      "category": "DJI Mini 5 Pro",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-35-28.webp"
     },
     {
       "id": "34322452435",
-      "name": "Dji Goggles case",
+      "name": "DJI Goggles Case",
       "price": 55,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-10-02 at 00.40.44.webp"
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-02-at-00-40-44.webp"
     },
     {
       "id": "98452879424",
-      "name": "Dji Rc 2",
+      "name": "DJI RC 2",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/IMG_8798.webp"
+      "image": "/images/uploads/dz-fixed-img-8798.webp"
     },
     {
       "id": "673242",
-      "name": "Dji neo 2 rc2 fly more combo",
+      "name": "DJI Neo 2 RC2 Fly More Combo",
       "price": 900,
       "category": "Drones",
-      "image": "/images/uploads/IMG_8978.webp"
+      "image": "/images/uploads/dz-fixed-img-8978.webp"
     },
     {
       "id": "986234",
-      "name": "Dji mini 3/ 4 pro battery plus",
+      "name": "DJI Mini 3/ 4 Pro Battery Plus",
       "price": 300,
       "category": "Drones",
-      "image": "/images/uploads/IMG_8986.webp"
+      "image": "/images/uploads/dz-fixed-img-8986.webp"
     },
     {
       "id": "5634734753473",
-      "name": "Dji goggles case",
+      "name": "DJI Goggles Case",
       "price": 34,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-10-03 013311.webp",
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-03-013311.webp",
       "colors": [
-        "black",
-        "grey",
-        "orange"
+        "Black",
+        "Grey",
+        "Orange"
       ]
     },
     {
       "id": "3465463725647",
-      "name": "Dji goggles lens cover",
+      "name": "DJI Goggles Lens Cover",
       "price": 9,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-10-03 013332.webp"
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-03-013332.webp"
     },
     {
       "id": "5467567567",
-      "name": "Dji rc 2 sunhood",
+      "name": "DJI RC 2 Sunhood",
       "price": 10,
-      "category": "Dji remotes / goggles",
-      "image": "/images/uploads/Screenshot 2026-10-03 020715.webp"
+      "category": "DJI Remotes / Goggles",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-10-03-020715.webp"
     }
   ]
 }
