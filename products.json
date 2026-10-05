@@ -20,19 +20,6 @@
   },
   "products": [
     {
-      "id": "1",
-      "name": "DJI Mini 4 Pro Fly Combo New Sealed",
-      "price": 1250,
-      "category": "Drones",
-      "stock": 1,
-      "desc": "DJI Mini 4 Pro drone combo with a two-way charging hub, shoulder bag, Intelligent Flight Batteries, and more.",
-      "image": "/images/uploads/dz-fixed-img-20260913-wa0241.jpg",
-      "images": [
-        "/images/uploads/dz-f10-1-2.webp",
-        "/images/uploads/dz-f10-1-3.webp"
-      ]
-    },
-    {
       "id": "2",
       "name": "DJI Lito X1 Fly More Combo New Sealed",
       "price": 1070,
