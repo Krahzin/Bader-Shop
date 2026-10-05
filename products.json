@@ -1398,6 +1398,56 @@
       "category": "DJI Mini 4 Pro",
       "desc": "Glow-in-the-dark propeller guards for the DJI Mini 4 Pro.",
       "image": "/images/uploads/dz-f10-1004.webp"
+    },
+    {
+      "id": "1791219558321",
+      "name": "DJI Mini 5 Pro 360° Propeller Guard",
+      "price": 75,
+      "category": "DJI Mini 5 Pro",
+      "stock": 1,
+      "desc": "Original DJI 360° propeller guard for the DJI Mini 5 Pro. New.",
+      "image": "/images/uploads/dz-mini5pro-360-guard-1.webp",
+      "images": [
+        "/images/uploads/dz-mini5pro-360-guard-2.webp",
+        "/images/uploads/dz-mini5pro-360-guard-3.webp"
+      ]
+    },
+    {
+      "id": "1791219558322",
+      "name": "DJI Avata 2 Drone Only Used",
+      "price": 550,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "Used, like new. Drone body only, no batteries. Zero scratches.",
+      "image": "/images/uploads/dz-avata2-drone-1.webp"
+    },
+    {
+      "id": "1791219558323",
+      "name": "DJI Avata 2 Original Body Frame Shell",
+      "price": 120,
+      "category": "DJI Avata 2",
+      "stock": 1,
+      "desc": "Original DJI full set: upper shell, propeller guard, bottom shell with lenses and front cap. New.",
+      "image": "/images/uploads/dz-avata2-frame-shell-1.webp",
+      "images": [
+        "/images/uploads/dz-avata2-frame-shell-2.webp",
+        "/images/uploads/dz-avata2-frame-shell-3.webp"
+      ]
+    },
+    {
+      "id": "1791219558324",
+      "name": "DJI Avata 360 Fly More Combo Used",
+      "price": 1350,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "Used, like new. Battery cycles: 2, 7 and 13. Zero scratches, zero crashes. Ready to fly.",
+      "image": "/images/uploads/dz-avata360-fmc-1.webp",
+      "images": [
+        "/images/uploads/dz-avata360-fmc-2.webp",
+        "/images/uploads/dz-avata360-fmc-3.webp",
+        "/images/uploads/dz-avata360-fmc-4.webp",
+        "/images/uploads/dz-avata360-fmc-5.webp"
+      ]
     }
   ]
 }
