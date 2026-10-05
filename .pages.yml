@@ -137,3 +137,33 @@ content:
             label: Answer
             type: text
             required: true
+  - name: site-css
+    label: "Code: styles.css"
+    type: file
+    path: styles.css
+    format: code
+  - name: code-index-html
+    label: "Code: index.html"
+    type: file
+    path: index.html
+    format: code
+  - name: code-app-js
+    label: "Code: app.js"
+    type: file
+    path: app.js
+    format: code
+  - name: code-pages-js
+    label: "Code: pages.js"
+    type: file
+    path: pages.js
+    format: code
+  - name: code-blog-html
+    label: "Code: blog.html"
+    type: file
+    path: blog.html
+    format: code
+  - name: code-faq-html
+    label: "Code: faq.html"
+    type: file
+    path: faq.html
+    format: code
