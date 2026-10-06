@@ -40,6 +40,11 @@
     return tpl.innerHTML;
   }
   const looksHtml = s => /<\/?(p|h\d|ul|ol|li|strong|em|a|br|img|blockquote)\b/i.test(String(s || ''));
+  const SITE = 'https://dronezonelb.com/';
+  const abs = p => new URL(img(p), SITE).href;
+  function setMeta(attr, key, val){ let m = document.head.querySelector('meta['+attr+'="'+key+'"]'); if(!m){ m = document.createElement('meta'); m.setAttribute(attr, key); document.head.appendChild(m); } m.setAttribute('content', val); }
+  function setCanonical(url){ let l = document.head.querySelector('link[rel="canonical"]'); if(!l){ l = document.createElement('link'); l.rel = 'canonical'; document.head.appendChild(l); } l.href = url; }
+  function setLd(id, obj){ let el = document.getElementById(id); if(!el){ el = document.createElement('script'); el.type = 'application/ld+json'; el.id = id; document.head.appendChild(el); } el.textContent = JSON.stringify(obj); }
   const richOrText = s => looksHtml(s) ? cleanHtml(s) : textToHtml(s);
   async function getJSON(url){
     const r = await fetch(url, { cache:'no-store' });
@@ -78,13 +83,14 @@
 
     function renderList(){
       view.hidden = true; list.hidden = false; intro.hidden = false;
+      setCanonical(SITE + 'blog.html');
       document.title = 'Blog — Drone Zone';
       if(!posts.length){
         list.innerHTML = `<div class="empty-state"><strong>No posts yet</strong>Guides and news will show up here soon.</div>`;
         return;
       }
       list.innerHTML = posts.map((p, i) => `
-        <a class="post-card${i === 0 ? ' featured' : ''}" href="#${esc(p.slug)}">
+        <a class="post-card${i === 0 ? ' featured' : ''}" href="?post=${esc(p.slug)}">
           <div class="post-media">${p.cover
             ? `<img src="${esc(img(p.cover))}" alt="" loading="lazy">`
             : `<span class="post-ph" aria-hidden="true"><img src="images/uploads/logo-144.webp" alt=""></span>`}</div>
@@ -100,7 +106,7 @@
       list.hidden = true; intro.hidden = true; view.hidden = false;
       document.title = `${p.title} — Drone Zone`;
       view.innerHTML = `
-        <a class="back-link" href="#">← All posts</a>
+        <a class="back-link" href="blog.html">← All posts</a>
         <header class="article-head">
           ${p.date ? `<time datetime="${esc(p.date)}">${fmtDate(p.date)}</time>` : ''}
           <h1>${esc(p.title)}</h1>
@@ -109,17 +115,27 @@
         ${p.cover ? `<img class="article-cover" src="${esc(img(p.cover))}" alt="">` : ''}
         <div class="prose">${richOrText(p.body)}</div>
         <div class="article-foot">
-          <a class="back-link" href="#">← All posts</a>
+          <a class="back-link" href="blog.html">← All posts</a>
           <a class="btn-shop" href="./">Shop accessories</a>
         </div>`;
+      const url = SITE + 'blog.html?post=' + encodeURIComponent(p.slug);
+      const desc = String(p.summary || '').slice(0, 160);
+      setCanonical(url);
+      setMeta('property', 'og:title', p.title); setMeta('property', 'og:url', url); setMeta('property', 'og:type', 'article');
+      if(desc){ setMeta('name', 'description', desc); setMeta('property', 'og:description', desc); }
+      if(p.cover) setMeta('property', 'og:image', abs(p.cover));
+      setLd('ld-article', { '@context':'https://schema.org', '@type':'BlogPosting', headline:p.title, description:desc, mainEntityOfPage:url, image:p.cover ? [abs(p.cover)] : undefined, author:{ '@type':'Organization', name:'Drone Zone', url:SITE }, publisher:{ '@type':'Organization', name:'Drone Zone', logo:{ '@type':'ImageObject', url:SITE + 'images/uploads/logo-144.webp' } } });
       window.scrollTo(0, 0);
     }
     function route(){
-      const h = decodeURIComponent(location.hash.slice(1));
+      const q = new URLSearchParams(location.search).get('post');
+      const h = q || decodeURIComponent(location.hash.slice(1));
       const p = h && posts.find(x => x.slug === h);
+      if(p && !q){ try{ history.replaceState(null, '', '?post=' + encodeURIComponent(p.slug)); }catch(e){} }
       p ? renderPost(p) : renderList();
     }
     window.addEventListener('hashchange', route);
+    window.addEventListener('popstate', route);
     route();
   }
 
@@ -154,6 +170,7 @@
           </details>`).join('')}
       </section>`).join('');
 
+    setLd('ld-faq', { '@context':'https://schema.org', '@type':'FAQPage', mainEntity: items.map(q => ({ '@type':'Question', name:q.question, acceptedAnswer:{ '@type':'Answer', text:String(q.answer).replace(/<[^>]+>/g, '') } })) });
     if(search) search.addEventListener('input', () => {
       const term = search.value.trim().toLowerCase();
       let shown = 0;
