@@ -2,6 +2,26 @@
   "questions": [
     {
       "topic": "Drones",
+      "question": "What is the DJI Lito X1?",
+      "answer": "The DJI Lito X1 is one of the most advanced drones under 249 g. It has a large 1/1.3-inch camera, 4K/60fps HDR video, 4K/100fps slow motion, 10-bit D-Log M, omnidirectional obstacle sensing with forward LiDAR, 42 GB of built-in storage and up to 36 minutes of flight (52 minutes with the Plus battery)."
+    },
+    {
+      "topic": "Drones",
+      "question": "Which drone do you recommend most?",
+      "answer": "For most people we recommend the DJI Lito X1. It is light and easy to fly like a Mini, but with better obstacle sensing, a pro-level camera and a longer flight time. It suits beginners who want a drone they will not outgrow."
+    },
+    {
+      "topic": "Drones",
+      "question": "Lito X1 or Mini 4 Pro: which should I buy?",
+      "answer": "The Lito X1 is the newer choice. It adds forward LiDAR for safer obstacle avoidance, 4K/100fps slow motion, 42 GB of built-in storage, faster top speed and longer flight time, while keeping the same light, under-249 g size."
+    },
+    {
+      "topic": "Drones",
+      "question": "Do you have the DJI Lito X1 in stock?",
+      "answer": "Yes. We sell the DJI Lito X1 Fly More Combo brand new and sealed, and also with the DJI RC 2 screen remote. Check the Drones category or message us on WhatsApp for current stock."
+    },
+    {
+      "topic": "Drones",
       "question": "Do you sell drones as well as accessories?",
       "answer": "Yes. New and used DJI drones are listed in the Drones category of the shop. Stock changes often, so message us if you are looking for a specific model."
     },
@@ -18,7 +38,7 @@
     {
       "topic": "Drones",
       "question": "Which drone is best for beginners?",
-      "answer": "For most beginners we recommend a DJI Mini or DJI Neo. They are light, easy to fly, and have GPS hold and return-to-home. The Mini 3 Pro, Mini 4 Pro and Mini 5 Pro add obstacle sensing, which helps avoid crashes. Our blog has a full guide to every DJI model."
+      "answer": "Our top pick is the DJI Lito X1: easy to fly, light, with full obstacle sensing that helps avoid crashes and a camera you will not outgrow. On a tighter budget, a DJI Neo or an older DJI Mini is a good start. Our blog has a full guide to every DJI model."
     },
     {
       "topic": "Drones",
@@ -48,17 +68,17 @@
     {
       "topic": "Drones",
       "question": "Can a drone follow me by itself?",
-      "answer": "Many DJI drones can, using a feature called ActiveTrack or Follow Me. It is available on models like the Mini 3 Pro, Mini 4 Pro, Mini 5 Pro, Neo and Air series, but not on the basic Mini 2 or Mini 3."
+      "answer": "Many DJI drones can, using ActiveTrack. The DJI Lito X1 does this especially well thanks to its omnidirectional sensing. It is also available on the Mini 3 Pro, Mini 4 Pro, Mini 5 Pro, Neo and Air series, but not on the basic Mini 2 or Mini 3."
     },
     {
       "topic": "Drones",
       "question": "Will the drone avoid hitting things?",
-      "answer": "Only drones with obstacle sensors can, such as the Mini 4 Pro, Mini 5 Pro and Air series. Cheaper models have no sensors, and even drones with sensors can miss thin branches and wires, so always fly carefully."
+      "answer": "Only drones with obstacle sensors can. The DJI Lito X1 has omnidirectional sensing plus forward LiDAR, which makes it one of the safest small drones. Cheaper models have no sensors, and even the best can miss thin wires, so always fly carefully."
     },
     {
       "topic": "Drones",
       "question": "How good is the camera?",
-      "answer": "Most DJI drones shoot 4K video and sharp photos, and the newer Mini, Air and Mavic models handle low light much better. For social media, models with vertical shooting are very handy."
+      "answer": "Most DJI drones shoot 4K video. The DJI Lito X1 stands out with a 1/1.3-inch sensor, 4K/60fps HDR, 4K/100fps slow motion and 10-bit D-Log M for professional colour grading."
     },
     {
       "topic": "Drones",
@@ -123,7 +143,7 @@
     {
       "topic": "Flying",
       "question": "Do I need a memory card?",
-      "answer": "Most DJI drones need a microSD card to save photos and videos. Use a fast card (V30 or U3) of at least 64 GB."
+      "answer": "Most DJI drones need a microSD card. Use a fast card (V30 or U3) of at least 64 GB. The DJI Lito X1 also has 42 GB built in, so you can fly even without a card."
     },
     {
       "topic": "Flying",
