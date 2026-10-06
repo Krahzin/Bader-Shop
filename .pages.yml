@@ -167,3 +167,13 @@ content:
     type: file
     path: faq.html
     format: code
+  - name: code-sitemap
+    label: "Code: sitemap.xml"
+    type: file
+    path: sitemap.xml
+    format: code
+  - name: code-robots
+    label: "Code: robots.txt"
+    type: file
+    path: robots.txt
+    format: code
