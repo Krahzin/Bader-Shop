@@ -20,6 +20,15 @@
   },
   "products": [
     {
+      "id": "1791300000001",
+      "name": "DJI Mini 3 Pro Fly More Combo Used",
+      "price": 800,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "DJI Mini 3 Pro Fly More Combo, used, like new.\nIncludes DJI RC, charging hub, shoulder bag, spare propellers, screwdriver and original box.\nAvailable with 6 batteries for $1150.\nTesting and warranty available.",
+      "image": "/images/uploads/dz-mini3pro-fmc-1.webp"
+    },
+    {
       "id": "2",
       "name": "DJI Lito X1 Fly More Combo New Sealed",
       "price": 1070,
