@@ -16,6 +16,21 @@
       "answer": "Yes. Drone accessories need a small Whish deposit before we finalize the order. We'll send you the details on WhatsApp."
     },
     {
+      "topic": "Ordering",
+      "question": "How long does it take to get my order?",
+      "answer": "Items in stock are usually ready within a day or two. Made-to-order accessories take a few extra days. We give you an exact time when we confirm your order on WhatsApp."
+    },
+    {
+      "topic": "Delivery & pickup",
+      "question": "Do you deliver?",
+      "answer": "Yes, we deliver across Lebanon. The delivery fee depends on your area and is confirmed on WhatsApp before you order."
+    },
+    {
+      "topic": "Delivery & pickup",
+      "question": "Can I pick up my order?",
+      "answer": "Yes, accessories can be picked up. Message us on WhatsApp to arrange a time."
+    },
+    {
       "topic": "Products",
       "question": "Can I choose the colour?",
       "answer": "Many accessories come in more than one colour. Tap a colour dot on the product to choose it. The colour you pick is included in your WhatsApp order."
@@ -29,6 +44,76 @@
       "topic": "Products",
       "question": "How do I find accessories for my drone?",
       "answer": "Use the model buttons on the shop page (for example DJI Neo 2 or DJI Mini 4 Pro) to see only the accessories that fit your drone, or type the model in the search bar."
+    },
+    {
+      "topic": "Products",
+      "question": "Can accessories be made in other colours or glow in the dark?",
+      "answer": "Many accessories can be made in other colours, and most can also be made in glow-in-the-dark material for an extra cost. Message us on WhatsApp for options and pricing."
+    },
+    {
+      "topic": "Drones",
+      "question": "Do you sell drones as well as accessories?",
+      "answer": "Yes. New and used DJI drones are listed in the Drones category of the shop. Stock changes often, so message us if you are looking for a specific model."
+    },
+    {
+      "topic": "Drones",
+      "question": "Are your used drones tested?",
+      "answer": "Yes. Every used drone is checked before it is sold, and you can test it with us before you pay. Battery cycle counts are listed on the product when we have them."
+    },
+    {
+      "topic": "Drones",
+      "question": "Do drones come with a warranty?",
+      "answer": "Our used drones come with a short shop warranty, and new sealed drones come with the standard DJI warranty. We confirm the warranty for your drone on WhatsApp."
+    },
+    {
+      "topic": "Drones",
+      "question": "Which drone is best for beginners?",
+      "answer": "For most beginners we recommend a DJI Mini or DJI Neo. They are light, easy to fly, and have GPS hold and return-to-home. The Mini 3 Pro, Mini 4 Pro and Mini 5 Pro add obstacle sensing, which helps avoid crashes. Our blog has a full guide to every DJI model."
+    },
+    {
+      "topic": "Drones",
+      "question": "What is a Fly More Combo?",
+      "answer": "It is DJI's bundle that adds extra batteries, a charging hub, spare propellers and a carry bag to the drone. It is usually the best value if you plan to fly often, because one battery only gives around 20 to 35 minutes of flight."
+    },
+    {
+      "topic": "Drones",
+      "question": "What does \"under 250 g\" mean?",
+      "answer": "Drones that weigh less than 250 grams, such as the DJI Mini and Neo series, are the lightest category. In many countries they face fewer rules. Heavier batteries, such as Plus batteries, can push a drone over 250 g."
+    },
+    {
+      "topic": "Drones",
+      "question": "Do you buy or trade in used drones?",
+      "answer": "Message us on WhatsApp with your drone model, its condition and photos, and we will let you know if we can buy it or take it in trade."
+    },
+    {
+      "topic": "Batteries & care",
+      "question": "How many cycles is a good drone battery?",
+      "answer": "DJI batteries stay healthy for a few hundred charge cycles if they are looked after. A battery with fewer than 50 cycles is still in very good condition. Check the battery health in the DJI Fly app."
+    },
+    {
+      "topic": "Batteries & care",
+      "question": "How should I store drone batteries?",
+      "answer": "Store batteries at about 50 to 60 percent charge, in a cool and dry place. Avoid leaving them fully charged or empty for weeks, and never charge a battery that is swollen or damaged."
+    },
+    {
+      "topic": "Batteries & care",
+      "question": "How often should I change propellers?",
+      "answer": "Replace a propeller as soon as it is chipped, cracked or bent, even slightly. Damaged propellers cause vibration and can fail in flight. Spare propellers are cheap, so keep a set in your bag."
+    },
+    {
+      "topic": "Flying",
+      "question": "Do I need a permit to fly a drone in Lebanon?",
+      "answer": "Rules can change, so check the latest requirements with the Lebanese authorities before flying. Always avoid airports, military sites, crowds and private property, and keep your drone in sight."
+    },
+    {
+      "topic": "Flying",
+      "question": "What should I do before my first flight?",
+      "answer": "Update the drone, remote and batteries in the DJI Fly app, calibrate the compass if asked, and fly in an open area with a good GPS signal. Set a safe return-to-home height and start in Normal mode, not Sport."
+    },
+    {
+      "topic": "Flying",
+      "question": "What do propeller guards do?",
+      "answer": "Propeller guards protect the propellers and the people around them, which is very useful indoors or while learning. They add a little weight, so expect slightly shorter flights and more drift in wind."
     }
   ]
 }
