@@ -86,6 +86,71 @@
       "answer": "Message us on WhatsApp with your drone model, its condition and photos, and we will let you know if we can buy it or take it in trade."
     },
     {
+      "topic": "Flying",
+      "question": "What should I do before my first flight?",
+      "answer": "Update the drone, remote and batteries in the DJI Fly app, calibrate the compass if asked, and fly in an open area with a good GPS signal. Set a safe return-to-home height and start in Normal mode, not Sport."
+    },
+    {
+      "topic": "Flying",
+      "question": "What do propeller guards do?",
+      "answer": "Propeller guards protect the propellers and the people around them, which is very useful indoors or while learning. They add a little weight, so expect slightly shorter flights and more drift in wind."
+    },
+    {
+      "topic": "Flying",
+      "question": "How far can a drone fly?",
+      "answer": "It depends on the model. Small drones like the DJI Neo fly a few hundred metres with a phone, while DJI Mini, Air and Mavic drones can reach 10 to 20 km in open areas with no interference. In cities and near buildings the real range is much shorter, usually 1 to 4 km. Always keep your drone where you can see it."
+    },
+    {
+      "topic": "Flying",
+      "question": "How high can a drone fly?",
+      "answer": "DJI drones can be set to fly up to 500 m above the take-off point in the DJI Fly app. For safety, most pilots stay below 120 m, which is the limit used in most countries."
+    },
+    {
+      "topic": "Flying",
+      "question": "How long does a battery last in the air?",
+      "answer": "Most DJI drones fly 20 to 45 minutes per battery, depending on the model. Wind, cold weather and fast flying shorten it. Plan to land with around 20 to 30 percent battery left."
+    },
+    {
+      "topic": "Flying",
+      "question": "What happens if the drone loses signal?",
+      "answer": "DJI drones have Return to Home. If the signal is lost or the battery gets low, the drone flies back and lands where it took off. Set a return height above nearby trees and buildings before you fly."
+    },
+    {
+      "topic": "Flying",
+      "question": "Can I fly in wind or rain?",
+      "answer": "Light wind is fine, but small drones drift and drain the battery faster in strong wind. Avoid flying in rain or fog, because most drones are not waterproof."
+    },
+    {
+      "topic": "Flying",
+      "question": "Can I fly at night?",
+      "answer": "Yes, the drone can fly at night, but obstacle sensing works poorly in the dark and it is harder to keep the drone in sight. Fly only in open areas you already know."
+    },
+    {
+      "topic": "Flying",
+      "question": "Do I need my phone or internet to fly?",
+      "answer": "Drones with a screen remote like the DJI RC or RC 2 do not need a phone. With the standard remote, you connect your phone and use the DJI Fly app. Internet is only needed for maps, updates and activating a new drone."
+    },
+    {
+      "topic": "Flying",
+      "question": "How fast can a drone fly?",
+      "answer": "Most DJI Mini drones reach about 55 km/h in Sport mode, and bigger models are faster. Use Normal mode while learning, because Sport mode turns off obstacle sensing."
+    },
+    {
+      "topic": "Flying",
+      "question": "Do I need a memory card?",
+      "answer": "Most DJI drones need a microSD card to save photos and videos. Use a fast card (V30 or U3) of at least 64 GB."
+    },
+    {
+      "topic": "Flying",
+      "question": "Is it hard to learn to fly?",
+      "answer": "No. DJI drones hover in place by themselves with GPS, so the basics take minutes. Practise take-off, landing and simple turns in an open field before trying longer flights."
+    },
+    {
+      "topic": "Flying",
+      "question": "What if I crash my drone?",
+      "answer": "Bring it to us. Broken propellers, arms and many other parts can be replaced, and we will tell you on WhatsApp what can be fixed."
+    },
+    {
       "topic": "Batteries & care",
       "question": "How many cycles is a good drone battery?",
       "answer": "DJI batteries stay healthy for a few hundred charge cycles if they are looked after. A battery with fewer than 50 cycles is still in very good condition. Check the battery health in the DJI Fly app."
@@ -99,21 +164,6 @@
       "topic": "Batteries & care",
       "question": "How often should I change propellers?",
       "answer": "Replace a propeller as soon as it is chipped, cracked or bent, even slightly. Damaged propellers cause vibration and can fail in flight. Spare propellers are cheap, so keep a set in your bag."
-    },
-    {
-      "topic": "Flying",
-      "question": "Do I need a permit to fly a drone in Lebanon?",
-      "answer": "Rules can change, so check the latest requirements with the Lebanese authorities before flying. Always avoid airports, military sites, crowds and private property, and keep your drone in sight."
-    },
-    {
-      "topic": "Flying",
-      "question": "What should I do before my first flight?",
-      "answer": "Update the drone, remote and batteries in the DJI Fly app, calibrate the compass if asked, and fly in an open area with a good GPS signal. Set a safe return-to-home height and start in Normal mode, not Sport."
-    },
-    {
-      "topic": "Flying",
-      "question": "What do propeller guards do?",
-      "answer": "Propeller guards protect the propellers and the people around them, which is very useful indoors or while learning. They add a little weight, so expect slightly shorter flights and more drift in wind."
     }
   ]
 }
