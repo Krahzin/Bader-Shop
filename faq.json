@@ -103,7 +103,7 @@
     {
       "topic": "Flying",
       "question": "How far can a drone fly?",
-      "answer": "It depends on the model. Small drones like the DJI Neo fly a few hundred metres with a phone, while DJI Mini, Air and Mavic drones can reach 10 to 20 km in open areas with no interference. In cities and near buildings the real range is much shorter, usually 1 to 4 km. Always keep your drone where you can see it."
+      "answer": "In real use, much less than the numbers on the box. In a city, with buildings, Wi-Fi and phone towers around, most drones keep a solid signal for about 1 to 3 km. In open countryside or over the sea you can often reach 4 to 8 km. Hills, trees and walls between you and the drone cut the signal fast. Newer drones like the DJI Lito X1 hold the signal better in busy areas than older models. Battery is usually the real limit: remember you need enough charge to fly back, so most flights stay within 1 to 2 km."
     },
     {
       "topic": "Flying",
