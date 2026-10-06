@@ -1,56 +1,6 @@
 {
   "questions": [
     {
-      "topic": "Ordering",
-      "question": "How do I place an order?",
-      "answer": "Add the items you want to your cart, pick a colour where there's a choice, then tap \"Order on WhatsApp\". Your order is sent to us as a WhatsApp message and we confirm everything with you there."
-    },
-    {
-      "topic": "Ordering",
-      "question": "Do I pay on the website?",
-      "answer": "No. Nothing is paid on this site. We confirm your order on WhatsApp first."
-    },
-    {
-      "topic": "Ordering",
-      "question": "Is there a deposit?",
-      "answer": "Yes. Drone accessories need a small Whish deposit before we finalize the order. We'll send you the details on WhatsApp."
-    },
-    {
-      "topic": "Ordering",
-      "question": "How long does it take to get my order?",
-      "answer": "Items in stock are usually ready within a day or two. Made-to-order accessories take a few extra days. We give you an exact time when we confirm your order on WhatsApp."
-    },
-    {
-      "topic": "Delivery & pickup",
-      "question": "Do you deliver?",
-      "answer": "Yes, we deliver across Lebanon. The delivery fee depends on your area and is confirmed on WhatsApp before you order."
-    },
-    {
-      "topic": "Delivery & pickup",
-      "question": "Can I pick up my order?",
-      "answer": "Yes, accessories can be picked up. Message us on WhatsApp to arrange a time."
-    },
-    {
-      "topic": "Products",
-      "question": "Can I choose the colour?",
-      "answer": "Many accessories come in more than one colour. Tap a colour dot on the product to choose it. The colour you pick is included in your WhatsApp order."
-    },
-    {
-      "topic": "Products",
-      "question": "Is the drone included with an accessory?",
-      "answer": "No. Accessory listings are for the accessory only. Drones are listed separately in the Drones category."
-    },
-    {
-      "topic": "Products",
-      "question": "How do I find accessories for my drone?",
-      "answer": "Use the model buttons on the shop page (for example DJI Neo 2 or DJI Mini 4 Pro) to see only the accessories that fit your drone, or type the model in the search bar."
-    },
-    {
-      "topic": "Products",
-      "question": "Can accessories be made in other colours or glow in the dark?",
-      "answer": "Many accessories can be made in other colours, and most can also be made in glow-in-the-dark material for an extra cost. Message us on WhatsApp for options and pricing."
-    },
-    {
       "topic": "Drones",
       "question": "Do you sell drones as well as accessories?",
       "answer": "Yes. New and used DJI drones are listed in the Drones category of the shop. Stock changes often, so message us if you are looking for a specific model."
@@ -84,6 +34,41 @@
       "topic": "Drones",
       "question": "Do you buy or trade in used drones?",
       "answer": "Message us on WhatsApp with your drone model, its condition and photos, and we will let you know if we can buy it or take it in trade."
+    },
+    {
+      "topic": "Drones",
+      "question": "How much does a good beginner drone cost?",
+      "answer": "A small camera drone like the DJI Neo or an older DJI Mini starts at a few hundred dollars. Newer Mini models with better cameras and obstacle sensing cost more. Used drones in good condition are a great way to start for less."
+    },
+    {
+      "topic": "Drones",
+      "question": "What do I need to get started?",
+      "answer": "The drone, its remote, at least one battery, a charger, a microSD card and the DJI Fly app on your phone. Extra batteries, spare propellers and a case make flying much easier."
+    },
+    {
+      "topic": "Drones",
+      "question": "Can a drone follow me by itself?",
+      "answer": "Many DJI drones can, using a feature called ActiveTrack or Follow Me. It is available on models like the Mini 3 Pro, Mini 4 Pro, Mini 5 Pro, Neo and Air series, but not on the basic Mini 2 or Mini 3."
+    },
+    {
+      "topic": "Drones",
+      "question": "Will the drone avoid hitting things?",
+      "answer": "Only drones with obstacle sensors can, such as the Mini 4 Pro, Mini 5 Pro and Air series. Cheaper models have no sensors, and even drones with sensors can miss thin branches and wires, so always fly carefully."
+    },
+    {
+      "topic": "Drones",
+      "question": "How good is the camera?",
+      "answer": "Most DJI drones shoot 4K video and sharp photos, and the newer Mini, Air and Mavic models handle low light much better. For social media, models with vertical shooting are very handy."
+    },
+    {
+      "topic": "Drones",
+      "question": "What is the difference between a camera drone and an FPV drone?",
+      "answer": "A camera drone like the Mini flies smoothly and is made for photos and video. An FPV drone like the Avata or Neo with goggles lets you see from the drone in real time, for an immersive, fast flying experience."
+    },
+    {
+      "topic": "Drones",
+      "question": "Can I buy DJI Care for a used drone?",
+      "answer": "DJI Care Refresh can usually only be bought within a short time after the drone is first activated, so most used drones cannot get it. Ask us on WhatsApp and we will check for your drone."
     },
     {
       "topic": "Flying",
@@ -151,6 +136,21 @@
       "answer": "Bring it to us. Broken propellers, arms and many other parts can be replaced, and we will tell you on WhatsApp what can be fixed."
     },
     {
+      "topic": "Flying",
+      "question": "Can I fly over the sea?",
+      "answer": "Yes, but take extra care. Over water the drone can drift, the downward sensors can get confused, and a drone that falls into salt water is usually lost. Keep good battery left and stay close."
+    },
+    {
+      "topic": "Flying",
+      "question": "Is a drone loud?",
+      "answer": "Small drones like the Mini sound like a loud buzz up close, but are hard to hear once they are high in the air. Bigger drones are louder."
+    },
+    {
+      "topic": "Flying",
+      "question": "Can a child fly a drone?",
+      "answer": "Older children can learn with an adult nearby. Start with a small, light drone in Normal mode and propeller guards, in an open area away from people."
+    },
+    {
       "topic": "Batteries & care",
       "question": "How many cycles is a good drone battery?",
       "answer": "DJI batteries stay healthy for a few hundred charge cycles if they are looked after. A battery with fewer than 50 cycles is still in very good condition. Check the battery health in the DJI Fly app."
@@ -164,6 +164,16 @@
       "topic": "Batteries & care",
       "question": "How often should I change propellers?",
       "answer": "Replace a propeller as soon as it is chipped, cracked or bent, even slightly. Damaged propellers cause vibration and can fail in flight. Spare propellers are cheap, so keep a set in your bag."
+    },
+    {
+      "topic": "Batteries & care",
+      "question": "How long does it take to charge a battery?",
+      "answer": "Most DJI batteries charge in about 1 to 1.5 hours. A charging hub charges several batteries one after another, so you can leave them all plugged in."
+    },
+    {
+      "topic": "Batteries & care",
+      "question": "Do I need to update the drone?",
+      "answer": "Yes. Update the drone, remote and batteries in the DJI Fly app when asked. Updates fix bugs and improve flying, so do them at home before a flight, not in the field."
     }
   ]
 }
