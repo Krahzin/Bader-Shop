@@ -663,7 +663,7 @@ async function init(){
   try{
     const SITE = 'https://dronezonelb.com/';
     const abs = u => u ? new URL(u, SITE).href : undefined;
-    const items = products.filter(p => p && p.name).map((p, i) => ({ '@type':'ListItem', position:i + 1, item:{ '@type':'Product', name:p.name, sku:String(p.id || ''), category:p.category || undefined, description:String(p.desc || p.name).replace(/<[^>]+>/g, '').slice(0, 500), image:allImages(p).map(abs), brand:{ '@type':'Brand', name:'Drone Zone' }, offers:{ '@type':'Offer', url:SITE, priceCurrency:'USD', price:Number(p.price) || 0, availability:(p.stock === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'), itemCondition:'https://schema.org/NewCondition', seller:{ '@type':'Organization', name:'Drone Zone' } } } }));
+    const items = products.filter(p => p && p.name).map((p, i) => ({ '@type':'ListItem', position:i + 1, item:{ '@type':'Product', name:p.name, sku:String(p.id || ''), category:p.category || undefined, description:String(p.desc || p.name).replace(/<[^>]+>/g, '').slice(0, 500), image:allImages(p).map(abs), offers:{ '@type':'Offer', url:SITE, priceCurrency:'USD', price:Number(p.price) || 0, availability:(p.stock === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'), itemCondition:'https://schema.org/NewCondition', seller:{ '@type':'Organization', name:'Drone Zone' } } } }));
     const ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'ld-products';
     ld.textContent = JSON.stringify({ '@context':'https://schema.org', '@type':'ItemList', name:'Drone Zone products', itemListElement:items });
     document.head.appendChild(ld);
