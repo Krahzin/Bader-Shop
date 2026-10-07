@@ -82,11 +82,7 @@
       "price": 5,
       "category": "DJI Neo 1",
       "desc": "Camera protection for the DJI Neo 1.",
-      "image": "/images/uploads/dz-c-8-black.webp",
-      "images": [
-        "/images/uploads/dz-c-8-grey.webp",
-        "/images/uploads/dz-c-8-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-16-30-1.webp",
       "colors": [
         "Black",
         "Grey",
@@ -112,11 +108,7 @@
       "price": 5,
       "category": "DJI Neo 1",
       "desc": "Camera protection for the DJI Neo 1.",
-      "image": "/images/uploads/dz-c-10-black.webp",
-      "images": [
-        "/images/uploads/dz-c-10-grey.webp",
-        "/images/uploads/dz-c-10-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-02.webp",
       "colors": [
         "Black",
         "Grey",
@@ -129,11 +121,7 @@
       "price": 8,
       "category": "DJI Neo 1",
       "desc": "Roll cage for the DJI Neo 1.",
-      "image": "/images/uploads/dz-c-11-black.webp",
-      "images": [
-        "/images/uploads/dz-c-11-grey.webp",
-        "/images/uploads/dz-c-11-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-09.webp",
       "colors": [
         "Black",
         "Grey",
@@ -146,11 +134,7 @@
       "price": 18,
       "category": "DJI Neo 1",
       "desc": "Full protection for the camera and sides.",
-      "image": "/images/uploads/dz-c-12-black.webp",
-      "images": [
-        "/images/uploads/dz-c-12-grey.webp",
-        "/images/uploads/dz-c-12-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-19.webp",
       "colors": [
         "Black",
         "Grey",
@@ -176,11 +160,7 @@
       "price": 13,
       "category": "DJI Neo 1",
       "desc": "Custom-made protection for the sides.",
-      "image": "/images/uploads/dz-c-14-black.webp",
-      "images": [
-        "/images/uploads/dz-c-14-grey.webp",
-        "/images/uploads/dz-c-14-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-33.webp",
       "colors": [
         "Black",
         "Grey",
@@ -193,11 +173,7 @@
       "price": 13,
       "category": "DJI Neo 1",
       "desc": "Side protection for the DJI Neo 1.",
-      "image": "/images/uploads/dz-c-15-black.webp",
-      "images": [
-        "/images/uploads/dz-c-15-grey.webp",
-        "/images/uploads/dz-c-15-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-00-21-39.webp",
       "colors": [
         "Black",
         "Grey",
@@ -250,11 +226,7 @@
       "name": "DJI Neo 1 AirTag Mount",
       "price": 8,
       "category": "DJI Neo 1",
-      "image": "/images/uploads/dz-c-20-black.webp",
-      "images": [
-        "/images/uploads/dz-c-20-grey.webp",
-        "/images/uploads/dz-c-20-orange.webp"
-      ],
+      "image": "/images/uploads/dz-f10-20.webp",
       "colors": [
         "Black",
         "Grey",
@@ -304,11 +276,7 @@
       "name": "DJI Neo 2 Gimbal Protector Model 2",
       "price": 5,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-c-25-black.webp",
-      "images": [
-        "/images/uploads/dz-c-25-grey.webp",
-        "/images/uploads/dz-c-25-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-14-57.webp",
       "colors": [
         "Black",
         "Grey",
@@ -320,11 +288,7 @@
       "name": "DJI Neo 2 Gimbal Protector Model 3",
       "price": 3,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-c-26-black.webp",
-      "images": [
-        "/images/uploads/dz-c-26-grey.webp",
-        "/images/uploads/dz-c-26-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-15-at-01-15-02.webp",
       "colors": [
         "Black",
         "Grey",
@@ -337,11 +301,7 @@
       "price": 14,
       "category": "DJI Neo 2",
       "desc": "Side protection for the DJI Neo 2.\nNote: the top propeller cover must be removed.",
-      "image": "/images/uploads/dz-c-27-black.webp",
-      "images": [
-        "/images/uploads/dz-c-27-grey.webp",
-        "/images/uploads/dz-c-27-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-08.webp",
       "colors": [
         "Black",
         "Grey",
@@ -354,11 +314,7 @@
       "price": 13,
       "category": "DJI Neo 2",
       "desc": "Side protection for the DJI Neo 2.\nNote: the top propeller cover must be removed.",
-      "image": "/images/uploads/dz-c-28-black.webp",
-      "images": [
-        "/images/uploads/dz-c-28-grey.webp",
-        "/images/uploads/dz-c-28-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-14.webp",
       "colors": [
         "Black",
         "Grey",
@@ -406,11 +362,7 @@
       "name": "DJI Neo 2 Antenna Guard",
       "price": 4,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-c-32-black.webp",
-      "images": [
-        "/images/uploads/dz-c-32-grey.webp",
-        "/images/uploads/dz-c-32-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-15-58.webp",
       "colors": [
         "Black",
         "Grey",
@@ -423,11 +375,7 @@
       "price": 5,
       "category": "DJI Neo 2",
       "desc": "Antenna protection for travel.",
-      "image": "/images/uploads/dz-c-33-black.webp",
-      "images": [
-        "/images/uploads/dz-c-33-grey.webp",
-        "/images/uploads/dz-c-33-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-03.webp",
       "colors": [
         "Black",
         "Grey",
@@ -440,11 +388,7 @@
       "price": 9,
       "category": "DJI Neo 2",
       "desc": "AirTag mount for the DJI Neo 2.",
-      "image": "/images/uploads/dz-f10-34-black.webp",
-      "images": [
-        "/images/uploads/dz-f10-34-grey.webp",
-        "/images/uploads/dz-f10-34-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-10.webp",
       "colors": [
         "Black",
         "Grey",
@@ -479,7 +423,7 @@
       "name": "DJI Neo 2 Mod",
       "price": 13,
       "category": "DJI Neo 2",
-      "image": "/images/uploads/dz-f10-38-black.webp",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-16-35.webp",
       "colors": [
         "Black",
         "Grey"
@@ -519,11 +463,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Protection",
       "price": 17,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-gs-42-black.webp",
-      "images": [
-        "/images/uploads/dz-gs-42-grey.webp",
-        "/images/uploads/dz-gs-42-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-37-21.webp",
       "colors": [
         "Black",
         "Grey",
@@ -547,7 +487,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Landing Gear",
       "price": 9,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-gs-44-grey.webp",
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-15-at-01-17-58.webp",
       "colors": [
         "Black",
         "Grey",
@@ -619,11 +559,7 @@
       "name": "DJI Mini 2/Mini 2SE/ Mini 4K Vertical Case",
       "price": 23,
       "category": "DJI Mini 2/Mini 2SE/ Mini 4K",
-      "image": "/images/uploads/dz-c-51-black.webp",
-      "images": [
-        "/images/uploads/dz-c-51-grey.webp",
-        "/images/uploads/dz-c-51-orange.webp"
-      ],
+      "image": "/images/uploads/dz-gs-51.webp",
       "colors": [
         "Black",
         "Grey",
@@ -826,10 +762,7 @@
       "name": "DJI Mini 4 Pro Battery Holder",
       "price": 13,
       "category": "DJI Mini 4 Pro",
-      "image": "/images/uploads/dz-o9-75-black.webp",
-      "images": [
-        "/images/uploads/dz-o9-75-grey.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-18-at-21-19-44.webp",
       "colors": [
         "Black",
         "Grey"
@@ -864,11 +797,7 @@
       "name": "DJI Avata 360 Side Protection 1",
       "price": 19,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-f11-79-black.webp",
-      "images": [
-        "/images/uploads/dz-f11-79-grey.webp",
-        "/images/uploads/dz-f11-79-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-18-12.webp",
       "colors": [
         "Black",
         "Grey",
@@ -880,11 +809,7 @@
       "name": "DJI Avata 360 Side Protection 2",
       "price": 21,
       "category": "DJI Avata 360",
-      "image": "/images/uploads/dz-f11-80-black.webp",
-      "images": [
-        "/images/uploads/dz-f11-80-grey.webp",
-        "/images/uploads/dz-f11-80-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-14-18-29-1.webp",
       "colors": [
         "Black",
         "Grey",
@@ -903,11 +828,7 @@
       "name": "DJI Avata 2 Full Protection Model 1",
       "price": 25,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-c-82-black.webp",
-      "images": [
-        "/images/uploads/dz-c-82-grey.webp",
-        "/images/uploads/dz-c-82-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-45-01.webp",
       "colors": [
         "Black",
         "Grey",
@@ -919,11 +840,7 @@
       "name": "DJI Avata 2 Protection 1",
       "price": 20,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-c-83-black.webp",
-      "images": [
-        "/images/uploads/dz-c-83-grey.webp",
-        "/images/uploads/dz-c-83-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-47-36.webp",
       "colors": [
         "Black",
         "Grey",
@@ -935,11 +852,7 @@
       "name": "DJI Avata 2 Protection 2",
       "price": 20,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-c-84-black.webp",
-      "images": [
-        "/images/uploads/dz-c-84-grey.webp",
-        "/images/uploads/dz-c-84-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-58-13.webp",
       "colors": [
         "Black",
         "Grey",
@@ -951,11 +864,7 @@
       "name": "DJI Avata 2 Gimbal Protection",
       "price": 7,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-c-85-black.webp",
-      "images": [
-        "/images/uploads/dz-c-85-grey.webp",
-        "/images/uploads/dz-c-85-orange.webp"
-      ],
+      "image": "/images/uploads/dz-f10-85.webp",
       "colors": [
         "Black",
         "Grey",
@@ -967,7 +876,7 @@
       "name": "DJI Avata 2 Landing Gear",
       "price": 9,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-n2-86-orange.webp",
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-15-47-55.webp",
       "colors": [
         "Black",
         "Grey",
@@ -993,11 +902,7 @@
       "name": "DJI Avata 1 Protection",
       "price": 22,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/dz-c-89-black.webp",
-      "images": [
-        "/images/uploads/dz-c-89-grey.webp",
-        "/images/uploads/dz-c-89-orange.webp"
-      ],
+      "image": "/images/uploads/dz-f10-89.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1024,11 +929,7 @@
       "name": "DJI Avata 1 Landing Gear",
       "price": 8,
       "category": "DJI Avata 1",
-      "image": "/images/uploads/dz-c-91-black.webp",
-      "images": [
-        "/images/uploads/dz-c-91-grey.webp",
-        "/images/uploads/dz-c-91-orange.webp"
-      ],
+      "image": "/images/uploads/dz-f10-91.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1061,11 +962,7 @@
       "name": "DJI Lito 1/X1 Protection Guard",
       "price": 19,
       "category": "DJI Lito 1/X1",
-      "image": "/images/uploads/dz-c-96-black.webp",
-      "images": [
-        "/images/uploads/dz-c-96-grey.webp",
-        "/images/uploads/dz-c-96-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-19-at-22-38-05.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1091,11 +988,7 @@
       "name": "DJI Lito 1/X1 Clips",
       "price": 7,
       "category": "DJI Lito 1/X1",
-      "image": "/images/uploads/dz-o9-99-black.webp",
-      "images": [
-        "/images/uploads/dz-o9-99-grey.webp",
-        "/images/uploads/dz-o9-99-orange.webp"
-      ],
+      "image": "/images/uploads/dz-fixed-screenshot-2026-09-19-at-22-36-13-1.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1140,11 +1033,7 @@
       "name": "DJI Avata 2 Full Protection Model 2",
       "price": 25,
       "category": "DJI Avata 2",
-      "image": "/images/uploads/dz-c-104-black.webp",
-      "images": [
-        "/images/uploads/dz-c-104-grey.webp",
-        "/images/uploads/dz-c-104-orange.webp"
-      ],
+      "image": "/images/uploads/dz-n-screenshot-2026-09-20-at-12-00-49.webp",
       "colors": [
         "Black",
         "Grey",
@@ -1367,11 +1256,7 @@
       "name": "DJI Goggles Clamshell Case",
       "price": 34,
       "category": "DJI Remotes / Goggles",
-      "image": "/images/uploads/dz-c-5634734753473-black.webp",
-      "images": [
-        "/images/uploads/dz-c-5634734753473-grey.webp",
-        "/images/uploads/dz-c-5634734753473-orange.webp"
-      ],
+      "image": "/images/uploads/dz-o9-5634734753473.webp",
       "colors": [
         "Black",
         "Grey",
