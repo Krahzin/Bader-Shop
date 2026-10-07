@@ -578,3 +578,9 @@ input,textarea,select{font:inherit;color:inherit}
 [data-theme="dark"] .btn-shop{background:var(--accent);color:#0a1626}
 .post-ph img{width:72px;height:72px;object-fit:contain;opacity:.85}
 [data-theme="dark"] .faq-cta{background:rgba(37,211,102,.06)}
+
+
+/* Drone cards that link to their own page */
+a.card-media{display:block;cursor:pointer}
+.card-link{color:inherit;text-decoration:none}
+.card-link:hover{text-decoration:underline}
