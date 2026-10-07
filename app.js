@@ -833,10 +833,9 @@ async function init(){
         brand:{ '@type':'Brand', name:/^\s*dji\b/i.test(p.name) ? 'DJI' : 'Drone Zone' },
         description:String(p.desc || p.name).replace(/<[^>]+>/g, '').slice(0, 500), image:allImages(p).map(abs),
         offers:{ '@type':'Offer', url:activeModel ? SITE + '?model=' + slugify(activeModel) : SITE, priceCurrency:'USD', price:Number(p.price) || 0,
-          availability:(p.stock === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'),
+          availability:(isOut(p) ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'),
           itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
           shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } },
-          hasMerchantReturnPolicy:{ '@type':'MerchantReturnPolicy', merchantReturnLink:SITE + '#policies' },
           seller:{ '@type':'Organization', name:'Drone Zone' } } };
       if(revs.length){
         prod.aggregateRating = { '@type':'AggregateRating', ratingValue:avgRating(revs).toFixed(1), reviewCount:revs.length, bestRating:5 };
@@ -895,6 +894,26 @@ function showDronePage(){
   setMeta('meta[property="og:title"]', 'content', title);
   setMeta('meta[property="og:description"]', 'content', desc);
   if(imgs[0]) setMeta('meta[property="og:image"]', 'content', new URL(imgs[0], url).href);
+  try{
+    const used = /\bused\b/i.test(p.name) || /\b(barely used|like new)\b|,\s*used\b/i.test(p.desc || '');
+    const old = document.getElementById('ld-products'); if(old) old.remove();
+    const ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'ld-drone';
+    ld.textContent = JSON.stringify([
+      { '@context':'https://schema.org', '@type':'Product', name:p.name, sku:String(p.id || ''), category:p.category,
+        brand:{ '@type':'Brand', name:/^\s*dji\b/i.test(p.name) ? 'DJI' : 'Drone Zone' },
+        description:String(p.desc || desc).slice(0, 500), image:imgs.map(u => new URL(u, url).href), url,
+        offers:{ '@type':'Offer', url, priceCurrency:'USD', price:Number(p.price) || 0,
+          availability:out ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
+          itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
+          areaServed:{ '@type':'Country', name:'Lebanon' },
+          shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } },
+          seller:{ '@type':'Organization', name:'Drone Zone', url:'https://dronezonelb.com/' } } },
+      { '@context':'https://schema.org', '@type':'BreadcrumbList', itemListElement:[
+        { '@type':'ListItem', position:1, name:'Drone Zone', item:'https://dronezonelb.com/' },
+        { '@type':'ListItem', position:2, name:p.name, item:url } ] }
+    ]);
+    document.head.appendChild(ld);
+  }catch(e){}
   [document.querySelector('.hero'), $('#filters').parentElement, $('#grid').parentElement, document.querySelector('.help-strip')]
     .forEach(el => { if(el) el.style.display = 'none'; });
   const sec = document.createElement('main');
