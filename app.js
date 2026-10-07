@@ -699,11 +699,13 @@ function bindEvents(){
    ========================================================= */
 const APPROVED_REVIEWS = {
 };
+const REVIEW_FORM_ENABLED = false; // turn on once the review queue is live
 function reviewsFor(id){ return (APPROVED_REVIEWS[String(id)] || []).filter(r => r && r.name && Number(r.rating)); }
 function avgRating(revs){ return revs.reduce((s, r) => s + Number(r.rating), 0) / revs.length; }
 function starsText(n){ const r = Math.max(0, Math.min(5, Math.round(n))); return '★'.repeat(r) + '☆'.repeat(5 - r); }
 function reviewLineHtml(p){
   const revs = reviewsFor(p.id);
+  if(!revs.length && !REVIEW_FORM_ENABLED) return '';
   const sum = revs.length ? `<span class="rv-stars">${starsText(avgRating(revs))}</span> ${avgRating(revs).toFixed(1)} (${revs.length}) · <u>Reviews</u>` : '<u>Write a review</u>';
   return `<button type="button" class="rv-line" data-reviews="${escapeHtml(String(p.id))}">${sum}</button>`;
 }
@@ -750,17 +752,17 @@ function openReviews(id){
     <button type="button" class="rv-close" aria-label="Close">×</button>
     <h3>${escapeHtml(p.name)}</h3>
     ${revs.length ? revs.map(r => `<div class="rv-item"><span class="rv-stars">${starsText(r.rating)}</span> <strong>${escapeHtml(r.name)}</strong>${r.text ? `<p>${escapeHtml(r.text)}</p>` : ''}</div>`).join('') : '<p class="rv-muted">No reviews yet. Be the first!</p>'}
-    <form class="rv-form">
+    ${REVIEW_FORM_ENABLED ? `<form class="rv-form">
       <strong>Write a review</strong>
       <div class="rv-pick">${[1,2,3,4,5].map(n => `<button type="button" data-star="${n}" aria-label="${n} stars">★</button>`).join('')}</div>
       <input name="rvName" placeholder="Your name" maxlength="40" required>
       <textarea name="rvText" placeholder="Your review" maxlength="500" rows="3" required></textarea>
       <button class="btn primary" type="submit">Send review</button>
       <p class="rv-muted">Reviews are sent to us on WhatsApp and appear here after approval.</p>
-    </form>`;
+    </form>` : ''}`;
   paintStars();
   const f = $('#rvBox .rv-form');
-  f.addEventListener('submit', e => {
+  if(f) f.addEventListener('submit', e => {
     e.preventDefault();
     const name = f.elements.rvName.value.trim(), text = f.elements.rvText.value.trim();
     if(!name || !text) return;
