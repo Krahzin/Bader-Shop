@@ -331,15 +331,31 @@ function renderChrome(){
 /* =========================================================
    RENDER — FILTERS
    ========================================================= */
+const DRONE_CAT = 'Drones';
+let activeTab = 'drones', menuOpen = false;
+function catGroup(c){
+  if(/mini/i.test(c)) return 'DJI Mini';
+  if(/neo/i.test(c)) return 'DJI Neo';
+  if(/avata/i.test(c)) return 'DJI Avata';
+  return 'More';
+}
+function catLabel(c){ return c.replace(/^DJI\s+/i,'').replace(/\s*\/\s*/g,' / '); }
 function renderFilters(){
-  const cats = orderedCategories();
   const el = $('#filters');
-  if(!cats.length){ el.innerHTML = ''; return; }
+  const accCats = [...new Set(products.map(p => p.category).filter(c => c && c !== DRONE_CAT))]
+    .sort((a,b) => (a==='Other') - (b==='Other') || a.localeCompare(b, undefined, {numeric:true}));
+  const groups = ['DJI Mini','DJI Neo','DJI Avata','More']
+    .map(g => [g, accCats.filter(c => catGroup(c) === g)]).filter(g => g[1].length);
+  const sel = activeCategory === 'all' ? 'All drones' : catLabel(activeCategory);
   el.innerHTML =
-    `<button class="chip ${activeCategory==='all'?'active':''}" data-cat="all">All</button>` +
-    cats.map(c =>
-      `<button class="chip ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`
-    ).join('');
+    `<div class="tabs"><button class="tab ${activeTab==='drones'?'active':''}" data-tab="drones">Drones</button>` +
+    `<button class="tab ${activeTab==='acc'?'active':''}" data-tab="acc">Accessories</button></div>` +
+    (activeTab === 'acc' ? `<div class="model-pick"><button class="model-btn" data-menu="1" aria-expanded="${menuOpen}">` +
+      `<span class="model-btn-lbl">Choose your drone</span><strong>${escapeHtml(sel)}</strong><span class="caret">▾</span></button>` +
+      (menuOpen ? `<div class="model-menu"><div class="mm-col"><h4>Show</h4><button class="mm-it ${activeCategory==='all'?'active':''}" data-cat="all">All accessories</button></div>` +
+        groups.map(([g, cs]) => `<div class="mm-col"><h4>${g}</h4>` +
+          cs.map(c => `<button class="mm-it ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(catLabel(c))}</button>`).join('') + `</div>`).join('') +
+      `</div>` : '') + `</div>` : '');
 }
 
 /* =========================================================
@@ -351,7 +367,8 @@ function renderProducts(){
     .filter(p => {
       const hay = (p.name + ' ' + (p.desc||'') + ' ' + (p.category||'')).toLowerCase();
       const matchQ = !q || hay.includes(q);
-      const matchC = activeCategory === 'all' || p.category === activeCategory;
+      const inTab = activeTab === 'drones' ? p.category === DRONE_CAT : p.category !== DRONE_CAT;
+      const matchC = q ? true : inTab && (activeTab === 'drones' || activeCategory === 'all' || p.category === activeCategory);
       return matchQ && matchC;
     })
     .sort((a, b) => categoryRank(a.category) - categoryRank(b.category));
@@ -570,11 +587,17 @@ function bindEvents(){
 
   $('#searchInput').addEventListener('input', renderProducts);
   $('#filters').addEventListener('click', e => {
-    const btn = e.target.closest('[data-cat]');
-    if(!btn) return;
-    activeCategory = btn.dataset.cat;
+    const tab = e.target.closest('[data-tab]'), menu = e.target.closest('[data-menu]'), btn = e.target.closest('[data-cat]');
+    if(tab){ activeTab = tab.dataset.tab; activeCategory = 'all'; menuOpen = false; }
+    else if(menu){ menuOpen = !menuOpen; }
+    else if(btn){ activeCategory = btn.dataset.cat; menuOpen = false; }
+    else return;
+    e.stopPropagation();
     renderFilters();
-    renderProducts();
+    if(!menu) renderProducts();
+  });
+  document.addEventListener('click', e => {
+    if(menuOpen && !e.target.closest('#filters')){ menuOpen = false; renderFilters(); }
   });
 
   $('#grid').addEventListener('click', e => {
