@@ -358,7 +358,7 @@ function catLabel(c){ return c.replace(/^DJI\s+/i,'').replace(/\s*\/\s*/g,' / ')
 let activeModel = null;
 /* Drones with their own page: clicking the drone card opens it */
 const STATIC_MODEL_PAGES = { 'dji-mini-4-pro': 'dji-mini-4-pro-lebanon.html' };
-const productPage = p => p.category === DRONE_CAT ? STATIC_MODEL_PAGES[slugify(p.name)] : '';
+const productPage = p => p.category === DRONE_CAT ? (STATIC_MODEL_PAGES[slugify(p.name)] || '?drone=' + slugify(p.name)) : '';
 const slugify = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const usd = n => '$' + (Number(n) || 0).toLocaleString('en-US');
 function modelProducts(c){
@@ -854,5 +854,64 @@ async function init(){
   renderProducts();
   renderCart();
   bindEvents();
+  showDronePage();
+}
+
+/* DRONE PAGES: /?drone=<slug> for every drone without its own static page */
+function droneAccCat(p){
+  const n = String(p.name || '').toLowerCase();
+  return [...new Set(products.map(x => x.category))].filter(c => c && c !== DRONE_CAT && n.includes(c.toLowerCase()))
+    .sort((a, b) => b.length - a.length)[0] || null;
+}
+function showDronePage(){
+  const q = new URLSearchParams(location.search).get('drone');
+  if(!q) return;
+  const p = products.find(x => x.category === DRONE_CAT && slugify(x.name) === slugify(q));
+  if(!p) return;
+  const esc = escapeHtml, imgs = allImages(p), out = isOut(p), acc = droneAccCat(p);
+  const accList = acc ? products.filter(x => x.category === acc && !isOut(x)).slice(0, 12) : [];
+  const wa = whatsappUrl("Hi Drone Zone! I'm interested in the " + p.name + '.');
+  const url = 'https://dronezonelb.com/?drone=' + slugify(p.name);
+  const title = p.name + ' Lebanon – ' + usd(p.price) + ' | Drone Zone';
+  const desc = p.name + ' in Lebanon for ' + usd(p.price) + '. Delivery across Lebanon, order on WhatsApp.';
+  document.title = title;
+  setMeta('meta[name=description]', 'content', desc);
+  setMeta('link[rel=canonical]', 'href', url);
+  setMeta('meta[property="og:url"]', 'content', url);
+  setMeta('meta[property="og:title"]', 'content', title);
+  setMeta('meta[property="og:description"]', 'content', desc);
+  if(imgs[0]) setMeta('meta[property="og:image"]', 'content', new URL(imgs[0], url).href);
+  [document.querySelector('.hero'), $('#filters').parentElement, $('#grid').parentElement, document.querySelector('.help-strip')]
+    .forEach(el => { if(el) el.style.display = 'none'; });
+  const sec = document.createElement('main');
+  sec.className = 'wrap dp';
+  sec.innerHTML = `
+    <a class="dp-back" href="./">← All drones</a>
+    <section class="dp-top">
+      <div>
+        <div class="dp-img">${imgs[0] ? `<img id="dpMain" src="${esc(imgs[0])}" alt="${esc(p.name)} in Lebanon">` : ''}</div>
+        ${imgs.length > 1 ? `<div class="dp-thumbs">${imgs.map((src, i) => `<button type="button" class="${i ? '' : 'on'}" data-src="${esc(src)}" aria-label="Photo ${i + 1}"><img src="${esc(src)}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
+      </div>
+      <div>
+        <span class="eyebrow">DJI Drones in Lebanon</span>
+        <h1 class="dp-h1">${esc(p.name)}</h1>
+        <p class="dp-price">${money(p.price)}</p>
+        <span class="dp-stock${out ? ' out' : ''}">${out ? 'Out of stock – message us to reserve one' : 'In stock'}</span>
+        ${p.desc ? `<p class="dp-desc">${esc(p.desc)}</p>` : ''}
+        <div class="dp-btns">
+          ${out ? '' : `<button class="btn primary" type="button" data-dp-add="${esc(p.id)}">Add to cart</button>`}
+          ${wa ? `<a class="dp-wa" href="${esc(wa)}" target="_blank" rel="nofollow noopener">Ask on WhatsApp</a>` : ''}
+        </div>
+      </div>
+    </section>
+    ${accList.length ? `<section class="dp-sec"><h2>${esc(acc)} accessories in stock</h2><div class="dp-grid">${accList.map(a => `<a class="dp-card" href="?model=${slugify(acc)}"><img src="${esc(allImages(a)[0] || '')}" alt="${esc(a.name)}" loading="lazy"><span>${esc(a.name)}</span><b>${money(a.price)}</b></a>`).join('')}</div></section>` : ''}`;
+  $('#grid').parentElement.after(sec);
+  sec.addEventListener('click', e => {
+    const t = e.target.closest('.dp-thumbs button');
+    if(t){ $('#dpMain').src = t.dataset.src; sec.querySelectorAll('.dp-thumbs button').forEach(b => b.classList.toggle('on', b === t)); return; }
+    const a = e.target.closest('[data-dp-add]');
+    if(a) addToCart(a.dataset.dpAdd);
+  });
+  window.scrollTo(0, 0);
 }
 init();
