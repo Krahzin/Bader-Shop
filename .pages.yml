@@ -177,3 +177,8 @@ content:
     type: file
     path: robots.txt
     format: code
+  - name: code-mini-4-pro-page
+    label: "Code: dji-mini-4-pro-lebanon.html"
+    type: file
+    path: dji-mini-4-pro-lebanon.html
+    format: code
