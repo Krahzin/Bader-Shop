@@ -835,7 +835,7 @@ async function init(){
         offers:{ '@type':'Offer', url:activeModel ? SITE + '?model=' + slugify(activeModel) : SITE, priceCurrency:'USD', price:Number(p.price) || 0,
           availability:(isOut(p) ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'),
           itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
-          shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } },
+          shippingDetails:Object.assign({ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } }, p.category === DRONE_CAT ? {} : { shippingRate:{ '@type':'MonetaryAmount', value:5, currency:'USD' }, deliveryTime:{ '@type':'ShippingDeliveryTime', handlingTime:{ '@type':'QuantitativeValue', minValue:0, maxValue:0, unitCode:'DAY' }, transitTime:{ '@type':'QuantitativeValue', minValue:1, maxValue:3, unitCode:'DAY' } } }),
           seller:{ '@type':'Organization', name:'Drone Zone' } } };
       if(revs.length){
         prod.aggregateRating = { '@type':'AggregateRating', ratingValue:avgRating(revs).toFixed(1), reviewCount:revs.length, bestRating:5 };
