@@ -300,6 +300,14 @@ function lbStep(delta){
    RENDER — FOOTER CONTACT + DRAWER HINT
    ========================================================= */
 function renderContact(){
+  ensureReviewUi();
+  const fc = $('#footerContact');
+  if(fc && !$('#policies')){
+    const pol = document.createElement('p');
+    pol.id = 'policies';
+    pol.textContent = 'Shipping available across Lebanon. Returns: contact us on WhatsApp.';
+    fc.after(pol);
+  }
   const digits = whatsappDigits();
   const el = $('#footerContact');
   if(el){
@@ -434,6 +442,7 @@ function renderProducts(){
         <div class="card-body">
           ${p.category ? `<span class="chip-cat">${escapeHtml(p.category)}</span>` : ''}
           <h3>${escapeHtml(p.name)}</h3>
+          ${reviewLineHtml(p)}
           ${p.desc ? `<p class="desc">${escapeHtml(p.desc)}</p>` : '<p class="desc"></p>'}
           ${picker}
           <div class="card-foot">
@@ -684,6 +693,90 @@ function bindEvents(){
 }
 
 /* =========================================================
+   REVIEWS — only approved reviews show on the site.
+   New reviews arrive on WhatsApp. To approve one, add it here:
+   '<product id>': [ { name:'Ali', rating:5, text:'Great quality', date:'2026-10-07' } ],
+   ========================================================= */
+const APPROVED_REVIEWS = {
+};
+function reviewsFor(id){ return (APPROVED_REVIEWS[String(id)] || []).filter(r => r && r.name && Number(r.rating)); }
+function avgRating(revs){ return revs.reduce((s, r) => s + Number(r.rating), 0) / revs.length; }
+function starsText(n){ const r = Math.max(0, Math.min(5, Math.round(n))); return '★'.repeat(r) + '☆'.repeat(5 - r); }
+function reviewLineHtml(p){
+  const revs = reviewsFor(p.id);
+  const sum = revs.length ? `<span class="rv-stars">${starsText(avgRating(revs))}</span> ${avgRating(revs).toFixed(1)} (${revs.length}) · <u>Reviews</u>` : '<u>Write a review</u>';
+  return `<button type="button" class="rv-line" data-reviews="${escapeHtml(String(p.id))}">${sum}</button>`;
+}
+let rvRating = 5;
+function paintStars(){ $$('#rvBox [data-star]').forEach(b => b.classList.toggle('on', Number(b.dataset.star) <= rvRating)); }
+function closeReviews(){ const w = $('#rvWrap'); if(w) w.classList.remove('show'); }
+function ensureReviewUi(){
+  if($('#rvWrap')) return;
+  const st = document.createElement('style');
+  st.textContent = `.rv-line{background:none;border:0;padding:0;margin:2px 0 8px;font:inherit;font-size:12.5px;color:var(--muted);cursor:pointer;text-align:left}
+.rv-stars{color:#e0a800;letter-spacing:1px}
+.rv-wrap{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:1000;padding:16px}
+.rv-wrap.show{display:flex}
+.rv-box{position:relative;background:var(--surface);color:var(--text);border-radius:var(--radius);box-shadow:var(--shadow);width:100%;max-width:440px;max-height:90vh;overflow:auto;padding:20px}
+.rv-box h3{margin:0 28px 12px 0;font-size:16px}
+.rv-close{position:absolute;top:8px;right:10px;background:none;border:0;font-size:26px;line-height:1;color:var(--muted);cursor:pointer}
+.rv-item{border-bottom:1px solid var(--line);padding:8px 0;font-size:14px}
+.rv-item p{margin:4px 0 0}
+.rv-form{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.rv-form input,.rv-form textarea{font:inherit;font-size:16px;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text)}
+.rv-pick button{background:none;border:0;font-size:28px;color:var(--line);cursor:pointer;padding:0 2px}
+.rv-pick button.on{color:#e0a800}
+.rv-muted{color:var(--muted);font-size:12.5px;margin:0}
+#policies{margin:8px 0 0;font-size:12.5px;color:var(--muted)}`;
+  document.head.appendChild(st);
+  const w = document.createElement('div');
+  w.id = 'rvWrap'; w.className = 'rv-wrap';
+  w.innerHTML = '<div class="rv-box" id="rvBox" role="dialog" aria-modal="true"></div>';
+  document.body.appendChild(w);
+  w.addEventListener('click', e => {
+    if(e.target === w || e.target.closest('.rv-close')){ closeReviews(); return; }
+    const s = e.target.closest('[data-star]');
+    if(s){ rvRating = Number(s.dataset.star); paintStars(); }
+  });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeReviews(); });
+}
+function openReviews(id){
+  const p = products.find(x => String(x.id) === String(id));
+  if(!p) return;
+  ensureReviewUi();
+  const revs = reviewsFor(p.id);
+  rvRating = 5;
+  $('#rvBox').innerHTML = `
+    <button type="button" class="rv-close" aria-label="Close">×</button>
+    <h3>${escapeHtml(p.name)}</h3>
+    ${revs.length ? revs.map(r => `<div class="rv-item"><span class="rv-stars">${starsText(r.rating)}</span> <strong>${escapeHtml(r.name)}</strong>${r.text ? `<p>${escapeHtml(r.text)}</p>` : ''}</div>`).join('') : '<p class="rv-muted">No reviews yet. Be the first!</p>'}
+    <form class="rv-form">
+      <strong>Write a review</strong>
+      <div class="rv-pick">${[1,2,3,4,5].map(n => `<button type="button" data-star="${n}" aria-label="${n} stars">★</button>`).join('')}</div>
+      <input name="rvName" placeholder="Your name" maxlength="40" required>
+      <textarea name="rvText" placeholder="Your review" maxlength="500" rows="3" required></textarea>
+      <button class="btn primary" type="submit">Send review</button>
+      <p class="rv-muted">Reviews are sent to us on WhatsApp and appear here after approval.</p>
+    </form>`;
+  paintStars();
+  const f = $('#rvBox .rv-form');
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = f.elements.rvName.value.trim(), text = f.elements.rvText.value.trim();
+    if(!name || !text) return;
+    const msg = `⭐ Review for: ${p.name} (ID ${p.id})\nRating: ${rvRating}/5\nName: ${name}\nReview: ${text}`;
+    window.open(whatsappUrl(msg), '_blank', 'noopener');
+    closeReviews();
+    toast('Thanks! Your review will appear after approval.');
+  });
+  $('#rvWrap').classList.add('show');
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-reviews]');
+  if(b){ e.preventDefault(); e.stopPropagation(); openReviews(b.dataset.reviews); }
+});
+
+/* =========================================================
    INIT
    ========================================================= */
 async function init(){
@@ -692,7 +785,24 @@ async function init(){
   try{
     const SITE = 'https://dronezonelb.com/';
     const abs = u => u ? new URL(u, SITE).href : undefined;
-    const items = products.filter(p => p && p.name).map((p, i) => ({ '@type':'ListItem', position:i + 1, item:{ '@type':'Product', name:p.name, sku:String(p.id || ''), category:p.category || undefined, description:String(p.desc || p.name).replace(/<[^>]+>/g, '').slice(0, 500), image:allImages(p).map(abs), offers:{ '@type':'Offer', url:SITE, priceCurrency:'USD', price:Number(p.price) || 0, availability:(p.stock === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'), itemCondition:'https://schema.org/NewCondition', seller:{ '@type':'Organization', name:'Drone Zone' } } } }));
+    const items = products.filter(p => p && p.name).map((p, i) => {
+      const used = /\bused\b/i.test(p.name) || /\b(barely used|like new)\b|,\s*used\b/i.test(p.desc || '');
+      const revs = reviewsFor(p.id);
+      const prod = { '@type':'Product', name:p.name, sku:String(p.id || ''), category:p.category || undefined,
+        brand:{ '@type':'Brand', name:/^\s*dji\b/i.test(p.name) ? 'DJI' : 'Drone Zone' },
+        description:String(p.desc || p.name).replace(/<[^>]+>/g, '').slice(0, 500), image:allImages(p).map(abs),
+        offers:{ '@type':'Offer', url:SITE, priceCurrency:'USD', price:Number(p.price) || 0,
+          availability:(p.stock === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'),
+          itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
+          shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } },
+          hasMerchantReturnPolicy:{ '@type':'MerchantReturnPolicy', merchantReturnLink:SITE + '#policies' },
+          seller:{ '@type':'Organization', name:'Drone Zone' } } };
+      if(revs.length){
+        prod.aggregateRating = { '@type':'AggregateRating', ratingValue:avgRating(revs).toFixed(1), reviewCount:revs.length, bestRating:5 };
+        prod.review = revs.map(r => ({ '@type':'Review', author:{ '@type':'Person', name:r.name }, reviewRating:{ '@type':'Rating', ratingValue:r.rating, bestRating:5 }, reviewBody:r.text || undefined, datePublished:r.date || undefined }));
+      }
+      return { '@type':'ListItem', position:i + 1, item:prod };
+    });
     const ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'ld-products';
     ld.textContent = JSON.stringify({ '@context':'https://schema.org', '@type':'ItemList', name:'Drone Zone products', itemListElement:items });
     document.head.appendChild(ld);
