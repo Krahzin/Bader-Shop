@@ -356,6 +356,9 @@ function catGroup(c){
 function catLabel(c){ return c.replace(/^DJI\s+/i,'').replace(/\s*\/\s*/g,' / '); }
 /* MODEL LANDING PAGES: /?model=dji-mini-4-pro */
 let activeModel = null;
+/* Drones with their own page: clicking the drone card opens it */
+const STATIC_MODEL_PAGES = { 'dji-mini-4-pro': 'dji-mini-4-pro-lebanon.html' };
+const productPage = p => p.category === DRONE_CAT ? STATIC_MODEL_PAGES[slugify(p.name)] : '';
 const slugify = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const usd = n => '$' + (Number(n) || 0).toLocaleString('en-US');
 function modelProducts(c){
@@ -371,8 +374,7 @@ function applyModelSeo(){
   const list = modelProducts(activeModel);
   const drone = list.find(p => p.category === DRONE_CAT && slugify(p.name) === slugify(activeModel));
   const acc = list.filter(p => p.category !== DRONE_CAT).length;
-  const STATIC_MODEL_PAGES = { 'dji-mini-4-pro': 'https://dronezonelb.com/dji-mini-4-pro-lebanon.html' };
-  const url = STATIC_MODEL_PAGES[slugify(activeModel)] || 'https://dronezonelb.com/?model=' + slugify(activeModel);
+  const url = STATIC_MODEL_PAGES[slugify(activeModel)] ? 'https://dronezonelb.com/' + STATIC_MODEL_PAGES[slugify(activeModel)] : 'https://dronezonelb.com/?model=' + slugify(activeModel);
   const title = drone ? `${name} Lebanon – ${usd(drone.price)} | Drone Zone` : `${name} Accessories Lebanon | Drone Zone`;
   const desc = `${name} in Lebanon${drone ? ' for ' + usd(drone.price) : ''}` + (acc ? ` plus ${acc} accessories: cases, stands, guards and more.` : '.') + ' Delivery across Lebanon, order on WhatsApp.';
   document.title = title;
@@ -462,16 +464,17 @@ function renderProducts(){
            <span class="add-text">Add to cart</span>
          </button>`;
 
+    const page = productPage(p);
     return `
       <article class="card">
-        <div class="card-media" ${imgs.length ? `data-open="${p.id}"` : ''}>
+        <${page ? `a href="${page}"` : 'div'} class="card-media" ${!page && imgs.length ? `data-open="${p.id}"` : ''}>
           ${mediaHtml(p, selectedColors[p.id] ? colorImage(p, selectedColors[p.id]) : '')}
           ${soldOut ? '<span class="badge-out">Out of stock</span>' : ''}
           ${multi ? `<span class="badge-count">${imgs.length} photos</span>` : ''}
-        </div>
+        </${page ? 'a' : 'div'}>
         <div class="card-body">
           ${p.category ? `<span class="chip-cat">${escapeHtml(p.category)}</span>` : ''}
-          <h3>${escapeHtml(p.name)}</h3>
+          <h3>${page ? `<a href="${page}" class="card-link">${escapeHtml(p.name)}</a>` : escapeHtml(p.name)}</h3>
           ${reviewLineHtml(p)}
           ${p.desc ? `<p class="desc">${escapeHtml(p.desc)}</p>` : '<p class="desc"></p>'}
           ${picker}
