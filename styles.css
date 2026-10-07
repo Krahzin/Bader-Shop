@@ -585,3 +585,32 @@ a.card-media{display:block;cursor:pointer}
 .card.has-page{cursor:pointer}
 .card-link{color:inherit;text-decoration:none}
 .card-link:hover{text-decoration:underline}
+
+
+/* Drone detail page (/?drone=...) */
+.dp{padding-bottom:40px}
+.dp-back{display:inline-block;margin:18px 0 10px;color:var(--muted);text-decoration:none;font-size:14px}
+.dp-back:hover{color:var(--accent)}
+.dp-top{display:grid;gap:28px;grid-template-columns:1fr;align-items:start}
+@media(min-width:820px){.dp-top{grid-template-columns:1.1fr 1fr}}
+.dp-img{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3}
+.dp-img img{width:100%;height:100%;object-fit:cover;display:block}
+.dp-thumbs{display:flex;gap:8px;margin-top:10px;overflow-x:auto}
+.dp-thumbs button{flex:0 0 64px;height:48px;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;background:none;cursor:pointer}
+.dp-thumbs button.on{border-color:var(--accent)}
+.dp-thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.dp-h1{margin:6px 0 8px;font-size:clamp(26px,4.5vw,38px);line-height:1.15}
+.dp-price{font-size:30px;font-weight:700;margin:4px 0}
+.dp-stock{display:inline-block;padding:3px 10px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:600}
+.dp-stock.out{background:var(--notice-bg);border-color:var(--notice-border);color:var(--notice-text)}
+.dp-desc{white-space:pre-line}
+.dp-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.dp-wa{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:12px;background:var(--wa);color:#fff;font-weight:600;text-decoration:none}
+.dp-wa:hover{background:var(--wa-dark)}
+.dp-sec{margin-top:44px}
+.dp-sec h2{font-size:22px;margin:0 0 12px}
+.dp-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.dp-card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;color:inherit;text-decoration:none}
+.dp-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.dp-card span{display:block;padding:8px 10px 0;font-size:14px;line-height:1.3}
+.dp-card b{display:block;padding:4px 10px 10px;font-size:15px}
