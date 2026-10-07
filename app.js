@@ -863,6 +863,19 @@ function droneAccCat(p){
   return [...new Set(products.map(x => x.category))].filter(c => c && c !== DRONE_CAT && n.includes(c.toLowerCase()))
     .sort((a, b) => b.length - a.length)[0] || null;
 }
+/* General info per drone model (first match wins, most specific first) */
+const DRONE_INFO = [
+  [/avata\s*360/i, 'DJI Avata 360', ['Flight time: up to 23 minutes per battery', '360° video up to 8K/60fps from two 1/1.1-inch 64 MP sensors', 'Single-lens 4K/60fps and 2.7K/120fps video', '360° photos up to 120 MP, pick any angle after the flight', 'Omnidirectional obstacle sensing with forward LiDAR', 'O4+ video transmission, up to 10 km range (CE)', 'Weight about 455 g']],
+  [/avata\s*2/i, 'DJI Avata 2', ['Flight time: up to 23 minutes per battery', '1/1.3-inch sensor, 4K/60fps HDR video, 155° ultra-wide view', 'Built-in propeller guards, made for immersive FPV flying with goggles', 'Flips, rolls and drifts at the push of a button with RC Motion 3', 'O4 video transmission, up to 10 km range (CE)', 'Weight about 377 g']],
+  [/mini\s*3\s*\/?\s*4\s*pro\s*battery\s*plus/i, 'Battery Plus', ['Flight time: up to 47 minutes on the Mini 3 Pro', 'Flight time: up to 45 minutes on the Mini 4 Pro', 'Note: with the Battery Plus the drone weighs over 249 g']],
+  [/mini\s*3\s*pro/i, 'DJI Mini 3 Pro', ['Flight time: up to 34 minutes per battery (47 minutes with Battery Plus)', 'Weighs under 249 g', '1/1.3-inch sensor, 48 MP photos, 4K/60fps HDR video', 'True Vertical Shooting for Reels and TikTok', 'Obstacle sensing in three directions and ActiveTrack subject tracking', 'O3 video transmission, up to 8 km range (CE)']],
+  [/lito\s*x1/i, 'DJI Lito X1', ['Flight time: up to 36 minutes per battery', 'Weighs under 249 g', '1/1.3-inch sensor, 48 MP photos, 4K/60fps HDR and 4K/100fps slow motion', 'Omnidirectional obstacle sensing with forward LiDAR', 'ActiveTrack subject tracking and D-Log M colour', '42 GB built-in storage', 'O4 video transmission, up to 8 km range (CE)']],
+  [/neo\s*2/i, 'DJI Neo 2', ['Flight time: up to 19 minutes per battery', 'Weighs only 151 g, with full propeller guards', '12 MP 1/2-inch sensor, 4K/60fps video, 2-axis gimbal', 'Omnidirectional obstacle sensing with forward LiDAR', 'Takes off from your palm; control by gestures, voice, app or remote', 'ActiveTrack follows you at up to 12 m/s', '49 GB built-in storage', 'O4 video transmission with the remote, up to 6 km range (CE)']],
+  [/neo/i, 'DJI Neo', ['Flight time: up to 18 minutes per battery', 'Weighs only 135 g, with full propeller guards', '12 MP 1/2-inch sensor, 4K/30fps video', 'Takes off from your palm and follows you, no remote needed', 'Can be flown in FPV with DJI Goggles N3 and RC Motion 3', '22 GB built-in storage']],
+  [/flip/i, 'DJI Flip', ['Flight time: up to 31 minutes per battery', 'Weighs under 249 g, with a foldable full-coverage propeller guard', '1/1.3-inch sensor, 48 MP photos, 4K/60fps HDR video, 3-axis gimbal', 'Forward 3D infrared obstacle sensing and subject tracking', 'O4 video transmission, up to 8 km range (CE)']],
+  [/mini\s*2/i, 'DJI Mini 2', ['Flight time: up to 31 minutes per battery', 'Weighs under 249 g', '12 MP 1/2.3-inch sensor, 4K/30fps video, 3-axis gimbal', 'OcuSync 2.0 video transmission, up to 6 km range (CE)', 'Simple to fly, a great first drone (no obstacle sensors)']]
+];
+const droneInfo = p => { const m = DRONE_INFO.find(([re]) => re.test(p.name || '')); return m ? { model: m[1], specs: m[2] } : null; };
 function showDronePage(){
   const q = new URLSearchParams(location.search).get('drone');
   if(!q) return;
@@ -870,6 +883,7 @@ function showDronePage(){
   if(!p) return;
   const esc = escapeHtml, imgs = allImages(p), out = isOut(p), acc = droneAccCat(p);
   const accList = acc ? products.filter(x => x.category === acc && !isOut(x)).slice(0, 12) : [];
+  const info = droneInfo(p);
   const wa = whatsappUrl("Hi Drone Zone! I'm interested in the " + p.name + '.');
   const url = 'https://dronezonelb.com/?drone=' + slugify(p.name);
   const title = p.name + ' Lebanon – ' + usd(p.price) + ' | Drone Zone';
@@ -904,6 +918,7 @@ function showDronePage(){
         </div>
       </div>
     </section>
+    ${info ? `<section class="dp-sec"><h2>${esc(info.model)} key specs</h2><ul class="dp-specs">${info.specs.map(s => `<li>${esc(s)}</li>`).join('')}</ul></section>` : ''}
     ${accList.length ? `<section class="dp-sec"><h2>${esc(acc)} accessories in stock</h2><div class="dp-grid">${accList.map(a => `<a class="dp-card" href="?model=${slugify(acc)}"><img src="${esc(allImages(a)[0] || '')}" alt="${esc(a.name)}" loading="lazy"><span>${esc(a.name)}</span><b>${money(a.price)}</b></a>`).join('')}</div></section>` : ''}`;
   $('#grid').parentElement.after(sec);
   sec.addEventListener('click', e => {
