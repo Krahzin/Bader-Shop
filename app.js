@@ -466,7 +466,7 @@ function renderProducts(){
 
     const page = productPage(p);
     return `
-      <article class="card">
+      <article class="card${page ? ' has-page' : ''}"${page ? ` data-page="${page}"` : ''}>
         <${page ? `a href="${page}"` : 'div'} class="card-media" ${!page && imgs.length ? `data-open="${p.id}"` : ''}>
           ${mediaHtml(p, selectedColors[p.id] ? colorImage(p, selectedColors[p.id]) : '')}
           ${soldOut ? '<span class="badge-out">Out of stock</span>' : ''}
@@ -671,6 +671,9 @@ function bindEvents(){
 
     const addBtn = e.target.closest('[data-add]');
     if(addBtn){ addToCart(addBtn.dataset.add); return; }
+
+    const pageCard = e.target.closest('.card[data-page]');
+    if(pageCard && !e.target.closest('a,button')){ location.href = pageCard.dataset.page; return; }
 
     const openBtn = e.target.closest('[data-open]');
     if(openBtn){
