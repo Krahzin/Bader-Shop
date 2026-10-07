@@ -361,8 +361,9 @@ const usd = n => '$' + (Number(n) || 0).toLocaleString('en-US');
 function modelProducts(c){
   const k = catLabel(c).split('/')[0].trim().toLowerCase();
   return products.filter(p => p.category === c || (p.category === DRONE_CAT && p.name.toLowerCase().includes(k)))
-    .sort((a, b) => (a.category !== DRONE_CAT) - (b.category !== DRONE_CAT));
+    .sort((a, b) => isOut(a) - isOut(b) || (a.category !== DRONE_CAT) - (b.category !== DRONE_CAT));
 }
+function isOut(p){ return p.stock !== '' && p.stock !== null && p.stock !== undefined && Number(p.stock) <= 0; }
 function setMeta(sel, attr, val){ const el = document.querySelector(sel); if(el) el.setAttribute(attr, val); }
 function applyModelSeo(){
   if(!activeModel) return;
@@ -413,7 +414,7 @@ function renderProducts(){
       const matchC = q ? true : inTab && (activeTab === 'drones' || activeCategory === 'all' || p.category === activeCategory);
       return matchQ && matchC;
     })
-    .sort((a, b) => categoryRank(a.category) - categoryRank(b.category));
+    .sort((a, b) => isOut(a) - isOut(b) || categoryRank(a.category) - categoryRank(b.category));
 
   const grid = $('#grid');
   if(!list.length){
