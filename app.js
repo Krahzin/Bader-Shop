@@ -371,7 +371,8 @@ function applyModelSeo(){
   const list = modelProducts(activeModel);
   const drone = list.find(p => p.category === DRONE_CAT && slugify(p.name) === slugify(activeModel));
   const acc = list.filter(p => p.category !== DRONE_CAT).length;
-  const url = 'https://dronezonelb.com/?model=' + slugify(activeModel);
+  const STATIC_MODEL_PAGES = { 'dji-mini-4-pro': 'https://dronezonelb.com/dji-mini-4-pro-lebanon.html' };
+  const url = STATIC_MODEL_PAGES[slugify(activeModel)] || 'https://dronezonelb.com/?model=' + slugify(activeModel);
   const title = drone ? `${name} Lebanon – ${usd(drone.price)} | Drone Zone` : `${name} Accessories Lebanon | Drone Zone`;
   const desc = `${name} in Lebanon${drone ? ' for ' + usd(drone.price) : ''}` + (acc ? ` plus ${acc} accessories: cases, stands, guards and more.` : '.') + ' Delivery across Lebanon, order on WhatsApp.';
   document.title = title;
