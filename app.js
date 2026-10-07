@@ -354,6 +354,34 @@ function catGroup(c){
   return 'More';
 }
 function catLabel(c){ return c.replace(/^DJI\s+/i,'').replace(/\s*\/\s*/g,' / '); }
+/* MODEL LANDING PAGES: /?model=dji-mini-4-pro */
+let activeModel = null;
+const slugify = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const usd = n => '$' + (Number(n) || 0).toLocaleString('en-US');
+function modelProducts(c){
+  const k = catLabel(c).split('/')[0].trim().toLowerCase();
+  return products.filter(p => p.category === c || (p.category === DRONE_CAT && p.name.toLowerCase().includes(k)))
+    .sort((a, b) => (a.category !== DRONE_CAT) - (b.category !== DRONE_CAT));
+}
+function setMeta(sel, attr, val){ const el = document.querySelector(sel); if(el) el.setAttribute(attr, val); }
+function applyModelSeo(){
+  if(!activeModel) return;
+  const name = activeModel.replace(/\s*\/\s*/g, ' / ');
+  const list = modelProducts(activeModel);
+  const drone = list.find(p => p.category === DRONE_CAT && slugify(p.name) === slugify(activeModel));
+  const acc = list.filter(p => p.category !== DRONE_CAT).length;
+  const url = 'https://dronezonelb.com/?model=' + slugify(activeModel);
+  const title = drone ? `${name} Lebanon – ${usd(drone.price)} | Drone Zone` : `${name} Accessories Lebanon | Drone Zone`;
+  const desc = `${name} in Lebanon${drone ? ' for ' + usd(drone.price) : ''}` + (acc ? ` plus ${acc} accessories: cases, stands, guards and more.` : '.') + ' Delivery across Lebanon, order on WhatsApp.';
+  document.title = title;
+  setMeta('meta[name=description]', 'content', desc);
+  setMeta('link[rel=canonical]', 'href', url);
+  setMeta('meta[property="og:url"]', 'content', url);
+  setMeta('meta[property="og:title"]', 'content', title);
+  setMeta('meta[property="og:description"]', 'content', desc);
+  $('#heroTitle').textContent = `${name} in Lebanon`;
+  $('#heroTagline').textContent = desc;
+}
 function renderFilters(){
   const el = $('#filters');
   const accCats = [...new Set(products.map(p => p.category).filter(c => c && c !== DRONE_CAT))]
@@ -377,7 +405,7 @@ function renderFilters(){
    ========================================================= */
 function renderProducts(){
   const q = $('#searchInput').value.trim().toLowerCase();
-  const list = products
+  const list = (activeModel && !q) ? modelProducts(activeModel) : products
     .filter(p => {
       const hay = (p.name + ' ' + (p.desc||'') + ' ' + (p.category||'')).toLowerCase();
       const matchQ = !q || hay.includes(q);
@@ -422,7 +450,7 @@ function renderProducts(){
     }
 
     const actionBtn = soldOut
-      ? `<button class="btn small sold-out" disabled>Sold out</button>`
+      ? `<button class="btn small sold-out" disabled>Out of stock</button>`
       : `<button class="btn primary small add-btn" data-add="${p.id}" aria-label="Add to cart" title="Add to cart">
            <svg class="icon-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
              <circle cx="9" cy="21" r="1"></circle>
@@ -436,7 +464,7 @@ function renderProducts(){
       <article class="card">
         <div class="card-media" ${imgs.length ? `data-open="${p.id}"` : ''}>
           ${mediaHtml(p, selectedColors[p.id] ? colorImage(p, selectedColors[p.id]) : '')}
-          ${soldOut ? '<span class="badge-out">Sold out</span>' : ''}
+          ${soldOut ? '<span class="badge-out">Out of stock</span>' : ''}
           ${multi ? `<span class="badge-count">${imgs.length} photos</span>` : ''}
         </div>
         <div class="card-body">
@@ -607,6 +635,7 @@ function bindEvents(){
     else if(menu){ menuOpen = !menuOpen; }
     else if(btn){ activeCategory = btn.dataset.cat; menuOpen = false; }
     else return;
+    activeModel = null;
     e.stopPropagation();
     renderFilters();
     if(!menu) renderProducts();
@@ -784,16 +813,18 @@ document.addEventListener('click', e => {
 async function init(){
   initTheme();
   await loadStoreData();
+  const mq = new URLSearchParams(location.search).get('model');
+  if(mq) activeModel = [...new Set(products.map(p => p.category))].find(c => c && slugify(c) === slugify(mq)) || null;
   try{
     const SITE = 'https://dronezonelb.com/';
     const abs = u => u ? new URL(u, SITE).href : undefined;
-    const items = products.filter(p => p && p.name).map((p, i) => {
+    const items = (activeModel ? modelProducts(activeModel) : products).filter(p => p && p.name).map((p, i) => {
       const used = /\bused\b/i.test(p.name) || /\b(barely used|like new)\b|,\s*used\b/i.test(p.desc || '');
       const revs = reviewsFor(p.id);
       const prod = { '@type':'Product', name:p.name, sku:String(p.id || ''), category:p.category || undefined,
         brand:{ '@type':'Brand', name:/^\s*dji\b/i.test(p.name) ? 'DJI' : 'Drone Zone' },
         description:String(p.desc || p.name).replace(/<[^>]+>/g, '').slice(0, 500), image:allImages(p).map(abs),
-        offers:{ '@type':'Offer', url:SITE, priceCurrency:'USD', price:Number(p.price) || 0,
+        offers:{ '@type':'Offer', url:activeModel ? SITE + '?model=' + slugify(activeModel) : SITE, priceCurrency:'USD', price:Number(p.price) || 0,
           availability:(p.stock === 0 ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'),
           itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
           shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } },
@@ -810,6 +841,7 @@ async function init(){
     document.head.appendChild(ld);
   }catch(e){}
   renderChrome();
+  applyModelSeo();
   renderFilters();
   renderProducts();
   renderCart();
