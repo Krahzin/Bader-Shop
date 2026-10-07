@@ -93,7 +93,14 @@ function allImages(p){
   const list = [];
   if(p.image && !list.includes(p.image)) list.push(p.image);
   if(Array.isArray(p.images)) p.images.forEach(i => { if(i && !list.includes(i)) list.push(i); });
-  return list;
+  /* Recoloured copies ("...-grey", "...-orange") are hidden: only the first colour-named photo is shown */
+  const names = (p.colors || []).map(c => c && c.name ? c.name : c);
+  let seen = false;
+  return list.filter(src => {
+    if(!names.some(n => fileHasColor(src, n))) return true;
+    if(seen) return false;
+    return seen = true;
+  });
 }
 
 /* Photo that matches a colour, picked from the file name
@@ -106,8 +113,7 @@ function fileHasColor(src, name){
 }
 function colorImage(p, colorName){
   const imgs = allImages(p);
-  if(!colorName || !imgs.length) return imgs[0] || '';
-  return imgs.find(src => fileHasColor(src, colorName)) || imgs[0];
+  return imgs[0] || '';
 }
 function mainPhotoColor(p){
   const imgs = allImages(p);
