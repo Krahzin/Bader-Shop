@@ -582,5 +582,6 @@ input,textarea,select{font:inherit;color:inherit}
 
 /* Drone cards that link to their own page */
 a.card-media{display:block;cursor:pointer}
+.card.has-page{cursor:pointer}
 .card-link{color:inherit;text-decoration:none}
 .card-link:hover{text-decoration:underline}
