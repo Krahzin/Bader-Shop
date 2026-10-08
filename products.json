@@ -1290,6 +1290,23 @@
       "image": "/images/uploads/dz-o9-5467567567.webp"
     },
     {
+      "id": "1791501630272",
+      "name": "DJI RC-N3 Snap-Lock Case with Charging Port",
+      "price": 17,
+      "category": "DJI Remotes / Goggles",
+      "desc": "Snap-lock protective case for the DJI RC-N3 remote. Perfect fit, not too tight or loose, with a front cutout so you can charge the remote while it stays in the case. Keeps your remote protected during transport.\nRemote not included. Accessory only.",
+      "image": "/images/uploads/dz-rcn3-snaplock-box-1.webp",
+      "images": [
+        "/images/uploads/dz-rcn3-snaplock-box-2.webp",
+        "/images/uploads/dz-rcn3-snaplock-box-3.webp"
+      ],
+      "colors": [
+        "Black",
+        "Grey",
+        "Orange"
+      ]
+    },
+    {
       "id": "1003",
       "name": "DJI Lito 1/X1 Glow in the Dark Propeller Guards",
       "price": 25,
