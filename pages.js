@@ -1,3 +1,13 @@
+/* Static, indexable copies of blog posts (SEO). Add new posts here when their static page is created. */
+const STATIC_POSTS = {
+ "how-to-choose-your-first-drone-a-step-by-step-guide": "/blog/how-to-choose-your-first-drone-a-step-by-step-guide.html",
+ "every-dji-drone-explained-a-complete-guide-to-choosing-your-perfect-model": "/blog/every-dji-drone-explained-a-complete-guide-to-choosing-your-perfect-model.html",
+ "what-to-do-before-you-fly-a-pre-flight-checklist-for-drone-pilots": "/blog/what-to-do-before-you-fly-a-pre-flight-checklist-for-drone-pilots.html",
+ "must-have-accessories-for-your-dji-mini-drone": "/blog/must-have-accessories-for-your-dji-mini-drone.html",
+ "drone-laws-in-lebanon-2026-permits-rules-and-no-fly-areas": "/blog/drone-laws-in-lebanon.html",
+ "dji-neo-2-vs-dji-flip-which-should-you-buy": "/blog/dji-neo-2-vs-dji-flip.html",
+ "best-beginner-drone-to-buy-in-lebanon-2026": "/blog/best-beginner-drone-to-buy-in-lebanon.html"
+};
 /* Drone Zone — Blog & FAQ pages */
 (function(){
   const $ = s => document.querySelector(s);
@@ -90,7 +100,7 @@
         return;
       }
       list.innerHTML = posts.map((p, i) => `
-        <a class="post-card${i === 0 ? ' featured' : ''}" href="?post=${esc(p.slug)}">
+        <a class="post-card${i === 0 ? ' featured' : ''}" href="${STATIC_POSTS[p.slug] || ('/blog.html?post=' + esc(p.slug))}">
           <div class="post-media">${p.cover
             ? `<img src="${esc(img(p.cover))}" alt="" loading="lazy">`
             : `<span class="post-ph" aria-hidden="true"><img src="images/uploads/logo-144.webp" alt=""></span>`}</div>
@@ -118,7 +128,7 @@
           <a class="back-link" href="blog.html">← All posts</a>
           <a class="btn-shop" href="./">Shop accessories</a>
         </div>`;
-      const url = SITE + 'blog.html?post=' + encodeURIComponent(p.slug);
+      const url = STATIC_POSTS[p.slug] ? SITE + STATIC_POSTS[p.slug].slice(1) : SITE + 'blog.html?post=' + encodeURIComponent(p.slug);
       const desc = String(p.summary || '').slice(0, 160);
       setCanonical(url);
       setMeta('property', 'og:title', p.title); setMeta('property', 'og:url', url); setMeta('property', 'og:type', 'article');
@@ -131,6 +141,7 @@
       const q = new URLSearchParams(location.search).get('post');
       const h = q || decodeURIComponent(location.hash.slice(1));
       const p = h && posts.find(x => x.slug === h);
+      if(p && STATIC_POSTS[p.slug]){ location.replace(STATIC_POSTS[p.slug]); return; }
       if(p && !q){ try{ history.replaceState(null, '', '?post=' + encodeURIComponent(p.slug)); }catch(e){} }
       p ? renderPost(p) : renderList();
     }
