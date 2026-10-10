@@ -272,10 +272,10 @@ content:
     type: file
     path: blog/drone-laws-in-lebanon.html
     format: code
-  - name: code-blog-best-places-to-fly-a-drone-in-lebanon
-    label: "Code: blog/best-places-to-fly-a-drone-in-lebanon.html"
+  - name: code-blog-best-beginner-drone-to-buy-in-lebanon
+    label: "Code: blog/best-beginner-drone-to-buy-in-lebanon.html"
     type: file
-    path: blog/best-places-to-fly-a-drone-in-lebanon.html
+    path: blog/best-beginner-drone-to-buy-in-lebanon.html
     format: code
   - name: code-blog-dji-neo-2-vs-dji-flip
     label: "Code: blog/dji-neo-2-vs-dji-flip.html"
