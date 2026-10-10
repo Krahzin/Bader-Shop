@@ -182,3 +182,103 @@ content:
     type: file
     path: dji-mini-4-pro-lebanon.html
     format: code
+  - name: code-dji-air-3-lebanon
+    label: "Code: dji-air-3-lebanon.html"
+    type: file
+    path: dji-air-3-lebanon.html
+    format: code
+  - name: code-dji-avata-1-lebanon
+    label: "Code: dji-avata-1-lebanon.html"
+    type: file
+    path: dji-avata-1-lebanon.html
+    format: code
+  - name: code-dji-avata-2-lebanon
+    label: "Code: dji-avata-2-lebanon.html"
+    type: file
+    path: dji-avata-2-lebanon.html
+    format: code
+  - name: code-dji-avata-360-lebanon
+    label: "Code: dji-avata-360-lebanon.html"
+    type: file
+    path: dji-avata-360-lebanon.html
+    format: code
+  - name: code-dji-flip-lebanon
+    label: "Code: dji-flip-lebanon.html"
+    type: file
+    path: dji-flip-lebanon.html
+    format: code
+  - name: code-dji-lito-x1-lebanon
+    label: "Code: dji-lito-x1-lebanon.html"
+    type: file
+    path: dji-lito-x1-lebanon.html
+    format: code
+  - name: code-dji-mini-2-lebanon
+    label: "Code: dji-mini-2-lebanon.html"
+    type: file
+    path: dji-mini-2-lebanon.html
+    format: code
+  - name: code-dji-mini-3-lebanon
+    label: "Code: dji-mini-3-lebanon.html"
+    type: file
+    path: dji-mini-3-lebanon.html
+    format: code
+  - name: code-dji-mini-5-pro-lebanon
+    label: "Code: dji-mini-5-pro-lebanon.html"
+    type: file
+    path: dji-mini-5-pro-lebanon.html
+    format: code
+  - name: code-dji-neo-lebanon
+    label: "Code: dji-neo-lebanon.html"
+    type: file
+    path: dji-neo-lebanon.html
+    format: code
+  - name: code-dji-neo-2-lebanon
+    label: "Code: dji-neo-2-lebanon.html"
+    type: file
+    path: dji-neo-2-lebanon.html
+    format: code
+  - name: code-dji-goggles-remotes-lebanon
+    label: "Code: dji-goggles-remotes-lebanon.html"
+    type: file
+    path: dji-goggles-remotes-lebanon.html
+    format: code
+  - name: code-dji-drones-lebanon
+    label: "Code: dji-drones-lebanon.html"
+    type: file
+    path: dji-drones-lebanon.html
+    format: code
+  - name: code-blog-how-to-choose-your-first-drone-a-step-by-step-guide
+    label: "Code: blog/how-to-choose-your-first-drone-a-step-by-step-guide.html"
+    type: file
+    path: blog/how-to-choose-your-first-drone-a-step-by-step-guide.html
+    format: code
+  - name: code-blog-every-dji-drone-explained-a-complete-guide-to-choosing-your-perfect-model
+    label: "Code: blog/every-dji-drone-explained-a-complete-guide-to-choosing-your-perfect-model.html"
+    type: file
+    path: blog/every-dji-drone-explained-a-complete-guide-to-choosing-your-perfect-model.html
+    format: code
+  - name: code-blog-what-to-do-before-you-fly-a-pre-flight-checklist-for-drone-pilots
+    label: "Code: blog/what-to-do-before-you-fly-a-pre-flight-checklist-for-drone-pilots.html"
+    type: file
+    path: blog/what-to-do-before-you-fly-a-pre-flight-checklist-for-drone-pilots.html
+    format: code
+  - name: code-blog-must-have-accessories-for-your-dji-mini-drone
+    label: "Code: blog/must-have-accessories-for-your-dji-mini-drone.html"
+    type: file
+    path: blog/must-have-accessories-for-your-dji-mini-drone.html
+    format: code
+  - name: code-blog-drone-laws-in-lebanon
+    label: "Code: blog/drone-laws-in-lebanon.html"
+    type: file
+    path: blog/drone-laws-in-lebanon.html
+    format: code
+  - name: code-blog-best-places-to-fly-a-drone-in-lebanon
+    label: "Code: blog/best-places-to-fly-a-drone-in-lebanon.html"
+    type: file
+    path: blog/best-places-to-fly-a-drone-in-lebanon.html
+    format: code
+  - name: code-blog-dji-neo-2-vs-dji-flip
+    label: "Code: blog/dji-neo-2-vs-dji-flip.html"
+    type: file
+    path: blog/dji-neo-2-vs-dji-flip.html
+    format: code
