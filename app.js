@@ -356,8 +356,14 @@ function catLabel(c){ return c.replace(/^DJI\s+/i,'').replace(/\s*\/\s*/g,' / ')
 /* MODEL LANDING PAGES: /?model=dji-mini-4-pro */
 let activeModel = null;
 /* Drones with their own page: clicking the drone card opens it */
-const STATIC_MODEL_PAGES = { 'dji-mini-4-pro': 'dji-mini-4-pro-lebanon.html' };
-const productPage = p => p.category === DRONE_CAT ? (STATIC_MODEL_PAGES[slugify(p.name)] || '?drone=' + slugify(p.name)) : '';
+const STATIC_MODEL_PAGES = [
+  [/Mini 4 Pro/i, 'dji-mini-4-pro-lebanon.html'], [/Mini 5 Pro/i, 'dji-mini-5-pro-lebanon.html'], [/Mini 3/i, 'dji-mini-3-lebanon.html'], [/Mini 2|Mini 4K/i, 'dji-mini-2-lebanon.html'],
+  [/Neo 2/i, 'dji-neo-2-lebanon.html'], [/\bNeo\b/i, 'dji-neo-lebanon.html'], [/Flip/i, 'dji-flip-lebanon.html'], [/Lito/i, 'dji-lito-x1-lebanon.html'],
+  [/Avata 360/i, 'dji-avata-360-lebanon.html'], [/Avata 2/i, 'dji-avata-2-lebanon.html'], [/Avata/i, 'dji-avata-1-lebanon.html'], [/Air 3/i, 'dji-air-3-lebanon.html'],
+  [/^DJI RC 2$|Goggles|Motion 3/i, 'dji-goggles-remotes-lebanon.html']
+];
+const staticPage = p => { if(/glow|battery/i.test(p.name || '')) return ''; const m = STATIC_MODEL_PAGES.find(([re]) => re.test(p.name || '')); return m ? '/' + m[1] : ''; };
+const productPage = p => p.category === DRONE_CAT ? (staticPage(p) || '?drone=' + slugify(p.name)) : '';
 const slugify = s => String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const usd = n => '$' + (Number(n) || 0).toLocaleString('en-US');
 function modelProducts(c){
