@@ -6,7 +6,12 @@ const STATIC_POSTS = {
  "must-have-accessories-for-your-dji-mini-drone": "/blog/must-have-accessories-for-your-dji-mini-drone.html",
  "drone-laws-in-lebanon-2026-permits-rules-and-no-fly-areas": "/blog/drone-laws-in-lebanon.html",
  "dji-neo-2-vs-dji-flip-which-should-you-buy": "/blog/dji-neo-2-vs-dji-flip.html",
- "best-beginner-drone-to-buy-in-lebanon-2026": "/blog/best-beginner-drone-to-buy-in-lebanon.html"
+ "best-beginner-drone-to-buy-in-lebanon-2026": "/blog/best-beginner-drone-to-buy-in-lebanon.html",
+ "dji-mini-4-pro-vs-mini-5-pro-which-mini-drone-should-you-buy": "/blog/dji-mini-4-pro-vs-mini-5-pro.html",
+ "dji-avata-2-vs-avata-360-which-fpv-drone-is-right-for-you": "/blog/dji-avata-2-vs-avata-360.html",
+ "dji-lito-x1-vs-mini-4-pro-best-beginner-camera-drone": "/blog/dji-lito-x1-vs-mini-4-pro.html",
+ "best-drone-for-wedding-and-event-filming-in-lebanon": "/blog/best-drone-for-weddings-and-events-in-lebanon.html",
+ "buying-a-used-dji-drone-in-lebanon-what-to-check": "/blog/buying-a-used-dji-drone-in-lebanon.html"
 };
 /* Drone Zone — Blog & FAQ pages */
 (function(){
