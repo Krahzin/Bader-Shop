@@ -335,8 +335,7 @@ function renderContact(){
    ========================================================= */
 function renderChrome(){
   $('#brandName').textContent   = settings.storeName;
-  $('#heroTitle').textContent   = settings.storeName;
-  $('#heroTagline').textContent = settings.tagline || '';
+    $('#heroTagline').textContent = settings.tagline || '';
   $('#footerNote').textContent  = settings.footerNote || '';
   // keep the SEO title from index.html
   renderContact();
