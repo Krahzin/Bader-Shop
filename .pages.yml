@@ -282,3 +282,33 @@ content:
     type: file
     path: blog/dji-neo-2-vs-dji-flip.html
     format: code
+  - name: code-blog-dji-mini-4-pro-vs-mini-5-pro
+    label: "Code: blog/dji-mini-4-pro-vs-mini-5-pro.html"
+    type: file
+    path: blog/dji-mini-4-pro-vs-mini-5-pro.html
+    format: code
+  - name: code-blog-dji-avata-2-vs-avata-360
+    label: "Code: blog/dji-avata-2-vs-avata-360.html"
+    type: file
+    path: blog/dji-avata-2-vs-avata-360.html
+    format: code
+  - name: code-blog-dji-lito-x1-vs-mini-4-pro
+    label: "Code: blog/dji-lito-x1-vs-mini-4-pro.html"
+    type: file
+    path: blog/dji-lito-x1-vs-mini-4-pro.html
+    format: code
+  - name: code-blog-best-drone-for-weddings-and-events-in-lebanon
+    label: "Code: blog/best-drone-for-weddings-and-events-in-lebanon.html"
+    type: file
+    path: blog/best-drone-for-weddings-and-events-in-lebanon.html
+    format: code
+  - name: code-blog-buying-a-used-dji-drone-in-lebanon
+    label: "Code: blog/buying-a-used-dji-drone-in-lebanon.html"
+    type: file
+    path: blog/buying-a-used-dji-drone-in-lebanon.html
+    format: code
+  - name: code-dji-drones-lebanon-ar
+    label: "Code: dji-drones-lebanon-ar.html"
+    type: file
+    path: dji-drones-lebanon-ar.html
+    format: code
