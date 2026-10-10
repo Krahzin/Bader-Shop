@@ -26,7 +26,7 @@
 <meta name="theme-color" content="#128c7e">
 <link rel="stylesheet" href="/styles.css?v=9">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"DJI Neo 2 vs DJI Flip: Which Should You Buy?","description":"Two palm-launch DJI drones for selfies and vlogs. We compare camera, flight time, safety, size and price in Lebanon to help you choose.","image":"https://dronezonelb.com/images/uploads/dz-f12-1002.webp","datePublished":"2026-10-10","dateModified":"2026-10-10","author":{"@type":"Organization","name":"Drone Zone","url":"https://dronezonelb.com/"},"publisher":{"@type":"Organization","name":"Drone Zone","logo":{"@type":"ImageObject","url":"https://dronezonelb.com/images/uploads/logo-144.webp"}},"mainEntityOfPage":"https://dronezonelb.com/blog/dji-neo-2-vs-dji-flip.html","wordCount":395,"inLanguage":"en"}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"DJI Neo 2 vs DJI Flip: Which Should You Buy?","description":"Two palm-launch DJI drones for selfies and vlogs. We compare camera, flight time, safety, size and price in Lebanon to help you choose.","image":"https://dronezonelb.com/images/uploads/dz-f12-1002.webp","datePublished":"2026-10-10","dateModified":"2026-10-10","author":{"@type":"Organization","name":"Drone Zone","url":"https://dronezonelb.com/"},"publisher":{"@type":"Organization","name":"Drone Zone","logo":{"@type":"ImageObject","url":"https://dronezonelb.com/images/uploads/logo-144.webp"}},"mainEntityOfPage":"https://dronezonelb.com/blog/dji-neo-2-vs-dji-flip.html","wordCount":396,"inLanguage":"en"}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Shop","item":"https://dronezonelb.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://dronezonelb.com/blog.html"},{"@type":"ListItem","position":3,"name":"DJI Neo 2 vs DJI Flip: Which Should You Buy?","item":"https://dronezonelb.com/blog/dji-neo-2-vs-dji-flip.html"}]}
@@ -99,7 +99,7 @@
 <h2>Control options</h2>
 <p>Both can be flown from your palm with gestures or the app. The <strong>Neo 2</strong> can also be flown with DJI goggles and the RC Motion 3 for immersive FPV flight, which the Flip doesn't support.</p>
 <h2>Price in Lebanon</h2>
-<p>At Drone Zone, the <strong>Neo 2 RC2 Fly More Combo</strong> is $900 and the <strong>Neo 2 FPV RC2 Fly More Combo</strong> is $1,270. The <strong>DJI Flip Fly More Combo</strong> is $1,000. Prices change, so message us for the latest offer.</p>
+<p>The Neo 2 is usually the cheaper of the two, while the Flip costs more but gives you a bigger sensor and longer flights. Prices change with each new shipment, so message us on WhatsApp for the latest price of both.</p>
 <h2>Our recommendation</h2>
 <p>For most people who mainly film themselves and their friends, the <strong>Neo 2</strong> is the more fun and portable choice. If you want the best footage from a small, safe drone, the <strong>Flip</strong> is worth the extra size.</p>
 <p>See the <a href="/dji-neo-2-lebanon.html">DJI Neo 2 page</a> and the <a href="/dji-flip-lebanon.html">DJI Flip page</a> for combos and accessories, and remember to check the <a href="/blog/drone-laws-in-lebanon.html">drone rules in Lebanon</a> before you fly.</p>
@@ -139,5 +139,11 @@
   </div>
 </footer>
 <script src="/pages.js"></script>
+<script>
+/* Live prices and stock from products.json, so this page never needs manual price updates */
+(function(){fetch("/products.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){var P=d.products||[],by={};P.forEach(function(p){by[p.id]=p});var usd=function(n){return "$"+Number(n).toLocaleString("en-US")};var sl=function(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")};var e=function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")};
+document.querySelectorAll("[data-pid]").forEach(function(a){var p=by[a.getAttribute("data-pid")];if(!p){a.style.display="none";return}var b=a.querySelector(".dz-price");if(b)b.textContent=p.stock===0?"Sold out":usd(p.price)});
+document.querySelectorAll("[data-drones]").forEach(function(g){var re=new RegExp(g.getAttribute("data-drones"),"i");var ds=P.filter(function(p){return p.category==="Drones"&&re.test(p.name)&&!/glow|battery/i.test(p.name)&&p.stock!==0});if(!ds.length)return;g.innerHTML=ds.map(function(p){return '<a class="m4-card" href="/?drone='+sl(p.name)+'"><img src="/'+String(p.image||"").replace(/^\//,"")+'" alt="'+e(p.name)+'" loading="lazy"><span>'+e(p.name)+(/used/i.test(p.name)?" · Used":" · New")+"</span><b>"+usd(p.price)+"</b></a>"}).join("");g.hidden=false;var em=g.parentNode.querySelector("[data-drones-empty]");if(em)em.style.display="none"})}).catch(function(){})})();
+</script>
 </body>
 </html>
