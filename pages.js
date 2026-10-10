@@ -92,8 +92,7 @@ const STATIC_POSTS = {
       const d = await getJSON('blog.json');
       posts = (Array.isArray(d.posts) ? d.posts : [])
         .filter(p => p && p.title && p.published !== false)
-        .map(p => Object.assign({}, p, { slug: slug(p.title) }))
-        .sort((a,b) => String(b.date || '').localeCompare(String(a.date || '')));
+        .map(p => Object.assign({}, p, { slug: slug(p.title) }));
     }catch(e){}
 
     function renderList(){
@@ -110,7 +109,6 @@ const STATIC_POSTS = {
             ? `<img src="${esc(img(p.cover))}" alt="" loading="lazy">`
             : `<span class="post-ph" aria-hidden="true"><img src="images/uploads/logo-144.webp" alt=""></span>`}</div>
           <div class="post-body">
-            ${p.date ? `<time datetime="${esc(p.date)}">${fmtDate(p.date)}</time>` : ''}
             <h2>${esc(p.title)}</h2>
             ${p.summary ? `<p>${esc(p.summary)}</p>` : ''}
             <span class="read-more">Read post <span aria-hidden="true">→</span></span>
@@ -123,7 +121,6 @@ const STATIC_POSTS = {
       view.innerHTML = `
         <a class="back-link" href="blog.html">← All posts</a>
         <header class="article-head">
-          ${p.date ? `<time datetime="${esc(p.date)}">${fmtDate(p.date)}</time>` : ''}
           <h1>${esc(p.title)}</h1>
           ${p.summary ? `<p class="lede">${esc(p.summary)}</p>` : ''}
         </header>
