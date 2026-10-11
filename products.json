@@ -716,6 +716,19 @@
       "image": "/images/uploads/dz-o9-67.webp"
     },
     {
+      "id": "1791722058507",
+      "name": "DJI Mini 4 Pro Hard Case",
+      "price": 33,
+      "category": "DJI Mini 4 Pro",
+      "desc": "Hard protective case for the DJI Mini 4 Pro with a hinged lid. Keeps the drone safe in your bag.",
+      "image": "/images/uploads/dz-mini-4-pro-hard-case.webp",
+      "colors": [
+        "Black",
+        "Grey",
+        "Orange"
+      ]
+    },
+    {
       "id": "68",
       "name": "DJI Mini 4 Pro Basket",
       "price": 19,
