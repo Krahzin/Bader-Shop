@@ -350,6 +350,7 @@ function catGroup(c){
   if(/mini/i.test(c)) return 'DJI Mini';
   if(/neo/i.test(c)) return 'DJI Neo';
   if(/avata/i.test(c)) return 'DJI Avata';
+  if(/osmo/i.test(c)) return 'DJI Osmo';
   return 'More';
 }
 function catLabel(c){ return c.replace(/^DJI\s+/i,'').replace(/\s*\/\s*/g,' / '); }
@@ -395,7 +396,7 @@ function renderFilters(){
   const el = $('#filters');
   const accCats = [...new Set(products.map(p => p.category).filter(c => c && c !== DRONE_CAT))]
     .sort((a,b) => (a==='Other') - (b==='Other') || a.localeCompare(b, undefined, {numeric:true}));
-  const groups = ['DJI Mini','DJI Neo','DJI Avata','More']
+  const groups = ['DJI Mini','DJI Neo','DJI Avata','DJI Osmo','More']
     .map(g => [g, accCats.filter(c => catGroup(c) === g)]).filter(g => g[1].length);
   const sel = activeCategory === 'all' ? 'All drones' : catLabel(activeCategory);
   el.innerHTML =
