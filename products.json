@@ -1413,7 +1413,10 @@
       "price": 12,
       "category": "DJI Osmo Cameras",
       "desc": "Hard travel case for the DJI Osmo Pocket 3 with a built-in hinge. Protects the camera on all sides in your bag.",
-      "image": "/images/uploads/dz-osmo-1-c.webp"
+      "image": "/images/uploads/dz-osmo-1-d-c.webp",
+      "images": [
+        "/images/uploads/dz-osmo-1-2-d-c.webp"
+      ]
     },
     {
       "id": "osmo-2",
