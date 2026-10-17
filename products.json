@@ -1489,6 +1489,30 @@
       "category": "DJI Osmo Cameras",
       "desc": "Protective case for the DJI Osmo 360 camera.",
       "image": "/images/uploads/dz-osmo-10-c.webp"
+    },
+    {
+      "id": "gopro-2",
+      "name": "GoPro Hero 11 Protection Shell",
+      "price": 18,
+      "category": "GoPro",
+      "desc": "Snug flexible shell that keeps the buttons and screens accessible.",
+      "image": "/images/uploads/gopro-hero11-protection-shell.webp"
+    },
+    {
+      "id": "gopro-3",
+      "name": "GoPro Hero Session Case",
+      "price": 15,
+      "category": "GoPro",
+      "desc": "Protective case for the GoPro Hero Session.",
+      "image": "/images/uploads/gopro-hero-session-case.webp"
+    },
+    {
+      "id": "gopro-4",
+      "name": "GoPro Hero 5/6/7 Grip Case",
+      "price": 12,
+      "category": "GoPro",
+      "desc": "Grip and bumper case with a spare-battery slot. Charging port and SD slot stay accessible.",
+      "image": "/images/uploads/gopro-hero-5-6-7-grip-case.webp"
     }
   ]
 }
