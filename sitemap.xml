@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dronezonelb.com/</loc><lastmod>2026-10-10</lastmod><priority>1.0</priority></url>
+  <url><loc>https://dronezonelb.com/</loc><lastmod>2026-10-19</lastmod><priority>1.0</priority></url>
   <url><loc>https://dronezonelb.com/dji-drones-lebanon.html</loc><lastmod>2026-10-10</lastmod><priority>0.9</priority></url>
   <url><loc>https://dronezonelb.com/dji-drones-lebanon-ar.html</loc><lastmod>2026-10-10</lastmod><priority>0.9</priority></url>
   <url><loc>https://dronezonelb.com/dji-neo-2-lebanon.html</loc><lastmod>2026-10-10</lastmod><priority>0.9</priority></url>
@@ -30,4 +30,5 @@
   <url><loc>https://dronezonelb.com/blog/dji-lito-x1-vs-mini-4-pro.html</loc><lastmod>2026-10-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://dronezonelb.com/blog/best-drone-for-weddings-and-events-in-lebanon.html</loc><lastmod>2026-10-10</lastmod><priority>0.7</priority></url>
   <url><loc>https://dronezonelb.com/blog/buying-a-used-dji-drone-in-lebanon.html</loc><lastmod>2026-10-10</lastmod><priority>0.7</priority></url>
+  <url><loc>https://dronezonelb.com/returns.html</loc><lastmod>2026-10-19</lastmod><priority>0.4</priority></url>
 </urlset>
