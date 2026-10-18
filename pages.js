@@ -93,6 +93,7 @@ const STATIC_POSTS = {
       posts = (Array.isArray(d.posts) ? d.posts : [])
         .filter(p => p && p.title && p.published !== false)
         .map(p => Object.assign({}, p, { slug: slug(p.title) }));
+      posts = posts.filter(p => p.pinned).concat(posts.filter(p => !p.pinned));
     }catch(e){}
 
     function renderList(){
