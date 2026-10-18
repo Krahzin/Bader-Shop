@@ -1513,6 +1513,38 @@
       "category": "Cameras",
       "desc": "Grip and bumper case with a spare-battery slot. Charging port and SD slot stay accessible.",
       "image": "/images/uploads/gopro-hero-5-6-7-grip-case.webp"
+    },
+    {
+      "id": "osmo-11",
+      "name": "DJI Osmo Action 3 / 4 / 5 Pro Hat Mount",
+      "price": 15,
+      "category": "Cameras",
+      "desc": "Clip-on cap mount for filming hands-free from your hat brim. Fits Osmo Action 3, 4 and 5 Pro. No screws or tools needed.",
+      "image": "/images/uploads/dji-osmo-action-hat-mount.webp"
+    },
+    {
+      "id": "osmo-12",
+      "name": "DJI Osmo Pocket Holder (GoPro Mount)",
+      "price": 10,
+      "category": "Cameras",
+      "desc": "Holder that lets the Osmo Pocket use any GoPro-style mount or accessory. Snap-in fit, no screws.",
+      "image": "/images/uploads/dji-osmo-pocket-holder.webp"
+    },
+    {
+      "id": "osmo-13",
+      "name": "DJI Osmo Pocket 3 Cold Shoe Clip",
+      "price": 8,
+      "category": "Cameras",
+      "desc": "Simple clip that adds a cold shoe to the Osmo Pocket 3 for mics, lights and other accessories. No screws.",
+      "image": "/images/uploads/dji-osmo-pocket-3-cold-shoe-clip.webp"
+    },
+    {
+      "id": "gopro-5",
+      "name": "GoPro Helmet Chin Mount",
+      "price": 10,
+      "category": "Cameras",
+      "desc": "Chin mount for full-face helmets with a standard GoPro mount interface. Gives a first-person view of the ride.",
+      "image": "/images/uploads/gopro-helmet-chin-mount.webp"
     }
   ]
 }
