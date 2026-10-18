@@ -20,6 +20,9 @@ const DEFAULT_SETTINGS = {
 
 const SEED_PRODUCTS = [];
 
+/* Flat delivery fee (USD) applied to every order */
+const DELIVERY_FEE = 5;
+
 /* Common colour names → actual hex values */
 const NAMED_COLORS = {
   black:'#1a1a1a', white:'#f5f5f5', red:'#d64545', blue:'#3a6fb0',
@@ -305,7 +308,7 @@ function renderContact(){
   if(fc && !$('#policies')){
     const pol = document.createElement('p');
     pol.id = 'policies';
-    pol.textContent = 'Shipping available across Lebanon. Returns: contact us on WhatsApp.';
+    pol.textContent = 'Flat $5 delivery across Lebanon. Returns: contact us on WhatsApp.';
     fc.after(pol);
   }
   const digits = whatsappDigits();
@@ -391,7 +394,7 @@ function applyModelSeo(){
   const acc = list.filter(p => p.category !== DRONE_CAT).length;
   const url = STATIC_MODEL_PAGES[slugify(activeModel)] ? 'https://dronezonelb.com/' + STATIC_MODEL_PAGES[slugify(activeModel)] : 'https://dronezonelb.com/?model=' + slugify(activeModel);
   const title = drone ? `${name} Lebanon – ${usd(drone.price)} | Drone Zone` : `${name} Accessories Lebanon | Drone Zone`;
-  const desc = `${name} in Lebanon${drone ? ' for ' + usd(drone.price) : ''}` + (acc ? ` plus ${acc} accessories: cases, stands, guards and more.` : '.') + ' Delivery across Lebanon, order on WhatsApp.';
+  const desc = `${name} in Lebanon${drone ? ' for ' + usd(drone.price) : ''}` + (acc ? ` plus ${acc} accessories: cases, stands, guards and more.` : '.') + ' Flat $5 delivery across Lebanon, order on WhatsApp.';
   document.title = title;
   setMeta('meta[name=description]', 'content', desc);
   setMeta('link[rel=canonical]', 'href', url);
@@ -611,7 +614,11 @@ function renderCart(){
     }).join('');
   }
 
-  $('#cartTotal').textContent = money(cartTotal());
+  const sub = cartTotal();
+  const fee = entries.length ? DELIVERY_FEE : 0;
+  const subEl = $('#cartSub'); if(subEl) subEl.textContent = money(sub);
+  const feeEl = $('#cartFee'); if(feeEl) feeEl.textContent = money(fee);
+  $('#cartTotal').textContent = money(sub + fee);
   $('#cartCount').textContent = cartCount();
   $('#orderBtn').disabled = entries.length === 0;
 }
@@ -633,7 +640,9 @@ function buildOrderMessage(){
     lines.push(`    ${qty} × ${money(p.price)} = ${money(sub)}`);
   });
   lines.push('');
-  lines.push(`*Total: ${money(total)}*`);
+  lines.push(`Subtotal: ${money(total)}`);
+  lines.push(`Delivery (flat): ${money(DELIVERY_FEE)}`);
+  lines.push(`*Total: ${money(total + DELIVERY_FEE)}*`);
 
   const name = $('#custName').value.trim();
   const note = $('#custNote').value.trim();
@@ -876,7 +885,7 @@ async function init(){
         offers:{ '@type':'Offer', url:activeModel ? SITE + '?model=' + slugify(activeModel) : SITE, priceCurrency:'USD', price:Number(p.price) || 0,
           availability:(isOut(p) ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'),
           itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
-          shippingDetails:Object.assign({ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } }, p.category === DRONE_CAT ? {} : { shippingRate:{ '@type':'MonetaryAmount', value:5, currency:'USD' }, deliveryTime:{ '@type':'ShippingDeliveryTime', handlingTime:{ '@type':'QuantitativeValue', minValue:0, maxValue:0, unitCode:'DAY' }, transitTime:{ '@type':'QuantitativeValue', minValue:1, maxValue:3, unitCode:'DAY' } } }),
+          shippingDetails:Object.assign({ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } }, { shippingRate:{ '@type':'MonetaryAmount', value:5, currency:'USD' }, deliveryTime:{ '@type':'ShippingDeliveryTime', handlingTime:{ '@type':'QuantitativeValue', minValue:0, maxValue:0, unitCode:'DAY' }, transitTime:{ '@type':'QuantitativeValue', minValue:1, maxValue:3, unitCode:'DAY' } } }),
           seller:{ '@type':'Organization', name:'Drone Zone' } } };
       if(revs.length){
         prod.aggregateRating = { '@type':'AggregateRating', ratingValue:avgRating(revs).toFixed(1), reviewCount:revs.length, bestRating:5 };
@@ -927,7 +936,7 @@ function showDronePage(){
   const wa = whatsappUrl("Hi Drone Zone! I'm interested in the " + p.name + '.');
   const url = 'https://dronezonelb.com/?drone=' + slugify(p.name);
   const title = p.name + ' Lebanon – ' + usd(p.price) + ' | Drone Zone';
-  const desc = p.name + ' in Lebanon for ' + usd(p.price) + '. Delivery across Lebanon, order on WhatsApp.';
+  const desc = p.name + ' in Lebanon for ' + usd(p.price) + '. Flat $5 delivery across Lebanon, order on WhatsApp.';
   document.title = title;
   setMeta('meta[name=description]', 'content', desc);
   setMeta('link[rel=canonical]', 'href', url);
@@ -947,7 +956,7 @@ function showDronePage(){
           availability:out ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
           itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
           areaServed:{ '@type':'Country', name:'Lebanon' },
-          shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } },
+          shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' }, shippingRate:{ '@type':'MonetaryAmount', value:DELIVERY_FEE, currency:'USD' } },
           seller:{ '@type':'Organization', name:'Drone Zone', url:'https://dronezonelb.com/' } } },
       { '@context':'https://schema.org', '@type':'BreadcrumbList', itemListElement:[
         { '@type':'ListItem', position:1, name:'Drone Zone', item:'https://dronezonelb.com/' },
@@ -990,3 +999,174 @@ function showDronePage(){
   window.scrollTo(0, 0);
 }
 init();
+/* Lightweight EN <-> AR page translator.
+   English stays the default (crawlers always see English). Arabic is applied
+   client-side only when the visitor taps the language button. */
+(function(){
+  'use strict';
+  var KEY = 'shop.lang';
+
+  var D = {
+    'Shop':'المتجر','Blog':'المدونة','FAQ':'الأسئلة الشائعة',
+    'Search products…':'ابحث عن منتج…','Cart':'السلة',
+    'Switch language':'تغيير اللغة','Toggle dark mode':'الوضع الداكن',
+    'Please note:':'يرجى الملاحظة:',
+    'Drone accessories require a small':'ملحقات الدرون تتطلب',
+    'Whish deposit':'دفعة مقدّمة صغيرة عبر Whish',
+    'before we finalize the order.':'قبل إتمام الطلب.',
+    '🇱🇧 Your #1 drone shop in Lebanon':'🇱🇧 متجر الدرون رقم 1 في لبنان',
+    'DJI Drones & Accessories in Lebanon':'طائرات DJI بدون طيار وإكسسواراتها في لبنان',
+    'Browse our stock and order in seconds.':'تصفّح مخزوننا واطلب في ثوانٍ.',
+    'New and used DJI drones and accessories, delivered across Lebanon.':'طائرات DJI وإكسسوارات جديدة ومستعملة، نوصلها إلى كل لبنان.',
+    'Read our guides:':'اقرأ أدلتنا:',
+    'Every DJI drone explained':'شرح كل طائرات DJI',
+    'Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
+    'How to choose your first drone':'كيف تختار أول درون لك',
+    'All guides':'كل الأدلة',
+    'New to drones?':'جديد على الدرون؟',
+    'Range, height, flight time and more, answered in the FAQ.':'المدى والارتفاع ووقت الطيران وغيرها، مجاب عنها في الأسئلة الشائعة.',
+    'Guides & tips':'أدلة ونصائح',
+    'Setup help, flying tips and news on the blog.':'مساعدة في الإعداد ونصائح للطيران وأخبار في المدونة.',
+    'DJI drones, cases, batteries and parts in Lebanon':'طائرات DJI وحقائب وبطاريات وقطع غيار في لبنان',
+    'Drone Zone sells new and used DJI drones and accessories for Mini, Neo, Avata, Flip and Air models, with a flat $5 delivery fee anywhere in Lebanon. Pick your drone below or browse by model, then confirm your order on WhatsApp.':'يبيع درون زون طائرات DJI وإكسسوارات جديدة ومستعملة لموديلات Mini وNeo وAvata وFlip وAir، مع رسوم توصيل ثابتة 5$ إلى أي مكان في لبنان. اختر طائرتك أدناه أو تصفّح حسب الموديل، ثم أكّد طلبك عبر واتساب.',
+    'Shop by model:':'تسوّق حسب الموديل:',
+    'Returns policy':'سياسة الإرجاع',
+    'DJI Drones':'طائرات DJI','Drone laws':'قوانين الدرون',
+    'Orders are confirmed on WhatsApp - No payments are done on this site.':'يتم تأكيد الطلبات عبر واتساب - لا يتم أي دفع على هذا الموقع.',
+    'Orders are confirmed on WhatsApp. No payment is taken on this website.':'يتم تأكيد الطلبات عبر واتساب. لا يتم أي دفع على هذا الموقع.',
+    'Questions? Message us on WhatsApp:':'لديك سؤال؟ راسلنا على واتساب:',
+    'Flat $5 delivery across Lebanon. Returns: contact us on WhatsApp.':'توصيل بسعر ثابت 5$ إلى كل لبنان. الإرجاع: تواصل معنا عبر واتساب.',
+    'Please enable JavaScript to browse and order from the product grid, or message us on WhatsApp.':'يرجى تفعيل JavaScript لتصفّح المنتجات والطلب، أو راسلنا عبر واتساب.',
+    'Your cart':'سلتك','Shopping cart':'سلة التسوق','Close':'إغلاق',
+    'Subtotal':'المجموع الفرعي','Delivery (flat fee)':'التوصيل (رسوم ثابتة)','Total':'المجموع',
+    'Your name (optional)':'اسمك (اختياري)',
+    'Note — address, delivery, questions… (optional)':'ملاحظة — العنوان، التوصيل، أسئلة… (اختياري)',
+    'Order on WhatsApp':'اطلب عبر واتساب',
+    'No payment here — we confirm everything on WhatsApp.':'لا يوجد دفع هنا — نؤكد كل شيء عبر واتساب.',
+    'Questions?':'لديك أسئلة؟','Message us':'راسلنا',
+    'Your cart is empty.':'سلتك فارغة.','Add something you like!':'أضف شيئاً يعجبك!',
+    'Your cart is empty':'سلتك فارغة',
+    'Remove':'حذف','Colour:':'اللون:','Decrease':'تقليل','Increase':'زيادة',
+    'Add to cart':'أضف إلى السلة','Out of stock':'نفدت الكمية','In stock':'متوفر',
+    'Out of stock – message us to reserve one':'نفدت الكمية – راسلنا لحجز واحدة',
+    'Ask on WhatsApp':'اسأل عبر واتساب','← All drones':'← كل الطائرات',
+    'DJI Drones in Lebanon':'طائرات DJI في لبنان',
+    'Drones':'الطائرات','Accessories':'الإكسسوارات','Cameras':'الكاميرات',
+    'All drones':'كل الطائرات','All accessories':'كل الإكسسوارات','All cameras':'كل الكاميرات',
+    'Choose your drone':'اختر طائرتك','Show':'عرض',
+    'Nothing here yet':'لا يوجد شيء هنا بعد',
+    'Try a different search or category.':'جرّب بحثاً أو فئة أخرى.',
+    'No more stock available':'لا توجد كمية إضافية متوفرة',
+    'WhatsApp number is not configured':'رقم واتساب غير مضبوط',
+    'Thanks! Your review will appear after approval.':'شكراً! سيظهر تقييمك بعد الموافقة.',
+    'Storage is full.':'مساحة التخزين ممتلئة.',
+    'Reviews':'التقييمات','Write a review':'اكتب تقييماً','Send review':'إرسال التقييم',
+    'Your name':'اسمك','Your review':'تقييمك',
+    'Reviews are sent to us on WhatsApp and appear here after approval.':'يصلنا التقييم عبر واتساب ويظهر هنا بعد الموافقة.',
+    'Image viewer':'عارض الصور','Previous image':'الصورة السابقة','Next image':'الصورة التالية'
+  };
+
+  var R = [
+    [/^(\$[\d.,]+) each$/, '$1 للقطعة'],
+    [/^(.+) in Lebanon$/, '$1 في لبنان'],
+    [/^(.+) \((.+)\) added$/, 'تمت إضافة $1 ($2)'],
+    [/^(.+) added to cart$/, 'تمت إضافة $1 إلى السلة'],
+    [/^🎉?\s*10% OFF on orders above \$75 on all accessories\s*!*$/, '🎉 خصم 10% على الطلبات فوق 75$ على جميع الإكسسوارات !!!'],
+    [/^(\d) stars$/, '$1 نجوم']
+  ];
+
+  var origText = new WeakMap(), lastSet = new WeakMap(), origAttr = new WeakMap();
+  var ATTRS = ['placeholder','aria-label','title'];
+  var lang = 'en', queued = false, obs = null;
+
+  function norm(s){ return s.replace(/\s+/g, ' ').trim(); }
+  function tr(s){
+    var k = norm(s);
+    if(!k) return null;
+    if(Object.prototype.hasOwnProperty.call(D, k)) return D[k];
+    for(var i = 0; i < R.length; i++){ if(R[i][0].test(k)) return k.replace(R[i][0], R[i][1]); }
+    return null;
+  }
+  function skip(el){
+    return !el || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA)$/.test(el.nodeName) || (el.closest && el.closest('[data-notr]'));
+  }
+
+  function toAr(root){
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
+    while((n = w.nextNode())){
+      if(skip(n.parentElement)) continue;
+      var cur = n.nodeValue;
+      if(origText.has(n) && lastSet.get(n) === cur) continue;
+      var t = tr(cur);
+      if(t != null){ origText.set(n, cur); lastSet.set(n, t); n.nodeValue = t; }
+    }
+    var els = root.querySelectorAll ? root.querySelectorAll('[placeholder],[aria-label],[title]') : [];
+    Array.prototype.forEach.call(els, function(el){
+      if(el.closest('[data-notr]')) return;
+      var store = origAttr.get(el) || {};
+      ATTRS.forEach(function(a){
+        if(!el.hasAttribute(a)) return;
+        var cur = el.getAttribute(a);
+        if(store[a] && store[a].set === cur) return;
+        var t = tr(cur);
+        if(t != null){ store[a] = { orig: cur, set: t }; el.setAttribute(a, t); }
+      });
+      origAttr.set(el, store);
+    });
+  }
+  function toEn(root){
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), n;
+    while((n = w.nextNode())){
+      if(origText.has(n)){ n.nodeValue = origText.get(n); origText.delete(n); lastSet.delete(n); }
+    }
+    Array.prototype.forEach.call(root.querySelectorAll('[placeholder],[aria-label],[title]'), function(el){
+      var store = origAttr.get(el);
+      if(!store) return;
+      ATTRS.forEach(function(a){ if(store[a]) el.setAttribute(a, store[a].orig); });
+      origAttr.delete(el);
+    });
+  }
+
+  function run(){
+    queued = false;
+    if(lang !== 'ar') return;
+    if(obs) obs.disconnect();
+    toAr(document.body);
+    if(obs) watch();
+  }
+  function schedule(){
+    if(queued) return;
+    queued = true;
+    (window.requestAnimationFrame || setTimeout)(run);
+  }
+  function watch(){
+    obs.observe(document.body, { childList:true, subtree:true, characterData:true, attributes:true, attributeFilter:ATTRS });
+  }
+
+  function setLang(l){
+    lang = l;
+    try{ localStorage.setItem(KEY, l); }catch(e){}
+    var h = document.documentElement;
+    h.setAttribute('lang', l);
+    h.setAttribute('dir', l === 'ar' ? 'rtl' : 'ltr');
+    var b = document.getElementById('langToggle');
+    if(b){
+      b.textContent = l === 'ar' ? 'EN' : 'عربي';
+      b.setAttribute('aria-label', l === 'ar' ? 'Switch to English' : 'التبديل إلى العربية');
+      b.setAttribute('title', b.getAttribute('aria-label'));
+    }
+    if(!obs){ obs = new MutationObserver(schedule); }
+    if(l === 'ar'){ run(); watch(); }
+    else { obs.disconnect(); toEn(document.body); }
+  }
+
+  function init(){
+    var b = document.getElementById('langToggle');
+    if(b) b.addEventListener('click', function(){ setLang(lang === 'ar' ? 'en' : 'ar'); });
+    var saved = null;
+    try{ saved = localStorage.getItem(KEY); }catch(e){}
+    if(saved === 'ar') setLang('ar');
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
