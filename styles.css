@@ -106,6 +106,25 @@ input,textarea,select{font:inherit;color:inherit}
 .mm-it{display:block;width:100%;text-align:left;padding:6px 8px;border-radius:8px;font-size:13.5px;font-weight:600;color:var(--text)}
 .mm-it:hover{background:var(--bg)}
 .mm-it.active{background:var(--accent);color:#fff}
+/* ---------- Camera sections ---------- */
+.cam-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:4px;max-width:880px}
+.cam-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-size:14px;font-weight:700;color:var(--text);transition:.15s}
+.cam-chip i{font-style:normal;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:rgba(18,140,126,.12);color:var(--accent);font-size:12px}
+.cam-chip b{font-size:11.5px;font-weight:700;color:var(--muted);background:var(--bg);padding:2px 7px;border-radius:999px}
+.cam-chip:hover{border-color:var(--accent)}
+.cam-chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.cam-chip.active i{background:rgba(255,255,255,.22);color:#fff}
+.cam-chip.active b{background:rgba(255,255,255,.22);color:#fff}
+.grid-sec{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:18px 20px;margin-top:10px;border-radius:var(--radius);border:1px solid var(--line);background:linear-gradient(120deg,rgba(18,140,126,.12),transparent 70%),var(--surface)}
+.grid-sec:first-child{margin-top:0}
+.gs-ico{display:grid;place-items:center;width:44px;height:44px;flex:none;border-radius:14px;background:var(--accent);color:#fff;font-size:20px;box-shadow:0 6px 16px rgba(18,140,126,.28)}
+.grid-sec h3{margin:0;font-size:19px;letter-spacing:-.01em}
+.grid-sec p{margin:2px 0 0;font-size:13.5px;color:var(--muted)}
+.grid-sec>b{margin-left:auto;font-size:12px;font-weight:700;color:var(--accent);white-space:nowrap}
+[data-theme="dark"] .cam-chip.active{color:#0a1626}
+[data-theme="dark"] .gs-ico{color:#0a1626;box-shadow:none}
+[data-theme="dark"] .grid-sec{background:linear-gradient(120deg,rgba(91,157,255,.14),transparent 70%),var(--surface)}
+@media (max-width:600px){.tabs .tab{padding:9px 16px}.cam-chip{padding:6px 11px 6px 7px;font-size:13px}.cam-chip i{width:22px;height:22px}.grid-sec{padding:14px}.gs-ico{width:38px;height:38px;font-size:17px}.grid-sec h3{font-size:17px}}
 
 /* ---------- Grid ---------- */
 .grid{
