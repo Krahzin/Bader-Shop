@@ -1393,7 +1393,7 @@
       "id": "osmo-1",
       "name": "DJI Osmo Pocket 3 Hard Travel Case",
       "price": 12,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Hard travel case for the DJI Osmo Pocket 3 with a built-in hinge. Protects the camera on all sides in your bag.",
       "image": "/images/uploads/dz-osmo-1-d-c.webp",
       "images": [
@@ -1404,7 +1404,7 @@
       "id": "osmo-2",
       "name": "DJI Osmo Pocket 3 Gimbal Cover",
       "price": 7,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Slim cover that protects the Pocket 3 gimbal and lens while keeping the camera pocket-sized.",
       "image": "/images/uploads/dz-osmo-2-c.webp",
       "images": [
@@ -1415,7 +1415,7 @@
       "id": "osmo-3",
       "name": "DJI Osmo Pocket 3 / 4 Case",
       "price": 12,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Hinged protective case for the DJI Osmo Pocket 3 and Pocket 4.",
       "image": "/images/uploads/dz-osmo-3-d-c.webp",
       "images": [
@@ -1426,7 +1426,7 @@
       "id": "osmo-4",
       "name": "DJI Osmo Action 3 / 4 / 5 Pro Case",
       "price": 15,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Screw-top storage case for the Osmo Action 3, 4 and 5 Pro, with room for the camera in its frame, batteries and microSD cards.",
       "image": "/images/uploads/dz-osmo-4-c.webp"
     },
@@ -1434,7 +1434,7 @@
       "id": "osmo-5",
       "name": "DJI Osmo Action 4 / 5 Pro Storage Case",
       "price": 15,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Compact storage case with a sliding lid for the Osmo Action 4 / 5 Pro in its frame, plus a spare microSD and 3 filters.",
       "image": "/images/uploads/dz-osmo-5-c.webp"
     },
@@ -1442,7 +1442,7 @@
       "id": "osmo-6",
       "name": "DJI Osmo Action 5 Pro Lens Cover",
       "price": 5,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Lens cover for the DJI Osmo Action 5 Pro. Keeps the lens safe from scratches and dust.",
       "image": "/images/uploads/dz-osmo-6-c.webp",
       "images": [
@@ -1453,7 +1453,7 @@
       "id": "osmo-7",
       "name": "DJI Osmo Action 4 / 5 Pro Cage",
       "price": 10,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Flexible protective cage and mount for the Osmo Action 4 / 5 Pro.",
       "image": "/images/uploads/dz-osmo-7-c.webp",
       "images": [
@@ -1464,7 +1464,7 @@
       "id": "osmo-8",
       "name": "DJI Osmo Action 3 / 4 / 5 Pro Handle Grip",
       "price": 10,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Side handle grip for the Osmo Action 3, 4 and 5 Pro. Attaches with the DJI magnetic quick-release mount (not included), with a lanyard loop.",
       "image": "/images/uploads/dz-osmo-8-c.webp",
       "images": [
@@ -1475,7 +1475,7 @@
       "id": "osmo-9",
       "name": "DJI Osmo Nano Lens Cap",
       "price": 5,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Lens cap for the DJI Osmo Nano. Protects the lens when not filming.",
       "image": "/images/uploads/dz-osmo-9-c.webp",
       "images": [
@@ -1486,7 +1486,7 @@
       "id": "osmo-10",
       "name": "DJI Osmo 360 Case",
       "price": 12,
-      "category": "DJI Osmo Cameras",
+      "category": "Cameras",
       "desc": "Protective case for the DJI Osmo 360 camera.",
       "image": "/images/uploads/dz-osmo-10-c.webp"
     },
@@ -1494,7 +1494,7 @@
       "id": "gopro-2",
       "name": "GoPro Hero 11 Protection Shell",
       "price": 18,
-      "category": "GoPro",
+      "category": "Cameras",
       "desc": "Snug flexible shell that keeps the buttons and screens accessible.",
       "image": "/images/uploads/gopro-hero11-protection-shell.webp"
     },
@@ -1502,7 +1502,7 @@
       "id": "gopro-3",
       "name": "GoPro Hero Session Case",
       "price": 15,
-      "category": "GoPro",
+      "category": "Cameras",
       "desc": "Protective case for the GoPro Hero Session.",
       "image": "/images/uploads/gopro-hero-session-case.webp"
     },
@@ -1510,41 +1510,9 @@
       "id": "gopro-4",
       "name": "GoPro Hero 5/6/7 Grip Case",
       "price": 12,
-      "category": "GoPro",
+      "category": "Cameras",
       "desc": "Grip and bumper case with a spare-battery slot. Charging port and SD slot stay accessible.",
       "image": "/images/uploads/gopro-hero-5-6-7-grip-case.webp"
-    },
-    {
-      "id": "osmo-11",
-      "name": "DJI Osmo Action 3 / 4 / 5 Pro Hat Mount",
-      "price": 15,
-      "category": "DJI Osmo Cameras",
-      "desc": "Clip-on cap mount for filming hands-free from your hat brim. Fits Osmo Action 3, 4 and 5 Pro. No screws or tools needed.",
-      "image": "/images/uploads/dji-osmo-action-hat-mount.webp"
-    },
-    {
-      "id": "osmo-12",
-      "name": "DJI Osmo Pocket Holder (GoPro Mount)",
-      "price": 10,
-      "category": "DJI Osmo Cameras",
-      "desc": "Holder that lets the Osmo Pocket use any GoPro-style mount or accessory. Snap-in fit, no screws.",
-      "image": "/images/uploads/dji-osmo-pocket-holder.webp"
-    },
-    {
-      "id": "osmo-13",
-      "name": "DJI Osmo Pocket 3 Cold Shoe Clip",
-      "price": 8,
-      "category": "DJI Osmo Cameras",
-      "desc": "Simple clip that adds a cold shoe to the Osmo Pocket 3 for mics, lights and other accessories. No screws.",
-      "image": "/images/uploads/dji-osmo-pocket-3-cold-shoe-clip.webp"
-    },
-    {
-      "id": "gopro-5",
-      "name": "GoPro Helmet Chin Mount",
-      "price": 10,
-      "category": "GoPro",
-      "desc": "Chin mount for full-face helmets with a standard GoPro mount interface. Gives a first-person view of the ride.",
-      "image": "/images/uploads/gopro-helmet-chin-mount.webp"
     }
   ]
 }
