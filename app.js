@@ -344,8 +344,17 @@ function renderChrome(){
 /* =========================================================
    RENDER — FILTERS
    ========================================================= */
-const DRONE_CAT = 'Drones';
-let activeTab = 'drones', menuOpen = false;
+const DRONE_CAT = 'Drones', CAM_CAT = 'Cameras';
+let activeTab = 'drones', menuOpen = false, activeCam = 'all';
+/* Camera sections: [key, title, subtitle, icon, test] */
+const CAM_GROUPS = [
+  ['pocket', 'Osmo Pocket', 'Cases, covers & clips', '◉', n => /pocket/i.test(n)],
+  ['action', 'Osmo Action', 'Cages, grips & mounts', '▣', n => /action/i.test(n)],
+  ['360', 'Osmo 360 & Nano', 'Protection for compact cams', '◎', n => /360|nano/i.test(n)],
+  ['gopro', 'GoPro', 'Shells, grips & mounts', '▲', n => /gopro/i.test(n)],
+  ['more', 'More', 'Everything else', '✦', () => true]
+];
+const camGroup = p => CAM_GROUPS.find(g => g[4](p.name || ''))[0];
 function catGroup(c){
   if(/mini/i.test(c)) return 'DJI Mini';
   if(/neo/i.test(c)) return 'DJI Neo';
@@ -392,16 +401,24 @@ function applyModelSeo(){
   $('#heroTitle').textContent = `${name} in Lebanon`;
   $('#heroTagline').textContent = desc;
 }
+function camChips(){
+  const cams = products.filter(p => p.category === CAM_CAT);
+  const groups = CAM_GROUPS.map(g => [g, cams.filter(p => camGroup(p) === g[0]).length]).filter(x => x[1]);
+  return `<div class="cam-chips"><button class="cam-chip ${activeCam==='all'?'active':''}" data-cam="all"><i>✦</i><span>All cameras</span><b>${cams.length}</b></button>` +
+    groups.map(([g, n]) => `<button class="cam-chip ${activeCam===g[0]?'active':''}" data-cam="${g[0]}"><i>${g[3]}</i><span>${g[1]}</span><b>${n}</b></button>`).join('') + `</div>`;
+}
 function renderFilters(){
   const el = $('#filters');
-  const accCats = [...new Set(products.map(p => p.category).filter(c => c && c !== DRONE_CAT))]
+  const accCats = [...new Set(products.map(p => p.category).filter(c => c && c !== DRONE_CAT && c !== CAM_CAT))]
     .sort((a,b) => (a==='Other') - (b==='Other') || a.localeCompare(b, undefined, {numeric:true}));
   const groups = ['DJI Mini','DJI Neo','DJI Avata','DJI Osmo','More']
     .map(g => [g, accCats.filter(c => catGroup(c) === g)]).filter(g => g[1].length);
   const sel = activeCategory === 'all' ? 'All drones' : catLabel(activeCategory);
   el.innerHTML =
     `<div class="tabs"><button class="tab ${activeTab==='drones'?'active':''}" data-tab="drones">Drones</button>` +
-    `<button class="tab ${activeTab==='acc'?'active':''}" data-tab="acc">Accessories</button></div>` +
+    `<button class="tab ${activeTab==='acc'?'active':''}" data-tab="acc">Accessories</button>` +
+    `<button class="tab ${activeTab==='cam'?'active':''}" data-tab="cam">Cameras</button></div>` +
+    (activeTab === 'cam' ? camChips() : '') +
     (activeTab === 'acc' ? `<div class="model-pick"><button class="model-btn" data-menu="1" aria-expanded="${menuOpen}">` +
       `<span class="model-btn-lbl">Choose your drone</span><strong>${escapeHtml(sel)}</strong><span class="caret">▾</span></button>` +
       (menuOpen ? `<div class="model-menu"><div class="mm-col"><h4>Show</h4><button class="mm-it ${activeCategory==='all'?'active':''}" data-cat="all">All accessories</button></div>` +
@@ -419,8 +436,10 @@ function renderProducts(){
     .filter(p => {
       const hay = (p.name + ' ' + (p.desc||'') + ' ' + (p.category||'')).toLowerCase();
       const matchQ = !q || hay.includes(q);
-      const inTab = activeTab === 'drones' ? p.category === DRONE_CAT : p.category !== DRONE_CAT;
-      const matchC = q ? true : inTab && (activeTab === 'drones' || activeCategory === 'all' || p.category === activeCategory);
+      const inTab = activeTab === 'drones' ? p.category === DRONE_CAT
+        : activeTab === 'cam' ? p.category === CAM_CAT && (activeCam === 'all' || camGroup(p) === activeCam)
+        : p.category !== DRONE_CAT && p.category !== CAM_CAT;
+      const matchC = q ? true : inTab && (activeTab !== 'acc' || activeCategory === 'all' || p.category === activeCategory);
       return matchQ && matchC;
     })
     .sort((a, b) => isOut(a) - isOut(b) || categoryRank(a.category) - categoryRank(b.category));
@@ -434,7 +453,21 @@ function renderProducts(){
     return;
   }
 
+  const camSections = activeTab === 'cam' && activeCam === 'all' && !q && !activeModel;
+  if(camSections) list.sort((a, b) => CAM_GROUPS.findIndex(g => g[0] === camGroup(a)) - CAM_GROUPS.findIndex(g => g[0] === camGroup(b)) || isOut(a) - isOut(b));
+  let lastSec = null;
   grid.innerHTML = list.map(p => {
+    let head = '';
+    if(camSections && camGroup(p) !== lastSec){
+      lastSec = camGroup(p);
+      const g = CAM_GROUPS.find(x => x[0] === lastSec), n = list.filter(x => camGroup(x) === lastSec).length;
+      head = `<div class="grid-sec"><span class="gs-ico">${g[3]}</span><div><h3>${g[1]}</h3><p>${g[2]}</p></div><b>${n} item${n > 1 ? 's' : ''}</b></div>`;
+    }
+    return head + card(p);
+  }).join('');
+}
+function card(p){
+  {
     const soldOut = p.stock !== '' && p.stock !== null && p.stock !== undefined && Number(p.stock) <= 0;
     const imgs = allImages(p);
     const multi = imgs.length > 1;
@@ -490,7 +523,7 @@ function renderProducts(){
           </div>
         </div>
       </article>`;
-  }).join('');
+  }
 }
 
 /* =========================================================
@@ -642,7 +675,9 @@ function bindEvents(){
   $('#searchInput').addEventListener('input', renderProducts);
   $('#filters').addEventListener('click', e => {
     const tab = e.target.closest('[data-tab]'), menu = e.target.closest('[data-menu]'), btn = e.target.closest('[data-cat]');
-    if(tab){ activeTab = tab.dataset.tab; activeCategory = 'all'; menuOpen = false; }
+    const cam = e.target.closest('[data-cam]');
+    if(tab){ activeTab = tab.dataset.tab; activeCategory = 'all'; activeCam = 'all'; menuOpen = false; }
+    else if(cam){ activeCam = cam.dataset.cam; }
     else if(menu){ menuOpen = !menuOpen; }
     else if(btn){ activeCategory = btn.dataset.cat; menuOpen = false; }
     else return;
