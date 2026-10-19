@@ -228,6 +228,7 @@ const STATIC_POSTS = {
       var cur = n.nodeValue;
       if(origText.has(n) && lastSet.get(n) === cur) continue;
       var t = tr(cur);
+      if(t != null) t = cur.match(/^\s*/)[0] + t + cur.match(/\s*$/)[0];
       if(t != null){
         origText.set(n, cur); lastSet.set(n, t); n.nodeValue = t;
         var blk = p.closest('.faq-item,.post-body,.page-hero,.m4-sec,.faq-cta');
