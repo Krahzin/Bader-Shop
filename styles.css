@@ -687,3 +687,8 @@ body[data-page] .header-inner{flex-wrap:nowrap}
   .site-notice .wrap{text-align:center}
   .card-body .desc{-webkit-line-clamp:2}
 }
+
+/* small blog shortcut in the hero */
+.hero .hero-blog{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:6px 14px;border:1px solid var(--line,#e2e2dc);border-radius:999px;font-size:13px;font-weight:600;color:var(--text);text-decoration:none;background:var(--surface,#fff);transition:border-color .15s,color .15s}
+.hero .hero-blog:hover{border-color:var(--accent,#128c7e);color:var(--accent,#128c7e)}
+@media(max-width:720px){ .hero .hero-blog{font-size:12.5px;margin-top:10px} }
