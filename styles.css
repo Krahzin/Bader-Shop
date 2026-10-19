@@ -650,3 +650,22 @@ html[lang="ar"] body{font-family:"Segoe UI",Tahoma,"Noto Sans Arabic",Arial,sans
 html[dir="rtl"] .rv-line{text-align:right}
 html[dir="rtl"] .help-arrow{transform:scaleX(-1)}
 html[dir="rtl"] .toast{direction:rtl}
+
+/* Arabic: RTL text blocks only, layout stays the same */
+[dir="rtl"] .prose ul,[dir="rtl"] .prose ol,.ar-article .prose ul,.ar-article .prose ol{padding-left:0;padding-right:1.3em}
+.ar-article,.ar-article .prose{text-align:right}
+html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{text-align:right}
+.faq-item[dir="rtl"] summary{text-align:right}
+/* static article pages: keep header on one row on phones */
+body[data-page] .header-inner{flex-wrap:nowrap}
+@media (max-width:420px){
+  body[data-page] .header-inner{gap:6px;padding-left:12px;padding-right:12px}
+  body[data-page] .brand-name{font-size:15px}
+  body[data-page] .site-nav a{padding:6px 6px;font-size:13px}
+  body[data-page] .lang-toggle{padding:6px 8px;font-size:12.5px}
+}
+@media (max-width:360px){ body[data-page] .brand-name{display:none} }
+@media(max-width:720px){
+  body:not([data-page]) .search{flex:1 1 calc(100% - 70px)}
+  body:not([data-page]) .lang-toggle{order:4;align-self:stretch;padding:0 12px;border-radius:12px}
+}
