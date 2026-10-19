@@ -717,3 +717,15 @@ body[data-page] .header-inner{flex-wrap:nowrap}
 
 /* out-of-stock button fits on small cards */
 @media(max-width:720px){ .card-foot .btn.sold-out{padding:7px 9px;font-size:11.5px;white-space:nowrap;min-width:0} .card-foot{flex-wrap:wrap;row-gap:6px} }
+
+/* ---------- Polish: badges, header, notice ---------- */
+.badge-cond{position:absolute;top:10px;left:10px;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.02em;backdrop-filter:blur(6px)}
+.badge-cond.used{background:rgba(20,20,24,.72);color:#fff}
+.badge-cond.new{background:var(--accent,#128c7e);color:#fff}
+.site-notice{background:transparent;border-bottom:1px solid var(--line,#e6e6e0);color:var(--muted);font-size:12.5px;padding:7px 0}
+.site-notice strong{color:var(--text);font-weight:650}
+.site-notice .ni{display:inline-grid;place-items:center;width:15px;height:15px;margin-right:5px;border-radius:50%;border:1.5px solid currentColor;font:700 10px/1 Georgia,serif;font-style:italic;vertical-align:-2px}
+@media(max-width:720px){
+  .site-notice{font-size:11.5px}
+  body:not([data-page]) .site-nav a,[data-theme="dark"] body:not([data-page]) .site-nav a{background:transparent;color:var(--text);width:auto;padding:0 8px;font-weight:600}
+}
