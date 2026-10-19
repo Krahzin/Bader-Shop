@@ -403,6 +403,7 @@ function applyModelSeo(){
   setMeta('meta[property="og:description"]', 'content', desc);
   $('#heroTitle').textContent = `${name} in Lebanon`;
   $('#heroTagline').textContent = desc;
+  $('#heroTagline').className = 'hero-sub';
 }
 function camChips(){
   const cams = products.filter(p => p.category === CAM_CAT);
@@ -1019,6 +1020,8 @@ init();
     'Browse our stock and order in seconds.':'تصفّح مخزوننا واطلب في ثوانٍ.',
     'New and used DJI drones and accessories, delivered across Lebanon.':'طائرات DJI وإكسسوارات جديدة ومستعملة، نوصلها إلى كل لبنان.',
     'Read our guides:':'اقرأ أدلتنا:',
+    'New and used DJI drones & accessories · Flat $5 delivery across Lebanon':'طائرات DJI وإكسسوارات جديدة ومستعملة · توصيل بسعر ثابت 5$ إلى كل لبنان',
+    'Guides:':'أدلة:','Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
     'Every DJI drone explained':'شرح كل طائرات DJI',
     'Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
     'How to choose your first drone':'كيف تختار أول درون لك',
@@ -1180,3 +1183,11 @@ init();
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+/* tap a long product description to expand / collapse it */
+document.addEventListener('click', function(e){
+  var d = e.target.closest && e.target.closest('.card-body .desc');
+  if(!d) return;
+  if(d.classList.contains('open') || d.scrollHeight > d.clientHeight + 2){
+    d.classList.toggle('open'); e.preventDefault(); e.stopPropagation();
+  }
+}, true);
