@@ -744,3 +744,11 @@ body[data-page] .header-inner{flex-wrap:nowrap}
 [data-theme="dark"] .site-notice{background:#3a2222;border-bottom-color:#5e3330;color:#f6b4a8}
 [data-theme="dark"] .site-notice strong{color:#ff8a76}
 [data-theme="dark"] .site-notice .ni{background:#ff8a76;border-color:#ff8a76;color:#3a2222}
+
+/* deposit notice: subtle blush (overrides coral) */
+.site-notice{background:#faf3f1;border-bottom:1px solid #efe1dd;color:#6e5550;font-weight:400}
+.site-notice strong{color:#b4533f;font-weight:650}
+.site-notice .ni{background:#d77c68;border-color:#d77c68;color:#fff}
+[data-theme="dark"] .site-notice{background:#262022;border-bottom-color:#3a2f30;color:#cdb8b3}
+[data-theme="dark"] .site-notice strong{color:#eb9d8c}
+[data-theme="dark"] .site-notice .ni{background:#c97a6a;border-color:#c97a6a;color:#262022}
