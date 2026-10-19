@@ -736,3 +736,11 @@ body[data-page] .header-inner{flex-wrap:nowrap}
 .site-notice .ni{background:#f59e0b;border-color:#f59e0b;color:#fff}
 [data-theme="dark"] .site-notice{background:#3a2a10;border-bottom-color:#6b4a14;color:#fcd38a}
 [data-theme="dark"] .site-notice strong{color:#fbbf24}
+
+/* deposit notice: soft coral (overrides amber) */
+.site-notice{background:#fdeeea;border-bottom:1px solid #f6c7bd;color:#8c3326}
+.site-notice strong{color:#c2412d}
+.site-notice .ni{background:#e0533d;border-color:#e0533d;color:#fff}
+[data-theme="dark"] .site-notice{background:#3a2222;border-bottom-color:#5e3330;color:#f6b4a8}
+[data-theme="dark"] .site-notice strong{color:#ff8a76}
+[data-theme="dark"] .site-notice .ni{background:#ff8a76;border-color:#ff8a76;color:#3a2222}
