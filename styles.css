@@ -752,3 +752,11 @@ body[data-page] .header-inner{flex-wrap:nowrap}
 [data-theme="dark"] .site-notice{background:#262022;border-bottom-color:#3a2f30;color:#cdb8b3}
 [data-theme="dark"] .site-notice strong{color:#eb9d8c}
 [data-theme="dark"] .site-notice .ni{background:#c97a6a;border-color:#c97a6a;color:#262022}
+
+/* deposit notice: amber text, no coloured background (final) */
+.site-notice{background:transparent;border-bottom:1px solid var(--line,#e6e6e0);color:#8a4b00;font-weight:500}
+.site-notice strong{color:#b45309;font-weight:700}
+.site-notice .ni{background:#f59e0b;border-color:#f59e0b;color:#fff}
+[data-theme="dark"] .site-notice{background:transparent;border-bottom-color:var(--line,#2a2a33);color:#fcd38a}
+[data-theme="dark"] .site-notice strong{color:#fbbf24}
+[data-theme="dark"] .site-notice .ni{background:#f59e0b;border-color:#f59e0b;color:#1a1a1f}
