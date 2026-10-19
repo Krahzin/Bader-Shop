@@ -729,3 +729,10 @@ body[data-page] .header-inner{flex-wrap:nowrap}
   .site-notice{font-size:11.5px}
   body:not([data-page]) .site-nav a,[data-theme="dark"] body:not([data-page]) .site-nav a{background:transparent;color:var(--text);width:auto;padding:0 8px;font-weight:600}
 }
+
+/* deposit notice: stand out in amber */
+.site-notice{background:#fff4e0;border-bottom:1px solid #f5c97a;color:#8a4b00;font-weight:500}
+.site-notice strong{color:#b45309;font-weight:700}
+.site-notice .ni{background:#f59e0b;border-color:#f59e0b;color:#fff}
+[data-theme="dark"] .site-notice{background:#3a2a10;border-bottom-color:#6b4a14;color:#fcd38a}
+[data-theme="dark"] .site-notice strong{color:#fbbf24}
