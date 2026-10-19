@@ -22,6 +22,8 @@ const SEED_PRODUCTS = [];
 
 /* Flat delivery fee (USD) applied to every order */
 const DELIVERY_FEE = 5;
+/* the flat fee applies to accessories only, not to drones */
+function deliveryFee(){ return cartEntries().some(function(x){ return x.product.category !== DRONE_CAT; }) ? DELIVERY_FEE : 0; }
 
 /* Common colour names → actual hex values */
 const NAMED_COLORS = {
@@ -308,7 +310,7 @@ function renderContact(){
   if(fc && !$('#policies')){
     const pol = document.createElement('p');
     pol.id = 'policies';
-    pol.textContent = 'Flat $5 delivery across Lebanon. Returns: contact us on WhatsApp.';
+    pol.textContent = 'Flat $5 delivery on accessories across Lebanon. Returns: contact us on WhatsApp.';
     fc.after(pol);
   }
   const digits = whatsappDigits();
@@ -394,7 +396,7 @@ function applyModelSeo(){
   const acc = list.filter(p => p.category !== DRONE_CAT).length;
   const url = STATIC_MODEL_PAGES[slugify(activeModel)] ? 'https://dronezonelb.com/' + STATIC_MODEL_PAGES[slugify(activeModel)] : 'https://dronezonelb.com/?model=' + slugify(activeModel);
   const title = drone ? `${name} Lebanon – ${usd(drone.price)} | Drone Zone` : `${name} Accessories Lebanon | Drone Zone`;
-  const desc = `${name} in Lebanon${drone ? ' for ' + usd(drone.price) : ''}` + (acc ? ` plus ${acc} accessories: cases, stands, guards and more.` : '.') + ' Flat $5 delivery across Lebanon, order on WhatsApp.';
+  const desc = `${name} in Lebanon${drone ? ' for ' + usd(drone.price) : ''}` + (acc ? ` plus ${acc} accessories: cases, stands, guards and more.` : '.') + ' Order on WhatsApp.';
   document.title = title;
   setMeta('meta[name=description]', 'content', desc);
   setMeta('link[rel=canonical]', 'href', url);
@@ -619,9 +621,11 @@ function renderCart(){
   }
 
   const sub = cartTotal();
-  const fee = entries.length ? DELIVERY_FEE : 0;
+  const fee = deliveryFee();
   const subEl = $('#cartSub'); if(subEl) subEl.textContent = money(sub);
   const feeEl = $('#cartFee'); if(feeEl) feeEl.textContent = money(fee);
+  if(subEl) subEl.parentElement.style.display = fee ? '' : 'none';
+  if(feeEl) feeEl.parentElement.style.display = fee ? '' : 'none';
   $('#cartTotal').textContent = money(sub + fee);
   $('#cartCount').textContent = cartCount();
   $('#orderBtn').disabled = entries.length === 0;
@@ -643,10 +647,13 @@ function buildOrderMessage(){
     if(color) lines.push(`    Colour: ${color}`);
     lines.push(`    ${qty} × ${money(p.price)} = ${money(sub)}`);
   });
+  const fee = deliveryFee();
   lines.push('');
-  lines.push(`Subtotal: ${money(total)}`);
-  lines.push(`Delivery (flat): ${money(DELIVERY_FEE)}`);
-  lines.push(`*Total: ${money(total + DELIVERY_FEE)}*`);
+  if(fee){
+    lines.push(`Subtotal: ${money(total)}`);
+    lines.push(`Delivery (accessories, flat): ${money(fee)}`);
+  }
+  lines.push(`*Total: ${money(total + fee)}*`);
 
   const name = $('#custName').value.trim();
   const note = $('#custNote').value.trim();
@@ -889,7 +896,7 @@ async function init(){
         offers:{ '@type':'Offer', url:activeModel ? SITE + '?model=' + slugify(activeModel) : SITE, priceCurrency:'USD', price:Number(p.price) || 0,
           availability:(isOut(p) ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock'),
           itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
-          shippingDetails:Object.assign({ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } }, { shippingRate:{ '@type':'MonetaryAmount', value:5, currency:'USD' }, deliveryTime:{ '@type':'ShippingDeliveryTime', handlingTime:{ '@type':'QuantitativeValue', minValue:0, maxValue:0, unitCode:'DAY' }, transitTime:{ '@type':'QuantitativeValue', minValue:1, maxValue:3, unitCode:'DAY' } } }),
+          shippingDetails:Object.assign({ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } }, p.category === DRONE_CAT ? {} : { shippingRate:{ '@type':'MonetaryAmount', value:5, currency:'USD' }, deliveryTime:{ '@type':'ShippingDeliveryTime', handlingTime:{ '@type':'QuantitativeValue', minValue:0, maxValue:0, unitCode:'DAY' }, transitTime:{ '@type':'QuantitativeValue', minValue:1, maxValue:3, unitCode:'DAY' } } }),
           seller:{ '@type':'Organization', name:'Drone Zone' } } };
       if(revs.length){
         prod.aggregateRating = { '@type':'AggregateRating', ratingValue:avgRating(revs).toFixed(1), reviewCount:revs.length, bestRating:5 };
@@ -940,7 +947,7 @@ function showDronePage(){
   const wa = whatsappUrl("Hi Drone Zone! I'm interested in the " + p.name + '.');
   const url = 'https://dronezonelb.com/?drone=' + slugify(p.name);
   const title = p.name + ' Lebanon – ' + usd(p.price) + ' | Drone Zone';
-  const desc = p.name + ' in Lebanon for ' + usd(p.price) + '. Flat $5 delivery across Lebanon, order on WhatsApp.';
+  const desc = p.name + ' in Lebanon for ' + usd(p.price) + '. Order on WhatsApp.';
   document.title = title;
   setMeta('meta[name=description]', 'content', desc);
   setMeta('link[rel=canonical]', 'href', url);
@@ -960,7 +967,7 @@ function showDronePage(){
           availability:out ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock',
           itemCondition:used ? 'https://schema.org/UsedCondition' : 'https://schema.org/NewCondition',
           areaServed:{ '@type':'Country', name:'Lebanon' },
-          shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' }, shippingRate:{ '@type':'MonetaryAmount', value:DELIVERY_FEE, currency:'USD' } },
+          shippingDetails:{ '@type':'OfferShippingDetails', shippingDestination:{ '@type':'DefinedRegion', addressCountry:'LB' } },
           seller:{ '@type':'Organization', name:'Drone Zone', url:'https://dronezonelb.com/' } } },
       { '@context':'https://schema.org', '@type':'BreadcrumbList', itemListElement:[
         { '@type':'ListItem', position:1, name:'Drone Zone', item:'https://dronezonelb.com/' },
@@ -1023,7 +1030,7 @@ init();
     'Browse our stock and order in seconds.':'تصفّح مخزوننا واطلب في ثوانٍ.',
     'New and used DJI drones and accessories, delivered across Lebanon.':'طائرات DJI وإكسسوارات جديدة ومستعملة، نوصلها إلى كل لبنان.',
     'Read our guides:':'اقرأ أدلتنا:',
-    'New and used DJI drones & accessories · Flat $5 delivery across Lebanon':'طائرات DJI وإكسسوارات جديدة ومستعملة · توصيل بسعر ثابت 5$ إلى كل لبنان',
+    'New and used DJI drones & accessories · Order easily on WhatsApp':'طائرات DJI وإكسسوارات جديدة ومستعملة · اطلب بسهولة عبر واتساب',
     'Guides:':'أدلة:','Used':'مستعمل','New':'جديد','Accessories need a small':'الإكسسوارات تتطلب','to confirm the order.':'لتأكيد الطلب.','About Drone Zone':'عن درون زون','Shop by drone':'تسوّق حسب الطائرة','Drone guides & tips':'أدلة ونصائح الدرون','→':'←','Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
     'Every DJI drone explained':'شرح كل طائرات DJI',
     'Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
@@ -1041,7 +1048,8 @@ init();
     'Orders are confirmed on WhatsApp - No payments are done on this site.':'يتم تأكيد الطلبات عبر واتساب - لا يتم أي دفع على هذا الموقع.',
     'Orders are confirmed on WhatsApp. No payment is taken on this website.':'يتم تأكيد الطلبات عبر واتساب. لا يتم أي دفع على هذا الموقع.',
     'Questions? Message us on WhatsApp:':'لديك سؤال؟ راسلنا على واتساب:',
-    'Flat $5 delivery across Lebanon. Returns: contact us on WhatsApp.':'توصيل بسعر ثابت 5$ إلى كل لبنان. الإرجاع: تواصل معنا عبر واتساب.',
+    'Flat $5 delivery on accessories across Lebanon. Returns: contact us on WhatsApp.':'توصيل الإكسسوارات بسعر ثابت 5$ إلى كل لبنان. الإرجاع: تواصل معنا عبر واتساب.',
+    'Drone Zone sells new and used DJI drones and accessories for Mini, Neo, Avata, Flip and Air models, with flat $5 delivery on accessories anywhere in Lebanon. Pick your drone below or browse by model, then confirm your order on WhatsApp.':'يبيع درون زون طائرات DJI وإكسسوارات جديدة ومستعملة لموديلات Mini وNeo وAvata وFlip وAir، مع توصيل الإكسسوارات بسعر ثابت 5$ إلى أي مكان في لبنان. اختر طائرتك أدناه أو تصفّح حسب الموديل، ثم أكّد طلبك عبر واتساب.',
     'Please enable JavaScript to browse and order from the product grid, or message us on WhatsApp.':'يرجى تفعيل JavaScript لتصفّح المنتجات والطلب، أو راسلنا عبر واتساب.',
     'Your cart':'سلتك','Shopping cart':'سلة التسوق','Close':'إغلاق',
     'Subtotal':'المجموع الفرعي','Delivery (flat fee)':'التوصيل (رسوم ثابتة)','Total':'المجموع',
