@@ -669,3 +669,21 @@ body[data-page] .header-inner{flex-wrap:nowrap}
   body:not([data-page]) .search{flex:1 1 calc(100% - 70px)}
   body:not([data-page]) .lang-toggle{order:4;align-self:stretch;padding:0 12px;border-radius:12px}
 }
+
+/* ---------- Front page: calmer hero + tidier cards ---------- */
+.hero{padding:40px 20px 6px}
+.hero .hero-promo{display:inline-block;margin:0 0 14px;padding:5px 14px;border-radius:999px;background:rgba(18,140,126,.12);color:var(--accent,#128c7e);font-size:13px;font-weight:650;line-height:1.4}
+.hero .hero-sub{max-width:560px;margin:0 auto;font-size:15px;line-height:1.55}
+.hero h1{margin:0 0 10px}
+.filters{margin-top:18px}
+.card-body .desc{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;cursor:pointer}
+.card-body .desc.open{display:block;-webkit-line-clamp:unset;overflow:visible}
+@media(max-width:720px){
+  .hero{padding:26px 16px 2px}
+  .hero h1{font-size:26px}
+  .hero .hero-promo{font-size:12.5px;margin-bottom:12px}
+  .hero .hero-sub{font-size:14px}
+  .site-notice{font-size:11.5px;padding:7px 0}
+  .site-notice .wrap{text-align:center}
+  .card-body .desc{-webkit-line-clamp:2}
+}
