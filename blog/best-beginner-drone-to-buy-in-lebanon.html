@@ -161,7 +161,7 @@
     </nav>
   </div>
 </footer>
-<script src="/pages.js?v=ar1"></script>
+<script src="/pages.js?v=ar2"></script>
 <script>
 /* Live prices and stock from products.json, so this page never needs manual price updates */
 (function(){fetch("/products.json",{cache:"no-cache"}).then(function(r){return r.json()}).then(function(d){var P=d.products||[],by={};P.forEach(function(p){by[p.id]=p});var usd=function(n){return "$"+Number(n).toLocaleString("en-US")};var sl=function(s){return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")};var e=function(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")};
