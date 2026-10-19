@@ -218,7 +218,7 @@ const $$ = s => Array.from(document.querySelectorAll(s));
 
 function money(n){
   const v = Number(n) || 0;
-  return settings.currency + v.toFixed(2);
+  return settings.currency + (Number.isInteger(v) ? v.toLocaleString('en-US') : v.toLocaleString('en-US', { minimumFractionDigits:2, maximumFractionDigits:2 }));
 }
 function escapeHtml(str){
   return String(str == null ? '' : str)
@@ -507,16 +507,19 @@ function card(p){
            <span class="add-text">Add to cart</span>
          </button>`;
 
+    const isMain = p.category === DRONE_CAT || p.category === CAM_CAT;
+    const cond = !isMain ? '' : (/\bused\b/i.test(p.name) || /\b(barely used|like new)\b/i.test(p.desc || '')) ? 'used' : (/\b(new|sealed)\b/i.test(p.name + ' ' + (p.desc || '')) ? 'new' : '');
     const page = productPage(p);
     return `
       <article class="card${page ? ' has-page' : ''}"${page ? ` data-page="${page}"` : ''}>
         <${page ? `a href="${page}"` : 'div'} class="card-media" ${!page && imgs.length ? `data-open="${p.id}"` : ''}>
           ${mediaHtml(p, selectedColors[p.id] ? colorImage(p, selectedColors[p.id]) : '')}
           ${soldOut ? '<span class="badge-out">Out of stock</span>' : ''}
+          ${cond ? `<span class="badge-cond ${cond}">${cond === 'used' ? 'Used' : 'New'}</span>` : ''}
           ${multi ? `<span class="badge-count">${imgs.length} photos</span>` : ''}
         </${page ? 'a' : 'div'}>
         <div class="card-body">
-          ${p.category ? `<span class="chip-cat">${escapeHtml(p.category)}</span>` : ''}
+          ${p.category && !isMain ? `<span class="chip-cat">${escapeHtml(p.category)}</span>` : ''}
           <h3>${page ? `<a href="${page}" class="card-link">${escapeHtml(p.name)}</a>` : escapeHtml(p.name)}</h3>
           ${reviewLineHtml(p)}
           ${p.desc ? `<p class="desc">${escapeHtml(p.desc)}</p>` : '<p class="desc"></p>'}
@@ -1021,7 +1024,7 @@ init();
     'New and used DJI drones and accessories, delivered across Lebanon.':'طائرات DJI وإكسسوارات جديدة ومستعملة، نوصلها إلى كل لبنان.',
     'Read our guides:':'اقرأ أدلتنا:',
     'New and used DJI drones & accessories · Flat $5 delivery across Lebanon':'طائرات DJI وإكسسوارات جديدة ومستعملة · توصيل بسعر ثابت 5$ إلى كل لبنان',
-    'Guides:':'أدلة:','About Drone Zone':'عن درون زون','Shop by drone':'تسوّق حسب الطائرة','Drone guides & tips':'أدلة ونصائح الدرون','→':'←','Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
+    'Guides:':'أدلة:','Used':'مستعمل','New':'جديد','Accessories need a small':'الإكسسوارات تتطلب','to confirm the order.':'لتأكيد الطلب.','About Drone Zone':'عن درون زون','Shop by drone':'تسوّق حسب الطائرة','Drone guides & tips':'أدلة ونصائح الدرون','→':'←','Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
     'Every DJI drone explained':'شرح كل طائرات DJI',
     'Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
     'How to choose your first drone':'كيف تختار أول درون لك',
