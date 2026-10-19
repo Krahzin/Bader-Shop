@@ -1021,7 +1021,7 @@ init();
     'New and used DJI drones and accessories, delivered across Lebanon.':'طائرات DJI وإكسسوارات جديدة ومستعملة، نوصلها إلى كل لبنان.',
     'Read our guides:':'اقرأ أدلتنا:',
     'New and used DJI drones & accessories · Flat $5 delivery across Lebanon':'طائرات DJI وإكسسوارات جديدة ومستعملة · توصيل بسعر ثابت 5$ إلى كل لبنان',
-    'Guides:':'أدلة:','Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
+    'Guides:':'أدلة:','Drone guides & tips':'أدلة ونصائح الدرون','→':'←','Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
     'Every DJI drone explained':'شرح كل طائرات DJI',
     'Best beginner drone in Lebanon':'أفضل درون للمبتدئين في لبنان',
     'How to choose your first drone':'كيف تختار أول درون لك',
