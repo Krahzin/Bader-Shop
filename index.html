@@ -76,6 +76,7 @@
 <!-- ============ HERO: one drone, lit, standing on the line ============ -->
 <section class="hero hz-stage" aria-label="Drone Zone">
   <div class="hz-film" id="hzFilm" aria-hidden="true">
+    <div class="hz-film-bg" id="hzFilmBg" aria-hidden="true"></div>
     <video class="on" muted playsinline preload="auto" poster="images/uploads/dz-film-air-3s.webp" data-src="images/uploads/dz-film-air-3s" data-name="DJI Air 3S"></video>
     <video muted playsinline preload="none" poster="images/uploads/dz-film-mini-4-pro.webp" data-src="images/uploads/dz-film-mini-4-pro" data-name="DJI Mini 4 Pro"></video>
     <video muted playsinline preload="none" poster="images/uploads/dz-film-avata-2.webp" data-src="images/uploads/dz-film-avata-2" data-name="DJI Avata 2" data-loops="3"></video>
@@ -440,10 +441,12 @@ window.DZ_AR = {
     words = btns.map(function(b){ var s = document.createElement('span'); s.textContent = b.textContent.trim(); wordWrap.appendChild(s); return s; });
     stage.appendChild(wordWrap);
   }
+  var filmBg = document.getElementById('hzFilmBg');
   var show = function(i){
     if(!vids.length) return;
     var prev = vids[cur]; cur = (i + vids.length) % vids.length; loops = 0;
     var v = vids[cur]; load(v); v.currentTime = 0;
+    if(filmBg){ var fp = v.getAttribute('poster'); if(fp) filmBg.style.backgroundImage = "url('" + fp + "')"; }
     vids.forEach(function(x){ x.classList.toggle('on', x === v); });
     btns.forEach(function(x, j){ x.classList.toggle('on', j === cur); x.setAttribute('aria-pressed', j === cur); });
     words.forEach(function(w, j){ w.classList.toggle('on', j === cur); });
