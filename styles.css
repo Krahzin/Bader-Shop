@@ -668,3 +668,4 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 /* showcase video background */.hz-ch-bg,.hz-ch-shade{position:absolute;inset:0;width:100%;height:100%}.hz-ch-bg{object-fit:cover;background:#0f1011}.hz-ch-shade{background:linear-gradient(180deg,rgba(5,6,7,.62) 0%,rgba(5,6,7,.18) 38%,rgba(5,6,7,.18) 58%,rgba(5,6,7,.78) 100%);pointer-events:none}.hz-ch:has(.hz-ch-bg) .hz-ch-title,.hz-ch:has(.hz-ch-bg) .hz-ch-text,.hz-ch:has(.hz-ch-bg) .hz-ch-link{z-index:2;text-shadow:0 1px 14px rgba(0,0,0,.55)}@media (prefers-reduced-motion:reduce){.hz-ch-bg{display:none}}
 .hz-ch-bg{object-fit:contain}@media (orientation:portrait){.hz-ch-bg.is-vertical{object-fit:cover}}
 .hz-ch-bgfill{object-fit:cover;filter:blur(26px) brightness(.55);transform:scale(1.2)}
+.hz-ch-bg{background:transparent}
