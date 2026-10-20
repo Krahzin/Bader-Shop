@@ -14,7 +14,7 @@
 
 *{box-sizing:border-box}
 :root,[data-theme="dark"],[data-theme="light"]{
-  --bg:#0f1215;
+  --bg:#0f1215;f
   --surface:#171b1f;
   --tone:#1f2429;
   --text:#e8e6e1;
@@ -657,7 +657,7 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 
 @media (max-width:760px){
   .hz-ch{height:auto;min-height:0;overflow:visible;padding:52px 0 44px}
-  .hz-ch-title,.hz-ch-pic,.hz-ch-text,.hz-ch-link{position:static;transform:none;inset:auto;left:auto;top:auto;right:auto;bottom:auto}
+  .hz-ch-title,.hz-ch-pic,.hz-ch-text,.hz-ch-link{position:relative;z-index:1;transform:none;inset:auto;left:auto;top:auto;right:auto;bottom:auto}
   .hz-ch-title{display:block;margin:0 var(--m) 24px;max-width:none}
   .hz-ch-pic{display:block;width:calc(100% - var(--m) * 2);max-width:none;margin:0 var(--m) 22px}
   .hz-ch.closed .hz-ch-pic{transform:none}
