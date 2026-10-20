@@ -1553,7 +1553,7 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI Goggles N3 with FPV Remote Controller 3 and Motion 3 controller. Comes in carry case. Testing and warranty available.",
-      "image": "/images/uploads/dz-goggles-n3-rc3-motion.webp"
+      "image": "/images/uploads/dz-goggles-n3-combo-v2.webp"
     },
     {
       "id": "fpv-remote-3",
@@ -1562,7 +1562,7 @@
       "category": "Drones",
       "stock": 1,
       "desc": "DJI FPV Remote Controller 3 with original box. Testing and warranty available.",
-      "image": "/images/uploads/dz-fpv-remote-3.webp"
+      "image": "/images/uploads/dz-fpv-remote-3-v2.webp"
     }
   ]
 }
