@@ -606,3 +606,8 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
   .hz-film video{object-fit:cover}
   .hz-film::after{background:linear-gradient(180deg,rgba(15,18,21,.25) 0%,rgba(15,18,21,0) 40%,rgba(15,18,21,.6) 100%)} /* taste-skill-ignore: neutral scrim on footage */
 }
+/* dark footer: same room as the page, a shade deeper */
+.hz-footer,.site-footer:not(.hz-footer){background:#0a0c0e;color:var(--ink)}
+.hz-foot-cols>*,.hz-foot-cols a,.hz-footer .footer-contact,.hz-footer #policies,.hz-footer .footer-note,.footer-note,.footer-contact,#policies{color:var(--soft)}
+.hz-foot-cols a:hover,.hz-fh,.hz-footer .footer-contact a,.footer-links a,.footer-models>summary,.footer-social a,.footer-contact a{color:var(--ink) !important}
+.hz-wordmark{color:var(--tone)}
