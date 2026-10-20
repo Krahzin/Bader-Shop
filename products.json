@@ -1545,6 +1545,24 @@
       "category": "Cameras",
       "desc": "Chin mount for full-face helmets with a standard GoPro mount interface. Gives a first-person view of the ride.",
       "image": "/images/uploads/gopro-helmet-chin-mount.webp"
+    },
+    {
+      "id": "goggles-n3-rc3-motion",
+      "name": "DJI Goggles N3 + FPV Remote 3 + Motion 3",
+      "price": 670,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "DJI Goggles N3 with FPV Remote Controller 3 and Motion 3 controller. Comes in carry case. Testing and warranty available.",
+      "image": "/images/uploads/dz-goggles-n3-rc3-motion.webp"
+    },
+    {
+      "id": "fpv-remote-3",
+      "name": "DJI FPV Remote Controller 3",
+      "price": 220,
+      "category": "Drones",
+      "stock": 1,
+      "desc": "DJI FPV Remote Controller 3 with original box. Testing and warranty available.",
+      "image": "/images/uploads/dz-fpv-remote-3.webp"
     }
   ]
 }
