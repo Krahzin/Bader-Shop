@@ -50,7 +50,7 @@
 
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
 html,body{margin:0;padding:0}
-body{font-family:var(--font);font-size:var(--step-body);font-weight:400;line-height:1.65;letter-spacing:.012em;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums tabular-nums}
+body{font-family:var(--font);font-size:var(--step-body);font-weight:400;line-height:1.65;letter-spacing:.012em;background:radial-gradient(1100px 760px at 14% -8%,rgba(205,215,224,.14),transparent 60%),radial-gradient(900px 680px at 92% 6%,rgba(110,160,255,.10),transparent 58%),radial-gradient(1000px 700px at 50% 108%,rgba(205,215,224,.08),transparent 62%),var(--bg);background-attachment:fixed;background-color:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums tabular-nums}
 body.locked{overflow:hidden}
 img{max-width:100%;display:block}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit;letter-spacing:inherit}
