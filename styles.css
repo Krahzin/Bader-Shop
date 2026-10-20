@@ -56,7 +56,7 @@ img{max-width:100%;display:block}
 button{font:inherit;cursor:pointer;border:0;background:none;color:inherit;letter-spacing:inherit}
 input,textarea,select{font:inherit;color:inherit}
 a{color:inherit}
-h1,h2,h3,h4{font-family:var(--display);font-weight:600;font-optical-sizing:auto;letter-spacing:-.02em;line-height:1;margin:0}
+h1,h2,h3,h4{font-family:var(--font);font-weight:600;font-optical-sizing:auto;letter-spacing:-.02em;line-height:1;margin:0}
 p{margin:0}
 :focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 ::selection{background:var(--paper);color:var(--bg)}
@@ -482,7 +482,7 @@ a.card-media{cursor:pointer}
 
 /* language + RTL */
 html[lang="ar"] body{font-family:"Noto Sans Arabic",Tahoma,"Segoe UI",var(--font)}
-html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{font-family:"Noto Naskh Arabic","Amiri","Times New Roman",var(--display);letter-spacing:0}
+html[lang="ar"] h1,html[lang="ar"] h2,html[lang="ar"] h3{font-family:"Noto Naskh Arabic","Amiri","Times New Roman",var(--font);letter-spacing:0}
 html[dir="rtl"] .toast{direction:rtl}
 [dir="rtl"] .prose ul,[dir="rtl"] .prose ol,.ar-article .prose ul,.ar-article .prose ol{padding-left:0;padding-right:1.3em}
 .ar-article,.ar-article .prose{text-align:right}
@@ -596,7 +596,6 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 @media (prefers-reduced-motion:reduce){.hz-film video{transition:none}}
 /* small headings inside content pages: Jost for legibility */
 .page-main h2,.page-main h3,.m4-sec h2,.m4-sec h3,.article h2,.article h3,main.wrap h2,main.wrap h3,section h3{font-family:var(--font);font-weight:500;letter-spacing:-.005em;line-height:1.25}
-.page-hero h1,.hz-shop-head h2,.hz-about-left h2,.dp-h1{font-family:var(--display)}
 /* phones: show the whole 16:9 film above the rail instead of a tall crop */
 @media (max-width:760px){
   .hz-rail{margin-top:56.25vw}
@@ -611,3 +610,39 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 .hz-foot-cols>*,.hz-foot-cols a,.hz-footer .footer-contact,.hz-footer #policies,.hz-footer .footer-note,.footer-note,.footer-contact,#policies{color:var(--soft)}
 .hz-foot-cols a:hover,.hz-fh,.hz-footer .footer-contact a,.footer-links a,.footer-models>summary,.footer-social a,.footer-contact a{color:var(--ink) !important}
 .hz-wordmark{color:var(--tone)}
+/* ---------- sub pages: film header + reveals ---------- */
+.dz-fh{position:relative;height:min(76svh,780px);min-height:440px;overflow:hidden;background:#000;margin:0 0 clamp(32px,6vw,80px)}
+.dz-fh-media{position:absolute;inset:-4% 0 -10% 0;will-change:transform}
+.dz-fh-media video,.dz-fh-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease;filter:brightness(.56) saturate(.9)}
+.dz-fh-media .on{opacity:1}
+.dz-fh-media img.kb{animation:dzkb 22s ease-in-out infinite alternate;filter:brightness(.5) saturate(.85)}
+@keyframes dzkb{from{transform:scale(1.04)}to{transform:scale(1.16) translate(-1.5%,-1%)}}
+.dz-fh::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,18,21,.35) 0%,rgba(15,18,21,0) 35%,rgba(15,18,21,.9) 100%);pointer-events:none} /* taste-skill-ignore: neutral scrim under text on footage */
+.dz-fh-text{position:absolute;left:0;right:0;bottom:clamp(28px,6vw,72px);z-index:2;max-width:var(--max);margin:0 auto;padding:0 var(--m)}
+.dz-fh-text h1{font-family:var(--display) !important;font-weight:600;font-size:clamp(2.5rem,6.4vw,6rem) !important;line-height:.96 !important;letter-spacing:-.025em;margin:10px 0 0 !important;color:var(--ink);max-width:16ch}
+.dz-fh-text .eyebrow{color:var(--muted);letter-spacing:.08em}
+.dz-fh-text p{max-width:52ch;margin:18px 0 0;color:var(--muted);font-size:var(--step-body)}
+.dz-fh-text>*{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+.dz-fh.ready .dz-fh-text>*{opacity:1;transform:none}
+.dz-fh.ready .dz-fh-text>*:nth-child(2){transition-delay:.12s}
+.dz-fh.ready .dz-fh-text>*:nth-child(3){transition-delay:.24s}
+.dz-rise{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease-out) var(--d,0ms),transform .9s var(--ease-out) var(--d,0ms)}
+.dz-rise.in{opacity:1;transform:none}
+.m4-card{transition:transform .5s var(--ease-out)}
+.m4-card:hover{transform:translateY(-4px)}
+.m4-card img{transition:transform .9s var(--ease-out)}
+.m4-card:hover img{transform:scale(1.04)}
+@media (max-width:760px){
+  .dz-fh{height:auto;min-height:0;background:var(--bg)}
+  .dz-fh-media{position:relative;inset:auto;aspect-ratio:16/9;overflow:hidden}
+  .dz-fh::after{bottom:auto;aspect-ratio:16/9;background:linear-gradient(180deg,rgba(15,18,21,.2),rgba(15,18,21,0) 50%,rgba(15,18,21,.7))}
+  .dz-fh-text{position:relative;bottom:auto;padding-top:24px}
+  .dz-fh-text h1{font-size:clamp(2.2rem,10vw,3rem) !important}
+}
+@media (prefers-reduced-motion:reduce){.dz-fh-text>*,.dz-rise{opacity:1;transform:none;transition:none}.dz-fh-media img.kb{animation:none}}
+/* hero: a quiet label crosses the footage, naming the drone on screen */
+.hz-word-fx{position:absolute;z-index:2;left:var(--m);top:16svh;max-width:min(55vw,520px);pointer-events:none}
+.hz-word-fx span{position:absolute;inset:0;display:block;font-family:var(--font);font-weight:500;font-size:clamp(1rem,2.1vw,1.5rem);letter-spacing:.16em;text-transform:uppercase;color:rgba(232,230,225,.5);opacity:0;transform:translateX(-10px);transition:opacity 1.2s var(--ease-out),transform 1.2s var(--ease-out)}
+.hz-word-fx span.on{position:relative;opacity:1;transform:none}
+@media (max-width:900px){.hz-word-fx{display:none}}
+@media (prefers-reduced-motion:reduce){.hz-word-fx span{transition:none}}
