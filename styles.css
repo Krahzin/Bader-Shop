@@ -646,3 +646,9 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 .hz-word-fx span.on{position:relative;opacity:1;transform:none}
 @media (max-width:900px){.hz-word-fx{display:none}}
 @media (prefers-reduced-motion:reduce){.hz-word-fx span{transition:none}}
+
+@media (max-width:760px){
+  body{background:radial-gradient(480px 420px at 20% 10%,rgba(140,170,255,.42),transparent 60%),radial-gradient(420px 380px at 88% 18%,rgba(205,215,224,.34),transparent 58%),radial-gradient(520px 460px at 50% 95%,rgba(140,170,255,.28),transparent 62%),var(--bg);background-attachment:scroll}
+  .hz-page{background:radial-gradient(480px 420px at 20% 10%,rgba(140,170,255,.42),transparent 60%),radial-gradient(420px 380px at 88% 18%,rgba(205,215,224,.34),transparent 58%),radial-gradient(520px 460px at 50% 95%,rgba(140,170,255,.28),transparent 62%),var(--bg);background-attachment:scroll}
+  .hz-ch-field{background:radial-gradient(480px 420px at 20% 10%,rgba(140,170,255,.42),transparent 60%),radial-gradient(420px 380px at 88% 18%,rgba(205,215,224,.34),transparent 58%),radial-gradient(520px 460px at 50% 95%,rgba(140,170,255,.28),transparent 62%),var(--field,#111);background-attachment:scroll}
+}
