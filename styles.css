@@ -86,7 +86,7 @@ p{margin:0}
 /* =====================================================================
    HOMEPAGE
    ===================================================================== */
-.hz-page{position:relative;z-index:1;background:var(--bg)}
+.hz-page{position:relative;z-index:1;background:radial-gradient(900px 620px at 18% 18%,rgba(140,170,255,.28),transparent 64%),radial-gradient(760px 560px at 85% 22%,rgba(205,215,224,.24),transparent 62%),radial-gradient(900px 640px at 50% 92%,rgba(140,170,255,.16),transparent 66%),var(--bg);background-attachment:fixed}
 
 /* ---------- the rail: midline of the first screen, then the header ---------- */
 .hz-rail{position:sticky;top:0;z-index:30;margin-top:calc(50svh - var(--rail) / 2);height:var(--rail);transition:background-color .35s}
@@ -128,7 +128,7 @@ p{margin:0}
 
 /* ---------- showcase: three exhibits, each on its own ground ---------- */
 .hz-ch{position:relative;height:100svh;min-height:680px;overflow:hidden}
-.hz-ch-field{position:absolute;inset:0;background:var(--field,#111);transition:clip-path .9s var(--ease-out)}
+.hz-ch-field{position:absolute;inset:0;background:radial-gradient(900px 620px at 18% 18%,rgba(140,170,255,.28),transparent 64%),radial-gradient(760px 560px at 85% 22%,rgba(205,215,224,.24),transparent 62%),radial-gradient(900px 640px at 50% 92%,rgba(140,170,255,.16),transparent 66%),var(--field,#111);background-attachment:fixed;transition:clip-path .9s var(--ease-out)}
 .hz-ch.closed .hz-ch-field{clip-path:inset(20px)}
 .hz-ch.open .hz-ch-field{clip-path:inset(0)}
 .hz-ch-pic{position:absolute;margin:0;left:50%;top:50%;width:min(var(--nw),56vw,calc(64svh * (var(--ar))));aspect-ratio:var(--ar);transform:translate(-50%,-50%);overflow:hidden;transition:transform 1s var(--ease-out)}
