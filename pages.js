@@ -308,3 +308,106 @@ const STATIC_POSTS = {
   var pref = null; try{ pref = localStorage.getItem(KEY); }catch(e){}
   if(pref === 'ar') setLang('ar');
 })();
+
+/* Drone Zone motion: a film header and scroll reveals on every sub page */
+(function(){
+  if(window.__dzMotion || !document.body || document.body.classList.contains('home')) return;
+  window.__dzMotion = 1;
+  var U = '/images/uploads/dz-film-';
+  var ALL = ['air-3s','mini-4-pro','avata-2','neo-2','flip','air-3','mini-3','neo'];
+  var FILM = {'mini-4-pro':'mini-4-pro','air-3':'air-3','avata-2':'avata-2','neo-2':'neo-2','neo':'neo','flip':'flip','mini-3':'mini-3','goggles-remotes':'avata-2'};
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var small = Math.min(screen.width, innerWidth) < 760;
+  var m = location.pathname.match(/dji-([a-z0-9-]+?)-lebanon(-ar)?(\.html)?$/), key = m && !m[2] ? m[1] : null;
+  var top = document.querySelector('.m4-top');
+  var still = null; /* every page gets footage; pages without their own film get the reel */
+  var films;
+  if(key && FILM[key]) films = [FILM[key]];
+  else if(!still){ var s = Math.floor(Math.random() * ALL.length); films = ALL.slice(s).concat(ALL.slice(0, s)); }
+
+  /* build the header */
+  var hero = document.createElement('section');
+  hero.className = 'dz-fh'; hero.setAttribute('aria-label', 'Drone Zone');
+  var media = document.createElement('div'); media.className = 'dz-fh-media';
+  var vids = [];
+  if(still){
+    var im = document.createElement('img'); im.src = still.currentSrc || still.src; im.alt = ''; im.className = 'on kb';
+    media.appendChild(im); hero.classList.add('is-still');
+  } else {
+    films.forEach(function(n, i){
+      var v = document.createElement('video');
+      v.muted = true; v.playsInline = true; v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.preload = i ? 'none' : 'auto';
+      v.poster = U + n + '.webp'; v.setAttribute('data-src', U + n + (small ? '-sm' : '') + '.mp4');
+      media.appendChild(v); vids.push(v);
+    });
+  }
+  hero.appendChild(media);
+  var text = document.createElement('div'); text.className = 'dz-fh-text';
+  var h1 = document.querySelector('.page-hero h1, main h1');
+  if(h1){
+    var prev = h1.previousElementSibling;
+    if(prev && prev.classList.contains('eyebrow')) text.appendChild(prev);
+    var after = h1.nextElementSibling;
+    text.appendChild(h1);
+    var ph = document.querySelector('.page-hero');
+    if(ph && after && ph.contains(after) && after.tagName === 'P') text.appendChild(after);
+    if(ph && !ph.textContent.trim()) ph.hidden = true;
+  }
+  hero.appendChild(text);
+  var header = document.querySelector('.site-header');
+  if(header && header.parentNode) header.parentNode.insertBefore(hero, header.nextSibling);
+  else document.body.insertBefore(hero, document.body.firstChild);
+  requestAnimationFrame(function(){ hero.classList.add('ready'); });
+
+  /* film reel: one after another, crossfaded */
+  if(vids.length){
+    var cur = -1;
+    var load = function(v){ if(!v.getAttribute('src')){ v.src = v.getAttribute('data-src'); v.load(); } };
+    var show = function(i){
+      var prevV = vids[cur]; cur = (i + vids.length) % vids.length;
+      var v = vids[cur]; load(v); try{ v.currentTime = 0; }catch(e){}
+      vids.forEach(function(x){ x.classList.toggle('on', x === v); });
+      if(!reduce){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+      if(prevV && prevV !== v) setTimeout(function(){ prevV.pause(); }, 1400);
+      if(vids.length > 1) load(vids[(cur + 1) % vids.length]);
+    };
+    vids.forEach(function(v){
+      v.loop = vids.length === 1;
+      v.addEventListener('ended', function(){ if(v === vids[cur]) show(cur + 1); });
+    });
+    if(reduce){ vids[0].classList.add('on'); } else show(0);
+    document.addEventListener('visibilitychange', function(){ var v = vids[cur]; if(!v) return; if(document.hidden) v.pause(); else if(!reduce) v.play().catch(function(){}); });
+  }
+
+  if(reduce) return;
+
+  /* slow drift of the picture as the page scrolls */
+  var ticking = false;
+  addEventListener('scroll', function(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      var y = Math.min(scrollY, innerHeight);
+      media.style.transform = 'translate3d(0,' + (y * 0.22).toFixed(1) + 'px,0)';
+      text.style.opacity = Math.max(0, 1 - y / (hero.offsetHeight * 0.9)).toFixed(3);
+      ticking = false;
+    });
+  }, { passive:true });
+
+  /* everything below rises in as it arrives */
+  if(!('IntersectionObserver' in window)) return;
+  var sel = '.m4-top > *, .m4-sec > *, .m4-card, .m4-specs li, .m4-art > *, .post-list > *, .faq-main > *, .faq-main details, .page-main > p, .page-main > h2, .page-main > ul, .site-footer .wrap > *';
+  var io = new IntersectionObserver(function(ents){
+    ents.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin:'0px 0px -6% 0px', threshold:0.06 });
+  var arm = function(root){
+    Array.prototype.forEach.call((root || document).querySelectorAll(sel), function(el){
+      if(el.classList.contains('dz-rise') || el.closest('.dz-fh')) return;
+      var sib = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+      el.classList.add('dz-rise'); el.style.setProperty('--d', Math.min(sib, 6) * 70 + 'ms');
+      io.observe(el);
+    });
+  };
+  arm();
+  /* lists that fill in later (posts, FAQ, stock) */
+  new MutationObserver(function(){ arm(); }).observe(document.querySelector('main') || document.body, { childList:true, subtree:true });
+})();
