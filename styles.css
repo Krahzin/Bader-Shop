@@ -597,3 +597,12 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 /* small headings inside content pages: Jost for legibility */
 .page-main h2,.page-main h3,.m4-sec h2,.m4-sec h3,.article h2,.article h3,main.wrap h2,main.wrap h3,section h3{font-family:var(--font);font-weight:500;letter-spacing:-.005em;line-height:1.25}
 .page-hero h1,.hz-shop-head h2,.hz-about-left h2,.dp-h1{font-family:var(--display)}
+/* phones: show the whole 16:9 film above the rail instead of a tall crop */
+@media (max-width:760px){
+  .hz-rail{margin-top:56.25vw}
+  .hz-stage{margin-top:calc(-56.25vw - var(--rail));height:auto;min-height:0;padding-bottom:40px}
+  .hz-film{inset:0 0 auto 0;aspect-ratio:16/9;height:auto}
+  .hz-stage .hz-below{position:relative;top:auto;padding-top:calc(56.25vw + var(--rail) + 28px)}
+  .hz-film video{object-fit:cover}
+  .hz-film::after{background:linear-gradient(180deg,rgba(15,18,21,.25) 0%,rgba(15,18,21,0) 40%,rgba(15,18,21,.6) 100%)} /* taste-skill-ignore: neutral scrim on footage */
+}
