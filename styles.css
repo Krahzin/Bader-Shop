@@ -670,3 +670,4 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 .hz-ch-bgfill{object-fit:cover;filter:blur(26px) brightness(.55);transform:scale(1.2)}
 .hz-ch-bg{background:transparent}
 @media (orientation:portrait){.hz-ch-bg:not(.hz-ch-bgfill){object-fit:cover}}
+@media (max-width:760px){.hz-ch:has(.hz-ch-bg){height:100svh;min-height:100svh;overflow:hidden;padding:calc(var(--rail) + 24px) 0 32px;display:flex;flex-direction:column;justify-content:flex-start}.hz-ch:has(.hz-ch-bg) .hz-ch-text{margin-top:auto}}
