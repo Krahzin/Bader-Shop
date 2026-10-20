@@ -669,3 +669,4 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 .hz-ch-bg{object-fit:contain}@media (orientation:portrait){.hz-ch-bg.is-vertical{object-fit:cover}}
 .hz-ch-bgfill{object-fit:cover;filter:blur(26px) brightness(.55);transform:scale(1.2)}
 .hz-ch-bg{background:transparent}
+@media (orientation:portrait){.hz-ch-bg:not(.hz-ch-bgfill){object-fit:cover}}
