@@ -12,12 +12,11 @@
 </script>
 <script>
   (function(){
-    try{
-      var saved = localStorage.getItem('shop.theme');
-      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var theme = saved || (prefersDark ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', theme);
-    }catch(e){}
+    var d = document.documentElement;
+    var q = new URLSearchParams(location.search);
+    if(q.get('drone') || q.get('model')) d.classList.add('is-sub');
+    if(q.get('drone')) d.classList.add('is-drone');
+    d.classList.add('js');
   })();
 </script>
 
@@ -41,116 +40,229 @@
 <meta name="twitter:description" content="DJI drones and accessories in Lebanon. Order on WhatsApp.">
 <meta name="twitter:image" content="https://dronezonelb.com/og-image.jpg">
 
-<meta name="theme-color" content="#128c7e">
+<meta name="theme-color" content="#0f1215">
 
-<link rel="stylesheet" href="styles.css?v=21">
+<link rel="preload" href="images/uploads/dz-font-bodonimoda.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="images/uploads/dz-font-jost.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="images/uploads/dz-film-air-3s.webp" as="image">
+<link rel="stylesheet" href="styles.css?v=24">
 </head>
-<body>
+<body class="home">
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="#" onclick="return false">
-      <span class="brand-mark" id="brandMark">
-        <img src="images/uploads/logo-144.webp" alt="Drone Zone logo" width="36" height="36">
-      </span>
-      <span class="brand-name" id="brandName">Drone Zone</span>
+<div class="hz-page">
+
+<!-- ============ RAIL: sits on the midline of the first screen, docks as the header ============ -->
+<header class="hz-rail" id="rail">
+  <div class="hz-rail-in">
+    <a class="hz-mark" href="./" aria-label="Drone Zone home">
+      <img src="images/uploads/logo-144.webp" alt="" width="36" height="36">
+      <span class="hz-word" aria-hidden="true">Drone Zone</span>
+      <span class="sr-only" id="brandName">Drone Zone</span>
     </a>
-    <nav class="site-nav" aria-label="Site">
-      <a href="./" aria-current="page">Shop</a>
+    <nav class="hz-nav" aria-label="Site">
+      <a href="#shop">Shop</a>
+      <a href="#lineup">Drones</a>
       <a href="blog.html">Blog</a>
       <a href="faq.html">FAQ</a>
+      <button class="lang-toggle" id="langToggle" type="button" data-notr aria-label="التبديل إلى العربية" title="التبديل إلى العربية">عربي</button>
     </nav>
-    <div class="search">
-      <input id="searchInput" type="search" placeholder="Search products…" autocomplete="off">
-    </div>
-    <button class="lang-toggle" id="langToggle" type="button" data-notr aria-label="التبديل إلى العربية" title="التبديل إلى العربية">عربي</button>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="12" cy="12" r="5"></circle>
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </svg>
-    </button>
-    <button class="cart-btn" id="cartBtn">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-      </svg>
+    <button class="cart-btn" id="cartBtn" type="button">
       <span>Cart</span>
       <span class="cart-count" id="cartCount">0</span>
     </button>
   </div>
 </header>
 
-<!-- ================= SITE NOTICE ================= -->
-<div class="site-notice" role="note">
-  <div class="wrap">
-    <span class="ni" aria-hidden="true">i</span> Accessories need a small <strong>Whish deposit</strong> to confirm the order.
+<!-- ============ HERO: one drone, lit, standing on the line ============ -->
+<section class="hero hz-stage" aria-label="Drone Zone">
+  <div class="hz-film" id="hzFilm" aria-hidden="true">
+    <video class="on" muted playsinline preload="auto" poster="images/uploads/dz-film-air-3s.webp" data-src="images/uploads/dz-film-air-3s" data-name="DJI Air 3S"></video>
+    <video muted playsinline preload="none" poster="images/uploads/dz-film-mini-4-pro.webp" data-src="images/uploads/dz-film-mini-4-pro" data-name="DJI Mini 4 Pro"></video>
+    <video muted playsinline preload="none" poster="images/uploads/dz-film-avata-2.webp" data-src="images/uploads/dz-film-avata-2" data-name="DJI Avata 2" data-loops="3"></video>
+    <video muted playsinline preload="none" poster="images/uploads/dz-film-neo-2.webp" data-src="images/uploads/dz-film-neo-2" data-name="DJI Neo 2"></video>
   </div>
-</div>
-
-<section class="wrap hero">
-  <p id="heroTagline" class="hero-promo">Browse our stock and order in seconds.</p>
-  <h1 id="heroTitle">DJI Drones &amp; Accessories in Lebanon</h1>
-  <p class="hero-sub">New and used DJI drones &amp; accessories · Order easily on WhatsApp</p>
-  <a class="hero-blog" href="blog.html"><span aria-hidden="true">📖</span> <span>Drone guides &amp; tips</span> <span aria-hidden="true">→</span></a>
+  <div class="hz-below">
+    <h1 id="heroTitle">DJI drones in Lebanon</h1>
+    <div class="hz-intro">
+      <p class="hz-sub">New and used DJI drones, each one tested before it leaves us. Ordered on WhatsApp, delivered anywhere in Lebanon.</p>
+      <p id="heroTagline" class="hz-promo"></p>
+      <a class="hz-btn" href="#shop">View the stock</a>
+    </div>
+    <div class="hz-reel" id="hzReel" aria-label="Choose a film">
+      <button type="button" class="on" data-i="0">Air 3S</button>
+      <button type="button" data-i="1">Mini 4 Pro</button>
+      <button type="button" data-i="2">Avata 2</button>
+      <button type="button" data-i="3">Neo 2</button>
+    </div>
+  </div>
 </section>
 
-<div class="wrap">
-  <div class="filters" id="filters"></div>
-</div>
-
-<main class="wrap">
-  <div class="grid" id="grid"></div>
-</main>
-
-<details class="wrap seo-intro">
-  <summary>About Drone Zone</summary>
-  <h2>DJI drones, cases, batteries and parts in Lebanon</h2>
-  <p>Drone Zone sells new and used DJI drones and accessories for Mini, Neo, Avata, Flip and Air models, with flat $5 delivery on accessories anywhere in Lebanon. Pick your drone below or browse by model, then confirm your order on WhatsApp.</p>
-  <p class="seo-models">Shop by model: <a href="/dji-mini-5-pro-lebanon.html">Mini 5 Pro</a>, <a href="/dji-mini-4-pro-lebanon.html">Mini 4 Pro</a>, <a href="/dji-mini-3-lebanon.html">Mini 3</a>, <a href="/dji-mini-2-lebanon.html">Mini 2</a>, <a href="/dji-neo-2-lebanon.html">Neo 2</a>, <a href="/dji-neo-lebanon.html">Neo</a>, <a href="/dji-avata-2-lebanon.html">Avata 2</a>, <a href="/dji-avata-360-lebanon.html">Avata 360</a>, <a href="/dji-flip-lebanon.html">Flip</a>, <a href="/dji-air-3-lebanon.html">Air 3</a>. <a href="/returns.html">Returns policy</a>.</p>
-  <p class="seo-models">Guides: <a href="/blog/every-dji-drone-explained-a-complete-guide-to-choosing-your-perfect-model.html">Every DJI drone explained</a> · <a href="/blog/best-beginner-drone-to-buy-in-lebanon.html">Best beginner drone in Lebanon</a> · <a href="/blog/how-to-choose-your-first-drone-a-step-by-step-guide.html">How to choose your first drone</a> · <a href="/blog.html">All guides</a></p>
-  <noscript><p>Please enable JavaScript to browse and order from the product grid, or message us on WhatsApp.</p></noscript>
-</details>
-
-<section class="wrap help-strip" aria-label="Help and guides">
-  <a class="help-card" href="faq.html">
-    <span class="help-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-    </span>
-    <span class="help-text"><strong>New to drones?</strong><span>Range, height, flight time and more, answered in the FAQ.</span></span>
-    <span class="help-arrow" aria-hidden="true">→</span>
-  </a>
-  <a class="help-card" href="blog.html">
-    <span class="help-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-    </span>
-    <span class="help-text"><strong>Guides &amp; tips</strong><span>Setup help, flying tips and news on the blog.</span></span>
-    <span class="help-arrow" aria-hidden="true">→</span>
-  </a>
+<!-- ============ SHOWCASE: three exhibits, each on its own ground ============ -->
+<section class="hz-chapters hz-mkt" aria-labelledby="ch1">
+  <article class="hz-ch" style="--field:#111111">
+    <div class="hz-ch-field"></div>
+    <h2 class="hz-ch-title" id="ch1">Every used drone, tested</h2>
+    <figure class="hz-ch-pic" style="--nw:1600px;--ar:16/9"><img src="images/uploads/dz-dji-avata-2-combo-rocks.webp" alt="DJI Avata 2 Fly More Combo with Goggles 3, RC Motion 3 and batteries" width="2400" height="1350" loading="lazy"></figure>
+    <p class="hz-ch-text">Each used drone is listed with its own photos, battery cycles and contents. Test it with us before you pay.</p>
+    <a class="hz-ch-link" href="#shop">Drones in stock</a>
+  </article>
+  <article class="hz-ch" style="--field:#050605">
+    <div class="hz-ch-field"></div>
+    <h3 class="hz-ch-title">Accessories, made to fit</h3>
+    <figure class="hz-ch-pic" style="--nw:1600px;--ar:4/3"><img src="images/uploads/dz-hd-f10-61.webp" alt="DJI Avata with glow-in-the-dark propeller guards" width="2400" height="1800" loading="lazy"></figure>
+    <p class="hz-ch-text">Guards, mounts, cases and stands for Mini, Neo, Avata and Flip. Any of them can be made to glow in the dark.</p>
+    <a class="hz-ch-link" href="#shop">Accessories</a>
+  </article>
+  <article class="hz-ch" style="--field:#0f1011">
+    <div class="hz-ch-field"></div>
+    <h3 class="hz-ch-title">FPV, goggles and motion</h3>
+    <figure class="hz-ch-pic" style="--nw:1100px;--ar:1/1"><img src="images/uploads/dz-dji-avata-2-beach.webp" alt="A DJI Avata 2 flying low over a beach while two pilots watch" width="1280" height="1280" loading="lazy"></figure>
+    <p class="hz-ch-text">Avata and Neo, with the goggles and motion controllers that fly them, new and used.</p>
+    <a class="hz-ch-link" href="/dji-goggles-remotes-lebanon.html">Remotes and goggles</a>
+  </article>
 </section>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <nav class="footer-links" aria-label="Footer">
-      <a href="/dji-drones-lebanon.html">DJI Drones</a><span aria-hidden="true">·</span><a href="blog.html">Blog</a><span aria-hidden="true">·</span><a href="faq.html">FAQ</a><span aria-hidden="true">·</span><a href="/blog/drone-laws-in-lebanon.html">Drone laws</a>
+<!-- ============ SHOP (rendered by app.js) ============ -->
+<section class="hz-shop" id="shop" aria-labelledby="shopH">
+  <div class="wrap hz-shop-head">
+    <h2 id="shopH">In stock now</h2>
+    <p>Stock is limited and changes often. Add what you want to the cart, then send the order on WhatsApp.</p>
+    <div class="search">
+      <label class="sr-only" for="searchInput">Search products</label>
+      <input id="searchInput" type="search" placeholder="Search products…" autocomplete="off">
+    </div>
+  </div>
+  <div class="wrap hz-filters-wrap">
+    <div class="filters" id="filters"></div>
+  </div>
+  <main class="wrap hz-grid-wrap">
+    <div class="grid" id="grid"></div>
+    <noscript><p>Please enable JavaScript to browse and order from the shop, or message us on WhatsApp at +961 79 466 176.</p></noscript>
+  </main>
+</section>
+
+<!-- ============ LINE-UP: every model at one type size ============ -->
+<section class="hz-lineup hz-mkt" id="lineup" aria-labelledby="lineupH">
+  <h2 id="lineupH">The line-up</h2>
+  <div class="hz-group">
+    <h3>Mini</h3>
+    <ul class="hz-rows">
+      <li><a href="/dji-mini-5-pro-lebanon.html" data-cat="DJI Mini 5 Pro"><span class="c1">DJI Mini 5 Pro</span><span class="c2">Newest Mini, all-round sensing</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-mini-4-pro-lebanon.html" data-cat="DJI Mini 4 Pro"><span class="c1">DJI Mini 4 Pro</span><span class="c2">Under 249 g, all-round sensing</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-mini-3-lebanon.html" data-cat="DJI Mini 3/ 3 Pro"><span class="c1">DJI Mini 3 / 3 Pro</span><span class="c2">Light and simple; Pro adds tracking</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-mini-2-lebanon.html" data-cat="DJI Mini 2/Mini 2SE/ Mini 4K"><span class="c1">DJI Mini 2 / 2 SE / 4K</span><span class="c2">A great first drone</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+    </ul>
+  </div>
+  <div class="hz-group">
+    <h3>Lito, Air and Flip</h3>
+    <ul class="hz-rows">
+      <li><a href="/dji-lito-x1-lebanon.html" data-cat="DJI Lito 1/X1"><span class="c1">DJI Lito 1 / X1</span><span class="c2">Under 249 g, forward LiDAR</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-air-3-lebanon.html" data-cat="DJI Air 3/3S"><span class="c1">DJI Air 3 / 3S</span><span class="c2">Dual camera, all-round sensing</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-flip-lebanon.html" data-cat="DJI Flip"><span class="c1">DJI Flip</span><span class="c2">Foldable full propeller guard</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+    </ul>
+  </div>
+  <div class="hz-group">
+    <h3>Neo</h3>
+    <ul class="hz-rows">
+      <li><a href="/dji-neo-2-lebanon.html" data-cat="DJI Neo 2"><span class="c1">DJI Neo 2</span><span class="c2">151 g, palm take-off</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-neo-lebanon.html" data-cat="DJI Neo 1"><span class="c1">DJI Neo</span><span class="c2">135 g, follows you, no remote</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+    </ul>
+  </div>
+  <div class="hz-group">
+    <h3>Avata and FPV</h3>
+    <ul class="hz-rows">
+      <li><a href="/dji-avata-2-lebanon.html" data-cat="DJI Avata 2"><span class="c1">DJI Avata 2</span><span class="c2">FPV with goggles and Motion 3</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-avata-360-lebanon.html" data-cat="DJI Avata 360"><span class="c1">DJI Avata 360</span><span class="c2">360° FPV video up to 8K</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-avata-1-lebanon.html" data-cat="DJI Avata 1"><span class="c1">DJI Avata</span><span class="c2">Compact FPV, built-in guards</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+      <li><a href="/dji-goggles-remotes-lebanon.html" data-cat="DJI Remotes / Goggles"><span class="c1">Remotes and goggles</span><span class="c2">Screen remotes and FPV goggles</span><span class="c3 hz-rc"></span><span class="c4">View</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS: one verb at a time ============ -->
+<section class="hz-how hz-mkt" aria-label="How ordering works">
+  <div class="hz-panel">
+    <div class="hz-verb-wrap"><h2 class="hz-verb">Choose</h2></div>
+    <img src="images/uploads/dz-dji-air-3s-hands.webp" alt="Hands unfolding a DJI Air 3S at dusk" width="2400" height="1600" loading="lazy" style="--nw:1280px">
+    <p class="hz-panel-t">Add drones or accessories to your cart. Nothing is paid on this site.</p>
+  </div>
+  <div class="hz-panel">
+    <div class="hz-verb-wrap"><h2 class="hz-verb">Message</h2></div>
+    <img src="images/uploads/dz-dji-mini-4-pro-phone.webp" alt="A phone in two hands next to a DJI Mini 4 Pro" width="2400" height="1200" loading="lazy" style="--nw:1280px">
+    <p class="hz-panel-t">Your order opens in WhatsApp. Accessories need a small Whish deposit to confirm; for drones we message you before delivery.</p>
+  </div>
+  <div class="hz-panel">
+    <div class="hz-verb-wrap"><h2 class="hz-verb">Receive</h2></div>
+    <img src="images/uploads/dz-dji-air-3s-water.webp" alt="A DJI Air 3S flying low over water" width="2400" height="1600" loading="lazy" style="--nw:1280px">
+    <p class="hz-panel-t">Delivered anywhere in Lebanon in 1 to 3 days. Accessories ship for a flat $5.</p>
+  </div>
+</section>
+
+<!-- ============ ABOUT: inset panel, hexagon from the logo ============ -->
+<section class="hz-about hz-mkt" aria-labelledby="aboutH">
+  <div class="hz-about-panel">
+    <div class="hz-about-left">
+      <h2 id="aboutH">Small shop, straight answers</h2>
+      <div class="hz-photo"><img src="images/uploads/dz-hd-f10-61-3.webp" alt="A DJI drone with glow-in-the-dark guards" width="2400" height="1800" loading="lazy"></div>
+    </div>
+    <div class="hz-about-right">
+      <div>
+        <h3>Message, don’t call</h3>
+        <p>We run Drone Zone from North Lebanon and handle every order on WhatsApp. Send a message with any question and we reply there.</p>
+      </div>
+      <div>
+        <h3>Trade in or repair</h3>
+        <p>Have a drone to sell or trade? Send its model, condition and photos. Crashed one? Propellers, arms and many other parts can be replaced.</p>
+      </div>
+      <a class="hz-btn" id="aboutWa" href="https://wa.me/96179466176" target="_blank" rel="noopener">Message us on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ: large questions, answers beside ============ -->
+<section class="hz-faq hz-mkt" aria-labelledby="faqH">
+  <div class="hz-qa hz-qa-head"><h2 id="faqH">Before you order</h2></div>
+  <div class="hz-qa"><h3>Are your used drones tested?</h3><p>Yes. Every used drone is checked before it is sold, and you can test it with us before you pay. Battery cycle counts are listed on the product when we have them.</p></div>
+  <div class="hz-qa"><h3>Do drones come with a warranty?</h3><p>Our used drones come with a short shop warranty, and new sealed drones come with the standard DJI warranty. We confirm the warranty for your drone on WhatsApp.</p></div>
+  <div class="hz-qa"><h3>Which drone is best for beginners?</h3><p>A DJI Neo or a DJI Mini is a great start: light, simple and forgiving. If you want obstacle sensing to help avoid crashes, look at the Mini 4 Pro, Mini 5 Pro or Lito X1.</p></div>
+  <div class="hz-qa"><h3>What is a Fly More Combo?</h3><p>DJI’s bundle that adds extra batteries, a charging hub, spare propellers and a carry bag. It is usually the best value if you fly often, because one battery gives around 20 to 35 minutes.</p></div>
+  <div class="hz-qa"><h3>Do you buy or trade in used drones?</h3><p>Message us on WhatsApp with your drone model, its condition and photos, and we will let you know if we can buy it or take it in trade.</p></div>
+  <div class="hz-qa"><h3>What if I crash my drone?</h3><p>Bring it to us. Broken propellers, arms and many other parts can be replaced, and we will tell you on WhatsApp what can be fixed.</p></div>
+  <p class="hz-more"><a href="faq.html">All questions and answers</a></p>
+</section>
+
+</div><!-- /.hz-page -->
+
+<!-- ============ FOOTER: columns above, wordmark below ============ -->
+<footer class="site-footer hz-footer">
+  <div class="hz-foot-cols">
+    <div>
+      <p class="hz-fh">Drone Zone</p>
+      <p>North Lebanon</p>
+      <p>Delivery across Lebanon in 1 to 3 days</p>
+    </div>
+    <nav aria-label="Shop">
+      <p class="hz-fh">Shop</p>
+      <a href="#shop">In stock now</a>
+      <a href="/dji-drones-lebanon.html">All DJI drones</a>
+      <a href="/returns.html">Returns</a>
     </nav>
-    <details class="footer-models"><summary>Shop by drone</summary><nav class="footer-links" aria-label="Shop by drone" style="flex-wrap:wrap;margin-top:8px"><a href="/dji-air-3-lebanon.html">DJI Air 3 / 3S</a> <span aria-hidden="true">·</span> <a href="/dji-avata-1-lebanon.html">DJI Avata 1</a> <span aria-hidden="true">·</span> <a href="/dji-avata-2-lebanon.html">DJI Avata 2</a> <span aria-hidden="true">·</span> <a href="/dji-avata-360-lebanon.html">DJI Avata 360</a> <span aria-hidden="true">·</span> <a href="/dji-flip-lebanon.html">DJI Flip</a> <span aria-hidden="true">·</span> <a href="/dji-lito-x1-lebanon.html">DJI Lito 1 / X1</a> <span aria-hidden="true">·</span> <a href="/dji-mini-2-lebanon.html">DJI Mini 2 / Mini 2SE / Mini 4K</a> <span aria-hidden="true">·</span> <a href="/dji-mini-3-lebanon.html">DJI Mini 3 / 3 Pro</a> <span aria-hidden="true">·</span> <a href="/dji-mini-4-pro-lebanon.html">DJI Mini 4 Pro</a>  <span aria-hidden="true">·</span> <a href="/dji-mini-5-pro-lebanon.html">DJI Mini 5 Pro</a> <span aria-hidden="true">·</span> <a href="/dji-neo-lebanon.html">DJI Neo 1</a> <span aria-hidden="true">·</span> <a href="/dji-neo-2-lebanon.html">DJI Neo 2</a> <span aria-hidden="true">·</span> <a href="/dji-goggles-remotes-lebanon.html">DJI Remotes / Goggles</a></nav></details>
-    <nav class="footer-social" aria-label="Social media" style="display:flex;justify-content:center;gap:14px;margin:10px 0">
-      <a href="https://www.facebook.com/profile.php?id=61594729690421" target="_blank" rel="noopener" aria-label="Drone Zone on Facebook" style="display:inline-flex;align-items:center;gap:6px"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>Facebook</a>
-      <a href="https://www.instagram.com/dronezone_lebanon/" target="_blank" rel="noopener" aria-label="Drone Zone on Instagram" style="display:inline-flex;align-items:center;gap:6px"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2zM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9z"/></svg>Instagram</a>
+    <nav aria-label="Read">
+      <p class="hz-fh">Read</p>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
     </nav>
-    <p id="footerNote" class="footer-note" style="margin:0"></p>
-    <p class="footer-contact" id="footerContact"></p>
+    <div>
+      <p class="hz-fh">Contact</p>
+      <p class="footer-contact" id="footerContact"></p>
+      <a href="https://www.instagram.com/dronezone_lebanon/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61594729690421" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="hz-foot-bottom">
+    <p class="hz-wordmark" aria-hidden="true">Drone Zone</p>
+    <p id="footerNote" class="footer-note"></p>
+    <p class="footer-note hz-credits">Product photos and films © DJI.</p>
   </div>
 </footer>
 
@@ -158,7 +270,9 @@
 <aside class="drawer" id="drawer" aria-label="Shopping cart">
   <div class="drawer-head">
     <h2>Your cart</h2>
-    <button class="icon-btn" id="closeCart" aria-label="Close">✕</button>
+    <button class="icon-btn" id="closeCart" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
   </div>
   <div class="drawer-body" id="cartItems"></div>
   <div class="drawer-foot">
@@ -175,13 +289,13 @@
       <strong id="cartTotal">$0.00</strong>
     </div>
     <div class="field">
-      <input id="custName" type="text" placeholder="Your name (optional)">
+      <input id="custName" type="text" placeholder="Your name (optional)" aria-label="Your name">
     </div>
     <div class="field">
-      <textarea id="custNote" rows="2" placeholder="Note — address, delivery, questions… (optional)"></textarea>
+      <textarea id="custNote" rows="2" placeholder="Note — address, delivery, questions… (optional)" aria-label="Note"></textarea>
     </div>
-    <button class="btn-wa" id="orderBtn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <button class="btn-wa" id="orderBtn" type="button">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
       </svg>
       Order on WhatsApp
@@ -191,7 +305,7 @@
 </aside>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer">
-  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close">×</button>
   <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image">‹</button>
   <button class="lb-btn lb-next" id="lbNext" aria-label="Next image">›</button>
   <div class="lb-stage" id="lbStage"></div>
@@ -200,6 +314,179 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="app.js?b=seo21"></script>
+<script>
+/* Arabic for the homepage copy (merged into the site's translator in app.js) */
+window.DZ_AR = {
+  "10% OFF on orders above $75 on all accessories":"خصم 10% على الطلبات فوق 75$ على جميع الإكسسوارات",
+  "Shop":"المتجر","Drones":"الدرونات","Blog":"المدونة","FAQ":"الأسئلة","Cart":"السلة",
+  "DJI drones in Lebanon":"درونات DJI في لبنان",
+  "New and used DJI drones, each one tested before it leaves us. Ordered on WhatsApp, delivered anywhere in Lebanon.":"درونات DJI جديدة ومستعملة، كل واحدة مُجرّبة قبل أن تخرج من عندنا. الطلب عبر واتساب، والتوصيل إلى كل لبنان.",
+  "View the stock":"شاهد المخزون","Newest in stock":"الأحدث في المخزون","See what came in":"شاهد ما وصل",
+  "Every used drone, tested":"كل درون مستعملة، مُجرّبة",
+  "Each used drone is listed with its own photos, battery cycles and contents. Test it with us before you pay.":"كل درون مستعملة معروضة بصورها الخاصة وعدد دورات البطارية والمحتويات. جرّبها عندنا قبل أن تدفع.",
+  "Each used drone is listed with its own photos, battery cycles and contents. Test it with us before you pay.":"قطعة حقيقية واحدة، مصوّرة كما هي، مع عدد دورات البطارية والمحتويات. جرّبها عندنا قبل أن تدفع.",
+  "Drones in stock":"الدرونات المتوفرة",
+  "Accessories, made to fit":"إكسسوارات على المقاس",
+  "Guards, mounts, cases and stands for Mini, Neo, Avata and Flip. Any of them can be made to glow in the dark.":"واقيات وحوامل وعلب وقواعد لـ Mini وNeo وAvata وFlip. ويمكن صنع أي منها لتضيء في الظلام.",
+  "Accessories":"الإكسسوارات",
+  "FPV, goggles and motion":"FPV والنظارات والتحكم بالحركة",
+  "Avata and Neo, with the goggles and motion controllers that fly them, new and used.":"Avata وNeo مع النظارات ووحدات التحكم بالحركة، جديدة ومستعملة.",
+  "Remotes and goggles":"أجهزة التحكم والنظارات",
+  "In stock now":"المتوفر الآن",
+  "Stock is limited and changes often. Add what you want to the cart, then send the order on WhatsApp.":"المخزون محدود ويتغيّر باستمرار. أضف ما تريده إلى السلة، ثم أرسل الطلب عبر واتساب.",
+  "The line-up":"التشكيلة","Mini":"Mini","Lito, Air and Flip":"Lito وAir وFlip","Neo":"Neo","Avata and FPV":"Avata وFPV","View":"عرض",
+  "Newest Mini, all-round sensing":"أحدث Mini، استشعار من كل الجهات",
+  "Under 249 g, all-round sensing":"أقل من 249 غ، استشعار من كل الجهات",
+  "Light and simple; Pro adds tracking":"خفيفة وسهلة؛ نسخة Pro تضيف التتبّع",
+  "A great first drone":"درون أولى ممتازة",
+  "Under 249 g, forward LiDAR":"أقل من 249 غ، LiDAR أمامي",
+  "Dual camera, all-round sensing":"كاميرتان، استشعار من كل الجهات",
+  "Foldable full propeller guard":"واقي مراوح كامل قابل للطي",
+  "151 g, palm take-off":"151 غ، تقلع من الكف",
+  "135 g, follows you, no remote":"135 غ، تتبعك بدون جهاز تحكم",
+  "FPV with goggles and Motion 3":"FPV مع النظارات وMotion 3",
+  "360° FPV video up to 8K":"فيديو FPV بزاوية 360° حتى 8K",
+  "Compact FPV, built-in guards":"FPV صغيرة، واقيات مدمجة",
+  "Screen remotes and FPV goggles":"أجهزة تحكم بشاشة ونظارات FPV",
+  "Choose":"اختر","Message":"راسلنا","Receive":"استلم",
+  "Add drones or accessories to your cart. Nothing is paid on this site.":"أضف الدرونات أو الإكسسوارات إلى السلة. لا يتم أي دفع على هذا الموقع.",
+  "Your order opens in WhatsApp. Accessories need a small Whish deposit to confirm; for drones we message you before delivery.":"يُفتح طلبك في واتساب. الإكسسوارات تحتاج عربوناً صغيراً عبر Whish للتأكيد، وللدرونات نراسلك قبل التوصيل.",
+  "Delivered anywhere in Lebanon in 1 to 3 days. Accessories ship for a flat $5.":"التوصيل إلى أي مكان في لبنان خلال 1 إلى 3 أيام. توصيل الإكسسوارات بسعر ثابت 5$.",
+  "Small shop, straight answers":"متجر صغير، أجوبة واضحة",
+  "Message, don’t call":"راسلنا، لا تتصل",
+  "We run Drone Zone from North Lebanon and handle every order on WhatsApp. Send a message with any question and we reply there.":"ندير Drone Zone من شمال لبنان ونتابع كل الطلبات عبر واتساب. أرسل رسالة بأي سؤال ونرد عليك هناك.",
+  "Trade in or repair":"استبدال أو تصليح",
+  "Have a drone to sell or trade? Send its model, condition and photos. Crashed one? Propellers, arms and many other parts can be replaced.":"عندك درون للبيع أو الاستبدال؟ أرسل الموديل والحالة والصور. وقعت درونك؟ يمكن تبديل المراوح والأذرع وقطع كثيرة أخرى.",
+  "Message us on WhatsApp":"راسلنا على واتساب",
+  "Before you order":"قبل أن تطلب",
+  "Are your used drones tested?":"هل الدرونات المستعملة مُجرّبة؟",
+  "Yes. Every used drone is checked before it is sold, and you can test it with us before you pay. Battery cycle counts are listed on the product when we have them.":"نعم. نفحص كل درون مستعملة قبل بيعها، ويمكنك تجربتها عندنا قبل الدفع. نذكر عدد دورات البطارية في الإعلان عندما يكون متوفراً.",
+  "Do drones come with a warranty?":"هل الدرونات عليها كفالة؟",
+  "Our used drones come with a short shop warranty, and new sealed drones come with the standard DJI warranty. We confirm the warranty for your drone on WhatsApp.":"الدرونات المستعملة عليها كفالة قصيرة من المتجر، والجديدة المختومة عليها كفالة DJI الرسمية. نؤكد الكفالة لدرونك عبر واتساب.",
+  "Which drone is best for beginners?":"ما هي أفضل درون للمبتدئين؟",
+  "A DJI Neo or a DJI Mini is a great start: light, simple and forgiving. If you want obstacle sensing to help avoid crashes, look at the Mini 4 Pro, Mini 5 Pro or Lito X1.":"DJI Neo أو DJI Mini بداية ممتازة: خفيفة وسهلة ومتسامحة مع الأخطاء. وإذا أردت استشعار العوائق لتجنّب الاصطدام، فاختر Mini 4 Pro أو Mini 5 Pro أو Lito X1.",
+  "What is a Fly More Combo?":"ما هو Fly More Combo؟",
+  "DJI’s bundle that adds extra batteries, a charging hub, spare propellers and a carry bag. It is usually the best value if you fly often, because one battery gives around 20 to 35 minutes.":"مجموعة DJI التي تضيف بطاريات إضافية وشاحناً متعدداً ومراوح احتياطية وحقيبة. غالباً هي الخيار الأوفر إذا كنت تطيّر كثيراً، لأن البطارية الواحدة تعطي حوالي 20 إلى 35 دقيقة.",
+  "Do you buy or trade in used drones?":"هل تشترون أو تستبدلون الدرونات المستعملة؟",
+  "Message us on WhatsApp with your drone model, its condition and photos, and we will let you know if we can buy it or take it in trade.":"راسلنا على واتساب مع موديل الدرون وحالتها وصورها، ونخبرك إذا كنا نستطيع شراءها أو استبدالها.",
+  "What if I crash my drone?":"ماذا لو وقعت درون؟",
+  "Bring it to us. Broken propellers, arms and many other parts can be replaced, and we will tell you on WhatsApp what can be fixed.":"أحضرها إلينا. يمكن تبديل المراوح والأذرع المكسورة وقطع كثيرة أخرى، ونخبرك عبر واتساب بما يمكن تصليحه.",
+  "All questions and answers":"كل الأسئلة والأجوبة",
+  "North Lebanon":"شمال لبنان","Delivery across Lebanon in 1 to 3 days":"توصيل إلى كل لبنان خلال 1 إلى 3 أيام",
+  "All DJI drones":"كل درونات DJI","Returns":"الإرجاع","Read":"اقرأ","Contact":"تواصل"
+};
+</script>
+<script src="app.js?b=seo22"></script>
+<script>
+/* Drone Zone homepage: rail docking, hero crossfade, newest drone, line-up counts, entrances.
+   Works alongside app.js (which renders the shop, cart and Arabic). */
+(function(){
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+  var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sub = document.documentElement.classList.contains('is-sub');
+  var slug = function(s){ return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); };
+  var isOut = function(p){ return p.stock !== '' && p.stock !== null && p.stock !== undefined && Number(p.stock) <= 0; };
+
+  /* promo line from the CMS: keep the words, drop emoji and shouting (text node edited in place for the translator) */
+  var tag = $('#heroTagline');
+  function cleanTag(){
+    if(!tag) return;
+    Array.prototype.forEach.call(tag.childNodes, function(n){
+      if(n.nodeType !== 3) return;
+      var t = n.nodeValue, c = t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}]/gu, '').replace(/\s*!+\s*$/g, '').replace(/!{2,}/g, '').replace(/\s{2,}/g, ' ').trim();
+      if(c !== t) n.nodeValue = c;
+    });
+    tag.hidden = !tag.textContent.trim();
+  }
+  if(tag){ new MutationObserver(cleanTag).observe(tag, { childList:true, characterData:true, subtree:true }); cleanTag(); }
+
+  /* the rail takes the page ground once it docks at the top */
+  var rail = $('#rail');
+  if(rail){
+    var dock = function(){ rail.classList.toggle('docked', rail.getBoundingClientRect().top <= 1); };
+    addEventListener('scroll', dock, { passive:true }); addEventListener('resize', dock); dock();
+  }
+
+  /* store data: newest drone + accessory counts per model */
+  fetch('products.json', { cache:'no-cache' }).then(function(r){ return r.json(); }).then(function(d){
+    var products = (d && d.products) || [];
+    var drone = products.filter(function(p){ return p.category === 'Drones' && !isOut(p) && p.image; })[0];
+    var card = $('#hzNewest');
+    if(drone && card){
+      card.href = '?drone=' + slug(drone.name);
+      var img = $('img', card); img.src = drone.image.replace(/^\//, ''); img.alt = drone.name;
+      var nm = $('#hzNewestName'); if(nm) nm.textContent = drone.name;
+    }
+    $$('.hz-rows a').forEach(function(a){
+      var cat = a.getAttribute('data-cat');
+      var n = products.filter(function(p){ return p.category === cat && !isOut(p); }).length;
+      var c = $('.hz-rc', a);
+      if(c) c.textContent = n ? n + (n === 1 ? ' accessory' : ' accessories') : '';
+    });
+  }).catch(function(){});
+
+  if(sub) return;
+
+  /* hero: a reel of DJI films, one drone after another, with a clickable index */
+  var vids = $$('#hzFilm video'), btns = $$('#hzReel button'), cur = 0, loops = 0;
+  var small = Math.min(screen.width, innerWidth) < 760;
+  var srcOf = function(v){ return v.getAttribute('data-src') + (small ? '-sm' : '') + '.mp4'; };
+  var load = function(v){ if(!v.getAttribute('src')){ v.src = srcOf(v); v.load(); } };
+  var show = function(i){
+    if(!vids.length) return;
+    var prev = vids[cur]; cur = (i + vids.length) % vids.length; loops = 0;
+    var v = vids[cur]; load(v); v.currentTime = 0;
+    vids.forEach(function(x){ x.classList.toggle('on', x === v); });
+    btns.forEach(function(x, j){ x.classList.toggle('on', j === cur); x.setAttribute('aria-pressed', j === cur); });
+    if(!reduce){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+    if(prev && prev !== v) setTimeout(function(){ prev.pause(); }, 1200);
+    load(vids[(cur + 1) % vids.length]);
+  };
+  vids.forEach(function(v){
+    v.muted = true;
+    v.addEventListener('ended', function(){
+      if(v !== vids[cur]) return;
+      var max = +v.getAttribute('data-loops') || 1;
+      if(++loops < max){ v.currentTime = 0; v.play().catch(function(){}); } else show(cur + 1);
+    });
+  });
+  btns.forEach(function(b){ b.addEventListener('click', function(){ show(+b.getAttribute('data-i')); }); });
+  if(vids.length){
+    if(reduce){ vids[0].classList.add('on'); }
+    else { load(vids[0]); show(0); }
+    document.addEventListener('visibilitychange', function(){ var v = vids[cur]; if(document.hidden) v.pause(); else if(!reduce) v.play().catch(function(){}); });
+  }
+
+  if(reduce || !('IntersectionObserver' in window)) return;
+
+  /* showcase: each exhibit's room opens to full width as it arrives */
+  var chIo = new IntersectionObserver(function(ents){
+    ents.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('open'); chIo.unobserve(e.target); } });
+  }, { threshold:0.3 });
+  $$('.hz-ch').forEach(function(c){ c.classList.add('closed'); chIo.observe(c); });
+
+  /* entrances: heading, then text, then picture, once per section */
+  var groups = [
+    ['.hz-stage', '.hz-sub, .hz-promo, .hz-btn, .hz-newest'],
+    ['.hz-shop-head', 'h2, p, .search'],
+    ['.hz-lineup', 'h2, h3, .hz-rows li'],
+    ['.hz-about', 'h2, h3, .hz-about-right p, .hz-photo, .hz-btn'],
+    ['.hz-faq', '.hz-qa, .hz-more']
+  ];
+  var io = new IntersectionObserver(function(ents){
+    ents.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin:'0px 0px -6% 0px', threshold:0.05 });
+  groups.forEach(function(g){
+    $$(g[0]).forEach(function(sec){
+      $$(g[1], sec).forEach(function(el, i){
+        el.classList.add('rise');
+        el.style.setProperty('--d', Math.min(i, 6) * 70 + 'ms');
+        io.observe(el);
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
