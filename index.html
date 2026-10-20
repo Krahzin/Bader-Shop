@@ -431,7 +431,7 @@ window.DZ_AR = {
   /* hero: a reel of DJI films, one drone after another, with a clickable index */
   var vids = $$('#hzFilm video'), btns = $$('#hzReel button'), cur = 0, loops = 0;
   var small = Math.min(screen.width, innerWidth) < 760;
-  var srcOf = function(v){ return v.getAttribute('data-src') + (small ? '-sm' : '') + '.mp4'; };
+  var srcOf = function(v){ return v.getAttribute('data-src') + '.mp4'; };
   var load = function(v){ if(!v.getAttribute('src')){ v.src = srcOf(v); v.load(); } };
   var stage = document.querySelector('.hz-stage');
   /* a quiet label crosses the footage, naming the drone on screen */
@@ -455,7 +455,7 @@ window.DZ_AR = {
     load(vids[(cur + 1) % vids.length]);
   };
   vids.forEach(function(v){
-    v.muted = true;
+    v.muted = true; v.loop = false; v.addEventListener('error', function(){ if(v === vids[cur]) setTimeout(function(){ show(cur + 1); }, 800); });
     v.addEventListener('ended', function(){
       if(v !== vids[cur]) return;
       var max = +v.getAttribute('data-loops') || 1;
