@@ -619,7 +619,7 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 @keyframes dzkb{from{transform:scale(1.04)}to{transform:scale(1.16) translate(-1.5%,-1%)}}
 .dz-fh::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,18,21,.35) 0%,rgba(15,18,21,0) 35%,rgba(15,18,21,.9) 100%);pointer-events:none} /* taste-skill-ignore: neutral scrim under text on footage */
 .dz-fh-text{position:absolute;left:0;right:0;bottom:clamp(28px,6vw,72px);z-index:2;max-width:var(--max);margin:0 auto;padding:0 var(--m)}
-.dz-fh-text h1{font-family:var(--display) !important;font-weight:600;font-size:clamp(2.5rem,6.4vw,6rem) !important;line-height:.96 !important;letter-spacing:-.025em;margin:10px 0 0 !important;color:var(--ink);max-width:16ch}
+.dz-fh-text h1{font-family:var(--font) !important;font-weight:600;font-size:clamp(2.5rem,6.4vw,6rem) !important;line-height:.96 !important;letter-spacing:-.025em;margin:10px 0 0 !important;color:var(--ink);max-width:16ch}
 .dz-fh-text .eyebrow{color:var(--muted);letter-spacing:.08em}
 .dz-fh-text p{max-width:52ch;margin:18px 0 0;color:var(--muted);font-size:var(--step-body)}
 .dz-fh-text>*{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
