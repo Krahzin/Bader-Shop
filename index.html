@@ -45,7 +45,7 @@
 <link rel="preload" href="images/uploads/dz-font-bodonimoda.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="images/uploads/dz-font-jost.woff" as="font" type="font/woff" crossorigin>
 <link rel="preload" href="images/uploads/dz-film-air-3s.webp" as="image">
-<link rel="stylesheet" href="styles.css?v=26">
+<link rel="stylesheet" href="styles.css?v=27">
 </head>
 <body class="home">
 
@@ -432,12 +432,21 @@ window.DZ_AR = {
   var small = Math.min(screen.width, innerWidth) < 760;
   var srcOf = function(v){ return v.getAttribute('data-src') + (small ? '-sm' : '') + '.mp4'; };
   var load = function(v){ if(!v.getAttribute('src')){ v.src = srcOf(v); v.load(); } };
+  var stage = document.querySelector('.hz-stage');
+  /* a quiet label crosses the footage, naming the drone on screen */
+  var words = [];
+  if(stage && btns.length){
+    var wordWrap = document.createElement('div'); wordWrap.className = 'hz-word-fx'; wordWrap.setAttribute('aria-hidden', 'true');
+    words = btns.map(function(b){ var s = document.createElement('span'); s.textContent = b.textContent.trim(); wordWrap.appendChild(s); return s; });
+    stage.appendChild(wordWrap);
+  }
   var show = function(i){
     if(!vids.length) return;
     var prev = vids[cur]; cur = (i + vids.length) % vids.length; loops = 0;
     var v = vids[cur]; load(v); v.currentTime = 0;
     vids.forEach(function(x){ x.classList.toggle('on', x === v); });
     btns.forEach(function(x, j){ x.classList.toggle('on', j === cur); x.setAttribute('aria-pressed', j === cur); });
+    words.forEach(function(w, j){ w.classList.toggle('on', j === cur); });
     if(!reduce){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
     if(prev && prev !== v) setTimeout(function(){ prev.pause(); }, 1200);
     load(vids[(cur + 1) % vids.length]);
@@ -452,9 +461,25 @@ window.DZ_AR = {
   });
   btns.forEach(function(b){ b.addEventListener('click', function(){ show(+b.getAttribute('data-i')); }); });
   if(vids.length){
-    if(reduce){ vids[0].classList.add('on'); }
+    if(reduce){ vids[0].classList.add('on'); if(words[0]) words[0].classList.add('on'); }
     else { load(vids[0]); show(0); }
     document.addEventListener('visibilitychange', function(){ var v = vids[cur]; if(document.hidden) v.pause(); else if(!reduce) v.play().catch(function(){}); });
+  }
+
+  /* the headline and film drift gently apart as the page scrolls past them */
+  if(!reduce && stage){
+    var heroBelow = document.querySelector('.hz-below'), ticking = false;
+    addEventListener('scroll', function(){
+      if(ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var h = stage.offsetHeight || 1, y = Math.min(Math.max(scrollY, 0), h);
+        if(heroBelow){
+          heroBelow.style.transform = 'translate3d(0,' + (-(y * 0.06)).toFixed(1) + 'px,0)';
+          heroBelow.style.opacity = Math.max(0, 1 - y / (h * 0.75)).toFixed(3);
+        }
+        ticking = false;
+      });
+    }, { passive: true });
   }
 
   if(reduce || !('IntersectionObserver' in window)) return;
@@ -467,7 +492,7 @@ window.DZ_AR = {
 
   /* entrances: heading, then text, then picture, once per section */
   var groups = [
-    ['.hz-stage', '.hz-sub, .hz-promo, .hz-btn, .hz-newest'],
+    ['.hz-stage', '#heroTitle, .hz-sub, .hz-promo, .hz-btn, .hz-newest'],
     ['.hz-shop-head', 'h2, p, .search'],
     ['.hz-lineup', 'h2, h3, .hz-rows li'],
     ['.hz-about', 'h2, h3, .hz-about-right p, .hz-photo, .hz-btn'],
