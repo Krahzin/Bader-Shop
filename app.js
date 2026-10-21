@@ -422,8 +422,8 @@ function renderFilters(){
   const sel = activeCategory === 'all' ? 'All drones' : catLabel(activeCategory);
   el.innerHTML =
     `<div class="tabs"><button class="tab ${activeTab==='drones'?'active':''}" data-tab="drones">Drones</button>` +
-    `<button class="tab ${activeTab==='acc'?'active':''}" data-tab="acc">Accessories</button>` +
-    `<button class="tab ${activeTab==='cam'?'active':''}" data-tab="cam">Cameras</button></div>` +
+    `<button class="tab ${activeTab==='acc'?'active':''}" data-tab="acc">Drone Accessories</button>` +
+    `<button class="tab ${activeTab==='cam'?'active':''}" data-tab="cam">Camera Accessories</button></div>` +
     (activeTab === 'cam' ? camChips() : '') +
     (activeTab === 'acc' ? `<div class="model-pick"><button class="model-btn" data-menu="1" aria-expanded="${menuOpen}">` +
       `<span class="model-btn-lbl">Choose your drone</span><strong>${escapeHtml(sel)}</strong><span class="caret">▾</span></button>` +
@@ -1065,7 +1065,7 @@ init();
     'Out of stock – message us to reserve one':'نفدت الكمية – راسلنا لحجز واحدة',
     'Ask on WhatsApp':'اسأل عبر واتساب','← All drones':'← كل الطائرات',
     'DJI Drones in Lebanon':'طائرات DJI في لبنان',
-    'Drones':'الطائرات','Accessories':'الإكسسوارات','Cameras':'الكاميرات',
+    'Drones':'الطائرات','Accessories':'الإكسسوارات','Cameras':'الكاميرات','Drone Accessories':'إكسسوارات الدرون','Camera Accessories':'إكسسوارات الكاميرا',
     'All drones':'كل الطائرات','All accessories':'كل الإكسسوارات','All cameras':'كل الكاميرات',
     'Choose your drone':'اختر طائرتك','Show':'عرض',
     'Nothing here yet':'لا يوجد شيء هنا بعد',
