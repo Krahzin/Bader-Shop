@@ -425,10 +425,10 @@ function renderFilters(){
     `<button class="tab ${activeTab==='acc'?'active':''}" data-tab="acc">Drone Accessories</button>` +
     `<button class="tab ${activeTab==='cam'?'active':''}" data-tab="cam">Camera Accessories</button></div>` +
     (activeTab === 'cam' ? camChips() : '') +
-    (activeTab === 'acc' ? `<label class="model-pick"><span class="model-btn-lbl">Choose your drone</span><span class="model-sel-wrap"><select class="model-select" data-select="1" aria-label="Choose your drone">` +
-      `<option value="all" ${activeCategory==='all'?'selected':''}>All drones</option>` +
-      groups.map(([g, cs]) => `<optgroup label="${g}">` + cs.map(c => `<option value="${escapeHtml(c)}" ${activeCategory===c?'selected':''}>${escapeHtml(catLabel(c))}</option>`).join('') + `</optgroup>`).join('') +
-      `</select><span class="caret">▾</span></span></label>` : '');
+    (activeTab === 'acc' ? `<div class="model-pick"><button class="model-btn" data-menu="1" aria-expanded="${menuOpen}"><span class="model-btn-lbl">Choose your drone</span><strong>${escapeHtml(sel)}</strong><span class="caret">▾</span></button>` +
+      (menuOpen ? `<div class="dd-panel"><div class="dd-group"><div class="dd-chips"><button class="dd-chip ${activeCategory==='all'?'active':''}" data-cat="all">All drones</button></div></div>` +
+        groups.map(([g, cs]) => `<div class="dd-group"><h4>${g}</h4><div class="dd-chips">` + cs.map(c => `<button class="dd-chip ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(catLabel(c))}</button>`).join('') + `</div></div>`).join('') +
+      `</div>` : '') + `</div>` : '');
 }
 
 /* =========================================================
