@@ -675,3 +675,13 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 #hzFilm video{filter:none !important}
 /* mobile: FPV chapter title moved off the Avata 2 watermark */
 @media (max-width:760px){.hz-ch:has(source[src*="avata2"]) .hz-ch-title{margin-top:auto;margin-bottom:auto}}
+
+
+/* Native drone dropdown */
+.model-pick{display:flex;flex-direction:column;gap:8px;width:100%;max-width:420px}
+.model-pick .model-btn-lbl{font-size:var(--step-small);letter-spacing:.06em;color:var(--muted)}
+.model-sel-wrap{position:relative;display:block}
+.model-select{-webkit-appearance:none;appearance:none;width:100%;padding:14px 44px 14px 16px;font:inherit;font-size:16px;font-weight:600;color:var(--text);background:var(--tone,#1f2429);border:1px solid rgba(255,255,255,.12);border-radius:0;cursor:pointer}
+.model-select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.model-select option,.model-select optgroup{background:#171b20;color:#e8e6e1}
+.model-sel-wrap .caret{position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted)}
