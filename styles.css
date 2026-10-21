@@ -648,9 +648,9 @@ html[lang="ar"] .post-body,html[lang="ar"] .faq-answer,html[lang="ar"] .m4-sec{t
 @media (prefers-reduced-motion:reduce){.hz-word-fx span{transition:none}}
 
 @media (max-width:760px){
-  body{background:radial-gradient(1200px 900px at 8% 28%,rgba(140,170,255,.13),transparent 72%),radial-gradient(1100px 900px at 96% 62%,rgba(205,215,224,.09),transparent 72%),radial-gradient(1400px 900px at 35% 100%,rgba(140,170,255,.10),transparent 75%),var(--bg);background-attachment:fixed}
-  .hz-page{background:radial-gradient(1200px 900px at 8% 28%,rgba(140,170,255,.13),transparent 72%),radial-gradient(1100px 900px at 96% 62%,rgba(205,215,224,.09),transparent 72%),radial-gradient(1400px 900px at 35% 100%,rgba(140,170,255,.10),transparent 75%),var(--bg);background-attachment:fixed}
-  .hz-ch-field{background:radial-gradient(1200px 900px at 8% 28%,rgba(140,170,255,.13),transparent 72%),radial-gradient(1100px 900px at 96% 62%,rgba(205,215,224,.09),transparent 72%),radial-gradient(1400px 900px at 35% 100%,rgba(140,170,255,.10),transparent 75%),var(--field,#111);background-attachment:fixed}
+  body{background:var(--bg);background-image:radial-gradient(85% 26% at 0% 22%,rgba(140,170,255,.19),transparent 72%),radial-gradient(85% 28% at 100% 56%,rgba(205,215,224,.13),transparent 72%),radial-gradient(90% 18% at 35% 86%,rgba(140,170,255,.15),transparent 72%);background-size:100% 100vh;background-repeat:repeat-y;background-attachment:scroll}
+  .hz-page{background:var(--bg);background-image:radial-gradient(85% 26% at 0% 22%,rgba(140,170,255,.19),transparent 72%),radial-gradient(85% 28% at 100% 56%,rgba(205,215,224,.13),transparent 72%),radial-gradient(90% 18% at 35% 86%,rgba(140,170,255,.15),transparent 72%);background-size:100% 100vh;background-repeat:repeat-y;background-attachment:scroll}
+  .hz-ch-field{background:var(--field,#111);background-image:radial-gradient(85% 26% at 0% 22%,rgba(140,170,255,.19),transparent 72%),radial-gradient(85% 28% at 100% 56%,rgba(205,215,224,.13),transparent 72%),radial-gradient(90% 18% at 35% 86%,rgba(140,170,255,.15),transparent 72%);background-size:100% 100vh;background-repeat:repeat-y;background-attachment:scroll}
 }
 
 .hz-film-bg{display:none}
