@@ -425,12 +425,10 @@ function renderFilters(){
     `<button class="tab ${activeTab==='acc'?'active':''}" data-tab="acc">Drone Accessories</button>` +
     `<button class="tab ${activeTab==='cam'?'active':''}" data-tab="cam">Camera Accessories</button></div>` +
     (activeTab === 'cam' ? camChips() : '') +
-    (activeTab === 'acc' ? `<div class="model-pick"><button class="model-btn" data-menu="1" aria-expanded="${menuOpen}">` +
-      `<span class="model-btn-lbl">Choose your drone</span><strong>${escapeHtml(sel)}</strong><span class="caret">▾</span></button>` +
-      (menuOpen ? `<div class="model-menu"><div class="mm-col"><h4>Show</h4><button class="mm-it ${activeCategory==='all'?'active':''}" data-cat="all">All accessories</button></div>` +
-        groups.map(([g, cs]) => `<div class="mm-col"><h4>${g}</h4>` +
-          cs.map(c => `<button class="mm-it ${activeCategory===c?'active':''}" data-cat="${escapeHtml(c)}">${escapeHtml(catLabel(c))}</button>`).join('') + `</div>`).join('') +
-      `</div>` : '') + `</div>` : '');
+    (activeTab === 'acc' ? `<label class="model-pick"><span class="model-btn-lbl">Choose your drone</span><span class="model-sel-wrap"><select class="model-select" data-select="1" aria-label="Choose your drone">` +
+      `<option value="all" ${activeCategory==='all'?'selected':''}>All drones</option>` +
+      groups.map(([g, cs]) => `<optgroup label="${g}">` + cs.map(c => `<option value="${escapeHtml(c)}" ${activeCategory===c?'selected':''}>${escapeHtml(catLabel(c))}</option>`).join('') + `</optgroup>`).join('') +
+      `</select><span class="caret">▾</span></span></label>` : '');
 }
 
 /* =========================================================
@@ -693,6 +691,12 @@ function bindEvents(){
   if(themeToggle) themeToggle.addEventListener('click', toggleTheme);
 
   $('#searchInput').addEventListener('input', renderProducts);
+  $('#filters').addEventListener('change', e => {
+    const s = e.target.closest('[data-select]');
+    if(!s) return;
+    activeCategory = s.value; activeModel = null; menuOpen = false;
+    renderProducts();
+  });
   $('#filters').addEventListener('click', e => {
     const tab = e.target.closest('[data-tab]'), menu = e.target.closest('[data-menu]'), btn = e.target.closest('[data-cat]');
     const cam = e.target.closest('[data-cam]');
